@@ -1,0 +1,318 @@
+[
+  {
+    "text": "The product shall prevent the input of malicious data.  The product and/or adjacent hardware/software systems\\92 data shall remain 100% uncorrupted each time malicious data is input into the product.",
+    "label": "Security"
+  },
+  {
+    "text": "The message board shall contain the 5 most recently posted messages on the league page. The messages will contain up to the first 150 characters of the message.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The verbiage used within the system shall be consistent with Standard English and the terminology of the national Nursing Community.",
+    "label": "Usability"
+  },
+  {
+    "text": "Normal users can just read information but they cannot edit or modify anything except their personal and some other information.",
+    "label": "Security"
+  },
+  {
+    "text": "The system shall be evoked by typing “pine” into a command or shell prompt.",
+    "label": "Operational"
+  },
+  {
+    "text": "The Disputes application shall comply with the corporate standards for user interface creation for internally and externally used applications.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The product shall respond fast to keep up-to-date data in the display.",
+    "label": "Performance"
+  },
+  {
+    "text": "The product shall generate a CMA report in an acceptable time.",
+    "label": "Performance"
+  },
+  {
+    "text": "Test environments should be built for the application to allow testing of the applications different functions.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The product shall provide Error Tracking Services.The product shall help the System Administrators and DBAs to resolve transaction errors 99% of the time.",
+    "label": "Usability"
+  },
+  {
+    "text": "The system shall automatically log out all customers after a period of inactivity.",
+    "label": "Security"
+  },
+  {
+    "text": "The same hardware supporting the current website will be used to support the new system.",
+    "label": "Operational"
+  },
+  {
+    "text": "The appearance of the product shall appear professional",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The product shall be used in office environments.",
+    "label": "Operational"
+  },
+  {
+    "text": "The WCS system shall have the ability to include data for regions outside the United States and be accessed by users outside of the United States if approved by CCR management.",
+    "label": "Scalability"
+  },
+  {
+    "text": "The product shall give users feedback when necessary. 80% of the users surveyed report that the product accurately confirms their actions.",
+    "label": "Usability"
+  },
+  {
+    "text": "The product shall be expected to operate within the maximum maintenance budget for a minimum of 2 years.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The data transaction between client and server must be encrypted using SSL technology.",
+    "label": "Security"
+  },
+  {
+    "text": "The system shall accommodate high number of items and users without any fault.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "The system shall be intuitive and self explanatory.",
+    "label": "Usability"
+  },
+  {
+    "text": "It should not take more than 90 seconds for a registered user to place an order.",
+    "label": "Usability"
+  },
+  {
+    "text": "The website must provide highest degree of security to the registered users. All the transactions that are made must be secured. The sensitive information passed to and from the website must be secured. Identity theft and other security related issues must be solved. Unauthorized transmission of sensitive information of the user to third party websites for reference must be avoided. On the basis of user agreement the information must be processed. All the information about the registered user must be securely stored in the central database.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall be robust with fault tolerance.The product shall have fault tolerance by using recovery technique compensatory transaction and routing around failures.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "The product shall comply with City of Chicago Application Development Guide Framework.Application Development Framework will provide structured Graphical User Interface.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "If projected  the data must be readable.  On a 10x10 projection screen  90% of viewers must be able to read Event / Activity data from a viewing distance of 30",
+    "label": "Usability"
+  },
+  {
+    "text": "Product installations and upgrades shall be handled by the middleware technology team within established launch time frames.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall allow for intuitive searching of available conference rooms.",
+    "label": "Usability"
+  },
+  {
+    "text": "The system should use the company colors and logos.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The product shall prevent its data from incorrect data being introduced.",
+    "label": "Security"
+  },
+  {
+    "text": "When purchasing a streaming movie or pre-paid card via credit card  the processing time should have a maximum response time of 15 seconds.",
+    "label": "Performance"
+  },
+  {
+    "text": "The System shall allow for a minimum of  6 users to work at the same time.",
+    "label": "Performance"
+  },
+  {
+    "text": "The system shall allow the user to scroll the campus map from the campus map tab.",
+    "label": "Usability"
+  },
+  {
+    "text": "The system shall use symbols and words that are naturally understandable by the user community.",
+    "label": "Usability"
+  },
+  {
+    "text": "The interface shall be easy to use. 90% of users should be able to successfully use the system to generate a report on their first use. The interface should adhere to IBM usability standards.",
+    "label": "Usability"
+  },
+  {
+    "text": "The product must be able to interface with any HTML browser.  The product shall transmit data between the user and the product without problems. The product shall display HTML properly in 80% of all HTML browsers tested (minimum is to test 8 browsers).",
+    "label": "Operational"
+  },
+  {
+    "text": "A surface computer shall not require a user to log in.",
+    "label": "Security"
+  },
+  {
+    "text": "System shall let existing customers log into the website with their email address and password in under 5 seconds.",
+    "label": "Performance"
+  },
+  {
+    "text": "All business rules specified in the Disputes System shall be in compliance with the Merchant Operating Regulations.",
+    "label": "Legal"
+  },
+  {
+    "text": "The WCS system shall have the ability to connect other designated WCS databases currently not included in the system.",
+    "label": "Scalability"
+  },
+  {
+    "text": "The product shall comply with insurance regulations regarding claims processing.",
+    "label": "Legal"
+  },
+  {
+    "text": "The product shall free of computer viruses.",
+    "label": "Security"
+  },
+  {
+    "text": "The software system needs a robust security mechanism in place so that unauthorized users are not allowed access to parts of the system.",
+    "label": "Security"
+  },
+  {
+    "text": "All movies shall be streamed on demand  at any time of the day.",
+    "label": "Availability"
+  },
+  {
+    "text": "The response time shall be fast enough to maintain the flow of the game. The response time shall be no more than 2 seconds for 95% of responses and no more than 4% for the remaining responses.",
+    "label": "Performance"
+  },
+  {
+    "text": "Users shall be able to reach the \\91add\\92  \\91drop\\92  and \\91trade player\\92 pages with one click from the team owner\\92s page.",
+    "label": "Usability"
+  },
+  {
+    "text": "It must be able to change and update information on the server.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall achieve a 98% uptime. The product shall not fail more than 2% of the available online time.",
+    "label": "Availability"
+  },
+  {
+    "text": "System shall let customers register on the website as a \\93pay as you go\\94 user in under 5 minutes.",
+    "label": "Performance"
+  },
+  {
+    "text": "System shall let administrator de-activate a customer account in under 1 minute. Customer will no longer be able to access the website.",
+    "label": "Performance"
+  },
+  {
+    "text": "The product must support Internet Explorer 5.5 and above.",
+    "label": "Operational"
+  },
+  {
+    "text": "Users shall be required to log into the system for all operations except the operations on the login page.",
+    "label": "Security"
+  },
+  {
+    "text": "Each page shall contain a navigation menu which shows the index into which the current page is contained.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The lead washing process will operate within the established physical web service structure.",
+    "label": "Operational"
+  },
+  {
+    "text": "Washing parameters will be updated during scheduled maintenance hours.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The website shall protect itself from intentional abuse  and notify the administrator at all occurrences.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall be capable of handling the existing 1000 users. This number is expected to grow 5 times within the next year.",
+    "label": "Scalability"
+  },
+  {
+    "text": "If a user account is revoked  it can only be re-instantiated by the System Administrator.",
+    "label": "Security"
+  },
+  {
+    "text": "Only managers are able to perform search queries for reservations by user.  100% of all search queries for reservations by user shall be from logons of only management logons.",
+    "label": "Security"
+  },
+  {
+    "text": "ABS shall handle all expected and unexpected errors in ways that prevent loss in information and long downtime period.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "The Disputes System shall generate a User Report that details any new users that have been added and any changes to an existing user\\92s access level. The report will be reviewed for auditing purposes.",
+    "label": "Security"
+  },
+  {
+    "text": "Only users who have been authorized for home access to the corporate Intranet may use the COS from non-company locations.",
+    "label": "Security"
+  },
+  {
+    "text": "The website shall be capable of supporting 100 000 customers.",
+    "label": "Scalability"
+  },
+  {
+    "text": "The product shall be easy to use by Adjusters and Collision Estimators.  95% of Adjusters and Collision Estimators shall find the product easy to use.",
+    "label": "Usability"
+  },
+  {
+    "text": "The system shall provide a contractual agreement with an internet service provider for T3 access with 99.9999% availability.",
+    "label": "Availability"
+  },
+  {
+    "text": "Movies shall be encoded and streamed via Windows Media Player 9.0.",
+    "label": "Operational"
+  },
+  {
+    "text": "All customer information will be stored on a secure database  accessible only to authorized personnel.",
+    "label": "Security"
+  },
+  {
+    "text": "The response shall be fast enough to avoid interrupting the user\\92s flow of thought.  90% of tasks shall complete within 5 seconds.  98% of tasks shall complete within 8 seconds.",
+    "label": "Performance"
+  },
+  {
+    "text": "The system shall show a tabbed display (or equivalent functionality) with the campus map on one tab and info on the most recently announced building on the other.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "All Web pages generated by the system shall be fully downloadable in no more than 10 seconds over a 40KBps modem connection.",
+    "label": "Performance"
+  },
+  {
+    "text": "The product shall be able to be installed in any operating environment within 2 days.",
+    "label": "Operational"
+  },
+  {
+    "text": "The system will fully function in major browsers.",
+    "label": "Portability"
+  },
+  {
+    "text": "The website should have an African feel  but should not alienate non-Africans.  The website should use animation on pages which are describing the services  to grab the users attention and encourage them to sign up.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The product is expected to integrate with multiple database management systems. The product will operate with Oracle  SQL Server  DB2  MySQL  HSQL  and MS Access.",
+    "label": "Operational"
+  },
+  {
+    "text": "Aside from server failure  the software product shall achieve 99.99% up time.",
+    "label": "Availability"
+  },
+  {
+    "text": "Customers must have a valid login id to enter into the site.",
+    "label": "Security"
+  },
+  {
+    "text": "The Commissioner will be the only authorized user per league to adjust league settings.",
+    "label": "Security"
+  },
+  {
+    "text": "The system shall only be accessed by authorized Corporate Community Grants (CCR) employees. Users must be authenticated using their IBM intranet user name and password.",
+    "label": "Security"
+  },
+  {
+    "text": "A new user shall be able to navigate through the league and team pages within 30 seconds of reaching the start-up page.",
+    "label": "Usability"
+  },
+  {
+    "text": "The Web interface should be compatible with standards in order to be usable via all major Web browsers in a wide variety of environments.",
+    "label": "Portability"
+  }
+]

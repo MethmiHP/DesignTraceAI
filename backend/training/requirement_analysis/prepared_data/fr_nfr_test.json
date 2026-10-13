@@ -1,0 +1,586 @@
+[
+  {
+    "text": "Website shall allow customers to purchase pre-paid cards of $5  $10  or $20 value either by credit card or mail-in payment option.",
+    "label": "FR"
+  },
+  {
+    "text": "The system shall provide use of icons and toolbars.",
+    "label": "NFR"
+  },
+  {
+    "text": "Program Administrators and Nursing Staff Members shall be able to add a listing of students to a cohort.",
+    "label": "FR"
+  },
+  {
+    "text": "The product shall be available for use 24 hours per day 365 days  per year",
+    "label": "NFR"
+  },
+  {
+    "text": "System shall allow users to update their billing and contact information via the \\93My Account\\94 section of the website.",
+    "label": "FR"
+  },
+  {
+    "text": "The product shall have a consistent color scheme and fonts.",
+    "label": "NFR"
+  },
+  {
+    "text": "90% of untrained realtors shall be able to install the product on their device without printed instructions",
+    "label": "NFR"
+  },
+  {
+    "text": "The product shall record meeting entries.",
+    "label": "FR"
+  },
+  {
+    "text": "Only users with Update access must be able to initiate dispute requests.",
+    "label": "NFR"
+  },
+  {
+    "text": "The ratings shall include categories for attempted use of recycled parts and actual use of recycled parts",
+    "label": "FR"
+  },
+  {
+    "text": "The system will use a single password per user to login to the E-Store System.",
+    "label": "NFR"
+  },
+  {
+    "text": "The system shall be able to display a report of needed classes for a given quarter for all cohorts of all programs for Program Administrators/Nursing Staff Members\\92 planning purposes.",
+    "label": "FR"
+  },
+  {
+    "text": "The WCS system must run queries to the WCS databases once again (on a specified day) to update the available data available to CCR users. Queries must be made to external databases for data refresh once a week.",
+    "label": "NFR"
+  },
+  {
+    "text": "The product shall generate a CMA report in an acceptable time.",
+    "label": "NFR"
+  },
+  {
+    "text": "For each shot  the product shall examine the defensive grid of the defensive player to determine whether the shot was a hit or miss.",
+    "label": "FR"
+  },
+  {
+    "text": "When streaming a movie  the buffering time should take no longer than 10 seconds (plus any latency on the user\\92s connection.)",
+    "label": "NFR"
+  },
+  {
+    "text": "The system shall notify the user when no matching product is found on the search.",
+    "label": "FR"
+  },
+  {
+    "text": "Icons will clearly illustrate the feature it represents.",
+    "label": "FR"
+  },
+  {
+    "text": "When both players have positioned their 5 ships on their defensive grids  the product shall define the status of each player for the first turn.",
+    "label": "FR"
+  },
+  {
+    "text": "If the shot was marked as a hit  the product shall allow the offensive player to define a shot.",
+    "label": "FR"
+  },
+  {
+    "text": "Program Administrators and Nursing Staff Members shall be able to add a new clinical site into the system.",
+    "label": "FR"
+  },
+  {
+    "text": "Secure data transfer over the Internet could be provided using SSL encryption that will be configured by the host system administrator.",
+    "label": "NFR"
+  },
+  {
+    "text": "The product shall ensure that the database\\92s data corresponds to the data entered by the user.  Each conference room reservation in the system will contain the same information as was entered by the user.",
+    "label": "NFR"
+  },
+  {
+    "text": "The system shall be expected to manage the nursing program curriculum and class/clinical scheduling for a minimum of 5 years.",
+    "label": "NFR"
+  },
+  {
+    "text": "The system provides storage of all databases on redundant computers with automatic switchover.",
+    "label": "NFR"
+  },
+  {
+    "text": "Users shall be required to log in to the Cafeteria Ordering System for all operations except viewing a menu.",
+    "label": "FR"
+  },
+  {
+    "text": "Information should be tagged according to who is entering the data.",
+    "label": "FR"
+  },
+  {
+    "text": "The system shall allow users to send and receive messages.",
+    "label": "FR"
+  },
+  {
+    "text": "All movies shall be streamed on demand  at any time of the day.",
+    "label": "NFR"
+  },
+  {
+    "text": "Program Administrators and Nursing Staff Members shall be able to add new classes for the nursing department into the system.",
+    "label": "FR"
+  },
+  {
+    "text": "The meeting scheduler system shall cancel a meeting due to canceling of an important participant.",
+    "label": "FR"
+  },
+  {
+    "text": "The product shall be robust with fault tolerance.The product shall have fault tolerance by using recovery technique compensatory transaction and routing around failures.",
+    "label": "NFR"
+  },
+  {
+    "text": "A primary database will be used to store cached data for active users.",
+    "label": "NFR"
+  },
+  {
+    "text": "The product must support Internet Explorer 5.5 and above.",
+    "label": "NFR"
+  },
+  {
+    "text": "Once a game has been initiated  the product shall make the players assigned to the game unavailable for selection from the list of players.",
+    "label": "FR"
+  },
+  {
+    "text": "The Disputes application shall interface with the Cardmember Posting and Billing System.  This will allow the Disputes application to request adjustments to cardmember and merchant\\92s accounts. All adjustment requests must be sent to the Cardmember Posting and Billing System.",
+    "label": "NFR"
+  },
+  {
+    "text": "Responses to view information shall take no longer than 5 seconds to appear on the screen.",
+    "label": "NFR"
+  },
+  {
+    "text": "It must only update the parts that have changed when connecting to the server.",
+    "label": "NFR"
+  },
+  {
+    "text": "The system should take the customer name.",
+    "label": "FR"
+  },
+  {
+    "text": "All updates to data files or database must be initiated from the Disputes System.",
+    "label": "NFR"
+  },
+  {
+    "text": "The system will notify affected parties when changes occur affecting specific students  including but not limited to changing a student\\92s status from full time to part time and moving a student to a different clinical section.",
+    "label": "FR"
+  },
+  {
+    "text": "The meeting scheduler system may be able to include a list of required equipment for a meeting proposal.",
+    "label": "FR"
+  },
+  {
+    "text": "To prevent attacks the system should generate random word and ask the user to enter it correctly for multiple tryings.",
+    "label": "NFR"
+  },
+  {
+    "text": "The system shall allow the user to modify the equipment requirement set of an already submitted meeting response.",
+    "label": "FR"
+  },
+  {
+    "text": "The product shall display conference rooms according to search parameters.",
+    "label": "FR"
+  },
+  {
+    "text": "Reports must be easy to generate. Reports must be generated within one button click and exported within one button click (after selecting the report)",
+    "label": "NFR"
+  },
+  {
+    "text": "The leads washing functionality will compile both contact and academic scoring information for a total score.",
+    "label": "FR"
+  },
+  {
+    "text": "Keep track of each product item’s stocks for selling purpose.",
+    "label": "FR"
+  },
+  {
+    "text": "The system shall allow users to view other users’ information.",
+    "label": "FR"
+  },
+  {
+    "text": "When a game is ended  the product shall allow each player to remove himself or herself from the list of players.",
+    "label": "FR"
+  },
+  {
+    "text": "The Disputes System shall prevent the creation of duplicate dispute requests 100% of the time.",
+    "label": "FR"
+  },
+  {
+    "text": "A user must be logged on to be able to view or edit any medical information.",
+    "label": "FR"
+  },
+  {
+    "text": "Responsible for informing administrator when any product item’s stock goes under the minimum level.",
+    "label": "FR"
+  },
+  {
+    "text": "The product and/or dependent databases/filesystems shall remain operational as a result of the input of malicious data.  The product and/or dependent databases/filesystems shall not crash 100% of the time that malicious data is input into the product.",
+    "label": "NFR"
+  },
+  {
+    "text": "Customized information is displayed.",
+    "label": "FR"
+  },
+  {
+    "text": "The product shall be easy to use by Adjusters and Collision Estimators.  95% of Adjusters and Collision Estimators shall find the product easy to use.",
+    "label": "NFR"
+  },
+  {
+    "text": "The system shall display the most frequently searched items by the user in the profile.",
+    "label": "FR"
+  },
+  {
+    "text": "The system shall display Events in a vertical table by time.",
+    "label": "FR"
+  },
+  {
+    "text": "When a shot is marked as a hit  the product shall simulate the sound of a shot hitting its target.",
+    "label": "NFR"
+  },
+  {
+    "text": "The product shall be available during normal business hours. As long as the user has access to the client PC  the system will be available 99% of the time during the first six months of operation.",
+    "label": "NFR"
+  },
+  {
+    "text": "When a game is ended  the product shall allow each player to identify himself or herself as an available player in the list of players.",
+    "label": "FR"
+  },
+  {
+    "text": "Only authorized personnel can access sales information.",
+    "label": "NFR"
+  },
+  {
+    "text": "Website shall allow the Izogn administrator to approve a review posted by a customer.",
+    "label": "FR"
+  },
+  {
+    "text": "System security and access levels are provided in the online system. There are varying levels of system access and functional authority. Each student’s access is limited to his/her own registration records. Only authorized system administrator(s) has access to all student registration records.",
+    "label": "NFR"
+  },
+  {
+    "text": "Registered User must be able to maintain his/her session information for at least 60 minutes of inactive session before the system prompts him to log out of the system. The registered user must be provided with all the options of the E-store regardless of the time when he/she logs in.",
+    "label": "FR"
+  },
+  {
+    "text": "A secure server will be required to ensure confidentiality of customer’s credit card and other details.",
+    "label": "NFR"
+  },
+  {
+    "text": "The WCS system shall not allow automatic logins by any user. Cookies containing WCS login information about a user will not be stored on a user\\92s computer.",
+    "label": "NFR"
+  },
+  {
+    "text": "The Disputes System must provide different levels of access with regard to disputes case initiation and follow-up actions.",
+    "label": "FR"
+  },
+  {
+    "text": "The system shall support up to 10000 simultaneous users against the central database at any given time and up to 5000 simultaneous users against the local servers at any one time. The performance of the website must be optimal incase of huge loads and hence appropriate load balancing must be done to achieve this. There can be any number of mirror servers readily available in case of huge loads without the user getting any delay.",
+    "label": "NFR"
+  },
+  {
+    "text": "For any systematic (non-user initiated) action that occurs on a case such as the disputes aging process  a case activity will be generated.  Upon the next logon the user that initiated the dispute case must be notified that a systematic action has occurred on the dispute case.",
+    "label": "FR"
+  },
+  {
+    "text": "The meeting scheduler shall be accessed from the Web.",
+    "label": "NFR"
+  },
+  {
+    "text": "Vendor will submit a credit validation record to be applied to the enterprise billing system.",
+    "label": "FR"
+  },
+  {
+    "text": "The system shall show a tabbed display (or equivalent functionality) with the campus map on one tab and info on the most recently announced building on the other.",
+    "label": "NFR"
+  },
+  {
+    "text": "The user shall search for the preferred repair facility using vehicle  vehicle location  and radius in miles",
+    "label": "FR"
+  },
+  {
+    "text": "The menus of the system must be easily navigable by the users with buttons that are easy to understand.",
+    "label": "NFR"
+  },
+  {
+    "text": "A failed login will alert the physician/pharmacist.",
+    "label": "FR"
+  },
+  {
+    "text": "Prior to submitting the lead to the enterprise system the leads washing functionality will assign the lead to an admissions rep.",
+    "label": "FR"
+  },
+  {
+    "text": "The system shall accommodate large data items without fault.",
+    "label": "NFR"
+  },
+  {
+    "text": "If the leads score falls within the medium average then it will be set for manual verification by an Enrollment Coordinator through the eleads system.",
+    "label": "FR"
+  },
+  {
+    "text": "New and Delete buttons will allow the physician/pharmacist to add a notation to the patient’s file.",
+    "label": "FR"
+  },
+  {
+    "text": "The system shall allow user to select the support type he wants.",
+    "label": "FR"
+  },
+  {
+    "text": "The WCS system shall be run in a Windows environment. The WCS shall be accessed by users through the Internet on an IBM computer running a Windows 2000 or above operating system.",
+    "label": "NFR"
+  },
+  {
+    "text": "System use shall not cause any harm to human users.",
+    "label": "NFR"
+  },
+  {
+    "text": "The search radius shall be between 1 and 30 miles",
+    "label": "FR"
+  },
+  {
+    "text": "The system shall query the user for the amount of money.",
+    "label": "FR"
+  },
+  {
+    "text": "The system shall filter data by: Venues and Key Events.",
+    "label": "FR"
+  },
+  {
+    "text": "The website design should be modern  clean  and concise.",
+    "label": "NFR"
+  },
+  {
+    "text": "The search for the preferred repair facility shall take no longer than 8 seconds.  The preferred repair facility is returned within 8 seconds",
+    "label": "NFR"
+  },
+  {
+    "text": "The system shall allow user to register for newsletters and surveys in the profile.",
+    "label": "FR"
+  },
+  {
+    "text": "The system shall allow the user to view their schedule.",
+    "label": "FR"
+  },
+  {
+    "text": "The website shall make its user aware of its information practices before collection data from them via a Privacy Policy  accessible on all pages of the website.",
+    "label": "NFR"
+  },
+  {
+    "text": "System will allow customers to pay for a streaming movie with a pre-paid card.",
+    "label": "FR"
+  },
+  {
+    "text": "100% of merchant services representatives shall be able to successfully perform a follow up action on a dispute case on the first encounter after completing the training course.",
+    "label": "NFR"
+  },
+  {
+    "text": "The meeting scheduler system may provide the “meeting initiator” a summary of the scan of “potential meeting participants” showing available “time slots” and schedule conflicts as a means of informing the “meeting initiator” of the overall results of the system.",
+    "label": "FR"
+  },
+  {
+    "text": "The application should be connected to the GPS device.",
+    "label": "NFR"
+  },
+  {
+    "text": "The WCS system shall have the ability to include data for regions outside the United States and be accessed by users outside of the United States if approved by CCR management.",
+    "label": "NFR"
+  },
+  {
+    "text": "The product must be designed using Design Patterns and coding best practices.  90% of maintenance software developers are able to integrate new functionality into the product with 2 working days.",
+    "label": "NFR"
+  },
+  {
+    "text": "The product shall use symbols and words that are naturally understandable by the realtor community.",
+    "label": "NFR"
+  },
+  {
+    "text": "The system shall be able to display a printable summary for individual clinical sites  which will include information on labs being held at that site for the given quarter (Clinical site  general information on labs held at that location  dates and times of all labs held there).",
+    "label": "FR"
+  },
+  {
+    "text": "The system shall use the SMTP mail protocol.",
+    "label": "NFR"
+  },
+  {
+    "text": "The product shall be used in office environments.",
+    "label": "NFR"
+  },
+  {
+    "text": "The leads washing functionality will store any potential lead duplicates returned by the enterprise system.",
+    "label": "FR"
+  },
+  {
+    "text": "Washing parameters will be updated during scheduled maintenance hours.",
+    "label": "NFR"
+  },
+  {
+    "text": "The product shall prevent the input of malicious data.  The product and/or adjacent hardware/software systems\\92 data shall remain 100% uncorrupted each time malicious data is input into the product.",
+    "label": "NFR"
+  },
+  {
+    "text": "The system should use the company colors and logos.",
+    "label": "NFR"
+  },
+  {
+    "text": "It must store the most recent copy of information in its application data folder.",
+    "label": "FR"
+  },
+  {
+    "text": "Responsible for properly allocating the selected product according to the customer’s choice and delivering product to the customer.",
+    "label": "FR"
+  },
+  {
+    "text": "The website will provide a help section with answers and solutions to common problems.",
+    "label": "NFR"
+  },
+  {
+    "text": "The customer’s web browser shall never display a customer’s credit card number after retrieving from the database.  It shall always be shown with just the last 4 digits of the credit card number.",
+    "label": "NFR"
+  },
+  {
+    "text": "Information recorded must include an optional field for context.",
+    "label": "FR"
+  },
+  {
+    "text": "All source code shall adhere to an agreed upon and well-defined set of coding standards for each development language used.",
+    "label": "NFR"
+  },
+  {
+    "text": "The system shall display and embed in each message a date/timestamp of when the message was sent.",
+    "label": "FR"
+  },
+  {
+    "text": "A display shall not require a user to log in.",
+    "label": "NFR"
+  },
+  {
+    "text": "The product shall have a conservative and professional appearance.",
+    "label": "NFR"
+  },
+  {
+    "text": "All credit card information will be encrypted in the database.",
+    "label": "NFR"
+  },
+  {
+    "text": "The application should be easy to extend. The code should be written in a way that it favors implementation of new functions.",
+    "label": "NFR"
+  },
+  {
+    "text": "All of the users shall be able to use the system after one day of training.",
+    "label": "NFR"
+  },
+  {
+    "text": "The website shall continue to operate if the streaming server goes down.",
+    "label": "NFR"
+  },
+  {
+    "text": "The user interface shall have standard menus buttons for navigation",
+    "label": "NFR"
+  },
+  {
+    "text": "The product shall be available to players who understand English  Spanish and French.  The product shall allow the user to select the language upon accessing the product.",
+    "label": "NFR"
+  },
+  {
+    "text": "The system shall allow user to select the financing option.",
+    "label": "FR"
+  },
+  {
+    "text": "For leads that process longer than 25 seconds the system will record the event and duration",
+    "label": "NFR"
+  },
+  {
+    "text": "The website shall be attractive to all audiences.  The website shall appear to be fun and the colors should be bright and vibrant.",
+    "label": "NFR"
+  },
+  {
+    "text": "The product must comply with the intranet page standards and requirements of ENET Securities. 95% of the product look & feel will be approved by the Architecture group  prior to implementation. The remaining 5% will be corrected and approved within one month of product release.",
+    "label": "NFR"
+  },
+  {
+    "text": "If a lead is scored to the high range the system will supply the lead data and score to the enterprise system.",
+    "label": "FR"
+  },
+  {
+    "text": "Customers must have a valid login id to enter into the site.",
+    "label": "NFR"
+  },
+  {
+    "text": "The system shall display confirmation messages to users within 4 seconds after the user submits information to the system.",
+    "label": "NFR"
+  },
+  {
+    "text": "Only registered realtors shall be able to access the system.",
+    "label": "NFR"
+  },
+  {
+    "text": "System shall automatically update the main page of the website every Friday  and show the 4 latest movies that have been added to the website.",
+    "label": "FR"
+  },
+  {
+    "text": "The system shall interface with CampusConnect\\92s central server",
+    "label": "NFR"
+  },
+  {
+    "text": "The website shall achieve 99.5% up time.",
+    "label": "NFR"
+  },
+  {
+    "text": "The system’s back-end servers shall only be accessible to authenticated administrators.",
+    "label": "NFR"
+  },
+  {
+    "text": "The system shall allow a text search that users may use to find mail messages.",
+    "label": "FR"
+  },
+  {
+    "text": "The system is expected to have reasonable short time response. The voter should be able to login and should be able to get response for his requests in 2-3 seconds.",
+    "label": "NFR"
+  },
+  {
+    "text": "It should generate a report about registered complaint to the admin and response report to the user who has submitted his queries.",
+    "label": "FR"
+  },
+  {
+    "text": "All changes  updates  and additions to the WCS system shall be updated in the WCS Developer and WCS User Guides. Every change must be reflected in WCS system documentation",
+    "label": "NFR"
+  },
+  {
+    "text": "The system shall use symbols and words that are naturally understandable by the user community.",
+    "label": "NFR"
+  },
+  {
+    "text": "The system shall be displayable on any work computer a CCR user may have. The system interface shall be formatted to display at 800 by 600 pixel resolution.",
+    "label": "NFR"
+  },
+  {
+    "text": "Can purchase any product through valid credit card.",
+    "label": "FR"
+  },
+  {
+    "text": "The system shall notify customers of changes to its information policy.",
+    "label": "NFR"
+  },
+  {
+    "text": "System shall let customers register on the website as a \\93unlimited movie subscriber\\94 user in under 10 minutes.",
+    "label": "NFR"
+  },
+  {
+    "text": "The website shall prevent its data from being corrupted when incorrect data is entered in.",
+    "label": "NFR"
+  },
+  {
+    "text": "The adjuster shall request a recycled parts audit of the collision estimate.",
+    "label": "FR"
+  },
+  {
+    "text": "The product shall have a customizable Look and Feel.",
+    "label": "FR"
+  },
+  {
+    "text": "Application updates shall occur between 3AM and 6 AM CST on Wednesday morning during the middle of the NFL season.",
+    "label": "NFR"
+  },
+  {
+    "text": "The Disputes System must provide a confirmation to the user upon the creation of ticket retrieval request that contains the following information; the dispute case number  the type of retrieval requested (copy  original or portfolio)  and the date that the merchant response is due.",
+    "label": "FR"
+  }
+]

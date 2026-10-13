@@ -1,0 +1,1470 @@
+[
+  {
+    "text": "The calculations performed by the system must comply according to the norms set by the user and should not vary unless explicitly changed by the user.",
+    "label": "Legal"
+  },
+  {
+    "text": "Users shall feel satisfied using the product.  85% of all users will be satisfied with the product.",
+    "label": "Usability"
+  },
+  {
+    "text": "Promotional updates to the website should take a day to update.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "All the passwords that are generated or accepted must be stored in database in an encrypted form.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall interface CSR and Datastream.The product shall exchange messages between CSR and EAM on a real time basis without any direct interfaces between two systems.",
+    "label": "Operational"
+  },
+  {
+    "text": "Each team owner will need to use a username and password in order to be authenticated to reach the team owner\\92s page",
+    "label": "Security"
+  },
+  {
+    "text": "We must be able to interface with any HTML browser.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall be able to process all transactions.The product shall process minimum of 1 million transactions per year.",
+    "label": "Scalability"
+  },
+  {
+    "text": "A secondary database will be used to store historical statistics and data.",
+    "label": "Operational"
+  },
+  {
+    "text": "The performance shall depend upon hardware components of the client/customer.",
+    "label": "Performance"
+  },
+  {
+    "text": "The Disputes applications shall interface with the Merchant Information Database. The Merchant Information Database provides detailed information with regard to the merchant. All merchant detail information shall be obtained from the Merchant Information Database.",
+    "label": "Operational"
+  },
+  {
+    "text": "When a ship is sunk  the product shall simulate the sound of a sinking ship.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The product shall have a consistent color scheme and fonts.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The product shall be able to display calendar dates and times according to the user\\92s locale.  90% of survey respondents from each target market country will find that the date and time formatting of the product is correct.",
+    "label": "Usability"
+  },
+  {
+    "text": "The website design should be modern  clean  and concise.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "All network transactions that involve financial information or personally identifiable information shall be encrypted.",
+    "label": "Security"
+  },
+  {
+    "text": "The Disputes application shall ensure that only users with the appropriate access level are allowed to initiate dispute requests.",
+    "label": "Security"
+  },
+  {
+    "text": "Website must be fully operational with MSN TV2.",
+    "label": "Operational"
+  },
+  {
+    "text": "If projected  the data must be understandable. On a 10x10 projection screen  90% of viewers must be able to determine that Events or Activities are occuring in current time from a viewing distance of 100",
+    "label": "Usability"
+  },
+  {
+    "text": "The system must be quickly accessible by both managers and chefs.",
+    "label": "Usability"
+  },
+  {
+    "text": "The interface must summarize the data in a fashion that\\92s appealing to CCR management. Every report type must have at least one high level summary shown in the results dashboard/interface",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The system shall be used by realtors with no training.",
+    "label": "Usability"
+  },
+  {
+    "text": "The system shall have high availability every day of the year.The system must be available for use between 12:00AM and 6:00PM all days of the year.",
+    "label": "Availability"
+  },
+  {
+    "text": "The product must work with most database management systems (DBMS) on the market  whether the DBMS is colocated with the product on the same machine or is located on a different machine on the computer network.",
+    "label": "Operational"
+  },
+  {
+    "text": "The intranet pages should display appropriately in all resolutions  from 800x600 and higher. The display of all the pages will be correct in 95% of the resolutions  prior to implementation. The remaining 5% will be corrected within a week of notification of the incorrect display.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "95% of users will not need to read the user manual to be able to use the application.",
+    "label": "Usability"
+  },
+  {
+    "text": "The product shall allow for customization of start page and views preferences.",
+    "label": "Usability"
+  },
+  {
+    "text": "System will use secured database.",
+    "label": "Security"
+  },
+  {
+    "text": "It should not take more than 120 seconds for a new user to register for an account.",
+    "label": "Usability"
+  },
+  {
+    "text": "The product shall allow the user to view previously downloaded search results CMA reports  and appointments.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "The product shall be robust.The product shall have fault avoidance based on standards adoption.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "Any page of the application should not take more than 6 seconds to load on a DSL broadband connection.",
+    "label": "Performance"
+  },
+  {
+    "text": "The system will provide a 24 hour 800 toll free number for support to its customers.",
+    "label": "Availability"
+  },
+  {
+    "text": "The product shall display each type of ship in a grid using an image of the specific type of ship.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The product shall conform to the Americans with Disabilities Act.",
+    "label": "Usability"
+  },
+  {
+    "text": "All actions that modify an existing dispute case must be recorded in the case history.",
+    "label": "Legal"
+  },
+  {
+    "text": "Maintenance releases will be offered to customers once a year.  The releases shall take no longer than 5 minutes for 80% of the customer base to install.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The search for the preferred repair facility shall take no longer than 8 seconds.  The preferred repair facility is returned within 8 seconds",
+    "label": "Performance"
+  },
+  {
+    "text": "The system shall utilise periodic 30-second keep-alive messages between tablets and the server to monitor tablet operational status.",
+    "label": "Operational"
+  },
+  {
+    "text": "The website should use Flash to provide animation on the home page.",
+    "label": "Operational"
+  },
+  {
+    "text": "The Disputes application shall manipulate and view business data. Users will not have direct access to data files or databases.",
+    "label": "Security"
+  },
+  {
+    "text": "Data integrity scripts will be run on a weekly basis to verify the integrity of the database.",
+    "label": "Security"
+  },
+  {
+    "text": "The system shall be compatible with IIS6.0 and above or  Apache 2.0 and above.",
+    "label": "Portability"
+  },
+  {
+    "text": "A new user must be able to be added to the system within 10 minutes. 90% of new users are able to log into the system within 10 minutes.",
+    "label": "Usability"
+  },
+  {
+    "text": "The product shall be available for distribution via the Internet as a binary or ZIP file.",
+    "label": "Operational"
+  },
+  {
+    "text": "The system shall be built such that it is as secure as possible from malicious interference.",
+    "label": "Security"
+  },
+  {
+    "text": "User authentication and privileges are defined outside the scope of the sytem by the Microsoft Active Directroy Server.",
+    "label": "Security"
+  },
+  {
+    "text": "All users of the system shall login using some form of unique identification.",
+    "label": "Security"
+  },
+  {
+    "text": "The application should be able to support 100 concurrent users without any performance degradation.",
+    "label": "Performance"
+  },
+  {
+    "text": "The product shall retain the customer\\92s buying preferences and information.",
+    "label": "Usability"
+  },
+  {
+    "text": "The number of mistakes noted by the students shall be decreased by 50% in the first year.",
+    "label": "Usability"
+  },
+  {
+    "text": "Everyone (stakeholders and guests) can have access to the system and the catalogue. Every client must have secure and private access to his/her data. The  and the service man can have access to every part of the system. All these accesses (except the “guest tour” access) require identification through ID and password.",
+    "label": "Security"
+  },
+  {
+    "text": "A customer can only stream a movie if they purchased it  and are within the 2 day viewing period.",
+    "label": "Security"
+  },
+  {
+    "text": "The system shall be available 99.5% of the time.",
+    "label": "Availability"
+  },
+  {
+    "text": "The system shall have a help system that offers tips and explanation for each screen and each item on the screens upon demand.",
+    "label": "Usability"
+  },
+  {
+    "text": "A waiter that attempts to log into a second tablet while already logged into another tablet shall be rejected and notified through both tablets.",
+    "label": "Security"
+  },
+  {
+    "text": "Out of 1000 accesses to the system the system is available 999 times.",
+    "label": "Availability"
+  },
+  {
+    "text": "The product shall use symbols and words that are naturally understandable by users familiar with websites",
+    "label": "Usability"
+  },
+  {
+    "text": "All the functions of the system must be available to the user every time the system is turned on.",
+    "label": "Availability"
+  },
+  {
+    "text": "All additions of new users and modifications to user\\92s access shall be recorded on the User Report.",
+    "label": "Security"
+  },
+  {
+    "text": "Staff members shall be able to complete a set of tasks in a timely manner.",
+    "label": "Performance"
+  },
+  {
+    "text": "Every user of the software is provided a unique login ID and a password which is stored in the database hashed by SHA2 algorithm.",
+    "label": "Security"
+  },
+  {
+    "text": "Secure data transfer over the Internet could be provided using SSL encryption that will be configured by the host system administrator.",
+    "label": "Security"
+  },
+  {
+    "text": "For estimators  the product shall be able to be operated in a repair facility during dirty and noisy conditions.",
+    "label": "Operational"
+  },
+  {
+    "text": "We must be able to interface with the following browsers: IE 5.X  6.0  Netscape 6.x  7.x  8.x and Firefox 1.0.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall be able to support multiple remote users",
+    "label": "Scalability"
+  },
+  {
+    "text": "An employee will be able to successfully use the product within a few minutes.  After informally navigating the product for less than 15 minutes  users shall be able to successfully setup meetings and reserve conference rooms.",
+    "label": "Usability"
+  },
+  {
+    "text": "The list of dispute cases that are displayed after a search is performed must be color coded for easy identification of dispute cases based upon the dispute case status.",
+    "label": "Usability"
+  },
+  {
+    "text": "A tablet shall require a user to log in using a username and password.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall be expected to operate for at least 5 years for each customer installation.",
+    "label": "Scalability"
+  },
+  {
+    "text": "Since the software must run on several popular hardware platforms and the goal is to achieve a reasonable level of platform independence.",
+    "label": "Portability"
+  },
+  {
+    "text": "System security and access levels are provided in the online system. There are varying levels of system access and functional authority. Each student’s access is limited to his/her own registration records. Only authorized system administrator(s) has access to all student registration records.",
+    "label": "Security"
+  },
+  {
+    "text": "Recreation of Inventory Quantity Adjustment for the period of previous 30 days shall take no more than 30min.",
+    "label": "Performance"
+  },
+  {
+    "text": "The product shall run on the existing hardware for all environments.",
+    "label": "Operational"
+  },
+  {
+    "text": "The PHP code will comply with PEAR standards.",
+    "label": "Legal"
+  },
+  {
+    "text": "The product shall be able to be installed in the specified environment within 1 working day.",
+    "label": "Operational"
+  },
+  {
+    "text": "The system shall have basic data integrity checking to reduce the possibility of incorrect or invalid data being introduced.",
+    "label": "Security"
+  },
+  {
+    "text": "The website shall prevent its data from being corrupted when incorrect data is entered in.",
+    "label": "Security"
+  },
+  {
+    "text": "To prevent attacks the system should generate random word and ask the user to enter it correctly for multiple tryings.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall make the users want to use it. 80% of the users surveyed report they are regularly using the product after the first 2 weeks post-launch.",
+    "label": "Usability"
+  },
+  {
+    "text": "On a 56k connection  the system response time for all operations must be no more than 6 seconds 90% of the time.",
+    "label": "Performance"
+  },
+  {
+    "text": "The system shall be easy to use by callers and supervisors. Callers and supervisors must be able to accomplish any system task within 2 minutes.",
+    "label": "Usability"
+  },
+  {
+    "text": "Only administrators can activate a pre-paid card.",
+    "label": "Security"
+  },
+  {
+    "text": "Only registered customers can purchase streaming movies.",
+    "label": "Security"
+  },
+  {
+    "text": "System shall let administrator add/remove movies on the website in under 5 minutes.  Entered movie information will be stored in the database and will now be available on the website.",
+    "label": "Performance"
+  },
+  {
+    "text": "The system shall use the SMTP mail protocol.",
+    "label": "Operational"
+  },
+  {
+    "text": "One insurance company shall not be able to view another insurance companys claim data.",
+    "label": "Security"
+  },
+  {
+    "text": "The users should be able to easily use the system to successfully complete their budgets  within the stipulated time for completion. With a week of training prior to product implementation  98% of the users shall complete their budgets within the stipulated time.",
+    "label": "Usability"
+  },
+  {
+    "text": "New System version releases shall be released at the beginning of each NFL season.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The product shall be internet browser independent.The product must run using Internet Explorer and Netscape Navigator.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The product shall be easy to learn by Adjusters and Collision Estimators.  The product shall be learned with two days onsite training",
+    "label": "Usability"
+  },
+  {
+    "text": "The system shall operate on Unix and Windows operating systems.",
+    "label": "Portability"
+  },
+  {
+    "text": "The customer shall be able to easily integrate new building maps with the product throughout the product\\92s lifecycle.  Integration of new maps with the product shall be possible with little to no support from product support staff.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The product will be available for licensing as a one-server  two-five servers  or five-or-more servers license.",
+    "label": "Operational"
+  },
+  {
+    "text": "The system must use a point and click interface. 100% of all selection and navigation functionality must be able to be activated/selected by either a mouse or a keyboard",
+    "label": "Usability"
+  },
+  {
+    "text": "The system may be throttled or slowed down on heavy loads to ensure service for everybody. By throttling is meant that certain functionality may be unavailable during heavy server load.",
+    "label": "Performance"
+  },
+  {
+    "text": "System shall let customers cancel their account  process shall take no longer than 2 minutes.  Database will mark the account as inactive  and user will not be able to log into the website.",
+    "label": "Performance"
+  },
+  {
+    "text": "The system must be intuitive and simple in the way it displays all relevant data and relationships.",
+    "label": "Usability"
+  },
+  {
+    "text": "Only authorized user shall access the RFS system. ONLY users that exist in the UAS system  with the RFS system assigned to their role(s)  shall access the RFS system and use it.",
+    "label": "Security"
+  },
+  {
+    "text": "100% of cardmember services representatives shall be able to successfully create a dispute case on the first encounter after completing the training course.",
+    "label": "Usability"
+  },
+  {
+    "text": "The system shall support up to 10000 simultaneous users against the central database at any given time and up to 5000 simultaneous users against the local servers at any one time. The performance of the website must be optimal incase of huge loads and hence appropriate load balancing must be done to achieve this. There can be any number of mirror servers readily available in case of huge loads without the user getting any delay.",
+    "label": "Performance"
+  },
+  {
+    "text": "For leads that process longer than 25 seconds the system will record the event and duration",
+    "label": "Performance"
+  },
+  {
+    "text": "The Brio portion of the WCS system must be able to export files in spreadsheet form (Microsoft Excel and Lotus 1-2-3 formats).  Brio will provide buttons in the user interface that produce/export reports in .xls or .123 file formats.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall adhere to the corporate Architecture guidelines",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall process messages within 2 seconds.The product shall have a maximum message processing time of 2 seconds",
+    "label": "Performance"
+  },
+  {
+    "text": "The interface shall be appealing to callers and supervisors. In the interface and usability survey  80% of beta testers must report that the interface is appealing.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The Disputes application must conform to the legal requirements as specified by the Merchant Operating Regulations.",
+    "label": "Legal"
+  },
+  {
+    "text": "The maintenance of the product will fall within the established corporate maintenance windows.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall interface with the ChoiceParts system once per day at approximately 1:00 AM.",
+    "label": "Operational"
+  },
+  {
+    "text": "An anonymous survey will show that 70% of customers are comfortable purchasing streaming movies after 2 weeks using the website.",
+    "label": "Usability"
+  },
+  {
+    "text": "The product shall provide GUI based Monitoring Services.System Administrators shall monitor message exchanges will predict and determine problems and will also provide internal and external support.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The average number of recycled parts records per day shall be 50 000.",
+    "label": "Scalability"
+  },
+  {
+    "text": "The system shall be expected to manage the nursing program curriculum and class/clinical scheduling for a minimum of 5 years.",
+    "label": "Scalability"
+  },
+  {
+    "text": "Izogn Administrator must be able to add new products to the website within 2 minutes.",
+    "label": "Performance"
+  },
+  {
+    "text": "The system shall be displayable on any work computer a CCR user may have. The system interface shall be formatted to display at 800 by 600 pixel resolution.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The system must be easy to use by both managers and chefs such that they do not need to read an extensive amount of manuals.",
+    "label": "Usability"
+  },
+  {
+    "text": "2 out of 3 Program Administrators/Nursing Staff Members shall successfully be able to use the system to manage the scheduling of classes and clinicals.",
+    "label": "Usability"
+  },
+  {
+    "text": "The product shall be platform independent.The product shall enable access to any type of development environment and platform.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall be available for use 24 hours per day 365 days  per year",
+    "label": "Availability"
+  },
+  {
+    "text": "Each account must securely store all of its data.",
+    "label": "Security"
+  },
+  {
+    "text": "Responses to queries shall take no longer than 7 seconds to load onto the screen after the user submits the query.",
+    "label": "Performance"
+  },
+  {
+    "text": "The system should be easy enough to maintain that someone else could do it with a manual and a few hours training.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The response time of general student management tasks shall take no longer than 5 seconds and the response time of schedule generation shall take no longer than 30 seconds.",
+    "label": "Performance"
+  },
+  {
+    "text": "The application shall run on a web application server.",
+    "label": "Operational"
+  },
+  {
+    "text": "The system shall provide a digital image for each product in the product catalog.",
+    "label": "Usability"
+  },
+  {
+    "text": "System will use secured database",
+    "label": "Security"
+  },
+  {
+    "text": "The streaming server will support 50 simultaneous streaming connections.",
+    "label": "Scalability"
+  },
+  {
+    "text": "The system shall be able to display a menu at all times to facilitate manual order taking should the need arise.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The Disputes application shall interface with the Cardmember Information Database. The Cardmember Information Database provides detailed information with regard to a cardmember. All cardmember detail information must be obtained from the Cardmember Information Database.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall ensure that the database\\92s data corresponds to the data entered by the user.  Each conference room reservation in the system will contain the same information as was entered by the user.",
+    "label": "Security"
+  },
+  {
+    "text": "Only authorized users shall have access to the portion of the system that interfaces with CampusConnect.",
+    "label": "Security"
+  },
+  {
+    "text": "The system shall be easy to learn by callers and supervisors. Callers and supervisors shall learn how to use the system within 10 minutes.",
+    "label": "Usability"
+  },
+  {
+    "text": "The system shall use IBM and CCR branding standards. The interface must have one IBM logo and one CCR logo.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The System shall maintain consistent security.  Any changes in user passwords and/or permissions should take affect in all parts of the System.",
+    "label": "Security"
+  },
+  {
+    "text": "The preferred repair facility ratings shall be saved within 5 seconds. The save shall occur within 5 seconds.",
+    "label": "Performance"
+  },
+  {
+    "text": "The system shall flag tablets that fail to send timely keep-alive messages as non-operational and disassociate the assigned waiter from the tablet.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "100% of saved user preferences shall be restored when system comes back online.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "A waiter shall only be able to log into one tablet at any given instance of time.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall be available 99% of the time. Rationale: To avoid service interruption during busiest customer service response periods. The product shall be available 99.99% of the time for regular business days.",
+    "label": "Availability"
+  },
+  {
+    "text": "The product\\92s Look and Feel shall be able to incorporate aspects of the customer\\92s organization such as logo  branding  and identity",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The product shall have security.The product shall provide authentication  and authorization.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall be available for distribution as a packaged CD.",
+    "label": "Operational"
+  },
+  {
+    "text": "The website should cater to all tribes in Nigeria.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "Reports must be easy to generate. Reports must be generated within one button click and exported within one button click (after selecting the report)",
+    "label": "Usability"
+  },
+  {
+    "text": "All source code and development related documents shall be controlled under a version control system.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The product shall be easy for a realtor to learn.",
+    "label": "Usability"
+  },
+  {
+    "text": "The system should warn ECA users about the malfunction of the system.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "The product shall be able to process 10 000 transactions per hour within two years of its launch.  This number will increase to 20 000 by Release 2.",
+    "label": "Scalability"
+  },
+  {
+    "text": "The product shall be able to handle up to 1500 simultaneous users. The system shall perform with 1500 users as a time.",
+    "label": "Scalability"
+  },
+  {
+    "text": "Only adjusters can request recycled parts audit reports. No users without an adjuster role shall request recycled parts audits.",
+    "label": "Security"
+  },
+  {
+    "text": "The user shall easily locate instructions while using the product.  User help can be found within 90% of the system.",
+    "label": "Usability"
+  },
+  {
+    "text": "The website shall achieve 99.5% up time.",
+    "label": "Availability"
+  },
+  {
+    "text": "The system should be simple to use",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "Only registered realtors shall be able to access the system.",
+    "label": "Security"
+  },
+  {
+    "text": "The Disputes application shall be available 24x7x365  with the exception of the following scheduled maintenance windows.  Monday \\96 Saturday 3:00am to 4:00am EST Sunday 1:00amd to 5:00am EST",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall use symbols and words that are naturally understandable by the realtor community.",
+    "label": "Usability"
+  },
+  {
+    "text": "A waiter password used for tablet login must be changed every three months.",
+    "label": "Security"
+  },
+  {
+    "text": "The RFS system should be able to easily interface with the BDW environment  in order to load the data. \\95\t7 data files shall be received from the BDW and loaded into the RFS system within 3 hours one day prior to the start of budgeting process  every year. The data will be as of October month-end. \tTest files (7) shall be loaded up to 5 times throughout the year  from the BDW.",
+    "label": "Operational"
+  },
+  {
+    "text": "The system shall be capable of restoring itself to its previous state in the event of failure (e.g. a system crash or power loss).",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "When the offensive player takes a shot  the product shall simulate the sound of a ship at sea.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "Changes made to the Manage My ID website can be adopted without altering the iOS application.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The product shall display the grids within a circle as a view from a periscope.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The product shall operate in offline mode whenever internet connection is unavailable.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "Changes to revenue and expense formulae must be applied to the RFS system  every year  prior to the budgeting process start. Revenue and expense formulae will be updated within one week of their receipt  after which 2 weeks will be allotted to testing of the budget calculations  to be conducted jointly by the project development team and PCG Finance.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The system shall achieve 95% up time.",
+    "label": "Availability"
+  },
+  {
+    "text": "Unauthorised users can only read data without modifying anything.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall comply with corporate color scheme",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The system shall cater to 10 simultaneous users from 9am to 5pm.",
+    "label": "Scalability"
+  },
+  {
+    "text": "The website shall continue to operate if the streaming server goes down.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "All data entry forms for the application should match their Microsoft Excel hardcopy counterparts as closely as possible. Hardcopies of these forms were provided to the design team during the second requirements interview.",
+    "label": "Operational"
+  },
+  {
+    "text": "An anonymous survey will show that 95% of customers are comfortable using and purchasing pre-paid cards after a month of using the system.",
+    "label": "Usability"
+  },
+  {
+    "text": "The product shall have audit capabilities.The product shall store messages for a minimum of one year for audit and transaction tracking purposes.",
+    "label": "Security"
+  },
+  {
+    "text": "The system shall accommodate large data items without fault.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "The system shall protect private information in accordance with the organization\\92s information policy.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall be available during normal business hours. As long as the user has access to the client PC  the system will be available 99% of the time during the first six months of operation.",
+    "label": "Availability"
+  },
+  {
+    "text": "Fit Criterion: Dr Susan Poslusny and Karen Sysol are the only people who shall have access to the final class section scheduling for the system that interfaces with CampusConnect.",
+    "label": "Security"
+  },
+  {
+    "text": "Patrons shall log in according to the restricted computer system access policy.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall be easy for customers with novice skills on the  Internet to purchase and watch streaming movies.  Customers should be able to purchase and watch a pre-determined movie in under 3 minutes.",
+    "label": "Usability"
+  },
+  {
+    "text": "The product shall operate with every platform.The product shall accommodate any new technology without any change in its architecture.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The system must automatically log out all customers after a period of inactivity.",
+    "label": "Security"
+  },
+  {
+    "text": "Users shall be able to view at least 25 NFL player statistics and points on each page.",
+    "label": "Usability"
+  },
+  {
+    "text": "The System shall meet all applicable accounting standards.  The final version of the System must successfully pass independent audit performed by a certified auditor.",
+    "label": "Legal"
+  },
+  {
+    "text": "The system shall use the organization\\92s standard virus protection software to help monitor threats to itself.",
+    "label": "Security"
+  },
+  {
+    "text": "The product interface should be fast. The response time of the product interface should not exceed 2 seconds 90% of the time. For 10% of the time  the response time should not be more than 10 seconds.not be more than 10 seconds.",
+    "label": "Performance"
+  },
+  {
+    "text": "The system’s back-end servers shall never display a customer’s password.  The customer’s password may be reset but never shown.",
+    "label": "Security"
+  },
+  {
+    "text": "Only adjusters with a supervisor role can update preferred repair facility ratings. Users without the supervisor role cannot access the repair facility ratings.",
+    "label": "Security"
+  },
+  {
+    "text": "Customer shall be able to check the status of their prepaid card  by entering in the PIN number  in under 5 seconds.",
+    "label": "Performance"
+  },
+  {
+    "text": "The product must comply with Sarbanes-Oxley.",
+    "label": "Legal"
+  },
+  {
+    "text": "The System shall not require additional third party licenses resulting in royalty fees.",
+    "label": "Operational"
+  },
+  {
+    "text": "The website shall continue to operate if the payment gateway goes down.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "The product shall synchronize with the office system every hour.",
+    "label": "Performance"
+  },
+  {
+    "text": "All screens created as part of the Disputes application must comply with corporate standards for interface creation.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "A secure server will be required to ensure confidentiality of customer’s credit card and other details.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall ensure that only supervisors can advertise empty time slots.The product must ensure that supervisors are allowed to access advertise empty time slots.",
+    "label": "Security"
+  },
+  {
+    "text": "The entire website must be user-friendly and easily navigable. The website must be provided with a site map for quick access to a particular link according to the requirement specification. The user must be able to find what he/she wants from the site without any difficulty. The website must adhere to branding schemes and the layout of the web pages must be uniform throughout",
+    "label": "Usability"
+  },
+  {
+    "text": "The product shall ensure that only supervisors can view schedule of all callers.The product must ensure that supervisors are allowed to access advertise empty time slots.",
+    "label": "Security"
+  },
+  {
+    "text": "Logout must be automatic after 1 hour of inactivity.",
+    "label": "Security"
+  },
+  {
+    "text": "The system will use a single password per user to login to the E-Store System.",
+    "label": "Security"
+  },
+  {
+    "text": "The application should be connected to the GPS device.",
+    "label": "Availability"
+  },
+  {
+    "text": "The product shall be able to handle 10 000 concurrent users within 2 years of the initial launch.",
+    "label": "Scalability"
+  },
+  {
+    "text": "The product shall protect the identity of the players. The product shall provide players no access to information that might reveal the identity of another player.",
+    "label": "Performance"
+  },
+  {
+    "text": "Users should be able to access their streaming movies in under 2 clicks after logging into the website.",
+    "label": "Usability"
+  },
+  {
+    "text": "The product shall interface with the Choice Parts System.  This provides the feed of recycled parts data.",
+    "label": "Operational"
+  },
+  {
+    "text": "A waiter password used for tablet login must have a bit-strength of at least 64 bits.",
+    "label": "Security"
+  },
+  {
+    "text": "Programmers and application developers will have access to source code to address bugs or system enhancements as deemed necessary. Network Administrator and DBA support is also required to maintain a 24x7 system uptime.",
+    "label": "Availability"
+  },
+  {
+    "text": "User access should be limited to the permissions granted to their role(s) Each level in the PCG hierarchy will be assigned a role and users will be assigned to these roles. Access to functionality within RFS system is dependent on the privileges/permission assigned to the role..",
+    "label": "Security"
+  },
+  {
+    "text": "The system shall provide a way to return to the startup screen.",
+    "label": "Usability"
+  },
+  {
+    "text": "Every user of the system shall be authenticated and authorized.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall ensure that only supervisors can enter a caller\\92s schedule.The product must ensure that supervisors are allowed to access advertise empty time slots.",
+    "label": "Security"
+  },
+  {
+    "text": "All updates to data files or database must be initiated from the Disputes System.",
+    "label": "Security"
+  },
+  {
+    "text": "The application should be connected to the Internet.",
+    "label": "Availability"
+  },
+  {
+    "text": "The system use SSL (secured socket layer) in all transactions that include any confidential customer information.",
+    "label": "Security"
+  },
+  {
+    "text": "The system shall use a text-based interface to display a listing of available mail.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "All transactions at the Flea Market require a valid user ID and password.",
+    "label": "Security"
+  },
+  {
+    "text": "Personal information security is defined outside the scope of the SDMS by the database server.",
+    "label": "Security"
+  },
+  {
+    "text": "The recycled parts audit report shall be returned to the user within 10 seconds.  The audit report shall be returned within 10 seconds.",
+    "label": "Performance"
+  },
+  {
+    "text": "The system shall interface with the student master server.",
+    "label": "Operational"
+  },
+  {
+    "text": "Defect reports will be available to technical units on a 24x7 basis.",
+    "label": "Availability"
+  },
+  {
+    "text": "The campus map shall provide visual clues regarding what areas have prepared audio and therefore may be selected.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The system’s back-end databases shall be encrypted.",
+    "label": "Security"
+  },
+  {
+    "text": "The customer’s web browser shall never display a customer’s credit card number after retrieving from the database.  It shall always be shown with just the last 4 digits of the credit card number.",
+    "label": "Security"
+  },
+  {
+    "text": "Total lead cycle time must be completed in 5 minutes for 90% of lead volume between the business hours of 8AM CST to 8PM CST; then 3 minutes for 99% of lead volume during off business hours.",
+    "label": "Performance"
+  },
+  {
+    "text": "The system shall be available for use between the hours of 8am and 6pm.",
+    "label": "Availability"
+  },
+  {
+    "text": "A database management system such as Oracle  DB2  MySql or HSQL will need to be integrated with the product.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall use a standard navigation menu familiar to most web users.",
+    "label": "Usability"
+  },
+  {
+    "text": "The system should be portable to various operating environments.",
+    "label": "Portability"
+  },
+  {
+    "text": "The server will support a maximum of 1 000 simultaneous users.",
+    "label": "Scalability"
+  },
+  {
+    "text": "Movies shall be encoded for 56k and 256k streams.",
+    "label": "Operational"
+  },
+  {
+    "text": "The system shall provide a uniform look and feel between all the web pages.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "Flea Market system will interface with the web server and RDBMS software using APIs provided by the implementation language",
+    "label": "Operational"
+  },
+  {
+    "text": "The campus map shall have a pause/resume button. The pause and resume button will allow the user to scroll and select other buildings without being interrupted by the automatic search and announce feature.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "A display shall not require a user to log in.",
+    "label": "Security"
+  },
+  {
+    "text": "The application must log the user out when it is exited.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall poll the system for messages every second.The product shall poll the system for new messages at a maximum of every 1 second.",
+    "label": "Performance"
+  },
+  {
+    "text": "Only users with Update access must be able to initiate dispute requests.",
+    "label": "Security"
+  },
+  {
+    "text": "The Disputes application must maintain a detailed history of every action that a user takes on a dispute case.  This ensures a complete audit trail if questions arise later on with regard to a particular dispute case.",
+    "label": "Legal"
+  },
+  {
+    "text": "System will have different types of users and every user has access constraints.",
+    "label": "Security"
+  },
+  {
+    "text": "The available server must be reliable and the network connectivity in the supermarket should be proper for smooth flow of all operations and data.",
+    "label": "Operational"
+  },
+  {
+    "text": "A primary database will be used to store cached data for active users.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall able to handle a large number of games simultaneously.",
+    "label": "Performance"
+  },
+  {
+    "text": "The search for recycled parts shall take no longer than 15 seconds.  The search results shall be returned in under 15 seconds.",
+    "label": "Performance"
+  },
+  {
+    "text": "The product shall have a conservative and professional appearance.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The product shall provide Asynchronous Messaging.The product shall provide asynchronous messaging to enable parallel processing and reduce the overhead in communications",
+    "label": "Performance"
+  },
+  {
+    "text": "The system should be able to manage all the information incoming from the database and the catalogue.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall produce search results in an acceptable time",
+    "label": "Performance"
+  },
+  {
+    "text": "The system shall be intuitive to the Program Administrators/Nursing Staff Members.",
+    "label": "Usability"
+  },
+  {
+    "text": "All changes  updates  and additions to the WCS system shall be updated in the WCS Developer and WCS User Guides. Every change must be reflected in WCS system documentation",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The product is expected to run on Windows CE and Palm operating systems.",
+    "label": "Portability"
+  },
+  {
+    "text": "The system shall be compatible with the Microsoft Windows Operating System.",
+    "label": "Operational"
+  },
+  {
+    "text": "The software is available for use from the supermarket opening time to the closing time.",
+    "label": "Availability"
+  },
+  {
+    "text": "Only authorized users shall have access to students\\92 personal information.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall be intuitive and self-explanatory.  Nine out ten users shall be able to successfully complete a game with no training.",
+    "label": "Usability"
+  },
+  {
+    "text": "The system should have to keep the location where the doughnut will be send.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall simulate the look of ships at sea.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The system will support mobile users in some way.",
+    "label": "Portability"
+  },
+  {
+    "text": "System use shall not cause any harm to human users.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall be supported using the corporate support center.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product must comply with the intranet page standards and requirements of ENET Securities. 95% of the product look & feel will be approved by the Architecture group  prior to implementation. The remaining 5% will be corrected and approved within one month of product release.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The application shall ask the user to confirm dropping a player or trading a player before performing the action.",
+    "label": "Usability"
+  },
+  {
+    "text": "The system shall be capable of processing 100% of nursing students and their classes for the next 10 years.",
+    "label": "Scalability"
+  },
+  {
+    "text": "Every registered user will have access to the product\\92s support site via the Internet.  70% of registered users shall find a solution to their problem within 5 minutes of using the support site.",
+    "label": "Usability"
+  },
+  {
+    "text": "The product shall provide Monitoring Services.The product shall be easy for System Administrators and DBAs to use after two weeks of usage.",
+    "label": "Usability"
+  },
+  {
+    "text": "On a 112k connection or faster  the system response time for all operations must be no more than 3 seconds 90% of the time.",
+    "label": "Performance"
+  },
+  {
+    "text": "For the system to successfully operate the registration system should be integrated with other IT services and the portal.",
+    "label": "Operational"
+  },
+  {
+    "text": "The streaming server will have anti-virus software to prevent infection of malicious viruses.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall provide Portals.The product shall help System Administrators to analyze the transactions with ad-hoc reporting and KPIs (Key Performance Indicators)",
+    "label": "Usability"
+  },
+  {
+    "text": "The product is Web based therefore it will be used in any environment that allows Web access.",
+    "label": "Portability"
+  },
+  {
+    "text": "New branches/complexes/districts/regions and revenue/expense accounts added to the BDW  must be reflected in the RFS system. 100% of the entities (mentioned above) available as of October month-end  will be loaded into the RFS system  prior to the budget start process.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "System shall let administrators generate unique pre-paid pins in under 2 minutes and generate an Excel file with the generated PINs.",
+    "label": "Performance"
+  },
+  {
+    "text": "The product shall synchronize contacts and appointments in an acceptable time.",
+    "label": "Performance"
+  },
+  {
+    "text": "The customer’s web browser shall never display a customer’s password.  It shall always be echoed with special characters representing typed characters.",
+    "label": "Security"
+  },
+  {
+    "text": "The system interface will use CCR nomenclature. The system must use the same nomenclature used in the existing WCS system and reports",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The WCS system shall be run in a Windows environment. The WCS shall be accessed by users through the Internet on an IBM computer running a Windows 2000 or above operating system.",
+    "label": "Operational"
+  },
+  {
+    "text": "A user shall be able to use the system without instruction after a short amount of time. After one use a user should understand and remember 90% of the system usage and navigation.",
+    "label": "Usability"
+  },
+  {
+    "text": "It must only update the parts that have changed when connecting to the server.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product will function alongside server software on any operating system where the Java runtime can be installed.",
+    "label": "Operational"
+  },
+  {
+    "text": "The system shall display confirmation messages to users within 4 seconds after the user submits information to the system.",
+    "label": "Performance"
+  },
+  {
+    "text": "The product shall create an exception log of problems encountered within the product for transmission to our company for analysis and resolution.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "The website shall be available for use 24 hours per day  365 days per year.",
+    "label": "Availability"
+  },
+  {
+    "text": "The product shall provide Multi-threading and Load Balancing.The product shall provide multi-threading technology as well as load balancing to overcome data load spikes and traffic.",
+    "label": "Performance"
+  },
+  {
+    "text": "All authorized users  once authenticated must be able to logon to the Disputes System",
+    "label": "Security"
+  },
+  {
+    "text": "Izogn Administrator must be able to update the category listings on the website within 2 minutes.",
+    "label": "Performance"
+  },
+  {
+    "text": "The response time shall be fast enough to maintain the flow of the game.  The response time shall be no more than 2 seconds for 95% of responses and no more than 4% for the remaining responses.",
+    "label": "Performance"
+  },
+  {
+    "text": "The product shall be based on web and has to be run from a web server.",
+    "label": "Operational"
+  },
+  {
+    "text": "System shall let the administrator add/remove categories on the website in under 5 minutes.",
+    "label": "Performance"
+  },
+  {
+    "text": "The system shall provide a contractual agreement with an internet service provider who can provide 99.999% availability through their network facilities onto the internet.",
+    "label": "Availability"
+  },
+  {
+    "text": "The system will develop a security system that will reduce to the minimum the possibility of corruption from systems and/or humans.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall be available to players who understand English  Spanish and French.  The product shall allow the user to select the language upon accessing the product.",
+    "label": "Usability"
+  },
+  {
+    "text": "When a shot is marked as a miss  the product shall simulate the sound of a shot missing its target.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "Velkat staff will be available for phone support between 7am-7pm  M-F to provide technical support to the Izogn administrators.",
+    "label": "Availability"
+  },
+  {
+    "text": "All of the users shall be able to use the system after one day of training.",
+    "label": "Usability"
+  },
+  {
+    "text": "Only authorized users shall have access to clinical site information.",
+    "label": "Security"
+  },
+  {
+    "text": "The system shall be used within the specifications defined by the computers used by the Program Administrators/Nursing Staff Members.",
+    "label": "Operational"
+  },
+  {
+    "text": "Sensitive data will be encrypted before being sent over insecure connections like the internet.",
+    "label": "Security"
+  },
+  {
+    "text": "The system should be able to scale up to 500 concurrent users (if there is a need in the future) by installing additional hardware components.",
+    "label": "Scalability"
+  },
+  {
+    "text": "The system shall provide use of icons and toolbars.",
+    "label": "Usability"
+  },
+  {
+    "text": "System shall let customers register on the website as a \\93unlimited movie subscriber\\94 user in under 10 minutes.",
+    "label": "Performance"
+  },
+  {
+    "text": "The system provides storage of all databases on redundant computers with automatic switchover.",
+    "label": "Operational"
+  },
+  {
+    "text": "The Disputes application shall interface with the Letters application.  This will allow the Disputes application to request letters as part of the dispute initiation and dispute follow up process. All letter requests must be sent to the Print Letter Utility application.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall be installed by an untrained realtor without recourse to separately-printed instructions.",
+    "label": "Usability"
+  },
+  {
+    "text": "The process must fit within the processing time conditions set forth by the Auto Rep Assignment process in which a lead is assigned within 3 minutes of the total life cycle.",
+    "label": "Performance"
+  },
+  {
+    "text": "The client should agree to EULA before using our software.",
+    "label": "Legal"
+  },
+  {
+    "text": "The system shall be responsive. At the DePaul TeleServices Center  when a supervisor uses the system to view a callers schedule  the system response time must be no more than 2 seconds 90% of the time and no more than 5 seconds the rest of the time.",
+    "label": "Performance"
+  },
+  {
+    "text": "The System shall be able to automatically backup business data and restore them on demand.",
+    "label": "Operational"
+  },
+  {
+    "text": "The Disputes application must conform to the legal requirements as specified by Regulation E and Regulation Z that govern credit card disputes processing.",
+    "label": "Legal"
+  },
+  {
+    "text": "When a shot is marked as a hit  the product shall simulate the sound of a shot hitting its target.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The system should need to be entirely self-supporting since the users would be using it only to register courses.",
+    "label": "Usability"
+  },
+  {
+    "text": "The system shall confirm all transactions with the customer’s web browser.",
+    "label": "Usability"
+  },
+  {
+    "text": "The user interface shall have standard menus buttons for navigation",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The product and/or dependent databases/filesystems shall remain operational as a result of the input of malicious data.  The product and/or dependent databases/filesystems shall not crash 100% of the time that malicious data is input into the product.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "The website will provide a help section with answers and solutions to common problems.",
+    "label": "Usability"
+  },
+  {
+    "text": "The website shall be attractive to all audiences.  The website shall appear to be fun and the colors should be bright and vibrant.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "98% of the user workstations shall meet the minimum hardware requirements prior to implementation. Minimum Hard Disk Space:  400MB.",
+    "label": "Operational"
+  },
+  {
+    "text": "It should give a drill-down view of all data in the medical record after logging in.",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "User passwords will be stored in the database in an encrypted format.",
+    "label": "Security"
+  },
+  {
+    "text": "The system shall run on Windows Server 2003.",
+    "label": "Portability"
+  },
+  {
+    "text": "Information transmission should be securely transmitted to server without any changes in information.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall ensure that it can only be accessed by authorized users.  The product will be able to distinguish between authorized and unauthorized users in all access attempts",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall comply with corporate User Interface Guidelines",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The system’s back-end servers shall only be accessible to authenticated administrators.",
+    "label": "Security"
+  },
+  {
+    "text": "The meeting scheduler shall be accessed from the Web.",
+    "label": "Operational"
+  },
+  {
+    "text": "The system shall be easy to use by the Program Administrators/Nursing Staff Members.",
+    "label": "Usability"
+  },
+  {
+    "text": "The website is available whenever the users want to use it.",
+    "label": "Availability"
+  },
+  {
+    "text": "The product shall take initial load time depending on internet connection strength which also depends on the media from which the product is run.",
+    "label": "Performance"
+  },
+  {
+    "text": "The product should be able to be used by 90% of novice users on the Internet.",
+    "label": "Usability"
+  },
+  {
+    "text": "Application updates shall occur between 3AM and 6 AM CST on Wednesday morning during the middle of the NFL season.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The application shall match the color of the schema set forth by Department of Homeland Security",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "The system shall reveal private information only in compliance with the organization\\92s information policy.",
+    "label": "Security"
+  },
+  {
+    "text": "The system should not leave any cookies on the customer’s computer containing the user’s password.",
+    "label": "Security"
+  },
+  {
+    "text": "100% of merchant services representatives shall be able to successfully perform a follow up action on a dispute case on the first encounter after completing the training course.",
+    "label": "Usability"
+  },
+  {
+    "text": "All credit card information will be secured on the server  and only accessible by authorized Izogn administrators.  Information will be encrypted in the database.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall adhere to the corporate online availability schedule.  The application is brought down only within 98% of the scheduled outages per the availability schedule.",
+    "label": "Availability"
+  },
+  {
+    "text": "High level of performance requires high speed network and high level of connectivity.",
+    "label": "Performance"
+  },
+  {
+    "text": "The product shall have the ability to receive automatic software updates as new threats emerge. 100% of customers will be able to receive automatic software updates transmitted to the installed product.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall comply with the estimatics laws relating to recycled parts usage.",
+    "label": "Legal"
+  },
+  {
+    "text": "All credit card information will be encrypted in the database.",
+    "label": "Security"
+  },
+  {
+    "text": "Administrator shall be able to activate a pre-paid card via the Administration section in under 5 seconds.",
+    "label": "Performance"
+  },
+  {
+    "text": "The product must be able to interface with various email servers. The product shall be able to send email.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall provide Dynamic Change Support and Transparent resource addition.The product shall support Transparent Resource addition and Dynamic Change support to provide scalability and avoid service interruptions of more than 1 day.",
+    "label": "Performance"
+  },
+  {
+    "text": "The WCS system must run queries to the WCS databases once again (on a specified day) to update the available data available to CCR users. Queries must be made to external databases for data refresh once a week.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "IzognMovies shall meet the licensing requirements set forth by the appropriate organizations in order to stream African movies.",
+    "label": "Legal"
+  },
+  {
+    "text": "The product must be developed with the J2SE/J2EE programming language libraries",
+    "label": "Operational"
+  },
+  {
+    "text": "Any interface between a user and the automated system shall have a maximum response time of 5 seconds  unless noted by an exception below.",
+    "label": "Performance"
+  },
+  {
+    "text": "The WCS system shall not allow automatic logins by any user. Cookies containing WCS login information about a user will not be stored on a user\\92s computer.",
+    "label": "Security"
+  },
+  {
+    "text": "System shall let Izogn Manager access sales and usage statistics in under 2 minutes.",
+    "label": "Performance"
+  },
+  {
+    "text": "The Disputes application shall support 350 concurrent users without any degradation of performance in the application.",
+    "label": "Performance"
+  },
+  {
+    "text": "The IP addresses where the transaction was made from will be logged.",
+    "label": "Security"
+  },
+  {
+    "text": "Only authorized personnel can access customer records in the database.",
+    "label": "Security"
+  },
+  {
+    "text": "system shall be able to handle all of the user requests/usage during business hours.",
+    "label": "Scalability"
+  },
+  {
+    "text": "Be intuitive even to first time users",
+    "label": "Look and Feel"
+  },
+  {
+    "text": "98% of the user workstations shall meet the minimum software requirements prior to implementation: Microsoft Internet Explorer 5.0. Microsoft .NET Framework 1.1. Microsoft Internet Explorer Web Controls",
+    "label": "Operational"
+  },
+  {
+    "text": "Users should only have to navigate through a maximum of 4 pages  to create an account with the website.",
+    "label": "Usability"
+  },
+  {
+    "text": "When streaming a movie  the buffering time should take no longer than 10 seconds (plus any latency on the user\\92s connection.)",
+    "label": "Performance"
+  },
+  {
+    "text": "The product will require collaboration with a database management system (DBMS).  The DBMS may be located on the same machine as the product or on a separate machine residing on the same computer network.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product must be able to interface with various database management systems. The product shall communicate successfully with the database management system on 100% of all transactions.",
+    "label": "Operational"
+  },
+  {
+    "text": "The product shall be easy to use. 90% of users will be able to successfully reserve a conference room within 5 minutes of product use.",
+    "label": "Usability"
+  },
+  {
+    "text": "The application should be easy to extend. The code should be written in a way that it favors implementation of new functions.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The system shall not leave any cookies on the customer’s computer containing any of the user’s confidential information.",
+    "label": "Security"
+  },
+  {
+    "text": "All source code shall adhere to an agreed upon and well-defined set of coding standards for each development language used.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The product shall be translated into foreign languages other than the target market countries\\92 languages in future releases.  For each emerging target market  it shall take no more than 5 days to configure the product for that market\\92s language.",
+    "label": "Usability"
+  },
+  {
+    "text": "The product shall be capable of handling up to 1 000 concurrent requests.  This number will increase to 2 000 by Release 2.  The concurrency capacity must be able to handle peak scheduling times such as early morning and late afternoon hours.",
+    "label": "Scalability"
+  },
+  {
+    "text": "The product shall retain user preferences in the event of a failure.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "Full data backups must be created daily.",
+    "label": "Security"
+  },
+  {
+    "text": "The system shall prevent malicious attacks including denial of service.",
+    "label": "Security"
+  },
+  {
+    "text": "The product shall ensure that only company employees or external users with company-approved user IDs may have product access.  100% of all logons shall be by either company employees or external users with company-approved user IDs.",
+    "label": "Security"
+  },
+  {
+    "text": "The product must be highly configurable for use with various database management systems for the end users.  80% of end users are able to integrate new database management systems with the product without changing the product\\92s software code.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The system must be available for use between 7:00AM and 11:59PM all days of the year.",
+    "label": "Availability"
+  }
+]
