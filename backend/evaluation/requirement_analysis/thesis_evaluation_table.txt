@@ -1,0 +1,28 @@
+TABLE X
+Requirement Analysis Module Evaluation Results
+
+| Evaluation Component | Dataset | Accuracy | Precision | Recall | Macro F1 | Weighted F1 |
+|----------------------|---------|----------|-----------|--------|----------|-------------|
+| FR/NFR Classifier | 50 reviewed requirements | 0.7800 | - | - | 0.7799 | 0.7799 |
+| NFR Category Classifier | 25 reviewed NFR requirements | 0.4400 | - | - | 0.3206 | 0.3516 |
+| End-to-End NFR Classification Chain | 25 reviewed NFR requirements | 0.3200 | - | - | 0.2994 | 0.3108 |
+| Rule-Based Ambiguity Detection | 50 reviewed requirements | 0.8400 | 1.0000 | 0.3846 | 0.5556 | - |
+| Rule-Based Incompleteness Detection | 50 reviewed requirements | 0.6000 | 0.0000 | 0.0000 | 0.0000 | - |
+| Hybrid End-to-End Requirement Analysis | 50 reviewed requirements across 5 projects | Pending | Pending | Pending | Pending | Pending |
+
+
+Interpretation Notes
+
+1. The FR/NFR classifier achieved an accuracy of 78.0% on the external reviewed evaluation set.
+
+2. The standalone NFR category classifier achieved 44.0% accuracy, indicating weaker performance on fine-grained quality-attribute classification.
+
+3. The end-to-end NFR classification chain achieved 32.0% accuracy because FR/NFR misclassification can prevent the NFR category classifier from being executed.
+
+4. The rule-based ambiguity detector achieved high precision (100%) but low recall (38.46%). This indicates that deterministic rules are reliable when they flag an ambiguity, but they miss many contextual ambiguity cases.
+
+5. The rule-based incompleteness detector achieved zero recall because the current rules mainly detect explicit placeholders such as TBD and TBA, while the reviewed evaluation set contains broader contextual incompleteness.
+
+6. The results support the hybrid architecture combining deterministic rules, fine-tuned transformer classifiers, and LLM-based contextual reasoning.
+
+7. Final hybrid end-to-end results will be added after the remaining Gemini-based evaluation projects are completed.
