@@ -1,0 +1,17 @@
+requirement_id,domain,requirement_text,actor_text,actor_label,action_text,action_label,resource_text,resource_label,split,label_status
+REQ-011,Healthcare,A patient shall join a teleconsultation for a confirmed online appointment.,patient,Patient,join,join,teleconsultation,Teleconsultation,test,Proposed Gold - Needs Human Review
+REQ-012,Healthcare,An administrator shall deactivate a user account that violates clinic access policy.,administrator,Administrator,deactivate,deactivate,user account,User Account,test,Proposed Gold - Needs Human Review
+REQ-023,E-commerce,A customer shall request a refund for an eligible order.,customer,Customer,request,request,refund,Refund,test,Proposed Gold - Needs Human Review
+REQ-024,E-commerce,A seller shall view sales reports for a selected date range.,seller,Seller,view,view,sales reports,Sales Report,test,Proposed Gold - Needs Human Review
+REQ-035,Banking,A bank customer shall delete an inactive beneficiary.,bank customer,Bank Customer,delete,delete,beneficiary,Beneficiary,test,Proposed Gold - Needs Human Review
+REQ-036,Banking,A bank officer shall update the verification status of a customer profile.,bank officer,Bank Officer,update,update,customer profile,Customer Profile,test,Proposed Gold - Needs Human Review
+REQ-047,Library,A member shall renew an eligible book loan.,member,Member,renew,renew,book loan,Loan,test,Proposed Gold - Needs Human Review
+REQ-048,Library,A librarian shall deactivate an expired membership.,librarian,Librarian,deactivate,deactivate,membership,Membership,test,Proposed Gold - Needs Human Review
+REQ-059,Education,A lecturer shall schedule an examination for a course.,lecturer,Lecturer,schedule,schedule,examination,Examination,test,Proposed Gold - Needs Human Review
+REQ-060,Education,A student shall register for an examination.,student,Student,register,register,examination,Examination,test,Proposed Gold - Needs Human Review
+REQ-071,HR,An HR manager shall deactivate an employee account after termination.,HR manager,HR Manager,deactivate,deactivate,employee account,Employee Account,test,Proposed Gold - Needs Human Review
+REQ-072,HR,An employee shall download an employment confirmation letter.,employee,Employee,download,download,employment confirmation letter,Employment Letter,test,Proposed Gold - Needs Human Review
+REQ-083,Travel,A traveler shall check in for an eligible flight.,traveler,Traveler,check in,check_in,flight,Flight,test,Proposed Gold - Needs Human Review
+REQ-084,Travel,An agent shall review cancelled flight bookings.,agent,Travel Agent,review,review,flight bookings,Flight Booking,test,Proposed Gold - Needs Human Review
+REQ-095,Logistics,A customer shall report a damaged shipment.,customer,Customer,report,report,shipment,Shipment,test,Proposed Gold - Needs Human Review
+REQ-096,Logistics,A dispatcher shall close a completed delivery order.,dispatcher,Dispatcher,close,close,delivery order,Delivery Order,test,Proposed Gold - Needs Human Review

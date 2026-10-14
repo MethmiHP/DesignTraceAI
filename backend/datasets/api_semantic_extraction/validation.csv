@@ -1,0 +1,17 @@
+requirement_id,domain,requirement_text,actor_text,actor_label,action_text,action_label,resource_text,resource_label,split,label_status
+REQ-009,Healthcare,A patient shall pay an outstanding consultation payment through the payment gateway.,patient,Patient,pay,pay,consultation payment,Payment,validation,Proposed Gold - Needs Human Review
+REQ-010,Healthcare,A doctor shall view the medical record for an authorized patient.,doctor,Doctor,view,view,medical record,Medical Record,validation,Proposed Gold - Needs Human Review
+REQ-021,E-commerce,The system shall notify a customer when an order is shipped.,system,System,notify,notify,customer,Shipping Notification,validation,Proposed Gold - Needs Human Review
+REQ-022,E-commerce,A customer shall submit a review for a delivered product.,customer,Customer,submit,submit,review,Product Review,validation,Proposed Gold - Needs Human Review
+REQ-033,Banking,A bank officer shall review a suspicious transaction alert.,bank officer,Bank Officer,review,review,transaction alert,Transaction Alert,validation,Proposed Gold - Needs Human Review
+REQ-034,Banking,A bank customer shall create a new beneficiary for fund transfers.,bank customer,Bank Customer,create,create,beneficiary,Beneficiary,validation,Proposed Gold - Needs Human Review
+REQ-045,Library,A member shall pay an overdue fine.,member,Member,pay,pay,overdue fine,Fine,validation,Proposed Gold - Needs Human Review
+REQ-046,Library,A librarian shall review overdue loans.,librarian,Librarian,review,review,overdue loans,Loan,validation,Proposed Gold - Needs Human Review
+REQ-057,Education,The system shall notify a student when assignment feedback is published.,system,System,notify,notify,student,Feedback Notification,validation,Proposed Gold - Needs Human Review
+REQ-058,Education,A student shall download course learning materials.,student,Student,download,download,learning materials,Learning Material,validation,Proposed Gold - Needs Human Review
+REQ-069,HR,The system shall notify a candidate when an interview is scheduled.,system,System,notify,notify,candidate,Interview Notification,validation,Proposed Gold - Needs Human Review
+REQ-070,HR,An employee shall submit an expense claim with supporting receipts.,employee,Employee,submit,submit,expense claim,Expense Claim,validation,Proposed Gold - Needs Human Review
+REQ-081,Travel,The system shall notify a traveler when a flight schedule changes.,system,System,notify,notify,traveler,Schedule Notification,validation,Proposed Gold - Needs Human Review
+REQ-082,Travel,A traveler shall download a booking confirmation.,traveler,Traveler,download,download,booking confirmation,Booking Confirmation,validation,Proposed Gold - Needs Human Review
+REQ-093,Logistics,A driver shall upload proof of delivery after completing a shipment.,driver,Driver,upload,upload,proof of delivery,Proof of Delivery,validation,Proposed Gold - Needs Human Review
+REQ-094,Logistics,A dispatcher shall review failed delivery attempts.,dispatcher,Dispatcher,review,review,delivery attempts,Delivery Attempt,validation,Proposed Gold - Needs Human Review

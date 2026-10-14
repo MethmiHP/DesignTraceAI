@@ -1,0 +1,65 @@
+requirement_id,domain,requirement_text,actor_text,actor_label,action_text,action_label,resource_text,resource_label,split,label_status
+REQ-001,Healthcare,A patient shall book an available appointment with a selected doctor.,patient,Patient,book,book,appointment,Appointment,train,Proposed Gold - Needs Human Review
+REQ-002,Healthcare,A patient shall reschedule an existing appointment to another available consultation slot.,patient,Patient,reschedule,reschedule,appointment,Appointment,train,Proposed Gold - Needs Human Review
+REQ-003,Healthcare,A patient shall cancel a confirmed appointment before the cancellation deadline.,patient,Patient,cancel,cancel,appointment,Appointment,train,Proposed Gold - Needs Human Review
+REQ-004,Healthcare,A patient shall search for a doctor by specialty and clinic location.,patient,Patient,search,search,doctor,Doctor,train,Proposed Gold - Needs Human Review
+REQ-005,Healthcare,A doctor shall create a prescription after a completed consultation.,doctor,Doctor,create,create,prescription,Prescription,train,Proposed Gold - Needs Human Review
+REQ-006,Healthcare,A doctor shall update the status of an appointment after completing a consultation.,doctor,Doctor,update,update,appointment,Appointment,train,Proposed Gold - Needs Human Review
+REQ-007,Healthcare,An administrator shall review audit events for suspicious access activity.,administrator,Administrator,review,review,audit events,Audit Event,train,Proposed Gold - Needs Human Review
+REQ-008,Healthcare,The system shall notify a patient when an appointment is confirmed.,system,System,notify,notify,patient,Patient Notification,train,Proposed Gold - Needs Human Review
+REQ-013,E-commerce,A customer shall add a product to the shopping cart.,customer,Customer,add,add,product,Product,train,Proposed Gold - Needs Human Review
+REQ-014,E-commerce,A customer shall remove an item from the shopping cart.,customer,Customer,remove,remove,item,Cart Item,train,Proposed Gold - Needs Human Review
+REQ-015,E-commerce,A customer shall place an order for the products in the shopping cart.,customer,Customer,place,place,order,Order,train,Proposed Gold - Needs Human Review
+REQ-016,E-commerce,A customer shall cancel an order that has not been shipped.,customer,Customer,cancel,cancel,order,Order,train,Proposed Gold - Needs Human Review
+REQ-017,E-commerce,"A customer shall search for a product by name, category, or brand.",customer,Customer,search,search,product,Product,train,Proposed Gold - Needs Human Review
+REQ-018,E-commerce,A seller shall create a new product listing.,seller,Seller,create,create,product listing,Product Listing,train,Proposed Gold - Needs Human Review
+REQ-019,E-commerce,A seller shall update the stock quantity of a product.,seller,Seller,update,update,stock quantity,Inventory,train,Proposed Gold - Needs Human Review
+REQ-020,E-commerce,An administrator shall approve a seller registration request.,administrator,Administrator,approve,approve,seller registration request,Seller Registration,train,Proposed Gold - Needs Human Review
+REQ-025,Banking,A bank customer shall transfer funds to another registered account.,bank customer,Bank Customer,transfer,transfer,funds,Fund Transfer,train,Proposed Gold - Needs Human Review
+REQ-026,Banking,A bank customer shall view the current balance of an account.,bank customer,Bank Customer,view,view,account balance,Account Balance,train,Proposed Gold - Needs Human Review
+REQ-027,Banking,A bank customer shall download a monthly bank statement.,bank customer,Bank Customer,download,download,bank statement,Bank Statement,train,Proposed Gold - Needs Human Review
+REQ-028,Banking,A bank customer shall pay a utility bill from a selected account.,bank customer,Bank Customer,pay,pay,utility bill,Bill Payment,train,Proposed Gold - Needs Human Review
+REQ-029,Banking,A bank officer shall approve a loan application after verification.,bank officer,Bank Officer,approve,approve,loan application,Loan Application,train,Proposed Gold - Needs Human Review
+REQ-030,Banking,A bank officer shall reject an incomplete loan application.,bank officer,Bank Officer,reject,reject,loan application,Loan Application,train,Proposed Gold - Needs Human Review
+REQ-031,Banking,A bank customer shall block a lost payment card.,bank customer,Bank Customer,block,block,payment card,Payment Card,train,Proposed Gold - Needs Human Review
+REQ-032,Banking,The system shall notify a bank customer of a high-value transaction.,system,System,notify,notify,bank customer,Transaction Notification,train,Proposed Gold - Needs Human Review
+REQ-037,Library,A member shall borrow an available book.,member,Member,borrow,borrow,book,Book,train,Proposed Gold - Needs Human Review
+REQ-038,Library,A member shall return a borrowed book.,member,Member,return,return,book,Book,train,Proposed Gold - Needs Human Review
+REQ-039,Library,A member shall reserve a book that is currently unavailable.,member,Member,reserve,reserve,book,Book,train,Proposed Gold - Needs Human Review
+REQ-040,Library,"A member shall search for a book by title, author, or ISBN.",member,Member,search,search,book,Book,train,Proposed Gold - Needs Human Review
+REQ-041,Library,A librarian shall add a new book to the catalog.,librarian,Librarian,add,add,book,Book,train,Proposed Gold - Needs Human Review
+REQ-042,Library,A librarian shall update the catalog details of a book.,librarian,Librarian,update,update,book,Book,train,Proposed Gold - Needs Human Review
+REQ-043,Library,A librarian shall remove a damaged book from circulation.,librarian,Librarian,remove,remove,book,Book,train,Proposed Gold - Needs Human Review
+REQ-044,Library,The system shall notify a member when a reserved book becomes available.,system,System,notify,notify,member,Availability Notification,train,Proposed Gold - Needs Human Review
+REQ-049,Education,A student shall enroll in an available course.,student,Student,enroll,enroll,course,Course,train,Proposed Gold - Needs Human Review
+REQ-050,Education,A student shall drop a course before the academic deadline.,student,Student,drop,drop,course,Course,train,Proposed Gold - Needs Human Review
+REQ-051,Education,A student shall submit an assignment before the due date.,student,Student,submit,submit,assignment,Assignment,train,Proposed Gold - Needs Human Review
+REQ-052,Education,A lecturer shall grade a submitted assignment.,lecturer,Lecturer,grade,grade,assignment,Assignment,train,Proposed Gold - Needs Human Review
+REQ-053,Education,A lecturer shall publish the final grade for a course.,lecturer,Lecturer,publish,publish,final grade,Grade,train,Proposed Gold - Needs Human Review
+REQ-054,Education,A student shall view the timetable for enrolled courses.,student,Student,view,view,timetable,Timetable,train,Proposed Gold - Needs Human Review
+REQ-055,Education,An administrator shall create a new academic semester.,administrator,Administrator,create,create,academic semester,Semester,train,Proposed Gold - Needs Human Review
+REQ-056,Education,An administrator shall assign a lecturer to a course.,administrator,Administrator,assign,assign,lecturer,Course Assignment,train,Proposed Gold - Needs Human Review
+REQ-061,HR,An employee shall request annual leave for selected dates.,employee,Employee,request,request,annual leave,Leave Request,train,Proposed Gold - Needs Human Review
+REQ-062,HR,An HR manager shall approve an eligible leave request.,HR manager,HR Manager,approve,approve,leave request,Leave Request,train,Proposed Gold - Needs Human Review
+REQ-063,HR,An HR manager shall reject a leave request with a reason.,HR manager,HR Manager,reject,reject,leave request,Leave Request,train,Proposed Gold - Needs Human Review
+REQ-064,HR,An employee shall update personal contact information.,employee,Employee,update,update,contact information,Employee Profile,train,Proposed Gold - Needs Human Review
+REQ-065,HR,An employee shall view the monthly payslip.,employee,Employee,view,view,payslip,Payslip,train,Proposed Gold - Needs Human Review
+REQ-066,HR,An HR manager shall create a job vacancy.,HR manager,HR Manager,create,create,job vacancy,Job Vacancy,train,Proposed Gold - Needs Human Review
+REQ-067,HR,A recruiter shall review a submitted job application.,recruiter,Recruiter,review,review,job application,Job Application,train,Proposed Gold - Needs Human Review
+REQ-068,HR,A recruiter shall schedule an interview for a shortlisted candidate.,recruiter,Recruiter,schedule,schedule,interview,Interview,train,Proposed Gold - Needs Human Review
+REQ-073,Travel,"A traveler shall search for a flight by origin, destination, and date.",traveler,Traveler,search,search,flight,Flight,train,Proposed Gold - Needs Human Review
+REQ-074,Travel,A traveler shall book an available flight.,traveler,Traveler,book,book,flight,Flight,train,Proposed Gold - Needs Human Review
+REQ-075,Travel,A traveler shall cancel an eligible flight booking.,traveler,Traveler,cancel,cancel,flight booking,Flight Booking,train,Proposed Gold - Needs Human Review
+REQ-076,Travel,A traveler shall reschedule a flight booking to another available flight.,traveler,Traveler,reschedule,reschedule,flight booking,Flight Booking,train,Proposed Gold - Needs Human Review
+REQ-077,Travel,A traveler shall select a seat for a confirmed flight booking.,traveler,Traveler,select,select,seat,Seat,train,Proposed Gold - Needs Human Review
+REQ-078,Travel,A traveler shall pay for a flight booking using a supported payment method.,traveler,Traveler,pay,pay,flight booking,Flight Booking,train,Proposed Gold - Needs Human Review
+REQ-079,Travel,An agent shall create a travel package.,agent,Travel Agent,create,create,travel package,Travel Package,train,Proposed Gold - Needs Human Review
+REQ-080,Travel,An agent shall update the price of a travel package.,agent,Travel Agent,update,update,travel package,Travel Package,train,Proposed Gold - Needs Human Review
+REQ-085,Logistics,A dispatcher shall create a delivery order for a customer shipment.,dispatcher,Dispatcher,create,create,delivery order,Delivery Order,train,Proposed Gold - Needs Human Review
+REQ-086,Logistics,A dispatcher shall assign a driver to a delivery order.,dispatcher,Dispatcher,assign,assign,driver,Driver Assignment,train,Proposed Gold - Needs Human Review
+REQ-087,Logistics,A driver shall accept an assigned delivery order.,driver,Driver,accept,accept,delivery order,Delivery Order,train,Proposed Gold - Needs Human Review
+REQ-088,Logistics,A driver shall update the status of a delivery order.,driver,Driver,update,update,delivery order,Delivery Order,train,Proposed Gold - Needs Human Review
+REQ-089,Logistics,A customer shall track the current location of a shipment.,customer,Customer,track,track,shipment,Shipment,train,Proposed Gold - Needs Human Review
+REQ-090,Logistics,A customer shall cancel a delivery request before dispatch.,customer,Customer,cancel,cancel,delivery request,Delivery Request,train,Proposed Gold - Needs Human Review
+REQ-091,Logistics,A dispatcher shall reschedule a delayed delivery.,dispatcher,Dispatcher,reschedule,reschedule,delivery,Delivery,train,Proposed Gold - Needs Human Review
+REQ-092,Logistics,The system shall notify a customer when a shipment is delivered.,system,System,notify,notify,customer,Delivery Notification,train,Proposed Gold - Needs Human Review
