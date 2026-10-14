@@ -1,0 +1,450 @@
+[
+  {
+    "requirement_id": "REQ-009",
+    "domain": "Healthcare",
+    "text": "A patient shall pay an outstanding consultation payment through the payment gateway.",
+    "tokens": [
+      "A",
+      "patient",
+      "shall",
+      "pay",
+      "an",
+      "outstanding",
+      "consultation",
+      "payment",
+      "through",
+      "the",
+      "payment",
+      "gateway"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-010",
+    "domain": "Healthcare",
+    "text": "A doctor shall view the medical record for an authorized patient.",
+    "tokens": [
+      "A",
+      "doctor",
+      "shall",
+      "view",
+      "the",
+      "medical",
+      "record",
+      "for",
+      "an",
+      "authorized",
+      "patient"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-021",
+    "domain": "E-commerce",
+    "text": "The system shall notify a customer when an order is shipped.",
+    "tokens": [
+      "The",
+      "system",
+      "shall",
+      "notify",
+      "a",
+      "customer",
+      "when",
+      "an",
+      "order",
+      "is",
+      "shipped"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-022",
+    "domain": "E-commerce",
+    "text": "A customer shall submit a review for a delivered product.",
+    "tokens": [
+      "A",
+      "customer",
+      "shall",
+      "submit",
+      "a",
+      "review",
+      "for",
+      "a",
+      "delivered",
+      "product"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-033",
+    "domain": "Banking",
+    "text": "A bank officer shall review a suspicious transaction alert.",
+    "tokens": [
+      "A",
+      "bank",
+      "officer",
+      "shall",
+      "review",
+      "a",
+      "suspicious",
+      "transaction",
+      "alert"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "I-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-034",
+    "domain": "Banking",
+    "text": "A bank customer shall create a new beneficiary for fund transfers.",
+    "tokens": [
+      "A",
+      "bank",
+      "customer",
+      "shall",
+      "create",
+      "a",
+      "new",
+      "beneficiary",
+      "for",
+      "fund",
+      "transfers"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "I-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-045",
+    "domain": "Library",
+    "text": "A member shall pay an overdue fine.",
+    "tokens": [
+      "A",
+      "member",
+      "shall",
+      "pay",
+      "an",
+      "overdue",
+      "fine"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-046",
+    "domain": "Library",
+    "text": "A librarian shall review overdue loans.",
+    "tokens": [
+      "A",
+      "librarian",
+      "shall",
+      "review",
+      "overdue",
+      "loans"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-057",
+    "domain": "Education",
+    "text": "The system shall notify a student when assignment feedback is published.",
+    "tokens": [
+      "The",
+      "system",
+      "shall",
+      "notify",
+      "a",
+      "student",
+      "when",
+      "assignment",
+      "feedback",
+      "is",
+      "published"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-058",
+    "domain": "Education",
+    "text": "A student shall download course learning materials.",
+    "tokens": [
+      "A",
+      "student",
+      "shall",
+      "download",
+      "course",
+      "learning",
+      "materials"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-069",
+    "domain": "HR",
+    "text": "The system shall notify a candidate when an interview is scheduled.",
+    "tokens": [
+      "The",
+      "system",
+      "shall",
+      "notify",
+      "a",
+      "candidate",
+      "when",
+      "an",
+      "interview",
+      "is",
+      "scheduled"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-070",
+    "domain": "HR",
+    "text": "An employee shall submit an expense claim with supporting receipts.",
+    "tokens": [
+      "An",
+      "employee",
+      "shall",
+      "submit",
+      "an",
+      "expense",
+      "claim",
+      "with",
+      "supporting",
+      "receipts"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-081",
+    "domain": "Travel",
+    "text": "The system shall notify a traveler when a flight schedule changes.",
+    "tokens": [
+      "The",
+      "system",
+      "shall",
+      "notify",
+      "a",
+      "traveler",
+      "when",
+      "a",
+      "flight",
+      "schedule",
+      "changes"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-082",
+    "domain": "Travel",
+    "text": "A traveler shall download a booking confirmation.",
+    "tokens": [
+      "A",
+      "traveler",
+      "shall",
+      "download",
+      "a",
+      "booking",
+      "confirmation"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-093",
+    "domain": "Logistics",
+    "text": "A driver shall upload proof of delivery after completing a shipment.",
+    "tokens": [
+      "A",
+      "driver",
+      "shall",
+      "upload",
+      "proof",
+      "of",
+      "delivery",
+      "after",
+      "completing",
+      "a",
+      "shipment"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "I-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-094",
+    "domain": "Logistics",
+    "text": "A dispatcher shall review failed delivery attempts.",
+    "tokens": [
+      "A",
+      "dispatcher",
+      "shall",
+      "review",
+      "failed",
+      "delivery",
+      "attempts"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  }
+]

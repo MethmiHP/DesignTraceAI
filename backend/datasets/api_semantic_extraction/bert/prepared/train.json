@@ -1,0 +1,1828 @@
+[
+  {
+    "requirement_id": "REQ-001",
+    "domain": "Healthcare",
+    "text": "A patient shall book an available appointment with a selected doctor.",
+    "tokens": [
+      "A",
+      "patient",
+      "shall",
+      "book",
+      "an",
+      "available",
+      "appointment",
+      "with",
+      "a",
+      "selected",
+      "doctor"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-002",
+    "domain": "Healthcare",
+    "text": "A patient shall reschedule an existing appointment to another available consultation slot.",
+    "tokens": [
+      "A",
+      "patient",
+      "shall",
+      "reschedule",
+      "an",
+      "existing",
+      "appointment",
+      "to",
+      "another",
+      "available",
+      "consultation",
+      "slot"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-003",
+    "domain": "Healthcare",
+    "text": "A patient shall cancel a confirmed appointment before the cancellation deadline.",
+    "tokens": [
+      "A",
+      "patient",
+      "shall",
+      "cancel",
+      "a",
+      "confirmed",
+      "appointment",
+      "before",
+      "the",
+      "cancellation",
+      "deadline"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-004",
+    "domain": "Healthcare",
+    "text": "A patient shall search for a doctor by specialty and clinic location.",
+    "tokens": [
+      "A",
+      "patient",
+      "shall",
+      "search",
+      "for",
+      "a",
+      "doctor",
+      "by",
+      "specialty",
+      "and",
+      "clinic",
+      "location"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-005",
+    "domain": "Healthcare",
+    "text": "A doctor shall create a prescription after a completed consultation.",
+    "tokens": [
+      "A",
+      "doctor",
+      "shall",
+      "create",
+      "a",
+      "prescription",
+      "after",
+      "a",
+      "completed",
+      "consultation"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-006",
+    "domain": "Healthcare",
+    "text": "A doctor shall update the status of an appointment after completing a consultation.",
+    "tokens": [
+      "A",
+      "doctor",
+      "shall",
+      "update",
+      "the",
+      "status",
+      "of",
+      "an",
+      "appointment",
+      "after",
+      "completing",
+      "a",
+      "consultation"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-007",
+    "domain": "Healthcare",
+    "text": "An administrator shall review audit events for suspicious access activity.",
+    "tokens": [
+      "An",
+      "administrator",
+      "shall",
+      "review",
+      "audit",
+      "events",
+      "for",
+      "suspicious",
+      "access",
+      "activity"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-008",
+    "domain": "Healthcare",
+    "text": "The system shall notify a patient when an appointment is confirmed.",
+    "tokens": [
+      "The",
+      "system",
+      "shall",
+      "notify",
+      "a",
+      "patient",
+      "when",
+      "an",
+      "appointment",
+      "is",
+      "confirmed"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-013",
+    "domain": "E-commerce",
+    "text": "A customer shall add a product to the shopping cart.",
+    "tokens": [
+      "A",
+      "customer",
+      "shall",
+      "add",
+      "a",
+      "product",
+      "to",
+      "the",
+      "shopping",
+      "cart"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-014",
+    "domain": "E-commerce",
+    "text": "A customer shall remove an item from the shopping cart.",
+    "tokens": [
+      "A",
+      "customer",
+      "shall",
+      "remove",
+      "an",
+      "item",
+      "from",
+      "the",
+      "shopping",
+      "cart"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-015",
+    "domain": "E-commerce",
+    "text": "A customer shall place an order for the products in the shopping cart.",
+    "tokens": [
+      "A",
+      "customer",
+      "shall",
+      "place",
+      "an",
+      "order",
+      "for",
+      "the",
+      "products",
+      "in",
+      "the",
+      "shopping",
+      "cart"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-016",
+    "domain": "E-commerce",
+    "text": "A customer shall cancel an order that has not been shipped.",
+    "tokens": [
+      "A",
+      "customer",
+      "shall",
+      "cancel",
+      "an",
+      "order",
+      "that",
+      "has",
+      "not",
+      "been",
+      "shipped"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-017",
+    "domain": "E-commerce",
+    "text": "A customer shall search for a product by name, category, or brand.",
+    "tokens": [
+      "A",
+      "customer",
+      "shall",
+      "search",
+      "for",
+      "a",
+      "product",
+      "by",
+      "name",
+      "category",
+      "or",
+      "brand"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-018",
+    "domain": "E-commerce",
+    "text": "A seller shall create a new product listing.",
+    "tokens": [
+      "A",
+      "seller",
+      "shall",
+      "create",
+      "a",
+      "new",
+      "product",
+      "listing"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-019",
+    "domain": "E-commerce",
+    "text": "A seller shall update the stock quantity of a product.",
+    "tokens": [
+      "A",
+      "seller",
+      "shall",
+      "update",
+      "the",
+      "stock",
+      "quantity",
+      "of",
+      "a",
+      "product"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-020",
+    "domain": "E-commerce",
+    "text": "An administrator shall approve a seller registration request.",
+    "tokens": [
+      "An",
+      "administrator",
+      "shall",
+      "approve",
+      "a",
+      "seller",
+      "registration",
+      "request"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-025",
+    "domain": "Banking",
+    "text": "A bank customer shall transfer funds to another registered account.",
+    "tokens": [
+      "A",
+      "bank",
+      "customer",
+      "shall",
+      "transfer",
+      "funds",
+      "to",
+      "another",
+      "registered",
+      "account"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "I-ACTOR",
+      "O",
+      "B-ACTION",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-026",
+    "domain": "Banking",
+    "text": "A bank customer shall view the current balance of an account.",
+    "tokens": [
+      "A",
+      "bank",
+      "customer",
+      "shall",
+      "view",
+      "the",
+      "current",
+      "balance",
+      "of",
+      "an",
+      "account"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "I-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-027",
+    "domain": "Banking",
+    "text": "A bank customer shall download a monthly bank statement.",
+    "tokens": [
+      "A",
+      "bank",
+      "customer",
+      "shall",
+      "download",
+      "a",
+      "monthly",
+      "bank",
+      "statement"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "I-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-028",
+    "domain": "Banking",
+    "text": "A bank customer shall pay a utility bill from a selected account.",
+    "tokens": [
+      "A",
+      "bank",
+      "customer",
+      "shall",
+      "pay",
+      "a",
+      "utility",
+      "bill",
+      "from",
+      "a",
+      "selected",
+      "account"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "I-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-029",
+    "domain": "Banking",
+    "text": "A bank officer shall approve a loan application after verification.",
+    "tokens": [
+      "A",
+      "bank",
+      "officer",
+      "shall",
+      "approve",
+      "a",
+      "loan",
+      "application",
+      "after",
+      "verification"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "I-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-030",
+    "domain": "Banking",
+    "text": "A bank officer shall reject an incomplete loan application.",
+    "tokens": [
+      "A",
+      "bank",
+      "officer",
+      "shall",
+      "reject",
+      "an",
+      "incomplete",
+      "loan",
+      "application"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "I-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-031",
+    "domain": "Banking",
+    "text": "A bank customer shall block a lost payment card.",
+    "tokens": [
+      "A",
+      "bank",
+      "customer",
+      "shall",
+      "block",
+      "a",
+      "lost",
+      "payment",
+      "card"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "I-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-032",
+    "domain": "Banking",
+    "text": "The system shall notify a bank customer of a high-value transaction.",
+    "tokens": [
+      "The",
+      "system",
+      "shall",
+      "notify",
+      "a",
+      "bank",
+      "customer",
+      "of",
+      "a",
+      "high-value",
+      "transaction"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-037",
+    "domain": "Library",
+    "text": "A member shall borrow an available book.",
+    "tokens": [
+      "A",
+      "member",
+      "shall",
+      "borrow",
+      "an",
+      "available",
+      "book"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-038",
+    "domain": "Library",
+    "text": "A member shall return a borrowed book.",
+    "tokens": [
+      "A",
+      "member",
+      "shall",
+      "return",
+      "a",
+      "borrowed",
+      "book"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-039",
+    "domain": "Library",
+    "text": "A member shall reserve a book that is currently unavailable.",
+    "tokens": [
+      "A",
+      "member",
+      "shall",
+      "reserve",
+      "a",
+      "book",
+      "that",
+      "is",
+      "currently",
+      "unavailable"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-040",
+    "domain": "Library",
+    "text": "A member shall search for a book by title, author, or ISBN.",
+    "tokens": [
+      "A",
+      "member",
+      "shall",
+      "search",
+      "for",
+      "a",
+      "book",
+      "by",
+      "title",
+      "author",
+      "or",
+      "ISBN"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-041",
+    "domain": "Library",
+    "text": "A librarian shall add a new book to the catalog.",
+    "tokens": [
+      "A",
+      "librarian",
+      "shall",
+      "add",
+      "a",
+      "new",
+      "book",
+      "to",
+      "the",
+      "catalog"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-042",
+    "domain": "Library",
+    "text": "A librarian shall update the catalog details of a book.",
+    "tokens": [
+      "A",
+      "librarian",
+      "shall",
+      "update",
+      "the",
+      "catalog",
+      "details",
+      "of",
+      "a",
+      "book"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-043",
+    "domain": "Library",
+    "text": "A librarian shall remove a damaged book from circulation.",
+    "tokens": [
+      "A",
+      "librarian",
+      "shall",
+      "remove",
+      "a",
+      "damaged",
+      "book",
+      "from",
+      "circulation"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-044",
+    "domain": "Library",
+    "text": "The system shall notify a member when a reserved book becomes available.",
+    "tokens": [
+      "The",
+      "system",
+      "shall",
+      "notify",
+      "a",
+      "member",
+      "when",
+      "a",
+      "reserved",
+      "book",
+      "becomes",
+      "available"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-049",
+    "domain": "Education",
+    "text": "A student shall enroll in an available course.",
+    "tokens": [
+      "A",
+      "student",
+      "shall",
+      "enroll",
+      "in",
+      "an",
+      "available",
+      "course"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "O",
+      "B-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-050",
+    "domain": "Education",
+    "text": "A student shall drop a course before the academic deadline.",
+    "tokens": [
+      "A",
+      "student",
+      "shall",
+      "drop",
+      "a",
+      "course",
+      "before",
+      "the",
+      "academic",
+      "deadline"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-051",
+    "domain": "Education",
+    "text": "A student shall submit an assignment before the due date.",
+    "tokens": [
+      "A",
+      "student",
+      "shall",
+      "submit",
+      "an",
+      "assignment",
+      "before",
+      "the",
+      "due",
+      "date"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-052",
+    "domain": "Education",
+    "text": "A lecturer shall grade a submitted assignment.",
+    "tokens": [
+      "A",
+      "lecturer",
+      "shall",
+      "grade",
+      "a",
+      "submitted",
+      "assignment"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-053",
+    "domain": "Education",
+    "text": "A lecturer shall publish the final grade for a course.",
+    "tokens": [
+      "A",
+      "lecturer",
+      "shall",
+      "publish",
+      "the",
+      "final",
+      "grade",
+      "for",
+      "a",
+      "course"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-054",
+    "domain": "Education",
+    "text": "A student shall view the timetable for enrolled courses.",
+    "tokens": [
+      "A",
+      "student",
+      "shall",
+      "view",
+      "the",
+      "timetable",
+      "for",
+      "enrolled",
+      "courses"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-055",
+    "domain": "Education",
+    "text": "An administrator shall create a new academic semester.",
+    "tokens": [
+      "An",
+      "administrator",
+      "shall",
+      "create",
+      "a",
+      "new",
+      "academic",
+      "semester"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-056",
+    "domain": "Education",
+    "text": "An administrator shall assign a lecturer to a course.",
+    "tokens": [
+      "An",
+      "administrator",
+      "shall",
+      "assign",
+      "a",
+      "lecturer",
+      "to",
+      "a",
+      "course"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-061",
+    "domain": "HR",
+    "text": "An employee shall request annual leave for selected dates.",
+    "tokens": [
+      "An",
+      "employee",
+      "shall",
+      "request",
+      "annual",
+      "leave",
+      "for",
+      "selected",
+      "dates"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-062",
+    "domain": "HR",
+    "text": "An HR manager shall approve an eligible leave request.",
+    "tokens": [
+      "An",
+      "HR",
+      "manager",
+      "shall",
+      "approve",
+      "an",
+      "eligible",
+      "leave",
+      "request"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "I-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-063",
+    "domain": "HR",
+    "text": "An HR manager shall reject a leave request with a reason.",
+    "tokens": [
+      "An",
+      "HR",
+      "manager",
+      "shall",
+      "reject",
+      "a",
+      "leave",
+      "request",
+      "with",
+      "a",
+      "reason"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "I-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-064",
+    "domain": "HR",
+    "text": "An employee shall update personal contact information.",
+    "tokens": [
+      "An",
+      "employee",
+      "shall",
+      "update",
+      "personal",
+      "contact",
+      "information"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-065",
+    "domain": "HR",
+    "text": "An employee shall view the monthly payslip.",
+    "tokens": [
+      "An",
+      "employee",
+      "shall",
+      "view",
+      "the",
+      "monthly",
+      "payslip"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-066",
+    "domain": "HR",
+    "text": "An HR manager shall create a job vacancy.",
+    "tokens": [
+      "An",
+      "HR",
+      "manager",
+      "shall",
+      "create",
+      "a",
+      "job",
+      "vacancy"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "I-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-067",
+    "domain": "HR",
+    "text": "A recruiter shall review a submitted job application.",
+    "tokens": [
+      "A",
+      "recruiter",
+      "shall",
+      "review",
+      "a",
+      "submitted",
+      "job",
+      "application"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-068",
+    "domain": "HR",
+    "text": "A recruiter shall schedule an interview for a shortlisted candidate.",
+    "tokens": [
+      "A",
+      "recruiter",
+      "shall",
+      "schedule",
+      "an",
+      "interview",
+      "for",
+      "a",
+      "shortlisted",
+      "candidate"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-073",
+    "domain": "Travel",
+    "text": "A traveler shall search for a flight by origin, destination, and date.",
+    "tokens": [
+      "A",
+      "traveler",
+      "shall",
+      "search",
+      "for",
+      "a",
+      "flight",
+      "by",
+      "origin",
+      "destination",
+      "and",
+      "date"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-074",
+    "domain": "Travel",
+    "text": "A traveler shall book an available flight.",
+    "tokens": [
+      "A",
+      "traveler",
+      "shall",
+      "book",
+      "an",
+      "available",
+      "flight"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-075",
+    "domain": "Travel",
+    "text": "A traveler shall cancel an eligible flight booking.",
+    "tokens": [
+      "A",
+      "traveler",
+      "shall",
+      "cancel",
+      "an",
+      "eligible",
+      "flight",
+      "booking"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-076",
+    "domain": "Travel",
+    "text": "A traveler shall reschedule a flight booking to another available flight.",
+    "tokens": [
+      "A",
+      "traveler",
+      "shall",
+      "reschedule",
+      "a",
+      "flight",
+      "booking",
+      "to",
+      "another",
+      "available",
+      "flight"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-077",
+    "domain": "Travel",
+    "text": "A traveler shall select a seat for a confirmed flight booking.",
+    "tokens": [
+      "A",
+      "traveler",
+      "shall",
+      "select",
+      "a",
+      "seat",
+      "for",
+      "a",
+      "confirmed",
+      "flight",
+      "booking"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-078",
+    "domain": "Travel",
+    "text": "A traveler shall pay for a flight booking using a supported payment method.",
+    "tokens": [
+      "A",
+      "traveler",
+      "shall",
+      "pay",
+      "for",
+      "a",
+      "flight",
+      "booking",
+      "using",
+      "a",
+      "supported",
+      "payment",
+      "method"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-079",
+    "domain": "Travel",
+    "text": "An agent shall create a travel package.",
+    "tokens": [
+      "An",
+      "agent",
+      "shall",
+      "create",
+      "a",
+      "travel",
+      "package"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-080",
+    "domain": "Travel",
+    "text": "An agent shall update the price of a travel package.",
+    "tokens": [
+      "An",
+      "agent",
+      "shall",
+      "update",
+      "the",
+      "price",
+      "of",
+      "a",
+      "travel",
+      "package"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-085",
+    "domain": "Logistics",
+    "text": "A dispatcher shall create a delivery order for a customer shipment.",
+    "tokens": [
+      "A",
+      "dispatcher",
+      "shall",
+      "create",
+      "a",
+      "delivery",
+      "order",
+      "for",
+      "a",
+      "customer",
+      "shipment"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-086",
+    "domain": "Logistics",
+    "text": "A dispatcher shall assign a driver to a delivery order.",
+    "tokens": [
+      "A",
+      "dispatcher",
+      "shall",
+      "assign",
+      "a",
+      "driver",
+      "to",
+      "a",
+      "delivery",
+      "order"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-087",
+    "domain": "Logistics",
+    "text": "A driver shall accept an assigned delivery order.",
+    "tokens": [
+      "A",
+      "driver",
+      "shall",
+      "accept",
+      "an",
+      "assigned",
+      "delivery",
+      "order"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-088",
+    "domain": "Logistics",
+    "text": "A driver shall update the status of a delivery order.",
+    "tokens": [
+      "A",
+      "driver",
+      "shall",
+      "update",
+      "the",
+      "status",
+      "of",
+      "a",
+      "delivery",
+      "order"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-089",
+    "domain": "Logistics",
+    "text": "A customer shall track the current location of a shipment.",
+    "tokens": [
+      "A",
+      "customer",
+      "shall",
+      "track",
+      "the",
+      "current",
+      "location",
+      "of",
+      "a",
+      "shipment"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-090",
+    "domain": "Logistics",
+    "text": "A customer shall cancel a delivery request before dispatch.",
+    "tokens": [
+      "A",
+      "customer",
+      "shall",
+      "cancel",
+      "a",
+      "delivery",
+      "request",
+      "before",
+      "dispatch"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "I-RESOURCE",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "requirement_id": "REQ-091",
+    "domain": "Logistics",
+    "text": "A dispatcher shall reschedule a delayed delivery.",
+    "tokens": [
+      "A",
+      "dispatcher",
+      "shall",
+      "reschedule",
+      "a",
+      "delayed",
+      "delivery"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "O",
+      "B-RESOURCE"
+    ]
+  },
+  {
+    "requirement_id": "REQ-092",
+    "domain": "Logistics",
+    "text": "The system shall notify a customer when a shipment is delivered.",
+    "tokens": [
+      "The",
+      "system",
+      "shall",
+      "notify",
+      "a",
+      "customer",
+      "when",
+      "a",
+      "shipment",
+      "is",
+      "delivered"
+    ],
+    "labels": [
+      "O",
+      "B-ACTOR",
+      "O",
+      "B-ACTION",
+      "O",
+      "B-RESOURCE",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  }
+]
