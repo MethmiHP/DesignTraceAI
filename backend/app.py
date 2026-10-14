@@ -1,21 +1,22 @@
 from fastapi import FastAPI
 
-app = FastAPI(
-    title="DesignTrace AI",
-    description="Multi-Agent AI Framework for SDLC Design Automation",
-    version="0.1.0"
+from modules.api_component_design.router import (
+    router as api_component_router,
 )
 
 
-@app.get("/")
-def root():
-    return {
-        "message": "DesignTrace AI Backend is running"
-    }
+app = FastAPI(
+    title="DesignTrace AI",
+    version="0.1.0",
+)
+
+
+app.include_router(api_component_router)
 
 
 @app.get("/health")
-def health_check():
+async def health():
     return {
-        "status": "healthy"
+        "status": "ok",
+        "application": "DesignTrace AI",
     }
