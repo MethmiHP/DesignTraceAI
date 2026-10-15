@@ -7,6 +7,7 @@ __pycache__/
 venv/
 .env/
 .venv/
+.env
 
 # Non-BERT model artifacts and experiment scripts (paths relative to backend/)
 /datasets/api_semantic_extraction/spacy*/
@@ -31,3 +32,6 @@ venv/
 
 # macOS
 .DS_Store
+
+# Generated process outputs (retain the directory placeholder and documentation)
+/outputs/*/
