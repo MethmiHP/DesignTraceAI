@@ -217,3 +217,83 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+
+# =====================================================
+# DesignTrace AI - Local development files
+# =====================================================
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Python virtual environments
+venv/
+.venv/
+.env/
+
+# Local environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Frontend dependencies and build files
+node_modules/
+dist/
+build/
+coverage/
+.vite/
+
+# IDE and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local backups
+database_design_backup.zip
+*_backup.zip
+*.bak
+
+# =====================================================
+# Generated Database Design artifacts
+# =====================================================
+
+/backend/outputs/database_designs/
+
+# Generated LLM evaluation artifacts
+/backend/outputs/llm_evaluation/
+
+# Generated NLP training models and checkpoints
+/backend/outputs/nlp_models/
+
+# Other runtime-generated backend outputs
+/backend/outputs/
+
+# Preserve optional placeholder files
+!/backend/outputs/.gitkeep
+
+# =====================================================
+# Large model files generated during training
+# =====================================================
+
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# =====================================================
+# Temporary and local logs
+# =====================================================
+
+*.log
+logs/
+tmp/
+temp/
+
+
