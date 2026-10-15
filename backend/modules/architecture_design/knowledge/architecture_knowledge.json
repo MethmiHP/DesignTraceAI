@@ -1,0 +1,366 @@
+{
+    "knowledge_items": [
+        {
+            "knowledge_id": "KB-001",
+            "title": "Microservices and Independent Scalability",
+            "content": "Microservices architecture decomposes a system into small, independently deployable services. Each service can be scaled horizontally without affecting others, making it highly effective for systems expecting variable or high load on specific functions. This is particularly valuable when different business capabilities have different scaling demands.",
+            "architecture_styles": [
+                "Microservices"
+            ],
+            "quality_attributes": [
+                "Scalability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-002",
+            "title": "Microservices and High Availability",
+            "content": "Microservices enable high availability through service isolation and independent deployment. If one service fails, the rest of the system continues to operate. Combined with load balancers and redundant service instances, microservices systems can achieve near-continuous availability. However, orchestrating multiple services requires mature infrastructure (e.g., Kubernetes, service mesh).",
+            "architecture_styles": [
+                "Microservices"
+            ],
+            "quality_attributes": [
+                "Availability",
+                "Reliability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-003",
+            "title": "Microservices Fault Isolation and Reliability",
+            "content": "In a microservices architecture, failures are isolated to the affected service. Circuit breaker patterns prevent cascading failures. Retry and fallback mechanisms can be implemented per service. This makes microservices architectures more reliable under partial failure compared to monolithic systems, where a single failure can crash the whole application.",
+            "architecture_styles": [
+                "Microservices"
+            ],
+            "quality_attributes": [
+                "Reliability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-004",
+            "title": "Microservices Operational Complexity vs Maintainability",
+            "content": "While microservices improve scalability and availability, they introduce significant operational complexity. Managing inter-service contracts, distributed tracing, API gateways, and versioning can increase the maintenance burden, especially for small teams. Maintainability in microservices requires strong DevOps maturity, CI/CD pipelines, and observability tooling.",
+            "architecture_styles": [
+                "Microservices"
+            ],
+            "quality_attributes": [
+                "Maintainability",
+                "Scalability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-005",
+            "title": "Microservices Security: API Gateway and Authentication",
+            "content": "In microservices, every inter-service call is a potential security boundary. An API gateway centralises authentication and authorisation, reducing the attack surface. OAuth2 and JWT tokens are commonly used. However, service-to-service communication must also be secured (mutual TLS), adding complexity compared to a monolith where security is enforced at a single layer.",
+            "architecture_styles": [
+                "Microservices"
+            ],
+            "quality_attributes": [
+                "Security"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-006",
+            "title": "Event-Driven Architecture and Scalability",
+            "content": "Event-driven architectures decouple producers from consumers through asynchronous messaging (e.g., Kafka, RabbitMQ). This decoupling allows consumers to scale independently based on event queue depth. Systems with high volumes of concurrent events, such as real-time analytics or IoT platforms, benefit greatly from this pattern.",
+            "architecture_styles": [
+                "Event-Driven Architecture"
+            ],
+            "quality_attributes": [
+                "Scalability",
+                "Performance"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-007",
+            "title": "Event-Driven Architecture and Resilience",
+            "content": "In event-driven systems, events are persisted in a broker. If a consumer fails, events remain in the queue and are retried when the consumer recovers. This built-in event replay mechanism provides strong resilience and reliability, ensuring no data is lost during partial failures. Patterns like dead-letter queues handle poison messages gracefully.",
+            "architecture_styles": [
+                "Event-Driven Architecture"
+            ],
+            "quality_attributes": [
+                "Reliability",
+                "Availability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-008",
+            "title": "Event-Driven Architecture and Eventual Consistency",
+            "content": "Event-driven architectures rely on eventual consistency rather than immediate consistency. While this improves scalability and decoupling, it introduces complexity in reasoning about system state. Systems requiring strict transactional consistency (e.g., financial transactions) must apply compensating patterns such as the Saga pattern to maintain data integrity across services.",
+            "architecture_styles": [
+                "Event-Driven Architecture"
+            ],
+            "quality_attributes": [
+                "Reliability",
+                "Maintainability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-009",
+            "title": "Layered Architecture and Maintainability",
+            "content": "Layered (n-tier) architecture enforces separation of concerns by grouping related functionality into distinct layers: presentation, business logic, and data access. This separation makes the codebase easier to understand, test, and maintain. Changes in one layer typically do not require changes in other layers, improving long-term maintainability for small to medium-sized applications.",
+            "architecture_styles": [
+                "Layered Architecture"
+            ],
+            "quality_attributes": [
+                "Maintainability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-010",
+            "title": "Layered Architecture Security Through Centralisation",
+            "content": "In layered architecture, security logic is centralised in the business logic layer or a dedicated security layer. This makes it easier to enforce authentication, authorisation, and input validation consistently. However, a single compromised layer can expose all others, so defence-in-depth strategies are still recommended.",
+            "architecture_styles": [
+                "Layered Architecture"
+            ],
+            "quality_attributes": [
+                "Security"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-011",
+            "title": "Layered Architecture Scalability Limitations",
+            "content": "Layered architecture is typically deployed as a single unit, making it difficult to scale individual components independently. All layers must be replicated together on new instances, leading to inefficient resource usage under load. This monolithic deployment model becomes a bottleneck for systems expecting high or variable concurrency.",
+            "architecture_styles": [
+                "Layered Architecture"
+            ],
+            "quality_attributes": [
+                "Scalability",
+                "Performance"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-012",
+            "title": "MVC Architecture for UI-Driven Applications",
+            "content": "MVC (Model-View-Controller) separates presentation (View), data (Model), and application logic (Controller). This pattern promotes parallel development and testability of UI components. Frameworks like Django, Spring MVC, and ASP.NET MVC provide strong MVC support. MVC is highly maintainable for web applications but is not designed for distributed or high-concurrency back-end systems.",
+            "architecture_styles": [
+                "MVC"
+            ],
+            "quality_attributes": [
+                "Maintainability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-013",
+            "title": "MVC Scalability Limitations",
+            "content": "MVC as a standalone architectural pattern is not inherently scalable. The controller can become a bottleneck, and the monolithic deployment model limits horizontal scaling. For high-concurrency or high-availability requirements, MVC is typically extended with load balancing, caching, or transitioned to a distributed architecture.",
+            "architecture_styles": [
+                "MVC"
+            ],
+            "quality_attributes": [
+                "Scalability",
+                "Availability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-014",
+            "title": "Modular Monolith and Maintainability",
+            "content": "A modular monolith organises a single deployable unit into well-defined internal modules with explicit interfaces. This provides the maintainability benefits of microservices (clear boundaries, independent development of modules) without the operational overhead of distributed systems. It is particularly effective for teams transitioning from a big-ball-of-mud monolith towards cleaner architecture.",
+            "architecture_styles": [
+                "Modular Monolith"
+            ],
+            "quality_attributes": [
+                "Maintainability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-015",
+            "title": "Modular Monolith Performance Advantage",
+            "content": "Because all modules share the same process, communication between modules in a modular monolith incurs no network overhead. Function calls replace REST or gRPC calls, resulting in significantly lower latency than microservices for intra-system communication. This makes modular monoliths performant for systems where response time is critical and inter-module calls are frequent.",
+            "architecture_styles": [
+                "Modular Monolith"
+            ],
+            "quality_attributes": [
+                "Performance"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-016",
+            "title": "Modular Monolith Reliability Characteristics",
+            "content": "A modular monolith is deployed as a single unit. While this simplifies deployment, a critical failure in one module can crash the entire application. Reliability must be achieved through robust error handling, health checks, and process supervision (e.g., systemd, container restart policies). This is less resilient than microservices under partial failure scenarios.",
+            "architecture_styles": [
+                "Modular Monolith"
+            ],
+            "quality_attributes": [
+                "Reliability",
+                "Availability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-017",
+            "title": "Security Tactic: Authentication and Authorisation Layers",
+            "content": "Centralising authentication (verifying identity) and authorisation (verifying permissions) at an architectural boundary — such as an API gateway or dedicated security layer — is a key security tactic. Role-Based Access Control (RBAC) and Attribute-Based Access Control (ABAC) can be enforced at this boundary. This prevents unauthorised access to sensitive data or operations regardless of the architecture style.",
+            "architecture_styles": [
+                "Layered Architecture",
+                "Microservices",
+                "Modular Monolith",
+                "MVC",
+                "Event-Driven Architecture"
+            ],
+            "quality_attributes": [
+                "Security"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-018",
+            "title": "Security Tactic: Encrypting Sensitive Data at Rest and in Transit",
+            "content": "Protecting sensitive information — such as patient health records, financial data, or user credentials — requires encryption both at rest (database encryption, filesystem encryption) and in transit (TLS/HTTPS). This tactic applies to all architecture styles. Failure to encrypt sensitive data is a primary cause of data breaches and compliance violations (GDPR, HIPAA).",
+            "architecture_styles": [
+                "Layered Architecture",
+                "Microservices",
+                "Modular Monolith",
+                "MVC",
+                "Event-Driven Architecture"
+            ],
+            "quality_attributes": [
+                "Security"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-019",
+            "title": "Performance Tactic: Caching for Reduced Latency",
+            "content": "Caching frequently accessed data at the application or infrastructure layer significantly reduces response time. Strategies include in-memory caching (Redis, Memcached), HTTP caching (CDN, browser cache), and database query caching. Caching is architecture-style agnostic but is especially impactful in layered and microservices architectures where repeated database round-trips are a common bottleneck.",
+            "architecture_styles": [
+                "Layered Architecture",
+                "Microservices",
+                "Modular Monolith"
+            ],
+            "quality_attributes": [
+                "Performance",
+                "Scalability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-020",
+            "title": "Reliability Tactic: Circuit Breaker Pattern",
+            "content": "The circuit breaker pattern prevents cascading failures in distributed systems. When a downstream service fails repeatedly, the circuit opens and stops forwarding requests to it, allowing it time to recover. This improves overall system reliability by preventing thread exhaustion and failure propagation. It is most applicable in microservices and event-driven architectures.",
+            "architecture_styles": [
+                "Microservices",
+                "Event-Driven Architecture"
+            ],
+            "quality_attributes": [
+                "Reliability",
+                "Availability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-021",
+            "title": "Availability Tactic: Replication and Failover",
+            "content": "High availability is achieved by replicating critical components (databases, services, load balancers) across multiple nodes or zones. Automatic failover switches traffic to a healthy replica when the primary fails. This tactic is especially relevant for systems with uptime SLA requirements (e.g., 99.9% or higher). Microservices and event-driven architectures naturally support this through distribution.",
+            "architecture_styles": [
+                "Microservices",
+                "Event-Driven Architecture"
+            ],
+            "quality_attributes": [
+                "Availability",
+                "Reliability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-022",
+            "title": "Scalability Tactic: Horizontal Scaling and Load Balancing",
+            "content": "Horizontal scaling adds more service instances rather than upgrading existing hardware. A load balancer distributes incoming requests across instances. This tactic is most effective when services are stateless. Microservices and event-driven architectures are designed to support this. Layered and MVC monoliths can also scale horizontally but waste resources by replicating unused components.",
+            "architecture_styles": [
+                "Microservices",
+                "Event-Driven Architecture",
+                "Modular Monolith"
+            ],
+            "quality_attributes": [
+                "Scalability",
+                "Availability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-023",
+            "title": "Trade-off: Scalability vs Operational Simplicity",
+            "content": "Architectures that maximise scalability (microservices, event-driven) generally introduce significant operational complexity: service discovery, distributed tracing, inter-service contracts, and deployment orchestration. Simpler styles (layered, modular monolith) are easier to operate but harder to scale. The choice depends on expected traffic volume, team size, and operational maturity.",
+            "architecture_styles": [
+                "Microservices",
+                "Event-Driven Architecture",
+                "Layered Architecture",
+                "Modular Monolith"
+            ],
+            "quality_attributes": [
+                "Scalability",
+                "Maintainability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-024",
+            "title": "Trade-off: Availability vs Consistency",
+            "content": "According to the CAP theorem, distributed systems cannot simultaneously guarantee consistency, availability, and partition tolerance. Architectures optimised for availability (event-driven, microservices) often trade strict consistency for eventual consistency. Systems requiring strong consistency (financial, healthcare) must carefully design compensation mechanisms such as two-phase commit or the Saga pattern.",
+            "architecture_styles": [
+                "Microservices",
+                "Event-Driven Architecture"
+            ],
+            "quality_attributes": [
+                "Availability",
+                "Reliability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        },
+        {
+            "knowledge_id": "KB-025",
+            "title": "Healthcare System Architecture Considerations",
+            "content": "Healthcare systems require strict adherence to data protection regulations (HIPAA, GDPR). Key architectural concerns include: protecting patient data from unauthorised access (security), maintaining system uptime for critical care workflows (availability), supporting concurrent users such as doctors and nurses (scalability), and ensuring audit trails for all data access (reliability). Microservices and modular monolith patterns are commonly adopted in healthcare platforms balancing these concerns.",
+            "architecture_styles": [
+                "Microservices",
+                "Modular Monolith",
+                "Layered Architecture"
+            ],
+            "quality_attributes": [
+                "Security",
+                "Availability",
+                "Scalability",
+                "Reliability"
+            ],
+            "source": "Prototype architecture knowledge",
+            "source_type": "internal_seed"
+        }
+    ]
+}

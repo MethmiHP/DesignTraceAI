@@ -1,0 +1,150 @@
+{
+    "version": "1.0",
+    "description": "Semantic knowledge base for Quality Attribute classification in DesignTrace AI.",
+    "attributes": [
+        {
+            "name": "Security",
+            "definition": "The degree to which a software system protects information, assets, and transactions so that persons or systems have the degree of data access appropriate to their authorization, preventing unauthorized disclosure, tampering, or malicious compromise.",
+            "representative_descriptions": [
+                "Cryptographic protection, encryption of sensitive data in transit and at rest, and secure credential handling.",
+                "Role-based access control, fine-grained permission authorization, and identity verification.",
+                "Tamper-proof audit logging, digital signatures, compliance with privacy standards like HIPAA and GDPR.",
+                "Protection against unauthorized intrusion, code injection, and data exfiltration."
+            ],
+            "positive_examples": [
+                "All transactions must be strictly audited with cryptographic tamper protection and role-based access control.",
+                "Medical records access must comply with HIPAA, maintaining complete data confidentiality and tamper-proof audit trails.",
+                "All user passwords and payment credentials must be encrypted using salted hashes and transmitted strictly over TLS 1.3.",
+                "The system must enforce multi-factor authentication and revoke sessions after 15 minutes of inactivity.",
+                "Sensitive customer identifiers must be anonymized before being written to diagnostic logs."
+            ],
+            "architectural_indicators": [
+                "Public Key Infrastructure (PKI) and certificate managers",
+                "OAuth2, OpenID Connect, and JWT authentication tokens",
+                "Cryptographic envelope encryption and HSM integration",
+                "Role-Based Access Control (RBAC) and Attribute-Based Access Control (ABAC) interceptors",
+                "Tamper-evident append-only audit ledgers"
+            ]
+        },
+        {
+            "name": "Scalability",
+            "definition": "The ability of a system to handle growing amounts of work, user traffic, or transaction volume gracefully by adding computing resources horizontally or vertically without software architectural redesign.",
+            "representative_descriptions": [
+                "Handling massive bursts in concurrent client requests, high-throughput streaming events, and expanding datasets.",
+                "Horizontal scaling across multiple compute instances, nodes, or distributed worker pools.",
+                "Elastic compute provisioning and load distribution across replicated services.",
+                "Decoupled asynchronous processing pipelines preventing bottlenecks under high load."
+            ],
+            "positive_examples": [
+                "The platform shall ingest and process up to 50,000 checkout events per second during peak flash sales.",
+                "The telemetry gateway shall ingest sensor time-series packets from 250,000 edge devices with under 100ms processing latency.",
+                "The architecture must scale out dynamically to support a ten-fold increase in daily active users during promotional campaigns.",
+                "Batch data ingestion must scale linearly as dataset size expands from gigabytes to terabytes.",
+                "The system must partition order storage across database shards to support exponential transaction growth."
+            ],
+            "architectural_indicators": [
+                "Horizontal autoscaling groups and container orchestration",
+                "Message queuing systems (Kafka, RabbitMQ, SQS)",
+                "Database sharding and read-replica distribution",
+                "Partitioned streaming event topics and consumer groups",
+                "Decoupled microservice and asynchronous event-driven topologies"
+            ]
+        },
+        {
+            "name": "Performance",
+            "definition": "The degree to which a system accomplishes its designated functions within specified constraints regarding time behavior, processing latency, throughput, and resource utilization efficiency.",
+            "representative_descriptions": [
+                "Sub-second round-trip latency, rapid response times, and fast computational turnarounds.",
+                "High transaction throughput and optimized input/output processing speed.",
+                "Low-latency caching strategies and query execution optimization.",
+                "Efficient computational resource utilization under continuous workload."
+            ],
+            "positive_examples": [
+                "The system must return search results to end-users in under 200 milliseconds under normal operating conditions.",
+                "The telemetry gateway shall ingest sensor time-series packets from 250,000 edge devices with under 100ms processing latency.",
+                "The payment verification service must process authorization callbacks within 500 milliseconds.",
+                "Database queries for product catalog views must execute in less than 50 milliseconds via memory caches.",
+                "Video transcoding pipelines must achieve a processing rate of 60 frames per second without frame drops."
+            ],
+            "architectural_indicators": [
+                "In-memory distributed caches (Redis, Memcached)",
+                "Content Delivery Networks (CDNs) and edge caching",
+                "Asynchronous non-blocking I/O event loops",
+                "Optimized query indexes and read-optimized denormalization",
+                "Connection pooling and compression pipelines"
+            ]
+        },
+        {
+            "name": "Reliability",
+            "definition": "The ability of a system or component to perform its required functions under stated conditions for a specified period of time, ensuring fault tolerance, error resilience, and graceful failure isolation.",
+            "representative_descriptions": [
+                "Fault isolation preventing cascading system failures across interdependent components.",
+                "Resilient error recovery, circuit breaking, retry strategies, and deterministic rollback.",
+                "Transactional consistency guarantees and data durability despite unexpected node crashes.",
+                "Self-healing architecture and graceful degradation during partial component outages."
+            ],
+            "positive_examples": [
+                "Payment processing failures must be isolated and not halt inventory or order capture streams.",
+                "Financial statements must enforce deterministic consistency and rollback capabilities on failure.",
+                "The system must employ circuit breakers to isolate failing third-party APIs without crashing the core workflow.",
+                "Unacknowledged queue messages must be automatically retried with exponential backoff before routing to a dead-letter queue.",
+                "Critical temperature warning events must be immediately broadcasted to alerting services asynchronously without dropped packets."
+            ],
+            "architectural_indicators": [
+                "Circuit breakers, fallback handlers, and bulkhead isolation patterns",
+                "Dead-letter queues and automated idempotent retries",
+                "Saga pattern for distributed transactional consistency and compensating actions",
+                "Active-passive redundancy and automated failover detection",
+                "Idempotent consumer patterns ensuring exactly-once semantic processing"
+            ]
+        },
+        {
+            "name": "Maintainability",
+            "definition": "The degree of effectiveness and efficiency with which a system can be modified, repaired, enhanced, adapted, or evolved by developers, featuring clean separation of concerns, modularity, and testability.",
+            "representative_descriptions": [
+                "High modularity, low component coupling, and strong internal cohesion.",
+                "Ease of software maintenance, code readability, refactoring flexibility, and clean architecture boundaries.",
+                "Extensibility for future plugins or domain features without rewriting core components.",
+                "Clear module boundaries allowing small development teams to evolve services independently."
+            ],
+            "positive_examples": [
+                "The portal shall be easily maintainable by a small 3-person developer team with minimal operational complexity.",
+                "New employee profile modules and payroll reporting plugins must be modularly extendable without full re-architecture.",
+                "The codebase must adhere to clean architecture layering so database technologies can be replaced without modifying business logic.",
+                "Core pricing calculations must be isolated into a standalone domain module to facilitate unit testing and frequent rule changes.",
+                "External integrations must be encapsulated behind adapter interfaces to prevent third-party SDK changes from breaking core code."
+            ],
+            "architectural_indicators": [
+                "Layered / Hexagonal / Ports-and-Adapters architecture",
+                "Dependency injection and interface segregation",
+                "Domain-Driven Design (DDD) bounded contexts",
+                "Modular monolith component boundaries",
+                "Automated unit and integration test harnesses with high testability"
+            ]
+        },
+        {
+            "name": "Availability",
+            "definition": "The proportion of time that a system is in an operational state, accessible, and functioning properly when required for use, characterized by minimal downtime, continuous operation, and automated disaster failover.",
+            "representative_descriptions": [
+                "Continuous 24/7 system uptime and elimination of single points of failure.",
+                "High availability SLAs such as 99.9% or 99.999% uptime for mission-critical operations.",
+                "Automated health checks, redundant multi-zone replication, and rapid disaster failover.",
+                "Zero-downtime rolling deployments and hot standby operational failovers."
+            ],
+            "positive_examples": [
+                "The vital sign alerting subsystem must guarantee 99.999% uptime and zero single points of failure.",
+                "The online store checkout portal must maintain 99.95% continuous operational availability throughout the holiday quarter.",
+                "The platform must support zero-downtime blue/green rolling deployments during regular business hours.",
+                "Database clusters must replicate across multi-region availability zones with automated sub-second failover.",
+                "Health check endpoints must automatically remove unhealthy container instances from the load balancer pool."
+            ],
+            "architectural_indicators": [
+                "Multi-region active-active or active-standby replication",
+                "Global server load balancers and automated health probing",
+                "Elimination of single points of failure (SPOF)",
+                "Zero-downtime deployment pipelines (Canary, Blue/Green)",
+                "Automatic database clustering with distributed consensus (Raft/Paxos)"
+            ]
+        }
+    ]
+}

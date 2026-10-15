@@ -1,0 +1,143 @@
+{
+    "styles": [
+        {
+            "name": "Layered Architecture",
+            "description": "Organises components into horizontal layers (presentation, business logic, data access). Each layer only communicates with the layer directly below it.",
+            "quality_scores": {
+                "Security": 3,
+                "Scalability": 2,
+                "Performance": 3,
+                "Reliability": 3,
+                "Maintainability": 4,
+                "Availability": 2
+            },
+            "strengths": [
+                "Simple and well-understood pattern",
+                "Clear separation of concerns",
+                "Easy to develop and test each layer independently",
+                "Good for teams familiar with traditional n-tier architecture"
+            ],
+            "weaknesses": [
+                "Monolithic deployment makes scaling difficult",
+                "Changes in lower layers can ripple upward",
+                "Performance overhead from passing through multiple layers",
+                "Limited fault isolation between layers"
+            ],
+            "tradeoffs": [
+                "Simplicity vs scalability — suitable for moderate load, not high-concurrency systems",
+                "Maintainability gains come at the cost of deployment flexibility"
+            ]
+        },
+        {
+            "name": "MVC",
+            "description": "Separates application into Model (data), View (UI), and Controller (logic). Commonly used in web and desktop applications.",
+            "quality_scores": {
+                "Security": 3,
+                "Scalability": 2,
+                "Performance": 3,
+                "Reliability": 2,
+                "Maintainability": 4,
+                "Availability": 2
+            },
+            "strengths": [
+                "Clean separation of UI, logic, and data",
+                "Promotes parallel development of UI and backend",
+                "Widely supported by frameworks (Django, Spring MVC, ASP.NET)",
+                "Highly maintainable for UI-driven applications"
+            ],
+            "weaknesses": [
+                "Not designed for distributed or high-scale systems",
+                "Controller can become a bottleneck (fat controller anti-pattern)",
+                "Limited scalability without architectural extension",
+                "Tight coupling between View and Controller in some implementations"
+            ],
+            "tradeoffs": [
+                "Excellent for developer productivity and maintainability, poor for scalability",
+                "Best suited for user-facing web applications with moderate traffic"
+            ]
+        },
+        {
+            "name": "Modular Monolith",
+            "description": "A single deployable unit structured into well-defined internal modules with explicit boundaries and interfaces.",
+            "quality_scores": {
+                "Security": 3,
+                "Scalability": 3,
+                "Performance": 4,
+                "Reliability": 3,
+                "Maintainability": 5,
+                "Availability": 3
+            },
+            "strengths": [
+                "High internal cohesion with clear module boundaries",
+                "Easier to refactor towards microservices if needed",
+                "Simpler operational model than microservices",
+                "Low latency — no inter-service network calls"
+            ],
+            "weaknesses": [
+                "Still deployed as a single unit — one failure can affect all modules",
+                "Harder to scale individual modules independently",
+                "Risk of modules becoming tightly coupled over time"
+            ],
+            "tradeoffs": [
+                "Best balance of maintainability and simplicity for small-to-medium teams",
+                "Scalability is limited compared to microservices"
+            ]
+        },
+        {
+            "name": "Microservices",
+            "description": "Decomposes the system into small, independently deployable services each responsible for a specific business capability.",
+            "quality_scores": {
+                "Security": 3,
+                "Scalability": 5,
+                "Performance": 4,
+                "Reliability": 4,
+                "Maintainability": 3,
+                "Availability": 5
+            },
+            "strengths": [
+                "Independent scaling per service",
+                "Fault isolation — failure of one service does not bring down others",
+                "Technology flexibility per service",
+                "Supports continuous deployment and independent releases"
+            ],
+            "weaknesses": [
+                "High operational complexity (service discovery, distributed tracing, orchestration)",
+                "Network latency between services",
+                "Data consistency challenges across service boundaries",
+                "Requires mature DevOps and monitoring practices"
+            ],
+            "tradeoffs": [
+                "Exceptional scalability and availability at the cost of significant operational overhead",
+                "Suitable for large teams and high-traffic systems, not for early-stage or small projects"
+            ]
+        },
+        {
+            "name": "Event-Driven Architecture",
+            "description": "Components communicate by producing and consuming events via a message broker. Services are decoupled through asynchronous event streams.",
+            "quality_scores": {
+                "Security": 3,
+                "Scalability": 5,
+                "Performance": 4,
+                "Reliability": 5,
+                "Maintainability": 3,
+                "Availability": 4
+            },
+            "strengths": [
+                "High decoupling between producers and consumers",
+                "Excellent scalability through asynchronous processing",
+                "Resilient to partial failures — events can be retried or replayed",
+                "Supports real-time and reactive workloads"
+            ],
+            "weaknesses": [
+                "Difficult to trace and debug event flows",
+                "Eventual consistency can be hard to reason about",
+                "Higher complexity in event schema management",
+                "Requires a reliable message broker infrastructure"
+            ],
+            "tradeoffs": [
+                "Strong scalability and reliability at the cost of debugging complexity",
+                "Best for systems with high-volume, asynchronous, or real-time data flows"
+            ]
+        }
+    ]
+}
