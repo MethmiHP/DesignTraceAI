@@ -1,0 +1,82 @@
+{
+  "project_id": "careflow-test-001",
+  "functional_requirements": [
+    {
+      "requirement_id": "FR-003",
+      "statement": "A patient shall book an available appointment with a selected doctor.",
+      "priority": "High"
+    }
+  ],
+  "architecture": {
+    "architecture_id": "ARCH-001",
+    "selected_architecture": "Modular Architecture",
+    "elements": [
+      {
+        "element_id": "COMP-APPOINTMENT",
+        "name": "Appointment Module",
+        "type": "Module",
+        "main_responsibility": "Manage appointment booking, availability, rescheduling and cancellation."
+      }
+    ]
+  },
+  "database": {
+    "entities": [
+      {
+        "entity_id": "DB-APPOINTMENT",
+        "name": "Appointment",
+        "attributes": [
+          "appointment_id",
+          "patient_id",
+          "doctor_id",
+          "availability_id",
+          "status"
+        ],
+        "primary_key": "appointment_id",
+        "foreign_keys": [
+          "patient_id -> Patient",
+          "doctor_id -> Doctor",
+          "availability_id -> Availability"
+        ],
+        "constraints": []
+      },
+      {
+        "entity_id": "DB-PATIENT",
+        "name": "Patient",
+        "attributes": [
+          "patient_id",
+          "name"
+        ],
+        "primary_key": "patient_id",
+        "foreign_keys": [],
+        "constraints": []
+      },
+      {
+        "entity_id": "DB-DOCTOR",
+        "name": "Doctor",
+        "attributes": [
+          "doctor_id",
+          "name"
+        ],
+        "primary_key": "doctor_id",
+        "foreign_keys": [],
+        "constraints": []
+      },
+      {
+        "entity_id": "DB-AVAILABILITY",
+        "name": "Availability",
+        "attributes": [
+          "availability_id",
+          "doctor_id"
+        ],
+        "primary_key": "availability_id",
+        "foreign_keys": [
+          "doctor_id -> Doctor"
+        ],
+        "constraints": []
+      }
+    ],
+    "relationships": [],
+    "constraints": []
+  },
+  "non_functional_requirements": []
+}

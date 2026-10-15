@@ -1,0 +1,54 @@
+{
+  "project_id": "banking-security-choice-test",
+  "functional_requirements": [
+    {
+      "requirement_id": "FR-001",
+      "statement": "A customer shall view a bank account.",
+      "priority": "High"
+    }
+  ],
+  "architecture": {
+    "architecture_id": "ARCH-001",
+    "selected_architecture": "Microservices Architecture",
+    "elements": [
+      {
+        "element_id": "COMP-BANK-ACCOUNT",
+        "name": "Bank Account Service",
+        "type": "Service",
+        "main_responsibility": "Manage customer bank accounts."
+      }
+    ]
+  },
+  "database": {
+    "entities": [
+      {
+        "entity_id": "DB-BANK-ACCOUNT",
+        "name": "Bank Account",
+        "attributes": [
+          "bank_account_id",
+          "customer_id",
+          "account_number",
+          "account_type",
+          "balance",
+          "status"
+        ],
+        "primary_key": "bank_account_id",
+        "foreign_keys": [
+          "customer_id -> Customer"
+        ],
+        "constraints": []
+      }
+    ],
+    "relationships": [
+      "Customer owns Bank Account"
+    ],
+    "constraints": []
+  },
+  "non_functional_requirements": [
+    {
+      "requirement_id": "NFR-001",
+      "statement": "Only authenticated customers shall access protected banking operations.",
+      "category": "Security"
+    }
+  ]
+}
