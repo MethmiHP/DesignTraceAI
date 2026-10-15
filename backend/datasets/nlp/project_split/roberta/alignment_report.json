@@ -1,0 +1,50 @@
+{
+  "model": "roberta-base",
+  "max_length": 128,
+  "label2id": {
+    "O": 0,
+    "B-ENTITY": 1,
+    "I-ENTITY": 2,
+    "B-ATTRIBUTE": 3,
+    "I-ATTRIBUTE": 4,
+    "B-ACTION": 5,
+    "I-ACTION": 6
+  },
+  "splits": {
+    "train": {
+      "requirements": 651,
+      "truncated_requirements": 0,
+      "label_counts": {
+        "O": 3437,
+        "B-ENTITY": 1043,
+        "B-ACTION": 507,
+        "B-ATTRIBUTE": 696,
+        "I-ATTRIBUTE": 216,
+        "I-ENTITY": 95
+      }
+    },
+    "validation": {
+      "requirements": 140,
+      "truncated_requirements": 0,
+      "label_counts": {
+        "O": 742,
+        "B-ACTION": 106,
+        "B-ENTITY": 218,
+        "B-ATTRIBUTE": 154,
+        "I-ATTRIBUTE": 46
+      }
+    },
+    "test": {
+      "requirements": 149,
+      "truncated_requirements": 0,
+      "label_counts": {
+        "O": 790,
+        "B-ACTION": 115,
+        "B-ENTITY": 236,
+        "B-ATTRIBUTE": 162,
+        "I-ATTRIBUTE": 50,
+        "I-ENTITY": 3
+      }
+    }
+  }
+}

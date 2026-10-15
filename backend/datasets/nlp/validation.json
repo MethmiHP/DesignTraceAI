@@ -1,0 +1,4298 @@
+[
+  {
+    "requirement_id": "NLP-SYN-0551",
+    "project_id": "education_system",
+    "text": "The system shall store learner name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "learner",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 42
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 60
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0552",
+    "project_id": "education_system",
+    "text": "Each learner must provide an email address and registration date.",
+    "annotations": [
+      {
+        "text": "learner",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 12
+      },
+      {
+        "text": "email address",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 42
+      },
+      {
+        "text": "registration date",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 64
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0553",
+    "project_id": "education_system",
+    "text": "The system shall save learner address and contact number.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "learner",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 29
+      },
+      {
+        "text": "address",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 37
+      },
+      {
+        "text": "contact number",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 56
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0554",
+    "project_id": "education_system",
+    "text": "An learner can create a progress record for a lesson.",
+    "annotations": [
+      {
+        "text": "learner",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 10
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "progress record",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 39
+      },
+      {
+        "text": "lesson",
+        "label": "ENTITY",
+        "start": 46,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0555",
+    "project_id": "education_system",
+    "text": "The learner can view the progress record status.",
+    "annotations": [
+      {
+        "text": "learner",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 16,
+        "end": 20
+      },
+      {
+        "text": "progress record",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 40
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 47
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0556",
+    "project_id": "education_system",
+    "text": "The system shall record progress record date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "progress record",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 39
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 44
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 49,
+        "end": 55
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0557",
+    "project_id": "education_system",
+    "text": "Every progress record must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "progress record",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 21
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 57
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0558",
+    "project_id": "education_system",
+    "text": "The learner may cancel a progress record.",
+    "annotations": [
+      {
+        "text": "learner",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "progress record",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 40
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0559",
+    "project_id": "education_system",
+    "text": "The system shall store lesson code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "lesson",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 34
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0560",
+    "project_id": "education_system",
+    "text": "The learner can update the lesson description.",
+    "annotations": [
+      {
+        "text": "learner",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "lesson",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 33
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 45
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0561",
+    "project_id": "education_system",
+    "text": "The system shall record the lesson name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "lesson",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 34
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 39
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 44,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0562",
+    "project_id": "education_system",
+    "text": "A progress record must reference one learner and one lesson.",
+    "annotations": [
+      {
+        "text": "progress record",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 17
+      },
+      {
+        "text": "learner",
+        "label": "ENTITY",
+        "start": 37,
+        "end": 44
+      },
+      {
+        "text": "lesson",
+        "label": "ENTITY",
+        "start": 53,
+        "end": 59
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0563",
+    "project_id": "education_system",
+    "text": "The learner can search for a lesson by name.",
+    "annotations": [
+      {
+        "text": "learner",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "lesson",
+        "label": "ENTITY",
+        "start": 29,
+        "end": 35
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 43
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0564",
+    "project_id": "education_system",
+    "text": "The system shall save the progress record creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "progress record",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 41
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 55
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0565",
+    "project_id": "education_system",
+    "text": "A progress record must contain a status value.",
+    "annotations": [
+      {
+        "text": "progress record",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 17
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 39
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0566",
+    "project_id": "education_system",
+    "text": "The learner can submit a progress record.",
+    "annotations": [
+      {
+        "text": "learner",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "progress record",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 40
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0567",
+    "project_id": "education_system",
+    "text": "The system shall store the learner identifier.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "learner",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 34
+      },
+      {
+        "text": "identifier",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 45
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0568",
+    "project_id": "education_system",
+    "text": "The learner can delete a progress record.",
+    "annotations": [
+      {
+        "text": "learner",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "progress record",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 40
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0569",
+    "project_id": "education_system",
+    "text": "Each lesson must have a unique code.",
+    "annotations": [
+      {
+        "text": "lesson",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 11
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0570",
+    "project_id": "education_system",
+    "text": "The system shall track progress record status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "progress record",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 38
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 45
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 50,
+        "end": 65
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0571",
+    "project_id": "education_system",
+    "text": "The learner can review a progress record associated with a lesson.",
+    "annotations": [
+      {
+        "text": "learner",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "progress record",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 40
+      },
+      {
+        "text": "lesson",
+        "label": "ENTITY",
+        "start": 59,
+        "end": 65
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0572",
+    "project_id": "education_system",
+    "text": "The system shall maintain lesson availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "lesson",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 45
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 50,
+        "end": 58
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0573",
+    "project_id": "education_system",
+    "text": "A progress record must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "progress record",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 17
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 43
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 56
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0574",
+    "project_id": "education_system",
+    "text": "The learner can approve a progress record.",
+    "annotations": [
+      {
+        "text": "learner",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 16,
+        "end": 23
+      },
+      {
+        "text": "progress record",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 41
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0575",
+    "project_id": "education_system",
+    "text": "The system shall store learner preferences and notes.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "learner",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "preferences",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 42
+      },
+      {
+        "text": "notes",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0576",
+    "project_id": "education_system",
+    "text": "The system shall store instructor name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "instructor",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 33
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 38
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 45
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 51,
+        "end": 63
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0577",
+    "project_id": "education_system",
+    "text": "Each instructor must provide an email address and registration date.",
+    "annotations": [
+      {
+        "text": "instructor",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 15
+      },
+      {
+        "text": "email address",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 45
+      },
+      {
+        "text": "registration date",
+        "label": "ATTRIBUTE",
+        "start": 50,
+        "end": 67
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0578",
+    "project_id": "education_system",
+    "text": "The system shall save instructor address and contact number.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "instructor",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 32
+      },
+      {
+        "text": "address",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 40
+      },
+      {
+        "text": "contact number",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 59
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0579",
+    "project_id": "education_system",
+    "text": "An instructor can create a submission for a assessment.",
+    "annotations": [
+      {
+        "text": "instructor",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 13
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 18,
+        "end": 24
+      },
+      {
+        "text": "submission",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 37
+      },
+      {
+        "text": "assessment",
+        "label": "ENTITY",
+        "start": 44,
+        "end": 54
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0580",
+    "project_id": "education_system",
+    "text": "The instructor can view the submission status.",
+    "annotations": [
+      {
+        "text": "instructor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 14
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 19,
+        "end": 23
+      },
+      {
+        "text": "submission",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 38
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 45
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0581",
+    "project_id": "education_system",
+    "text": "The system shall record submission date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "submission",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 34
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 39
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 44,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0582",
+    "project_id": "education_system",
+    "text": "Every submission must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "submission",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 16
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0583",
+    "project_id": "education_system",
+    "text": "The instructor may cancel a submission.",
+    "annotations": [
+      {
+        "text": "instructor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 14
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 19,
+        "end": 25
+      },
+      {
+        "text": "submission",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 38
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0584",
+    "project_id": "education_system",
+    "text": "The system shall store assessment code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "assessment",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 33
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 38
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 43,
+        "end": 54
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0585",
+    "project_id": "education_system",
+    "text": "The instructor can update the assessment description.",
+    "annotations": [
+      {
+        "text": "instructor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 14
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 19,
+        "end": 25
+      },
+      {
+        "text": "assessment",
+        "label": "ENTITY",
+        "start": 30,
+        "end": 40
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0586",
+    "project_id": "education_system",
+    "text": "The system shall record the assessment name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "assessment",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 38
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 43
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 56
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0587",
+    "project_id": "education_system",
+    "text": "A submission must reference one instructor and one assessment.",
+    "annotations": [
+      {
+        "text": "submission",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 12
+      },
+      {
+        "text": "instructor",
+        "label": "ENTITY",
+        "start": 32,
+        "end": 42
+      },
+      {
+        "text": "assessment",
+        "label": "ENTITY",
+        "start": 51,
+        "end": 61
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0588",
+    "project_id": "education_system",
+    "text": "The instructor can search for a assessment by name.",
+    "annotations": [
+      {
+        "text": "instructor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 14
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 19,
+        "end": 25
+      },
+      {
+        "text": "assessment",
+        "label": "ENTITY",
+        "start": 32,
+        "end": 42
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 46,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0589",
+    "project_id": "education_system",
+    "text": "The system shall save the submission creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "submission",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 36
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0590",
+    "project_id": "education_system",
+    "text": "A submission must contain a status value.",
+    "annotations": [
+      {
+        "text": "submission",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 12
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 34
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0591",
+    "project_id": "education_system",
+    "text": "The instructor can submit a submission.",
+    "annotations": [
+      {
+        "text": "instructor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 14
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 19,
+        "end": 25
+      },
+      {
+        "text": "submission",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 38
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0592",
+    "project_id": "education_system",
+    "text": "The system shall store the instructor identifier.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "instructor",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 37
+      },
+      {
+        "text": "identifier",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0593",
+    "project_id": "education_system",
+    "text": "The instructor can delete a submission.",
+    "annotations": [
+      {
+        "text": "instructor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 14
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 19,
+        "end": 25
+      },
+      {
+        "text": "submission",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 38
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0594",
+    "project_id": "education_system",
+    "text": "Each assessment must have a unique code.",
+    "annotations": [
+      {
+        "text": "assessment",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 15
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 39
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0595",
+    "project_id": "education_system",
+    "text": "The system shall track submission status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "submission",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 33
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 40
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 60
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0596",
+    "project_id": "education_system",
+    "text": "The instructor can review a submission associated with a assessment.",
+    "annotations": [
+      {
+        "text": "instructor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 14
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 19,
+        "end": 25
+      },
+      {
+        "text": "submission",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 38
+      },
+      {
+        "text": "assessment",
+        "label": "ENTITY",
+        "start": 57,
+        "end": 67
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0597",
+    "project_id": "education_system",
+    "text": "The system shall maintain assessment availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "assessment",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 36
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 49
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 54,
+        "end": 62
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0598",
+    "project_id": "education_system",
+    "text": "A submission must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "submission",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 12
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 38
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 43,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0599",
+    "project_id": "education_system",
+    "text": "The instructor can approve a submission.",
+    "annotations": [
+      {
+        "text": "instructor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 14
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 19,
+        "end": 26
+      },
+      {
+        "text": "submission",
+        "label": "ENTITY",
+        "start": 29,
+        "end": 39
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0600",
+    "project_id": "education_system",
+    "text": "The system shall store instructor preferences and notes.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "instructor",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 33
+      },
+      {
+        "text": "preferences",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 45
+      },
+      {
+        "text": "notes",
+        "label": "ATTRIBUTE",
+        "start": 50,
+        "end": 55
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0101",
+    "project_id": "student_system",
+    "text": "The system shall store student name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 42
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 60
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0102",
+    "project_id": "student_system",
+    "text": "Each student must provide an email address and registration date.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 12
+      },
+      {
+        "text": "email address",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 42
+      },
+      {
+        "text": "registration date",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 64
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0103",
+    "project_id": "student_system",
+    "text": "The system shall save student address and contact number.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 29
+      },
+      {
+        "text": "address",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 37
+      },
+      {
+        "text": "contact number",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 56
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0104",
+    "project_id": "student_system",
+    "text": "An student can create a enrollment for a course.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 10
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 34
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 41,
+        "end": 47
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0105",
+    "project_id": "student_system",
+    "text": "The student can view the enrollment status.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 16,
+        "end": 20
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 42
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0106",
+    "project_id": "student_system",
+    "text": "The system shall record enrollment date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 34
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 39
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 44,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0107",
+    "project_id": "student_system",
+    "text": "Every enrollment must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 16
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0108",
+    "project_id": "student_system",
+    "text": "The student may cancel a enrollment.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0109",
+    "project_id": "student_system",
+    "text": "The system shall store course code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 34
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0110",
+    "project_id": "student_system",
+    "text": "The student can update the course description.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 33
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 45
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0111",
+    "project_id": "student_system",
+    "text": "The system shall record the course name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 34
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 39
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 44,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0112",
+    "project_id": "student_system",
+    "text": "A enrollment must reference one student and one course.",
+    "annotations": [
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 12
+      },
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 32,
+        "end": 39
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 48,
+        "end": 54
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0113",
+    "project_id": "student_system",
+    "text": "The student can search for a course by name.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 29,
+        "end": 35
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 43
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0114",
+    "project_id": "student_system",
+    "text": "The system shall save the enrollment creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 36
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0115",
+    "project_id": "student_system",
+    "text": "A enrollment must contain a status value.",
+    "annotations": [
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 12
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 34
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0116",
+    "project_id": "student_system",
+    "text": "The student can submit a enrollment.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0117",
+    "project_id": "student_system",
+    "text": "The system shall store the student identifier.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 34
+      },
+      {
+        "text": "identifier",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 45
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0118",
+    "project_id": "student_system",
+    "text": "The student can delete a enrollment.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0119",
+    "project_id": "student_system",
+    "text": "Each course must have a unique code.",
+    "annotations": [
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 11
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0120",
+    "project_id": "student_system",
+    "text": "The system shall track enrollment status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 33
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 40
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 60
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0121",
+    "project_id": "student_system",
+    "text": "The student can review a enrollment associated with a course.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 54,
+        "end": 60
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0122",
+    "project_id": "student_system",
+    "text": "The system shall maintain course availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 45
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 50,
+        "end": 58
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0123",
+    "project_id": "student_system",
+    "text": "A enrollment must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 12
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 38
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 43,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0124",
+    "project_id": "student_system",
+    "text": "The student can approve a enrollment.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 16,
+        "end": 23
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 36
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0125",
+    "project_id": "student_system",
+    "text": "The system shall store student preferences and notes.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "preferences",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 42
+      },
+      {
+        "text": "notes",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0126",
+    "project_id": "student_system",
+    "text": "The system shall store teacher name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 42
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 60
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0127",
+    "project_id": "student_system",
+    "text": "Each teacher must provide an email address and registration date.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 12
+      },
+      {
+        "text": "email address",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 42
+      },
+      {
+        "text": "registration date",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 64
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0128",
+    "project_id": "student_system",
+    "text": "The system shall save teacher address and contact number.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 29
+      },
+      {
+        "text": "address",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 37
+      },
+      {
+        "text": "contact number",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 56
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0129",
+    "project_id": "student_system",
+    "text": "An teacher can create a attendance for a classroom.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 10
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 34
+      },
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 41,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0130",
+    "project_id": "student_system",
+    "text": "The teacher can view the attendance status.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 16,
+        "end": 20
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 42
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0131",
+    "project_id": "student_system",
+    "text": "The system shall record attendance date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 34
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 39
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 44,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0132",
+    "project_id": "student_system",
+    "text": "Every attendance must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 16
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0133",
+    "project_id": "student_system",
+    "text": "The teacher may cancel a attendance.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0134",
+    "project_id": "student_system",
+    "text": "The system shall store classroom code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 32
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 37
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 53
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0135",
+    "project_id": "student_system",
+    "text": "The teacher can update the classroom description.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 36
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0136",
+    "project_id": "student_system",
+    "text": "The system shall record the classroom name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 37
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 42
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 55
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0137",
+    "project_id": "student_system",
+    "text": "A attendance must reference one teacher and one classroom.",
+    "annotations": [
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 12
+      },
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 32,
+        "end": 39
+      },
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 48,
+        "end": 57
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0138",
+    "project_id": "student_system",
+    "text": "The teacher can search for a classroom by name.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 29,
+        "end": 38
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0139",
+    "project_id": "student_system",
+    "text": "The system shall save the attendance creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 36
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0140",
+    "project_id": "student_system",
+    "text": "A attendance must contain a status value.",
+    "annotations": [
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 12
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 34
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0141",
+    "project_id": "student_system",
+    "text": "The teacher can submit a attendance.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0142",
+    "project_id": "student_system",
+    "text": "The system shall store the teacher identifier.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 34
+      },
+      {
+        "text": "identifier",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 45
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0143",
+    "project_id": "student_system",
+    "text": "The teacher can delete a attendance.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0144",
+    "project_id": "student_system",
+    "text": "Each classroom must have a unique code.",
+    "annotations": [
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 14
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 38
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0145",
+    "project_id": "student_system",
+    "text": "The system shall track attendance status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 33
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 40
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 60
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0146",
+    "project_id": "student_system",
+    "text": "The teacher can review a attendance associated with a classroom.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      },
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 54,
+        "end": 63
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0147",
+    "project_id": "student_system",
+    "text": "The system shall maintain classroom availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 35
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 48
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 53,
+        "end": 61
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0148",
+    "project_id": "student_system",
+    "text": "A attendance must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 12
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 38
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 43,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0149",
+    "project_id": "student_system",
+    "text": "The teacher can approve a attendance.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 16,
+        "end": 23
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 36
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0150",
+    "project_id": "student_system",
+    "text": "The system shall store teacher preferences and notes.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "preferences",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 42
+      },
+      {
+        "text": "notes",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0951",
+    "project_id": "car_rental_system",
+    "text": "The system shall store customer name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 31
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 36
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 43
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 49,
+        "end": 61
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0952",
+    "project_id": "car_rental_system",
+    "text": "Each customer must provide an email address and registration date.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 13
+      },
+      {
+        "text": "email address",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 43
+      },
+      {
+        "text": "registration date",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 65
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0953",
+    "project_id": "car_rental_system",
+    "text": "The system shall save customer address and contact number.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 30
+      },
+      {
+        "text": "address",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 38
+      },
+      {
+        "text": "contact number",
+        "label": "ATTRIBUTE",
+        "start": 43,
+        "end": 57
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0954",
+    "project_id": "car_rental_system",
+    "text": "An customer can create a rental for a car.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 11
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "rental",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 31
+      },
+      {
+        "text": "car",
+        "label": "ENTITY",
+        "start": 38,
+        "end": 41
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0955",
+    "project_id": "car_rental_system",
+    "text": "The customer can view the rental status.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "rental",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 39
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0956",
+    "project_id": "car_rental_system",
+    "text": "The system shall record rental date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "rental",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 30
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0957",
+    "project_id": "car_rental_system",
+    "text": "Every rental must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "rental",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 12
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0958",
+    "project_id": "car_rental_system",
+    "text": "The customer may cancel a rental.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "rental",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0959",
+    "project_id": "car_rental_system",
+    "text": "The system shall store car code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "car",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 26
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 27,
+        "end": 31
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 47
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0960",
+    "project_id": "car_rental_system",
+    "text": "The customer can update the car description.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "car",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 31
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 43
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0961",
+    "project_id": "car_rental_system",
+    "text": "The system shall record the car name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "car",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 31
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 36
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 49
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0962",
+    "project_id": "car_rental_system",
+    "text": "A rental must reference one customer and one car.",
+    "annotations": [
+      {
+        "text": "rental",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 36
+      },
+      {
+        "text": "car",
+        "label": "ENTITY",
+        "start": 45,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0963",
+    "project_id": "car_rental_system",
+    "text": "The customer can search for a car by name.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "car",
+        "label": "ENTITY",
+        "start": 30,
+        "end": 33
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 41
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0964",
+    "project_id": "car_rental_system",
+    "text": "The system shall save the rental creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "rental",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0965",
+    "project_id": "car_rental_system",
+    "text": "A rental must contain a status value.",
+    "annotations": [
+      {
+        "text": "rental",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 24,
+        "end": 30
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0966",
+    "project_id": "car_rental_system",
+    "text": "The customer can submit a rental.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "rental",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0967",
+    "project_id": "car_rental_system",
+    "text": "The system shall store the customer identifier.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 35
+      },
+      {
+        "text": "identifier",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0968",
+    "project_id": "car_rental_system",
+    "text": "The customer can delete a rental.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "rental",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0969",
+    "project_id": "car_rental_system",
+    "text": "Each car must have a unique code.",
+    "annotations": [
+      {
+        "text": "car",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 8
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 32
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0970",
+    "project_id": "car_rental_system",
+    "text": "The system shall track rental status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "rental",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 36
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 56
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0971",
+    "project_id": "car_rental_system",
+    "text": "The customer can review a rental associated with a car.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "rental",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "car",
+        "label": "ENTITY",
+        "start": 51,
+        "end": 54
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0972",
+    "project_id": "car_rental_system",
+    "text": "The system shall maintain car availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "car",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 29
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 42
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 55
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0973",
+    "project_id": "car_rental_system",
+    "text": "A rental must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "rental",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 24,
+        "end": 34
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 47
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0974",
+    "project_id": "car_rental_system",
+    "text": "The customer can approve a rental.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 17,
+        "end": 24
+      },
+      {
+        "text": "rental",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 33
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0975",
+    "project_id": "car_rental_system",
+    "text": "The system shall store customer preferences and notes.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 31
+      },
+      {
+        "text": "preferences",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 43
+      },
+      {
+        "text": "notes",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 53
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0976",
+    "project_id": "car_rental_system",
+    "text": "The system shall store agent name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "agent",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 28
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 33
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 40
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 46,
+        "end": 58
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0977",
+    "project_id": "car_rental_system",
+    "text": "Each agent must provide an email address and registration date.",
+    "annotations": [
+      {
+        "text": "agent",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 10
+      },
+      {
+        "text": "email address",
+        "label": "ATTRIBUTE",
+        "start": 27,
+        "end": 40
+      },
+      {
+        "text": "registration date",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 62
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0978",
+    "project_id": "car_rental_system",
+    "text": "The system shall save agent address and contact number.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "agent",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 27
+      },
+      {
+        "text": "address",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 35
+      },
+      {
+        "text": "contact number",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 54
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0979",
+    "project_id": "car_rental_system",
+    "text": "An agent can create a return for a vehicle.",
+    "annotations": [
+      {
+        "text": "agent",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 8
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 13,
+        "end": 19
+      },
+      {
+        "text": "return",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 28
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 35,
+        "end": 42
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0980",
+    "project_id": "car_rental_system",
+    "text": "The agent can view the return status.",
+    "annotations": [
+      {
+        "text": "agent",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 14,
+        "end": 18
+      },
+      {
+        "text": "return",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 36
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0981",
+    "project_id": "car_rental_system",
+    "text": "The system shall record return date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "return",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 30
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0982",
+    "project_id": "car_rental_system",
+    "text": "Every return must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "return",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 12
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0983",
+    "project_id": "car_rental_system",
+    "text": "The agent may cancel a return.",
+    "annotations": [
+      {
+        "text": "agent",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "return",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0984",
+    "project_id": "car_rental_system",
+    "text": "The system shall store vehicle code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0985",
+    "project_id": "car_rental_system",
+    "text": "The agent can update the vehicle description.",
+    "annotations": [
+      {
+        "text": "agent",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 32
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 44
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0986",
+    "project_id": "car_rental_system",
+    "text": "The system shall record the vehicle name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 35
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 40
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 53
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0987",
+    "project_id": "car_rental_system",
+    "text": "A return must reference one agent and one vehicle.",
+    "annotations": [
+      {
+        "text": "return",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "agent",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 33
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 42,
+        "end": 49
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0988",
+    "project_id": "car_rental_system",
+    "text": "The agent can search for a vehicle by name.",
+    "annotations": [
+      {
+        "text": "agent",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 34
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 42
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0989",
+    "project_id": "car_rental_system",
+    "text": "The system shall save the return creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "return",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0990",
+    "project_id": "car_rental_system",
+    "text": "A return must contain a status value.",
+    "annotations": [
+      {
+        "text": "return",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 24,
+        "end": 30
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0991",
+    "project_id": "car_rental_system",
+    "text": "The agent can submit a return.",
+    "annotations": [
+      {
+        "text": "agent",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "return",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0992",
+    "project_id": "car_rental_system",
+    "text": "The system shall store the agent identifier.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "agent",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 32
+      },
+      {
+        "text": "identifier",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 43
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0993",
+    "project_id": "car_rental_system",
+    "text": "The agent can delete a return.",
+    "annotations": [
+      {
+        "text": "agent",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "return",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0994",
+    "project_id": "car_rental_system",
+    "text": "Each vehicle must have a unique code.",
+    "annotations": [
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 12
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 36
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0995",
+    "project_id": "car_rental_system",
+    "text": "The system shall track return status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "return",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 36
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 56
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0996",
+    "project_id": "car_rental_system",
+    "text": "The agent can review a return associated with a vehicle.",
+    "annotations": [
+      {
+        "text": "agent",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "return",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 48,
+        "end": 55
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0997",
+    "project_id": "car_rental_system",
+    "text": "The system shall maintain vehicle availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 33
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 46
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 51,
+        "end": 59
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0998",
+    "project_id": "car_rental_system",
+    "text": "A return must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "return",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 24,
+        "end": 34
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 47
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0999",
+    "project_id": "car_rental_system",
+    "text": "The agent can approve a return.",
+    "annotations": [
+      {
+        "text": "agent",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 14,
+        "end": 21
+      },
+      {
+        "text": "return",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 30
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-1000",
+    "project_id": "car_rental_system",
+    "text": "The system shall store agent preferences and notes.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "agent",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 28
+      },
+      {
+        "text": "preferences",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 40
+      },
+      {
+        "text": "notes",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  }
+]

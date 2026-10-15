@@ -17,8 +17,6 @@ Output:
 
 Model tokenizer:
     roberta-base
-
-This script does not modify the original datasets.
 """
 
 import json
