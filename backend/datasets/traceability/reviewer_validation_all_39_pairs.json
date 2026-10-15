@@ -1,0 +1,397 @@
+{
+  "project_id": "P001",
+  "review_instructions": "For each requirement-artifact pair, review whether the design artifact genuinely supports, implements, stores data for, or otherwise has a meaningful design relationship with the requirement. Mark human_validated as true or false. Optionally add a reviewer_comment.",
+  "total_pairs": 39,
+  "review_items": [
+    {
+      "requirement_id": "REQ-001",
+      "requirement": "Patients shall be able to book appointments.",
+      "artifact_id": "ARCH-001",
+      "artifact_type": "architecture",
+      "artifact_name": "AppointmentService",
+      "artifact_description": "Handles appointment booking, rescheduling, and cancellation.",
+      "human_validated": true,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-001",
+      "requirement": "Patients shall be able to book appointments.",
+      "artifact_id": "ARCH-002",
+      "artifact_type": "architecture",
+      "artifact_name": "SecurityService",
+      "artifact_description": "Handles authentication, authorization, and protection of patient data.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-001",
+      "requirement": "Patients shall be able to book appointments.",
+      "artifact_id": "ARCH-003",
+      "artifact_type": "architecture",
+      "artifact_name": "NotificationService",
+      "artifact_description": "Handles appointment confirmations, reminders, and cancellations.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-001",
+      "requirement": "Patients shall be able to book appointments.",
+      "artifact_id": "DB-001",
+      "artifact_type": "database",
+      "artifact_name": "Patient",
+      "artifact_description": "Stores patient profile and account information.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-001",
+      "requirement": "Patients shall be able to book appointments.",
+      "artifact_id": "DB-002",
+      "artifact_type": "database",
+      "artifact_name": "Appointment",
+      "artifact_description": "Stores appointment-related details.",
+      "human_validated": true,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-001",
+      "requirement": "Patients shall be able to book appointments.",
+      "artifact_id": "DB-003",
+      "artifact_type": "database",
+      "artifact_name": "AuditLog",
+      "artifact_description": "Stores audit information about changes and system activities.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-001",
+      "requirement": "Patients shall be able to book appointments.",
+      "artifact_id": "API-001",
+      "artifact_type": "api",
+      "artifact_name": "POST /appointments",
+      "artifact_description": "Creates a new appointment.",
+      "human_validated": true,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-001",
+      "requirement": "Patients shall be able to book appointments.",
+      "artifact_id": "API-002",
+      "artifact_type": "api",
+      "artifact_name": "GET /doctors",
+      "artifact_description": "Retrieves doctors and supports filtering by specialization.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-001",
+      "requirement": "Patients shall be able to book appointments.",
+      "artifact_id": "API-003",
+      "artifact_type": "api",
+      "artifact_name": "POST /auth/login",
+      "artifact_description": "Authenticates users using valid login credentials.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-001",
+      "requirement": "Patients shall be able to book appointments.",
+      "artifact_id": "COMP-001",
+      "artifact_type": "component",
+      "artifact_name": "AppointmentManagementComponent",
+      "artifact_description": "Supports appointment-related functionality.",
+      "human_validated": true,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-001",
+      "requirement": "Patients shall be able to book appointments.",
+      "artifact_id": "COMP-002",
+      "artifact_type": "component",
+      "artifact_name": "DoctorSearchComponent",
+      "artifact_description": "Supports doctor searching and filtering.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-001",
+      "requirement": "Patients shall be able to book appointments.",
+      "artifact_id": "COMP-003",
+      "artifact_type": "component",
+      "artifact_name": "SecurityComponent",
+      "artifact_description": "Supports security-related functionality.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-001",
+      "requirement": "Patients shall be able to book appointments.",
+      "artifact_id": "COMP-004",
+      "artifact_type": "component",
+      "artifact_name": "ReminderComponent",
+      "artifact_description": "Supports appointment reminders.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-002",
+      "requirement": "Patient information shall be secure.",
+      "artifact_id": "ARCH-001",
+      "artifact_type": "architecture",
+      "artifact_name": "AppointmentService",
+      "artifact_description": "Handles appointment booking, rescheduling, and cancellation.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-002",
+      "requirement": "Patient information shall be secure.",
+      "artifact_id": "ARCH-002",
+      "artifact_type": "architecture",
+      "artifact_name": "SecurityService",
+      "artifact_description": "Handles authentication, authorization, and protection of patient data.",
+      "human_validated": true,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-002",
+      "requirement": "Patient information shall be secure.",
+      "artifact_id": "ARCH-003",
+      "artifact_type": "architecture",
+      "artifact_name": "NotificationService",
+      "artifact_description": "Handles appointment confirmations, reminders, and cancellations.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-002",
+      "requirement": "Patient information shall be secure.",
+      "artifact_id": "DB-001",
+      "artifact_type": "database",
+      "artifact_name": "Patient",
+      "artifact_description": "Stores patient profile and account information.",
+      "human_validated": true,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-002",
+      "requirement": "Patient information shall be secure.",
+      "artifact_id": "DB-002",
+      "artifact_type": "database",
+      "artifact_name": "Appointment",
+      "artifact_description": "Stores appointment-related details.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-002",
+      "requirement": "Patient information shall be secure.",
+      "artifact_id": "DB-003",
+      "artifact_type": "database",
+      "artifact_name": "AuditLog",
+      "artifact_description": "Stores audit information about changes and system activities.",
+      "human_validated": true,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-002",
+      "requirement": "Patient information shall be secure.",
+      "artifact_id": "API-001",
+      "artifact_type": "api",
+      "artifact_name": "POST /appointments",
+      "artifact_description": "Creates a new appointment.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-002",
+      "requirement": "Patient information shall be secure.",
+      "artifact_id": "API-002",
+      "artifact_type": "api",
+      "artifact_name": "GET /doctors",
+      "artifact_description": "Retrieves doctors and supports filtering by specialization.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-002",
+      "requirement": "Patient information shall be secure.",
+      "artifact_id": "API-003",
+      "artifact_type": "api",
+      "artifact_name": "POST /auth/login",
+      "artifact_description": "Authenticates users using valid login credentials.",
+      "human_validated": true,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-002",
+      "requirement": "Patient information shall be secure.",
+      "artifact_id": "COMP-001",
+      "artifact_type": "component",
+      "artifact_name": "AppointmentManagementComponent",
+      "artifact_description": "Supports appointment-related functionality.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-002",
+      "requirement": "Patient information shall be secure.",
+      "artifact_id": "COMP-002",
+      "artifact_type": "component",
+      "artifact_name": "DoctorSearchComponent",
+      "artifact_description": "Supports doctor searching and filtering.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-002",
+      "requirement": "Patient information shall be secure.",
+      "artifact_id": "COMP-003",
+      "artifact_type": "component",
+      "artifact_name": "SecurityComponent",
+      "artifact_description": "Supports security-related functionality.",
+      "human_validated": true,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-002",
+      "requirement": "Patient information shall be secure.",
+      "artifact_id": "COMP-004",
+      "artifact_type": "component",
+      "artifact_name": "ReminderComponent",
+      "artifact_description": "Supports appointment reminders.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-003",
+      "requirement": "Patients shall receive appointment reminders.",
+      "artifact_id": "ARCH-001",
+      "artifact_type": "architecture",
+      "artifact_name": "AppointmentService",
+      "artifact_description": "Handles appointment booking, rescheduling, and cancellation.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-003",
+      "requirement": "Patients shall receive appointment reminders.",
+      "artifact_id": "ARCH-002",
+      "artifact_type": "architecture",
+      "artifact_name": "SecurityService",
+      "artifact_description": "Handles authentication, authorization, and protection of patient data.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-003",
+      "requirement": "Patients shall receive appointment reminders.",
+      "artifact_id": "ARCH-003",
+      "artifact_type": "architecture",
+      "artifact_name": "NotificationService",
+      "artifact_description": "Handles appointment confirmations, reminders, and cancellations.",
+      "human_validated": true,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-003",
+      "requirement": "Patients shall receive appointment reminders.",
+      "artifact_id": "DB-001",
+      "artifact_type": "database",
+      "artifact_name": "Patient",
+      "artifact_description": "Stores patient profile and account information.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-003",
+      "requirement": "Patients shall receive appointment reminders.",
+      "artifact_id": "DB-002",
+      "artifact_type": "database",
+      "artifact_name": "Appointment",
+      "artifact_description": "Stores appointment-related details.",
+      "human_validated": true,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-003",
+      "requirement": "Patients shall receive appointment reminders.",
+      "artifact_id": "DB-003",
+      "artifact_type": "database",
+      "artifact_name": "AuditLog",
+      "artifact_description": "Stores audit information about changes and system activities.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-003",
+      "requirement": "Patients shall receive appointment reminders.",
+      "artifact_id": "API-001",
+      "artifact_type": "api",
+      "artifact_name": "POST /appointments",
+      "artifact_description": "Creates a new appointment.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-003",
+      "requirement": "Patients shall receive appointment reminders.",
+      "artifact_id": "API-002",
+      "artifact_type": "api",
+      "artifact_name": "GET /doctors",
+      "artifact_description": "Retrieves doctors and supports filtering by specialization.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-003",
+      "requirement": "Patients shall receive appointment reminders.",
+      "artifact_id": "API-003",
+      "artifact_type": "api",
+      "artifact_name": "POST /auth/login",
+      "artifact_description": "Authenticates users using valid login credentials.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-003",
+      "requirement": "Patients shall receive appointment reminders.",
+      "artifact_id": "COMP-001",
+      "artifact_type": "component",
+      "artifact_name": "AppointmentManagementComponent",
+      "artifact_description": "Supports appointment-related functionality.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-003",
+      "requirement": "Patients shall receive appointment reminders.",
+      "artifact_id": "COMP-002",
+      "artifact_type": "component",
+      "artifact_name": "DoctorSearchComponent",
+      "artifact_description": "Supports doctor searching and filtering.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-003",
+      "requirement": "Patients shall receive appointment reminders.",
+      "artifact_id": "COMP-003",
+      "artifact_type": "component",
+      "artifact_name": "SecurityComponent",
+      "artifact_description": "Supports security-related functionality.",
+      "human_validated": false,
+      "reviewer_comment": ""
+    },
+    {
+      "requirement_id": "REQ-003",
+      "requirement": "Patients shall receive appointment reminders.",
+      "artifact_id": "COMP-004",
+      "artifact_type": "component",
+      "artifact_name": "ReminderComponent",
+      "artifact_description": "Supports appointment reminders.",
+      "human_validated": true,
+      "reviewer_comment": ""
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "project_id": "P001",
+
+  "architecture": {
+    "elements": [
+      {
+        "artifact_id": "ARCH-001",
+        "name": "AppointmentService",
+        "type": "service",
+        "description": "Handles appointment booking, rescheduling, and cancellation operations."
+      },
+      {
+        "artifact_id": "ARCH-002",
+        "name": "SecurityService",
+        "type": "service",
+        "description": "Provides authentication, authorization, and protection of patient information."
+      },
+      {
+        "artifact_id": "ARCH-003",
+        "name": "NotificationService",
+        "type": "service",
+        "description": "Sends appointment confirmations, reminders, and cancellation notifications."
+      }
+    ]
+  },
+
+  "database": {
+    "entities": [
+      {
+        "artifact_id": "DB-001",
+        "name": "Patient",
+        "description": "Stores patient account and profile information."
+      },
+      {
+        "artifact_id": "DB-002",
+        "name": "Appointment",
+        "description": "Stores appointment details including patient, doctor, date, time, and status."
+      },
+      {
+        "artifact_id": "DB-003",
+        "name": "AuditLog",
+        "description": "Stores audit records of changes made to patient and appointment information."
+      }
+    ]
+  },
+
+  "api": {
+    "operations": [
+      {
+        "artifact_id": "API-001",
+        "method": "POST",
+        "path": "/appointments",
+        "description": "Creates a new patient appointment."
+      },
+      {
+        "artifact_id": "API-002",
+        "method": "GET",
+        "path": "/doctors",
+        "description": "Returns available doctors and supports filtering by specialization."
+      },
+      {
+        "artifact_id": "API-003",
+        "method": "POST",
+        "path": "/auth/login",
+        "description": "Authenticates users using valid credentials."
+      }
+    ]
+  },
+
+  "components": [
+    {
+      "artifact_id": "COMP-001",
+      "name": "AppointmentManagementComponent",
+      "description": "Provides appointment booking, rescheduling, and cancellation functionality."
+    },
+    {
+      "artifact_id": "COMP-002",
+      "name": "DoctorSearchComponent",
+      "description": "Supports searching doctors by specialization and availability."
+    },
+    {
+      "artifact_id": "COMP-003",
+      "name": "SecurityComponent",
+      "description": "Protects patient information using access control and encryption mechanisms."
+    },
+    {
+      "artifact_id": "COMP-004",
+      "name": "ReminderComponent",
+      "description": "Generates and sends appointment reminders to patients."
+    }
+  ]
+}

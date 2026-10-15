@@ -1,0 +1,86 @@
+{
+  "project_id": "P002",
+  "domain": "E-Learning / Course Management System",
+
+  "architecture": [
+    {
+      "artifact_id": "ARCH-101",
+      "name": "SubmissionService",
+      "description": "Handles online assignment submission, file upload, submission timestamps, and submission status."
+    },
+    {
+      "artifact_id": "ARCH-102",
+      "name": "AccessControlService",
+      "description": "Provides authentication, authorization, role-based access control, and protection of student academic information."
+    },
+    {
+      "artifact_id": "ARCH-103",
+      "name": "NotificationService",
+      "description": "Sends notifications to students when grades are published or other academic events occur."
+    }
+  ],
+
+  "database": [
+    {
+      "artifact_id": "DB-101",
+      "name": "Student",
+      "description": "Stores student profile, account, and identity information."
+    },
+    {
+      "artifact_id": "DB-102",
+      "name": "AssignmentSubmission",
+      "description": "Stores assignment submissions including student, assignment, uploaded file reference, submission time, and status."
+    },
+    {
+      "artifact_id": "DB-103",
+      "name": "Grade",
+      "description": "Stores student grades, assessment results, feedback, and grade publication status."
+    },
+    {
+      "artifact_id": "DB-104",
+      "name": "AuditRecord",
+      "description": "Stores audit records for access to grades, grade changes, and important academic system activities."
+    }
+  ],
+
+  "api": [
+    {
+      "artifact_id": "API-101",
+      "name": "POST /assignments/{id}/submit",
+      "description": "Allows a student to upload and submit work for a specific assignment."
+    },
+    {
+      "artifact_id": "API-102",
+      "name": "GET /grades",
+      "description": "Returns grade information to an authenticated and authorized user."
+    },
+    {
+      "artifact_id": "API-103",
+      "name": "POST /auth/login",
+      "description": "Authenticates users using valid account credentials before accessing protected system resources."
+    }
+  ],
+
+  "components": [
+    {
+      "artifact_id": "COMP-101",
+      "name": "AssignmentSubmissionComponent",
+      "description": "Provides the user-facing and application functionality for uploading and submitting assignments."
+    },
+    {
+      "artifact_id": "COMP-102",
+      "name": "GradeManagementComponent",
+      "description": "Provides functionality for managing, viewing, and publishing student grades."
+    },
+    {
+      "artifact_id": "COMP-103",
+      "name": "SecurityComponent",
+      "description": "Implements authentication, authorization, access control, and protection of academic information."
+    },
+    {
+      "artifact_id": "COMP-104",
+      "name": "GradeNotificationComponent",
+      "description": "Generates and sends notifications to students when grades are published."
+    }
+  ]
+}
