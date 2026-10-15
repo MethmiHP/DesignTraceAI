@@ -1,0 +1,55 @@
+DesignTrace AI
+Traceability Module - P003 Unseen Evaluation Result
+
+Project:
+P003
+
+Domain:
+Online Banking / Personal Finance System
+
+Evaluation Type:
+Unseen post-refinement evaluation using frozen improved pipeline.
+
+Frozen Configuration:
+- SBERT model: sentence-transformers/all-MiniLM-L6-v2
+- Similarity threshold: 0.40
+- Gemini model: gemini-3.5-flash-lite
+- Minimum confidence threshold: 0.70
+- Candidate expansion rules: frozen improved version
+- Gemini validation prompt: frozen improved version
+
+Gold Dataset:
+- Total reviewed pairs: 42
+- Gold valid links: 18
+- Gold invalid links: 24
+
+Results:
+- True Positives: 15
+- False Positives: 0
+- False Negatives: 3
+- True Negatives: 24
+
+Metrics:
+- Precision: 1.0000
+- Recall: 0.8333
+- F1-score: 0.9091
+
+False Positives:
+- None
+
+False Negatives:
+- REQ-203 -> DB-203
+- REQ-203 -> API-201
+- REQ-203 -> COMP-201
+
+Error Analysis:
+All remaining false negatives were retrieval-stage misses.
+The Gemini validation stage did not create false positives in P003.
+
+Notes:
+P003 was evaluated after the pipeline had been frozen following
+development and refinement using P001 and P002.
+No thresholds, candidate rules, prompts, or P003 gold labels were
+changed before recording this result.
+
+This result represents the final unseen post-refinement evaluation.

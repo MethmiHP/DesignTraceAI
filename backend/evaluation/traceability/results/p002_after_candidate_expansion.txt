@@ -1,0 +1,32 @@
+DesignTrace AI
+Traceability Module - P002 Intermediate Evaluation
+
+Project:
+P002
+
+Stage:
+After improved candidate expansion
+Before Gemini prompt refinement
+
+Results:
+- True Positives: 14
+- False Positives: 1
+- False Negatives: 1
+- True Negatives: 26
+
+Metrics:
+- Precision: 0.9333
+- Recall: 0.9333
+- F1-score: 0.9333
+
+Remaining False Positive:
+- REQ-102 -> DB-101
+
+Remaining False Negative:
+- REQ-103 -> COMP-102
+
+Notes:
+This result was recorded after improving deterministic candidate
+expansion rules for access-control/security requirements.
+
+Gemini validation prompt was not changed before this result.

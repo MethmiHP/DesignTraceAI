@@ -1,0 +1,24 @@
+SBERT-only baseline - P003
+
+TP: 11
+FP: 2
+FN: 7
+TN: 22
+
+Precision: 0.8462
+Recall: 0.6111
+F1-score: 0.7097
+
+Hybrid proposed method - P003
+
+TP: 15
+FP: 0
+FN: 3
+TN: 24
+
+Precision: 1.0000
+Recall: 0.8333
+F1-score: 0.9091
+
+F1 absolute improvement:
+0.1994

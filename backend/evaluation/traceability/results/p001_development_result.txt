@@ -1,0 +1,45 @@
+DesignTrace AI
+Traceability Module - Development Evaluation Result
+
+Project:
+P001
+
+Purpose:
+Development / tuning dataset
+Not used as final unseen evaluation.
+
+Configuration:
+- SBERT model: sentence-transformers/all-MiniLM-L6-v2
+- SBERT similarity threshold: 0.40
+- Gemini model: gemini-3.5-flash-lite
+- Minimum confidence threshold: 0.70
+- Candidate expansion rules: enabled
+- Gemini contextual validation: enabled
+
+Gold Dataset:
+- Total reviewed pairs: 39
+- Valid gold links: 12
+- Invalid gold links: 27
+
+Results:
+- True Positives: 12
+- False Positives: 1
+- False Negatives: 0
+- True Negatives: 26
+
+Metrics:
+- Precision: 0.9231
+- Recall: 1.0000
+- F1-score: 0.9600
+
+False Positive:
+- REQ-002 -> DB-002
+
+False Negatives:
+- None
+
+Notes:
+P001 was used during development to refine the traceability pipeline,
+including candidate expansion and Gemini prompt design.
+Therefore, these metrics represent development-set performance and
+must not be reported as the final unbiased evaluation result.

@@ -1,0 +1,46 @@
+DesignTrace AI
+Traceability Module - P002 Tuned Development Result
+
+Project:
+P002
+
+Stage:
+After candidate-expansion refinement
+and Gemini prompt refinement
+
+Important:
+P002 was used to guide pipeline improvements.
+Therefore, this is a tuned development result
+and not an unbiased unseen final evaluation.
+
+Results:
+- True Positives: 15
+- False Positives: 0
+- False Negatives: 0
+- True Negatives: 27
+
+Metrics:
+- Precision: 1.0000
+- Recall: 1.0000
+- F1-score: 1.0000
+
+Improvements Applied:
+1. Expanded access-control/security candidate rules
+2. Added protected-resource candidate expansion
+3. Added event-trigger traceability rule
+4. Added identity-vs-authorization boundary rule
+
+Previous P002 Baseline:
+- Precision: 0.9091
+- Recall: 0.6667
+- F1-score: 0.7692
+
+After Candidate Expansion:
+- Precision: 0.9333
+- Recall: 0.9333
+- F1-score: 0.9333
+
+After Prompt Refinement:
+- Precision: 1.0000
+- Recall: 1.0000
+- F1-score: 1.0000

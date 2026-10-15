@@ -1,0 +1,63 @@
+DesignTrace AI
+Traceability Module - P002 Unseen Evaluation Result
+
+Project:
+P002
+
+Domain:
+E-Learning / Course Management System
+
+Evaluation Type:
+Unseen cross-domain evaluation using frozen traceability pipeline.
+
+Frozen Configuration:
+- SBERT model: sentence-transformers/all-MiniLM-L6-v2
+- Similarity threshold: 0.40
+- Gemini model: gemini-3.5-flash-lite
+- Minimum confidence threshold: 0.70
+- Candidate expansion rules: frozen
+- Gemini validation prompt: frozen
+
+Gold Dataset:
+- Total reviewed pairs: 42
+- Gold valid links: 15
+- Gold invalid links: 27
+
+Results:
+- True Positives: 10
+- False Positives: 1
+- False Negatives: 5
+- True Negatives: 26
+
+Metrics:
+- Precision: 0.9091
+- Recall: 0.6667
+- F1-score: 0.7692
+
+False Positives:
+- REQ-102 -> DB-101
+
+False Negatives:
+- REQ-102 -> DB-104
+- REQ-102 -> API-103
+- REQ-102 -> COMP-102
+- REQ-102 -> COMP-103
+- REQ-103 -> COMP-102
+
+Error Analysis:
+- Retrieval-stage false negatives:
+  REQ-102 -> DB-104
+  REQ-102 -> API-103
+  REQ-102 -> COMP-102
+  REQ-102 -> COMP-103
+
+- Gemini validation false negative:
+  REQ-103 -> COMP-102
+
+Notes:
+P002 was evaluated using the pipeline frozen after development on P001.
+No thresholds, candidate rules, Gemini prompt, or gold labels were changed
+before recording this result.
+
+This result is preserved as the baseline unseen evaluation before
+recall-oriented pipeline refinement.
