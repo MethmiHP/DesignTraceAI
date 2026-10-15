@@ -1,0 +1,1193 @@
+[
+  {
+    "case_id": "LLM-001",
+    "project_id": "hospital_management",
+    "domain": "Healthcare",
+    "difficulty": "easy",
+    "requirements": [
+      {
+        "requirement_id": "FR-001",
+        "text": "The system shall register patients with their full name, email address, and phone number."
+      },
+      {
+        "requirement_id": "FR-002",
+        "text": "The system shall store doctors with their name and specialization."
+      },
+      {
+        "requirement_id": "FR-003",
+        "text": "Patients shall book appointments with doctors for a selected date and time."
+      }
+    ],
+    "architecture_context": {
+      "database_type": "relational",
+      "target_dbms": "PostgreSQL"
+    },
+    "expected_design": {
+      "entities": [
+        "patients",
+        "doctors",
+        "appointments"
+      ],
+      "attributes": {
+        "patients": [
+          "patient_id",
+          "full_name",
+          "email",
+          "phone"
+        ],
+        "doctors": [
+          "doctor_id",
+          "name",
+          "specialization"
+        ],
+        "appointments": [
+          "appointment_id",
+          "patient_id",
+          "doctor_id",
+          "appointment_datetime"
+        ]
+      },
+      "primary_keys": {
+        "patients": "patient_id",
+        "doctors": "doctor_id",
+        "appointments": "appointment_id"
+      },
+      "foreign_keys": [
+        {
+          "table": "appointments",
+          "column": "patient_id",
+          "references": "patients.patient_id"
+        },
+        {
+          "table": "appointments",
+          "column": "doctor_id",
+          "references": "doctors.doctor_id"
+        }
+      ],
+      "relationships": [
+        {
+          "from": "patients",
+          "to": "appointments",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "doctors",
+          "to": "appointments",
+          "cardinality": "one-to-many"
+        }
+      ],
+      "constraints": [
+        "patients.email should be unique"
+      ],
+      "requirement_mapping": {
+        "FR-001": ["patients"],
+        "FR-002": ["doctors"],
+        "FR-003": ["appointments"]
+      }
+    }
+  },
+  {
+    "case_id": "LLM-002",
+    "project_id": "library_management",
+    "domain": "Education",
+    "difficulty": "medium",
+    "requirements": [
+      {
+        "requirement_id": "FR-001",
+        "text": "The library shall maintain books with title, ISBN, and publication year."
+      },
+      {
+        "requirement_id": "FR-002",
+        "text": "Members shall register with their name and email address."
+      },
+      {
+        "requirement_id": "FR-003",
+        "text": "Members shall borrow books and the system shall record the borrow date, due date, and return date."
+      }
+    ],
+    "architecture_context": {
+      "database_type": "relational",
+      "target_dbms": "PostgreSQL"
+    },
+    "expected_design": {
+      "entities": [
+        "books",
+        "members",
+        "loans"
+      ],
+      "attributes": {
+        "books": [
+          "book_id",
+          "title",
+          "isbn",
+          "publication_year"
+        ],
+        "members": [
+          "member_id",
+          "name",
+          "email"
+        ],
+        "loans": [
+          "loan_id",
+          "book_id",
+          "member_id",
+          "borrow_date",
+          "due_date",
+          "return_date"
+        ]
+      },
+      "primary_keys": {
+        "books": "book_id",
+        "members": "member_id",
+        "loans": "loan_id"
+      },
+      "foreign_keys": [
+        {
+          "table": "loans",
+          "column": "book_id",
+          "references": "books.book_id"
+        },
+        {
+          "table": "loans",
+          "column": "member_id",
+          "references": "members.member_id"
+        }
+      ],
+      "relationships": [
+        {
+          "from": "books",
+          "to": "loans",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "members",
+          "to": "loans",
+          "cardinality": "one-to-many"
+        }
+      ],
+      "constraints": [
+        "books.isbn should be unique",
+        "members.email should be unique",
+        "loans.return_date may be null"
+      ],
+      "requirement_mapping": {
+        "FR-001": ["books"],
+        "FR-002": ["members"],
+        "FR-003": ["loans"]
+      }
+    }
+  },
+  {
+    "case_id": "LLM-003",
+    "project_id": "ecommerce_system",
+    "domain": "Retail",
+    "difficulty": "hard",
+    "requirements": [
+      {
+        "requirement_id": "FR-001",
+        "text": "Customers shall register using their name and email address."
+      },
+      {
+        "requirement_id": "FR-002",
+        "text": "The system shall maintain products with name, price, and available stock."
+      },
+      {
+        "requirement_id": "FR-003",
+        "text": "Customers shall place orders containing multiple products and quantities."
+      },
+      {
+        "requirement_id": "FR-004",
+        "text": "The system shall record payments for customer orders."
+      }
+    ],
+    "architecture_context": {
+      "database_type": "relational",
+      "target_dbms": "PostgreSQL"
+    },
+    "expected_design": {
+      "entities": [
+        "customers",
+        "products",
+        "orders",
+        "order_items",
+        "payments"
+      ],
+      "attributes": {
+        "customers": [
+          "customer_id",
+          "name",
+          "email"
+        ],
+        "products": [
+          "product_id",
+          "name",
+          "price",
+          "stock_quantity"
+        ],
+        "orders": [
+          "order_id",
+          "customer_id",
+          "order_date"
+        ],
+        "order_items": [
+          "order_item_id",
+          "order_id",
+          "product_id",
+          "quantity",
+          "unit_price"
+        ],
+        "payments": [
+          "payment_id",
+          "order_id",
+          "amount",
+          "payment_status"
+        ]
+      },
+      "primary_keys": {
+        "customers": "customer_id",
+        "products": "product_id",
+        "orders": "order_id",
+        "order_items": "order_item_id",
+        "payments": "payment_id"
+      },
+      "foreign_keys": [
+        {
+          "table": "orders",
+          "column": "customer_id",
+          "references": "customers.customer_id"
+        },
+        {
+          "table": "order_items",
+          "column": "order_id",
+          "references": "orders.order_id"
+        },
+        {
+          "table": "order_items",
+          "column": "product_id",
+          "references": "products.product_id"
+        },
+        {
+          "table": "payments",
+          "column": "order_id",
+          "references": "orders.order_id"
+        }
+      ],
+      "relationships": [
+        {
+          "from": "customers",
+          "to": "orders",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "orders",
+          "to": "order_items",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "products",
+          "to": "order_items",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "orders",
+          "to": "payments",
+          "cardinality": "one-to-many"
+        }
+      ],
+      "constraints": [
+        "products.price must be non-negative",
+        "products.stock_quantity must be non-negative",
+        "order_items.quantity must be positive",
+        "payments.amount must be positive"
+      ],
+      "requirement_mapping": {
+        "FR-001": ["customers"],
+        "FR-002": ["products"],
+        "FR-003": ["orders", "order_items"],
+        "FR-004": ["payments"]
+      }
+    }
+  },
+  {
+    "case_id": "LLM-004",
+    "project_id": "student_course_registration",
+    "domain": "Education",
+    "difficulty": "medium",
+    "requirements": [
+      {
+        "requirement_id": "FR-001",
+        "text": "The system shall store students with student number, name, and email."
+      },
+      {
+        "requirement_id": "FR-002",
+        "text": "The university shall maintain courses with course code, title, and credit value."
+      },
+      {
+        "requirement_id": "FR-003",
+        "text": "Students shall enroll in multiple courses and the system shall record enrollment dates."
+      }
+    ],
+    "architecture_context": {
+      "database_type": "relational",
+      "target_dbms": "PostgreSQL"
+    },
+    "expected_design": {
+      "entities": [
+        "students",
+        "courses",
+        "enrollments"
+      ],
+      "attributes": {
+        "students": [
+          "student_id",
+          "student_number",
+          "name",
+          "email"
+        ],
+        "courses": [
+          "course_id",
+          "course_code",
+          "title",
+          "credits"
+        ],
+        "enrollments": [
+          "enrollment_id",
+          "student_id",
+          "course_id",
+          "enrollment_date"
+        ]
+      },
+      "primary_keys": {
+        "students": "student_id",
+        "courses": "course_id",
+        "enrollments": "enrollment_id"
+      },
+      "foreign_keys": [
+        {
+          "table": "enrollments",
+          "column": "student_id",
+          "references": "students.student_id"
+        },
+        {
+          "table": "enrollments",
+          "column": "course_id",
+          "references": "courses.course_id"
+        }
+      ],
+      "relationships": [
+        {
+          "from": "students",
+          "to": "enrollments",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "courses",
+          "to": "enrollments",
+          "cardinality": "one-to-many"
+        }
+      ],
+      "constraints": [
+        "students.student_number should be unique",
+        "courses.course_code should be unique",
+        "enrollments should prevent duplicate student-course pairs"
+      ],
+      "requirement_mapping": {
+        "FR-001": ["students"],
+        "FR-002": ["courses"],
+        "FR-003": ["enrollments"]
+      }
+    }
+  },
+  {
+    "case_id": "LLM-005",
+    "project_id": "hotel_booking",
+    "domain": "Hospitality",
+    "difficulty": "medium",
+    "requirements": [
+      {
+        "requirement_id": "FR-001",
+        "text": "The hotel shall maintain rooms with room number, type, and nightly rate."
+      },
+      {
+        "requirement_id": "FR-002",
+        "text": "Guests shall register using their name and email."
+      },
+      {
+        "requirement_id": "FR-003",
+        "text": "Guests shall reserve rooms for check-in and check-out dates."
+      }
+    ],
+    "architecture_context": {
+      "database_type": "relational",
+      "target_dbms": "PostgreSQL"
+    },
+    "expected_design": {
+      "entities": [
+        "rooms",
+        "guests",
+        "reservations"
+      ],
+      "attributes": {
+        "rooms": [
+          "room_id",
+          "room_number",
+          "room_type",
+          "nightly_rate"
+        ],
+        "guests": [
+          "guest_id",
+          "name",
+          "email"
+        ],
+        "reservations": [
+          "reservation_id",
+          "guest_id",
+          "room_id",
+          "check_in_date",
+          "check_out_date"
+        ]
+      },
+      "primary_keys": {
+        "rooms": "room_id",
+        "guests": "guest_id",
+        "reservations": "reservation_id"
+      },
+      "foreign_keys": [
+        {
+          "table": "reservations",
+          "column": "guest_id",
+          "references": "guests.guest_id"
+        },
+        {
+          "table": "reservations",
+          "column": "room_id",
+          "references": "rooms.room_id"
+        }
+      ],
+      "relationships": [
+        {
+          "from": "guests",
+          "to": "reservations",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "rooms",
+          "to": "reservations",
+          "cardinality": "one-to-many"
+        }
+      ],
+      "constraints": [
+        "rooms.room_number should be unique",
+        "rooms.nightly_rate must be non-negative",
+        "reservations.check_out_date must be later than check_in_date",
+        "Active reservations for the same room must not overlap"
+      ],
+      "requirement_mapping": {
+        "FR-001": ["rooms"],
+        "FR-002": ["guests"],
+        "FR-003": ["reservations"]
+      }
+    }
+  },
+  {
+    "case_id": "LLM-006",
+    "project_id": "vehicle_rental",
+    "domain": "Transportation",
+    "difficulty": "medium",
+    "requirements": [
+      {
+        "requirement_id": "FR-001",
+        "text": "The company shall store vehicles with registration number, model, and daily rental rate."
+      },
+      {
+        "requirement_id": "FR-002",
+        "text": "Customers shall register with their name and driving license number."
+      },
+      {
+        "requirement_id": "FR-003",
+        "text": "Customers shall rent vehicles for a start date and end date."
+      }
+    ],
+    "architecture_context": {
+      "database_type": "relational",
+      "target_dbms": "PostgreSQL"
+    },
+    "expected_design": {
+      "entities": [
+        "vehicles",
+        "customers",
+        "rentals"
+      ],
+      "attributes": {
+        "vehicles": [
+          "vehicle_id",
+          "registration_number",
+          "model",
+          "daily_rate"
+        ],
+        "customers": [
+          "customer_id",
+          "name",
+          "license_number"
+        ],
+        "rentals": [
+          "rental_id",
+          "customer_id",
+          "vehicle_id",
+          "start_date",
+          "end_date"
+        ]
+      },
+      "primary_keys": {
+        "vehicles": "vehicle_id",
+        "customers": "customer_id",
+        "rentals": "rental_id"
+      },
+      "foreign_keys": [
+        {
+          "table": "rentals",
+          "column": "customer_id",
+          "references": "customers.customer_id"
+        },
+        {
+          "table": "rentals",
+          "column": "vehicle_id",
+          "references": "vehicles.vehicle_id"
+        }
+      ],
+      "relationships": [
+        {
+          "from": "customers",
+          "to": "rentals",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "vehicles",
+          "to": "rentals",
+          "cardinality": "one-to-many"
+        }
+      ],
+      "constraints": [
+        "vehicles.registration_number should be unique",
+        "vehicles.daily_rate must be non-negative",
+        "rentals.end_date must be later than start_date",
+        "Active rentals for the same vehicle must not overlap"
+      ],
+      "requirement_mapping": {
+        "FR-001": ["vehicles"],
+        "FR-002": ["customers"],
+        "FR-003": ["rentals"]
+      }
+    }
+  },
+  {
+    "case_id": "LLM-007",
+    "project_id": "agriculture_management",
+    "domain": "Agriculture",
+    "difficulty": "medium",
+    "requirements": [
+      {
+        "requirement_id": "FR-001",
+        "text": "The system shall register farmers with their name and contact number."
+      },
+      {
+        "requirement_id": "FR-002",
+        "text": "Farmers shall manage fields with field code and area."
+      },
+      {
+        "requirement_id": "FR-003",
+        "text": "The system shall record crops planted in fields with planting dates."
+      }
+    ],
+    "architecture_context": {
+      "database_type": "relational",
+      "target_dbms": "PostgreSQL"
+    },
+    "expected_design": {
+      "entities": [
+        "farmers",
+        "fields",
+        "crops",
+        "plantings"
+      ],
+      "attributes": {
+        "farmers": [
+          "farmer_id",
+          "name",
+          "contact_number"
+        ],
+        "fields": [
+          "field_id",
+          "farmer_id",
+          "field_code",
+          "area"
+        ],
+        "crops": [
+          "crop_id",
+          "crop_name"
+        ],
+        "plantings": [
+          "planting_id",
+          "field_id",
+          "crop_id",
+          "planting_date"
+        ]
+      },
+      "primary_keys": {
+        "farmers": "farmer_id",
+        "fields": "field_id",
+        "crops": "crop_id",
+        "plantings": "planting_id"
+      },
+      "foreign_keys": [
+        {
+          "table": "fields",
+          "column": "farmer_id",
+          "references": "farmers.farmer_id"
+        },
+        {
+          "table": "plantings",
+          "column": "field_id",
+          "references": "fields.field_id"
+        },
+        {
+          "table": "plantings",
+          "column": "crop_id",
+          "references": "crops.crop_id"
+        }
+      ],
+      "relationships": [
+        {
+          "from": "farmers",
+          "to": "fields",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "fields",
+          "to": "plantings",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "crops",
+          "to": "plantings",
+          "cardinality": "one-to-many"
+        }
+      ],
+      "constraints": [
+        "fields.area must be positive",
+        "fields.field_code should be unique within each farmer"
+      ],
+      "requirement_mapping": {
+        "FR-001": ["farmers"],
+        "FR-002": ["fields"],
+        "FR-003": ["crops", "plantings"]
+      }
+    }
+  },
+  {
+    "case_id": "LLM-008",
+    "project_id": "inventory_management",
+    "domain": "Warehouse",
+    "difficulty": "medium",
+    "requirements": [
+      {
+        "requirement_id": "FR-001",
+        "text": "The warehouse shall maintain products with SKU, name, and unit price."
+      },
+      {
+        "requirement_id": "FR-002",
+        "text": "The company shall maintain suppliers with name and contact email."
+      },
+      {
+        "requirement_id": "FR-003",
+        "text": "The system shall record stock deliveries from suppliers including delivery date and quantity for each product."
+      }
+    ],
+    "architecture_context": {
+      "database_type": "relational",
+      "target_dbms": "PostgreSQL"
+    },
+    "expected_design": {
+      "entities": [
+        "products",
+        "suppliers",
+        "stock_deliveries"
+      ],
+      "attributes": {
+        "products": [
+          "product_id",
+          "sku",
+          "name",
+          "unit_price"
+        ],
+        "suppliers": [
+          "supplier_id",
+          "name",
+          "email"
+        ],
+        "stock_deliveries": [
+          "delivery_id",
+          "supplier_id",
+          "product_id",
+          "delivery_date",
+          "quantity"
+        ]
+      },
+      "primary_keys": {
+        "products": "product_id",
+        "suppliers": "supplier_id",
+        "stock_deliveries": "delivery_id"
+      },
+      "foreign_keys": [
+        {
+          "table": "stock_deliveries",
+          "column": "supplier_id",
+          "references": "suppliers.supplier_id"
+        },
+        {
+          "table": "stock_deliveries",
+          "column": "product_id",
+          "references": "products.product_id"
+        }
+      ],
+      "relationships": [
+        {
+          "from": "suppliers",
+          "to": "stock_deliveries",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "products",
+          "to": "stock_deliveries",
+          "cardinality": "one-to-many"
+        }
+      ],
+      "constraints": [
+        "products.sku should be unique",
+        "products.unit_price must be non-negative",
+        "stock_deliveries.quantity must be positive"
+      ],
+      "requirement_mapping": {
+        "FR-001": ["products"],
+        "FR-002": ["suppliers"],
+        "FR-003": ["stock_deliveries"]
+      }
+    }
+  },
+  {
+    "case_id": "LLM-009",
+    "project_id": "event_management",
+    "domain": "Events",
+    "difficulty": "medium",
+    "requirements": [
+      {
+        "requirement_id": "FR-001",
+        "text": "Organizers shall create events with title, venue, and event date."
+      },
+      {
+        "requirement_id": "FR-002",
+        "text": "Attendees shall register with name and email."
+      },
+      {
+        "requirement_id": "FR-003",
+        "text": "Attendees shall register for multiple events."
+      }
+    ],
+    "architecture_context": {
+      "database_type": "relational",
+      "target_dbms": "PostgreSQL"
+    },
+    "expected_design": {
+      "entities": [
+        "organizers",
+        "events",
+        "attendees",
+        "registrations"
+      ],
+      "attributes": {
+        "organizers": [
+          "organizer_id",
+          "name"
+        ],
+        "events": [
+          "event_id",
+          "organizer_id",
+          "title",
+          "venue",
+          "event_date"
+        ],
+        "attendees": [
+          "attendee_id",
+          "name",
+          "email"
+        ],
+        "registrations": [
+          "registration_id",
+          "event_id",
+          "attendee_id"
+        ]
+      },
+      "primary_keys": {
+        "organizers": "organizer_id",
+        "events": "event_id",
+        "attendees": "attendee_id",
+        "registrations": "registration_id"
+      },
+      "foreign_keys": [
+        {
+          "table": "events",
+          "column": "organizer_id",
+          "references": "organizers.organizer_id"
+        },
+        {
+          "table": "registrations",
+          "column": "event_id",
+          "references": "events.event_id"
+        },
+        {
+          "table": "registrations",
+          "column": "attendee_id",
+          "references": "attendees.attendee_id"
+        }
+      ],
+      "relationships": [
+        {
+          "from": "organizers",
+          "to": "events",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "events",
+          "to": "registrations",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "attendees",
+          "to": "registrations",
+          "cardinality": "one-to-many"
+        }
+      ],
+      "constraints": [
+        "attendees.email should be unique",
+        "registrations should prevent duplicate event-attendee pairs"
+      ],
+      "requirement_mapping": {
+        "FR-001": ["organizers", "events"],
+        "FR-002": ["attendees"],
+        "FR-003": ["registrations"]
+      }
+    }
+  },
+  {
+    "case_id": "LLM-010",
+    "project_id": "helpdesk_ticketing",
+    "domain": "IT Services",
+    "difficulty": "medium",
+    "requirements": [
+      {
+        "requirement_id": "FR-001",
+        "text": "Employees shall submit support tickets with a title and description."
+      },
+      {
+        "requirement_id": "FR-002",
+        "text": "Support staff shall be assigned to tickets."
+      },
+      {
+        "requirement_id": "FR-003",
+        "text": "The system shall track ticket status and creation date."
+      }
+    ],
+    "architecture_context": {
+      "database_type": "relational",
+      "target_dbms": "PostgreSQL"
+    },
+    "expected_design": {
+      "entities": [
+        "employees",
+        "support_staff",
+        "tickets"
+      ],
+      "attributes": {
+        "employees": [
+          "employee_id",
+          "name"
+        ],
+        "support_staff": [
+          "staff_id",
+          "name"
+        ],
+        "tickets": [
+          "ticket_id",
+          "employee_id",
+          "staff_id",
+          "title",
+          "description",
+          "status",
+          "created_at"
+        ]
+      },
+      "primary_keys": {
+        "employees": "employee_id",
+        "support_staff": "staff_id",
+        "tickets": "ticket_id"
+      },
+      "foreign_keys": [
+        {
+          "table": "tickets",
+          "column": "employee_id",
+          "references": "employees.employee_id"
+        },
+        {
+          "table": "tickets",
+          "column": "staff_id",
+          "references": "support_staff.staff_id"
+        }
+      ],
+      "relationships": [
+        {
+          "from": "employees",
+          "to": "tickets",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "support_staff",
+          "to": "tickets",
+          "cardinality": "one-to-many"
+        }
+      ],
+      "constraints": [
+        "tickets.status must use an allowed status value",
+        "tickets.staff_id may be null before assignment"
+      ],
+      "requirement_mapping": {
+        "FR-001": ["employees", "tickets"],
+        "FR-002": ["support_staff", "tickets"],
+        "FR-003": ["tickets"]
+      }
+    }
+  },
+  {
+    "case_id": "LLM-011",
+    "project_id": "banking_transactions",
+    "domain": "Finance",
+    "difficulty": "hard",
+    "requirements": [
+      {
+        "requirement_id": "FR-001",
+        "text": "The bank shall maintain customers with name and identification number."
+      },
+      {
+        "requirement_id": "FR-002",
+        "text": "Customers shall own bank accounts with account number and account type."
+      },
+      {
+        "requirement_id": "FR-003",
+        "text": "The system shall record transfers between accounts with amount and transaction timestamp."
+      }
+    ],
+    "architecture_context": {
+      "database_type": "relational",
+      "target_dbms": "PostgreSQL"
+    },
+    "expected_design": {
+      "entities": [
+        "customers",
+        "accounts",
+        "transfers"
+      ],
+      "attributes": {
+        "customers": [
+          "customer_id",
+          "name",
+          "identification_number"
+        ],
+        "accounts": [
+          "account_id",
+          "customer_id",
+          "account_number",
+          "account_type"
+        ],
+        "transfers": [
+          "transfer_id",
+          "source_account_id",
+          "destination_account_id",
+          "amount",
+          "transaction_timestamp"
+        ]
+      },
+      "primary_keys": {
+        "customers": "customer_id",
+        "accounts": "account_id",
+        "transfers": "transfer_id"
+      },
+      "foreign_keys": [
+        {
+          "table": "accounts",
+          "column": "customer_id",
+          "references": "customers.customer_id"
+        },
+        {
+          "table": "transfers",
+          "column": "source_account_id",
+          "references": "accounts.account_id"
+        },
+        {
+          "table": "transfers",
+          "column": "destination_account_id",
+          "references": "accounts.account_id"
+        }
+      ],
+      "relationships": [
+        {
+          "from": "customers",
+          "to": "accounts",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "accounts",
+          "to": "transfers",
+          "cardinality": "one-to-many",
+          "role": "source"
+        },
+        {
+          "from": "accounts",
+          "to": "transfers",
+          "cardinality": "one-to-many",
+          "role": "destination"
+        }
+      ],
+      "constraints": [
+        "customers.identification_number should be unique",
+        "accounts.account_number must be unique",
+        "transfers.amount must be positive",
+        "transfers.source_account_id must differ from destination_account_id"
+      ],
+      "requirement_mapping": {
+        "FR-001": ["customers"],
+        "FR-002": ["accounts"],
+        "FR-003": ["transfers"]
+      }
+    }
+  },
+  {
+    "case_id": "LLM-012",
+    "project_id": "clinic_prescriptions",
+    "domain": "Healthcare",
+    "difficulty": "hard",
+    "requirements": [
+      {
+        "requirement_id": "FR-001",
+        "text": "Doctors shall issue prescriptions to patients with an issue date."
+      },
+      {
+        "requirement_id": "FR-002",
+        "text": "A prescription shall contain multiple medicines with dosage and frequency."
+      },
+      {
+        "requirement_id": "FR-003",
+        "text": "The system shall maintain medicine names and unit information."
+      }
+    ],
+    "architecture_context": {
+      "database_type": "relational",
+      "target_dbms": "PostgreSQL"
+    },
+    "expected_design": {
+      "entities": [
+        "doctors",
+        "patients",
+        "prescriptions",
+        "medicines",
+        "prescription_items"
+      ],
+      "attributes": {
+        "doctors": [
+          "doctor_id",
+          "name"
+        ],
+        "patients": [
+          "patient_id",
+          "name"
+        ],
+        "prescriptions": [
+          "prescription_id",
+          "doctor_id",
+          "patient_id",
+          "issue_date"
+        ],
+        "medicines": [
+          "medicine_id",
+          "medicine_name",
+          "unit"
+        ],
+        "prescription_items": [
+          "prescription_item_id",
+          "prescription_id",
+          "medicine_id",
+          "dosage",
+          "frequency"
+        ]
+      },
+      "primary_keys": {
+        "doctors": "doctor_id",
+        "patients": "patient_id",
+        "prescriptions": "prescription_id",
+        "medicines": "medicine_id",
+        "prescription_items": "prescription_item_id"
+      },
+      "foreign_keys": [
+        {
+          "table": "prescriptions",
+          "column": "doctor_id",
+          "references": "doctors.doctor_id"
+        },
+        {
+          "table": "prescriptions",
+          "column": "patient_id",
+          "references": "patients.patient_id"
+        },
+        {
+          "table": "prescription_items",
+          "column": "prescription_id",
+          "references": "prescriptions.prescription_id"
+        },
+        {
+          "table": "prescription_items",
+          "column": "medicine_id",
+          "references": "medicines.medicine_id"
+        }
+      ],
+      "relationships": [
+        {
+          "from": "doctors",
+          "to": "prescriptions",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "patients",
+          "to": "prescriptions",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "prescriptions",
+          "to": "prescription_items",
+          "cardinality": "one-to-many"
+        },
+        {
+          "from": "medicines",
+          "to": "prescription_items",
+          "cardinality": "one-to-many"
+        }
+      ],
+      "constraints": [
+        "prescription_items.dosage is required",
+        "prescription_items.frequency is required"
+      ],
+      "requirement_mapping": {
+        "FR-001": ["doctors", "patients", "prescriptions"],
+        "FR-002": ["prescription_items"],
+        "FR-003": ["medicines"]
+      }
+    }
+  }
+]

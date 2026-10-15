@@ -358,3 +358,15 @@ __pycache__/
 
 # Temporary backups
 *.zip
+
+# ==========================================
+# BERT comparison evaluation scripts
+# ==========================================
+
+/backend/datasets/nlp/evaluate_model.py
+/backend/datasets/nlp/evaluate_project_split.py
+/backend/datasets/nlp/evaluate_real_world.py
+
+# BERT comparison error analysis scripts
+/backend/datasets/nlp/error_analysis.py
+/backend/datasets/nlp/error_analysis_real_world.py
