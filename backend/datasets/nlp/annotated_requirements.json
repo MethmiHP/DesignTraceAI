@@ -1,0 +1,1372 @@
+[
+  {
+    "requirement_id": "NLP-001",
+    "project_id": "hospital_system",
+    "text": "The system shall store patient name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 42
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 60
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-002",
+    "project_id": "hospital_system",
+    "text": "A patient can book an appointment with a doctor.",
+    "annotations": [
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 9
+      },
+      {
+        "text": "book",
+        "label": "ACTION",
+        "start": 14,
+        "end": 18
+      },
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 33
+      },
+      {
+        "text": "doctor",
+        "label": "ENTITY",
+        "start": 41,
+        "end": 47
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-003",
+    "project_id": "hospital_system",
+    "text": "Doctors can view appointments assigned to them.",
+    "annotations": [
+      {
+        "text": "Doctors",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 7
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 12,
+        "end": 16
+      },
+      {
+        "text": "appointments",
+        "label": "ENTITY",
+        "start": 17,
+        "end": 29
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-004",
+    "project_id": "hospital_system",
+    "text": "Each doctor has a specialization and license number.",
+    "annotations": [
+      {
+        "text": "doctor",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 11
+      },
+      {
+        "text": "specialization",
+        "label": "ATTRIBUTE",
+        "start": 18,
+        "end": 32
+      },
+      {
+        "text": "license number",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 51
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-005",
+    "project_id": "hospital_system",
+    "text": "A patient can cancel an appointment.",
+    "annotations": [
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 9
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 35
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-006",
+    "project_id": "hospital_system",
+    "text": "The system shall record appointment date, time, and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 35
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 40
+      },
+      {
+        "text": "time",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 46
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 52,
+        "end": 58
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-007",
+    "project_id": "hospital_system",
+    "text": "A receptionist can register a patient.",
+    "annotations": [
+      {
+        "text": "receptionist",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 14
+      },
+      {
+        "text": "register",
+        "label": "ACTION",
+        "start": 19,
+        "end": 27
+      },
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 30,
+        "end": 37
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-008",
+    "project_id": "hospital_system",
+    "text": "Each appointment must reference one doctor.",
+    "annotations": [
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 16
+      },
+      {
+        "text": "doctor",
+        "label": "ENTITY",
+        "start": 36,
+        "end": 42
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-009",
+    "project_id": "hospital_system",
+    "text": "The system shall save doctor availability slots.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "doctor",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 28
+      },
+      {
+        "text": "availability slots",
+        "label": "ENTITY",
+        "start": 29,
+        "end": 47
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-010",
+    "project_id": "hospital_system",
+    "text": "Patients can update their phone number.",
+    "annotations": [
+      {
+        "text": "Patients",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 8
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 13,
+        "end": 19
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 26,
+        "end": 38
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-011",
+    "project_id": "library_system",
+    "text": "The library shall store book title, ISBN, and publication date.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 18,
+        "end": 23
+      },
+      {
+        "text": "book",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 28
+      },
+      {
+        "text": "title",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 34
+      },
+      {
+        "text": "ISBN",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 40
+      },
+      {
+        "text": "publication date",
+        "label": "ATTRIBUTE",
+        "start": 46,
+        "end": 62
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-012",
+    "project_id": "library_system",
+    "text": "A member can borrow a book.",
+    "annotations": [
+      {
+        "text": "member",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "borrow",
+        "label": "ACTION",
+        "start": 13,
+        "end": 19
+      },
+      {
+        "text": "book",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 26
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-013",
+    "project_id": "library_system",
+    "text": "The system shall register members with name and email.",
+    "annotations": [
+      {
+        "text": "register",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "members",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 33
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 43
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 53
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-014",
+    "project_id": "library_system",
+    "text": "A librarian can return a borrowed book.",
+    "annotations": [
+      {
+        "text": "librarian",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 11
+      },
+      {
+        "text": "return",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "book",
+        "label": "ENTITY",
+        "start": 34,
+        "end": 38
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-015",
+    "project_id": "library_system",
+    "text": "Every borrowing has a due date and status.",
+    "annotations": [
+      {
+        "text": "borrowing",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 15
+      },
+      {
+        "text": "due date",
+        "label": "ATTRIBUTE",
+        "start": 22,
+        "end": 30
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 41
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-016",
+    "project_id": "library_system",
+    "text": "Book ISBN must be unique.",
+    "annotations": [
+      {
+        "text": "Book",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 4
+      },
+      {
+        "text": "ISBN",
+        "label": "ATTRIBUTE",
+        "start": 5,
+        "end": 9
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-017",
+    "project_id": "library_system",
+    "text": "A member can reserve a book.",
+    "annotations": [
+      {
+        "text": "member",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "reserve",
+        "label": "ACTION",
+        "start": 13,
+        "end": 20
+      },
+      {
+        "text": "book",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 27
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-018",
+    "project_id": "library_system",
+    "text": "The system shall record the return date for each borrowing.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "return date",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 39
+      },
+      {
+        "text": "borrowing",
+        "label": "ENTITY",
+        "start": 49,
+        "end": 58
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-019",
+    "project_id": "library_system",
+    "text": "Each book belongs to a category.",
+    "annotations": [
+      {
+        "text": "book",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 9
+      },
+      {
+        "text": "category",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 31
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-020",
+    "project_id": "library_system",
+    "text": "A librarian can update the title of a book.",
+    "annotations": [
+      {
+        "text": "librarian",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 11
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "title",
+        "label": "ATTRIBUTE",
+        "start": 27,
+        "end": 32
+      },
+      {
+        "text": "book",
+        "label": "ENTITY",
+        "start": 38,
+        "end": 42
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-021",
+    "project_id": "ecommerce_system",
+    "text": "The system shall store customer name and email.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 31
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 36
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 46
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-022",
+    "project_id": "ecommerce_system",
+    "text": "A customer can place an order.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 10
+      },
+      {
+        "text": "place",
+        "label": "ACTION",
+        "start": 15,
+        "end": 20
+      },
+      {
+        "text": "order",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 29
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-023",
+    "project_id": "ecommerce_system",
+    "text": "Each product has a name, price, and quantity.",
+    "annotations": [
+      {
+        "text": "product",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 12
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 19,
+        "end": 23
+      },
+      {
+        "text": "price",
+        "label": "ATTRIBUTE",
+        "start": 25,
+        "end": 30
+      },
+      {
+        "text": "quantity",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 44
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-024",
+    "project_id": "ecommerce_system",
+    "text": "An order contains products.",
+    "annotations": [
+      {
+        "text": "order",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 8
+      },
+      {
+        "text": "products",
+        "label": "ENTITY",
+        "start": 18,
+        "end": 26
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-025",
+    "project_id": "ecommerce_system",
+    "text": "A customer can cancel an order.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 10
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "order",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 30
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-026",
+    "project_id": "ecommerce_system",
+    "text": "The system shall record order status and order date.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "order",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 29
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 36
+      },
+      {
+        "text": "order date",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 51
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-027",
+    "project_id": "ecommerce_system",
+    "text": "An administrator can update product price.",
+    "annotations": [
+      {
+        "text": "administrator",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 16
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 21,
+        "end": 27
+      },
+      {
+        "text": "product",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 35
+      },
+      {
+        "text": "price",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 41
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-028",
+    "project_id": "ecommerce_system",
+    "text": "A customer can add a product to a cart.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 10
+      },
+      {
+        "text": "add",
+        "label": "ACTION",
+        "start": 15,
+        "end": 18
+      },
+      {
+        "text": "product",
+        "label": "ENTITY",
+        "start": 21,
+        "end": 28
+      },
+      {
+        "text": "cart",
+        "label": "ENTITY",
+        "start": 34,
+        "end": 38
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-029",
+    "project_id": "ecommerce_system",
+    "text": "Each payment has an amount and payment date.",
+    "annotations": [
+      {
+        "text": "payment",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 12
+      },
+      {
+        "text": "amount",
+        "label": "ATTRIBUTE",
+        "start": 20,
+        "end": 26
+      },
+      {
+        "text": "payment date",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 43
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-030",
+    "project_id": "ecommerce_system",
+    "text": "The system shall save shipping address for each order.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "shipping address",
+        "label": "ATTRIBUTE",
+        "start": 22,
+        "end": 38
+      },
+      {
+        "text": "order",
+        "label": "ENTITY",
+        "start": 48,
+        "end": 53
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-031",
+    "project_id": "student_system",
+    "text": "The system shall store student name, email, and registration number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 42
+      },
+      {
+        "text": "registration number",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 67
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-032",
+    "project_id": "student_system",
+    "text": "A student can enroll in a course.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 9
+      },
+      {
+        "text": "enroll",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-033",
+    "project_id": "student_system",
+    "text": "Each course has a code, title, and credits.",
+    "annotations": [
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 11
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 18,
+        "end": 22
+      },
+      {
+        "text": "title",
+        "label": "ATTRIBUTE",
+        "start": 24,
+        "end": 29
+      },
+      {
+        "text": "credits",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 42
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-034",
+    "project_id": "student_system",
+    "text": "A lecturer can assign a grade to an enrollment.",
+    "annotations": [
+      {
+        "text": "lecturer",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 10
+      },
+      {
+        "text": "assign",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "grade",
+        "label": "ATTRIBUTE",
+        "start": 24,
+        "end": 29
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 36,
+        "end": 46
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-035",
+    "project_id": "student_system",
+    "text": "The system shall record enrollment date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 34
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 39
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 44,
+        "end": 50
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-036",
+    "project_id": "student_system",
+    "text": "Students can view their grades.",
+    "annotations": [
+      {
+        "text": "Students",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 8
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 13,
+        "end": 17
+      },
+      {
+        "text": "grades",
+        "label": "ATTRIBUTE",
+        "start": 24,
+        "end": 30
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-037",
+    "project_id": "student_system",
+    "text": "A lecturer can create a course.",
+    "annotations": [
+      {
+        "text": "lecturer",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 10
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 30
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-038",
+    "project_id": "student_system",
+    "text": "Each department has a name and office location.",
+    "annotations": [
+      {
+        "text": "department",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 15
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 22,
+        "end": 26
+      },
+      {
+        "text": "office location",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 46
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-039",
+    "project_id": "student_system",
+    "text": "A student can withdraw from a course.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 9
+      },
+      {
+        "text": "withdraw",
+        "label": "ACTION",
+        "start": 14,
+        "end": 22
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 30,
+        "end": 36
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-040",
+    "project_id": "student_system",
+    "text": "The system shall save attendance date for each student.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "attendance date",
+        "label": "ATTRIBUTE",
+        "start": 22,
+        "end": 37
+      },
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 47,
+        "end": 54
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-041",
+    "project_id": "hotel_system",
+    "text": "The system shall store guest name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "guest",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 28
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 33
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 40
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 46,
+        "end": 58
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-042",
+    "project_id": "hotel_system",
+    "text": "A guest can book a room.",
+    "annotations": [
+      {
+        "text": "guest",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 7
+      },
+      {
+        "text": "book",
+        "label": "ACTION",
+        "start": 12,
+        "end": 16
+      },
+      {
+        "text": "room",
+        "label": "ENTITY",
+        "start": 19,
+        "end": 23
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-043",
+    "project_id": "hotel_system",
+    "text": "Each room has a room number, type, and nightly rate.",
+    "annotations": [
+      {
+        "text": "room",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 9
+      },
+      {
+        "text": "room number",
+        "label": "ATTRIBUTE",
+        "start": 16,
+        "end": 27
+      },
+      {
+        "text": "type",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 33
+      },
+      {
+        "text": "nightly rate",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 51
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-044",
+    "project_id": "hotel_system",
+    "text": "A receptionist can check in a guest.",
+    "annotations": [
+      {
+        "text": "receptionist",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 14
+      },
+      {
+        "text": "check in",
+        "label": "ACTION",
+        "start": 19,
+        "end": 27
+      },
+      {
+        "text": "guest",
+        "label": "ENTITY",
+        "start": 30,
+        "end": 35
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-045",
+    "project_id": "hotel_system",
+    "text": "The system shall record reservation check-in date and check-out date.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "reservation",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 35
+      },
+      {
+        "text": "check-in date",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 49
+      },
+      {
+        "text": "check-out date",
+        "label": "ATTRIBUTE",
+        "start": 54,
+        "end": 68
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-046",
+    "project_id": "hotel_system",
+    "text": "A guest can cancel a reservation.",
+    "annotations": [
+      {
+        "text": "guest",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 7
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 12,
+        "end": 18
+      },
+      {
+        "text": "reservation",
+        "label": "ENTITY",
+        "start": 21,
+        "end": 32
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-047",
+    "project_id": "hotel_system",
+    "text": "Each reservation has a status.",
+    "annotations": [
+      {
+        "text": "reservation",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 16
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 23,
+        "end": 29
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-048",
+    "project_id": "hotel_system",
+    "text": "A manager can update the nightly rate of a room.",
+    "annotations": [
+      {
+        "text": "manager",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 9
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "nightly rate",
+        "label": "ATTRIBUTE",
+        "start": 25,
+        "end": 37
+      },
+      {
+        "text": "room",
+        "label": "ENTITY",
+        "start": 43,
+        "end": 47
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-049",
+    "project_id": "hotel_system",
+    "text": "The system shall save payment amount for a reservation.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "payment",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 29
+      },
+      {
+        "text": "amount",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 36
+      },
+      {
+        "text": "reservation",
+        "label": "ENTITY",
+        "start": 43,
+        "end": 54
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-050",
+    "project_id": "hotel_system",
+    "text": "A guest can request a service for a room.",
+    "annotations": [
+      {
+        "text": "guest",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 7
+      },
+      {
+        "text": "request",
+        "label": "ACTION",
+        "start": 12,
+        "end": 19
+      },
+      {
+        "text": "service",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 29
+      },
+      {
+        "text": "room",
+        "label": "ENTITY",
+        "start": 36,
+        "end": 40
+      }
+    ]
+  }
+]

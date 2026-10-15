@@ -1,0 +1,4262 @@
+[
+  {
+    "requirement_id": "NLP-SYN-0045",
+    "project_id": "hospital_system",
+    "text": "The system shall track assignment status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "assignment",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 33
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 40
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 60
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0109",
+    "project_id": "student_system",
+    "text": "The system shall store course code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 34
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0403",
+    "project_id": "transport_system",
+    "text": "The system shall save passenger address and contact number.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "passenger",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 31
+      },
+      {
+        "text": "address",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 39
+      },
+      {
+        "text": "contact number",
+        "label": "ATTRIBUTE",
+        "start": 44,
+        "end": 58
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0018",
+    "project_id": "hospital_system",
+    "text": "The patient can delete a appointment.",
+    "annotations": [
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 36
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0106",
+    "project_id": "student_system",
+    "text": "The system shall record enrollment date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 34
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 39
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 44,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0135",
+    "project_id": "student_system",
+    "text": "The teacher can update the classroom description.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 36
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0031",
+    "project_id": "hospital_system",
+    "text": "The system shall record assignment date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "assignment",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 34
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 39
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 44,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0021",
+    "project_id": "hospital_system",
+    "text": "The patient can review a appointment associated with a doctor.",
+    "annotations": [
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 36
+      },
+      {
+        "text": "doctor",
+        "label": "ENTITY",
+        "start": 55,
+        "end": 61
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0114",
+    "project_id": "student_system",
+    "text": "The system shall save the enrollment creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 36
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0019",
+    "project_id": "hospital_system",
+    "text": "Each doctor must have a unique code.",
+    "annotations": [
+      {
+        "text": "doctor",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 11
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0414",
+    "project_id": "transport_system",
+    "text": "The system shall save the ticket creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "ticket",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0043",
+    "project_id": "hospital_system",
+    "text": "The nurse can delete a assignment.",
+    "annotations": [
+      {
+        "text": "nurse",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "assignment",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 33
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0048",
+    "project_id": "hospital_system",
+    "text": "A assignment must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "assignment",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 12
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 38
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 43,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0428",
+    "project_id": "transport_system",
+    "text": "The system shall save driver address and contact number.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "driver",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 28
+      },
+      {
+        "text": "address",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 36
+      },
+      {
+        "text": "contact number",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 55
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0026",
+    "project_id": "hospital_system",
+    "text": "The system shall store nurse name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "nurse",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 28
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 33
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 40
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 46,
+        "end": 58
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0129",
+    "project_id": "student_system",
+    "text": "An teacher can create a attendance for a classroom.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 10
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 34
+      },
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 41,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0423",
+    "project_id": "transport_system",
+    "text": "A ticket must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "ticket",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 24,
+        "end": 34
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 47
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0105",
+    "project_id": "student_system",
+    "text": "The student can view the enrollment status.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 16,
+        "end": 20
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 42
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0003",
+    "project_id": "hospital_system",
+    "text": "The system shall save patient address and contact number.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 29
+      },
+      {
+        "text": "address",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 37
+      },
+      {
+        "text": "contact number",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 56
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0404",
+    "project_id": "transport_system",
+    "text": "An passenger can create a ticket for a route.",
+    "annotations": [
+      {
+        "text": "passenger",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 12
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "ticket",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "route",
+        "label": "ENTITY",
+        "start": 39,
+        "end": 44
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0022",
+    "project_id": "hospital_system",
+    "text": "The system shall maintain doctor availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "doctor",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 45
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 50,
+        "end": 58
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0422",
+    "project_id": "transport_system",
+    "text": "The system shall maintain route availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "route",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 31
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 44
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 49,
+        "end": 57
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0442",
+    "project_id": "transport_system",
+    "text": "The system shall store the driver identifier.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "driver",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 33
+      },
+      {
+        "text": "identifier",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 44
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0143",
+    "project_id": "student_system",
+    "text": "The teacher can delete a attendance.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0138",
+    "project_id": "student_system",
+    "text": "The teacher can search for a classroom by name.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 29,
+        "end": 38
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0035",
+    "project_id": "hospital_system",
+    "text": "The nurse can update the ward description.",
+    "annotations": [
+      {
+        "text": "nurse",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "ward",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 29
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 41
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0046",
+    "project_id": "hospital_system",
+    "text": "The nurse can review a assignment associated with a ward.",
+    "annotations": [
+      {
+        "text": "nurse",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "assignment",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 33
+      },
+      {
+        "text": "ward",
+        "label": "ENTITY",
+        "start": 52,
+        "end": 56
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0104",
+    "project_id": "student_system",
+    "text": "An student can create a enrollment for a course.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 10
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 34
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 41,
+        "end": 47
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0405",
+    "project_id": "transport_system",
+    "text": "The passenger can view the ticket status.",
+    "annotations": [
+      {
+        "text": "passenger",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 13
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 18,
+        "end": 22
+      },
+      {
+        "text": "ticket",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 33
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 40
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0408",
+    "project_id": "transport_system",
+    "text": "The passenger may cancel a ticket.",
+    "annotations": [
+      {
+        "text": "passenger",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 13
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 18,
+        "end": 24
+      },
+      {
+        "text": "ticket",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 33
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0001",
+    "project_id": "hospital_system",
+    "text": "The system shall store patient name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 42
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 60
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0425",
+    "project_id": "transport_system",
+    "text": "The system shall store passenger preferences and notes.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "passenger",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 32
+      },
+      {
+        "text": "preferences",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 44
+      },
+      {
+        "text": "notes",
+        "label": "ATTRIBUTE",
+        "start": 49,
+        "end": 54
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "IND-017",
+    "project_id": "vehicle_rental_system",
+    "text": "Each payment must record its transaction reference.",
+    "annotations": [
+      {
+        "text": "payment",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 12
+      },
+      {
+        "text": "transaction reference",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 50
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-SYN-0012",
+    "project_id": "hospital_system",
+    "text": "A appointment must reference one patient and one doctor.",
+    "annotations": [
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 13
+      },
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 33,
+        "end": 40
+      },
+      {
+        "text": "doctor",
+        "label": "ENTITY",
+        "start": 49,
+        "end": 55
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0128",
+    "project_id": "student_system",
+    "text": "The system shall save teacher address and contact number.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 29
+      },
+      {
+        "text": "address",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 37
+      },
+      {
+        "text": "contact number",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 56
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0136",
+    "project_id": "student_system",
+    "text": "The system shall record the classroom name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 37
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 42
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 55
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0444",
+    "project_id": "transport_system",
+    "text": "Each vehicle must have a unique code.",
+    "annotations": [
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 12
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 36
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0123",
+    "project_id": "student_system",
+    "text": "A enrollment must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 12
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 38
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 43,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0042",
+    "project_id": "hospital_system",
+    "text": "The system shall store the nurse identifier.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "nurse",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 32
+      },
+      {
+        "text": "identifier",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 43
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0436",
+    "project_id": "transport_system",
+    "text": "The system shall record the vehicle name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 35
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 40
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 53
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0447",
+    "project_id": "transport_system",
+    "text": "The system shall maintain vehicle availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 33
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 46
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 51,
+        "end": 59
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0137",
+    "project_id": "student_system",
+    "text": "A attendance must reference one teacher and one classroom.",
+    "annotations": [
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 12
+      },
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 32,
+        "end": 39
+      },
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 48,
+        "end": 57
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0004",
+    "project_id": "hospital_system",
+    "text": "An patient can create a appointment for a doctor.",
+    "annotations": [
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 10
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 35
+      },
+      {
+        "text": "doctor",
+        "label": "ENTITY",
+        "start": 42,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0406",
+    "project_id": "transport_system",
+    "text": "The system shall record ticket date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "ticket",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 30
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0433",
+    "project_id": "transport_system",
+    "text": "The driver may cancel a trip.",
+    "annotations": [
+      {
+        "text": "driver",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 10
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "trip",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 28
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0438",
+    "project_id": "transport_system",
+    "text": "The driver can search for a vehicle by name.",
+    "annotations": [
+      {
+        "text": "driver",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 10
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 35
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 43
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0120",
+    "project_id": "student_system",
+    "text": "The system shall track enrollment status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 33
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 40
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 60
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0113",
+    "project_id": "student_system",
+    "text": "The student can search for a course by name.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 29,
+        "end": 35
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 43
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0417",
+    "project_id": "transport_system",
+    "text": "The system shall store the passenger identifier.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "passenger",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 36
+      },
+      {
+        "text": "identifier",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 47
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0430",
+    "project_id": "transport_system",
+    "text": "The driver can view the trip status.",
+    "annotations": [
+      {
+        "text": "driver",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 10
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 15,
+        "end": 19
+      },
+      {
+        "text": "trip",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 28
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0029",
+    "project_id": "hospital_system",
+    "text": "An nurse can create a assignment for a ward.",
+    "annotations": [
+      {
+        "text": "nurse",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 8
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 13,
+        "end": 19
+      },
+      {
+        "text": "assignment",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 32
+      },
+      {
+        "text": "ward",
+        "label": "ENTITY",
+        "start": 39,
+        "end": 43
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0108",
+    "project_id": "student_system",
+    "text": "The student may cancel a enrollment.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0034",
+    "project_id": "hospital_system",
+    "text": "The system shall store ward code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "ward",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 27
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 32
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0050",
+    "project_id": "hospital_system",
+    "text": "The system shall store nurse preferences and notes.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "nurse",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 28
+      },
+      {
+        "text": "preferences",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 40
+      },
+      {
+        "text": "notes",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0434",
+    "project_id": "transport_system",
+    "text": "The system shall store vehicle code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0040",
+    "project_id": "hospital_system",
+    "text": "A assignment must contain a status value.",
+    "annotations": [
+      {
+        "text": "assignment",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 12
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 34
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0401",
+    "project_id": "transport_system",
+    "text": "The system shall store passenger name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "passenger",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 32
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 37
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 44
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 50,
+        "end": 62
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0409",
+    "project_id": "transport_system",
+    "text": "The system shall store route code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "route",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 28
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 33
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 49
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0416",
+    "project_id": "transport_system",
+    "text": "The passenger can submit a ticket.",
+    "annotations": [
+      {
+        "text": "passenger",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 13
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 18,
+        "end": 24
+      },
+      {
+        "text": "ticket",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 33
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0027",
+    "project_id": "hospital_system",
+    "text": "Each nurse must provide an email address and registration date.",
+    "annotations": [
+      {
+        "text": "nurse",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 10
+      },
+      {
+        "text": "email address",
+        "label": "ATTRIBUTE",
+        "start": 27,
+        "end": 40
+      },
+      {
+        "text": "registration date",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 62
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0049",
+    "project_id": "hospital_system",
+    "text": "The nurse can approve a assignment.",
+    "annotations": [
+      {
+        "text": "nurse",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 14,
+        "end": 21
+      },
+      {
+        "text": "assignment",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 34
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "IND-018",
+    "project_id": "vehicle_rental_system",
+    "text": "Staff can extend bookings after checking vehicle availability.",
+    "annotations": [
+      {
+        "text": "Staff",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 5
+      },
+      {
+        "text": "extend",
+        "label": "ACTION",
+        "start": 10,
+        "end": 16
+      },
+      {
+        "text": "bookings",
+        "label": "ENTITY",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 41,
+        "end": 48
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-SYN-0008",
+    "project_id": "hospital_system",
+    "text": "The patient may cancel a appointment.",
+    "annotations": [
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 36
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0032",
+    "project_id": "hospital_system",
+    "text": "Every assignment must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "assignment",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 16
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0011",
+    "project_id": "hospital_system",
+    "text": "The system shall record the doctor name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "doctor",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 34
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 39
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 44,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0450",
+    "project_id": "transport_system",
+    "text": "The system shall store driver preferences and notes.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "driver",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      },
+      {
+        "text": "preferences",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 41
+      },
+      {
+        "text": "notes",
+        "label": "ATTRIBUTE",
+        "start": 46,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0144",
+    "project_id": "student_system",
+    "text": "Each classroom must have a unique code.",
+    "annotations": [
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 14
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 38
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0020",
+    "project_id": "hospital_system",
+    "text": "The system shall track appointment status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 34
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 41
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 46,
+        "end": 61
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0111",
+    "project_id": "student_system",
+    "text": "The system shall record the course name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 34
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 39
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 44,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0010",
+    "project_id": "hospital_system",
+    "text": "The patient can update the doctor description.",
+    "annotations": [
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "doctor",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 33
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 45
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0437",
+    "project_id": "transport_system",
+    "text": "A trip must reference one driver and one vehicle.",
+    "annotations": [
+      {
+        "text": "trip",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 6
+      },
+      {
+        "text": "driver",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 41,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0402",
+    "project_id": "transport_system",
+    "text": "Each passenger must provide an email address and registration date.",
+    "annotations": [
+      {
+        "text": "passenger",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 14
+      },
+      {
+        "text": "email address",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 44
+      },
+      {
+        "text": "registration date",
+        "label": "ATTRIBUTE",
+        "start": 49,
+        "end": 66
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0009",
+    "project_id": "hospital_system",
+    "text": "The system shall store doctor code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "doctor",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 34
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0015",
+    "project_id": "hospital_system",
+    "text": "A appointment must contain a status value.",
+    "annotations": [
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 13
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0431",
+    "project_id": "transport_system",
+    "text": "The system shall record trip date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "trip",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 28
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 33
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 44
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0033",
+    "project_id": "hospital_system",
+    "text": "The nurse may cancel a assignment.",
+    "annotations": [
+      {
+        "text": "nurse",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "assignment",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 33
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0115",
+    "project_id": "student_system",
+    "text": "A enrollment must contain a status value.",
+    "annotations": [
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 12
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 34
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0122",
+    "project_id": "student_system",
+    "text": "The system shall maintain course availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 45
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 50,
+        "end": 58
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0044",
+    "project_id": "hospital_system",
+    "text": "Each ward must have a unique code.",
+    "annotations": [
+      {
+        "text": "ward",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 9
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 33
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "IND-014",
+    "project_id": "vehicle_rental_system",
+    "text": "A clerk can issue an invoice for a completed rental.",
+    "annotations": [
+      {
+        "text": "clerk",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 7
+      },
+      {
+        "text": "issue",
+        "label": "ACTION",
+        "start": 12,
+        "end": 17
+      },
+      {
+        "text": "invoice",
+        "label": "ENTITY",
+        "start": 21,
+        "end": 28
+      },
+      {
+        "text": "rental",
+        "label": "ENTITY",
+        "start": 45,
+        "end": 51
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-SYN-0118",
+    "project_id": "student_system",
+    "text": "The student can delete a enrollment.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0411",
+    "project_id": "transport_system",
+    "text": "The system shall record the route name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "route",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 33
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 38
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 43,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0110",
+    "project_id": "student_system",
+    "text": "The student can update the course description.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 33
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 45
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0424",
+    "project_id": "transport_system",
+    "text": "The passenger can approve a ticket.",
+    "annotations": [
+      {
+        "text": "passenger",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 13
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 18,
+        "end": 25
+      },
+      {
+        "text": "ticket",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 34
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0449",
+    "project_id": "transport_system",
+    "text": "The driver can approve a trip.",
+    "annotations": [
+      {
+        "text": "driver",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 10
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 15,
+        "end": 22
+      },
+      {
+        "text": "trip",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 29
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0014",
+    "project_id": "hospital_system",
+    "text": "The system shall save the appointment creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 37
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "IND-012",
+    "project_id": "vehicle_rental_system",
+    "text": "Each rental agreement must include a return deadline.",
+    "annotations": [
+      {
+        "text": "rental agreement",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 21
+      },
+      {
+        "text": "return deadline",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 52
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-SYN-0432",
+    "project_id": "transport_system",
+    "text": "Every trip must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "trip",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 10
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0149",
+    "project_id": "student_system",
+    "text": "The teacher can approve a attendance.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 16,
+        "end": 23
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 36
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0440",
+    "project_id": "transport_system",
+    "text": "A trip must contain a status value.",
+    "annotations": [
+      {
+        "text": "trip",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 6
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 22,
+        "end": 28
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "IND-013",
+    "project_id": "vehicle_rental_system",
+    "text": "The agency shall store vehicle registration numbers and mileage.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "registration numbers",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 51
+      },
+      {
+        "text": "mileage",
+        "label": "ATTRIBUTE",
+        "start": 56,
+        "end": 63
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-SYN-0421",
+    "project_id": "transport_system",
+    "text": "The passenger can review a ticket associated with a route.",
+    "annotations": [
+      {
+        "text": "passenger",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 13
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 18,
+        "end": 24
+      },
+      {
+        "text": "ticket",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 33
+      },
+      {
+        "text": "route",
+        "label": "ENTITY",
+        "start": 52,
+        "end": 57
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0007",
+    "project_id": "hospital_system",
+    "text": "Every appointment must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 17
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 53
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0006",
+    "project_id": "hospital_system",
+    "text": "The system shall record appointment date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 35
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 40
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0116",
+    "project_id": "student_system",
+    "text": "The student can submit a enrollment.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0017",
+    "project_id": "hospital_system",
+    "text": "The system shall store the patient identifier.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 34
+      },
+      {
+        "text": "identifier",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 45
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0126",
+    "project_id": "student_system",
+    "text": "The system shall store teacher name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 42
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 60
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0142",
+    "project_id": "student_system",
+    "text": "The system shall store the teacher identifier.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 34
+      },
+      {
+        "text": "identifier",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 45
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0002",
+    "project_id": "hospital_system",
+    "text": "Each patient must provide an email address and registration date.",
+    "annotations": [
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 12
+      },
+      {
+        "text": "email address",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 42
+      },
+      {
+        "text": "registration date",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 64
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0039",
+    "project_id": "hospital_system",
+    "text": "The system shall save the assignment creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "assignment",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 36
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0023",
+    "project_id": "hospital_system",
+    "text": "A appointment must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 13
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 39
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 44,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0047",
+    "project_id": "hospital_system",
+    "text": "The system shall maintain ward availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "ward",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 30
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 43
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 56
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0030",
+    "project_id": "hospital_system",
+    "text": "The nurse can view the assignment status.",
+    "annotations": [
+      {
+        "text": "nurse",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 14,
+        "end": 18
+      },
+      {
+        "text": "assignment",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 33
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 40
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0038",
+    "project_id": "hospital_system",
+    "text": "The nurse can search for a ward by name.",
+    "annotations": [
+      {
+        "text": "nurse",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "ward",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 31
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 39
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0141",
+    "project_id": "student_system",
+    "text": "The teacher can submit a attendance.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0013",
+    "project_id": "hospital_system",
+    "text": "The patient can search for a doctor by name.",
+    "annotations": [
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "doctor",
+        "label": "ENTITY",
+        "start": 29,
+        "end": 35
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 43
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0037",
+    "project_id": "hospital_system",
+    "text": "A assignment must reference one nurse and one ward.",
+    "annotations": [
+      {
+        "text": "assignment",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 12
+      },
+      {
+        "text": "nurse",
+        "label": "ENTITY",
+        "start": 32,
+        "end": 37
+      },
+      {
+        "text": "ward",
+        "label": "ENTITY",
+        "start": 46,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0427",
+    "project_id": "transport_system",
+    "text": "Each driver must provide an email address and registration date.",
+    "annotations": [
+      {
+        "text": "driver",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 11
+      },
+      {
+        "text": "email address",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 41
+      },
+      {
+        "text": "registration date",
+        "label": "ATTRIBUTE",
+        "start": 46,
+        "end": 63
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0418",
+    "project_id": "transport_system",
+    "text": "The passenger can delete a ticket.",
+    "annotations": [
+      {
+        "text": "passenger",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 13
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 18,
+        "end": 24
+      },
+      {
+        "text": "ticket",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 33
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0124",
+    "project_id": "student_system",
+    "text": "The student can approve a enrollment.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 16,
+        "end": 23
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 36
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "IND-015",
+    "project_id": "vehicle_rental_system",
+    "text": "Drivers may report damage with photographs and incident dates.",
+    "annotations": [
+      {
+        "text": "Drivers",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 7
+      },
+      {
+        "text": "report",
+        "label": "ACTION",
+        "start": 12,
+        "end": 18
+      },
+      {
+        "text": "damage",
+        "label": "ENTITY",
+        "start": 19,
+        "end": 25
+      },
+      {
+        "text": "photographs",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 42
+      },
+      {
+        "text": "incident dates",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 61
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-019",
+    "project_id": "vehicle_rental_system",
+    "text": "The platform shall maintain maintenance histories for vans.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 19,
+        "end": 27
+      },
+      {
+        "text": "maintenance histories",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 49
+      },
+      {
+        "text": "vans",
+        "label": "ENTITY",
+        "start": 54,
+        "end": 58
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-SYN-0036",
+    "project_id": "hospital_system",
+    "text": "The system shall record the ward name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "ward",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 32
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 37
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0412",
+    "project_id": "transport_system",
+    "text": "A ticket must reference one passenger and one route.",
+    "annotations": [
+      {
+        "text": "ticket",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "passenger",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 37
+      },
+      {
+        "text": "route",
+        "label": "ENTITY",
+        "start": 46,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0150",
+    "project_id": "student_system",
+    "text": "The system shall store teacher preferences and notes.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "preferences",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 42
+      },
+      {
+        "text": "notes",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0028",
+    "project_id": "hospital_system",
+    "text": "The system shall save nurse address and contact number.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "nurse",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 27
+      },
+      {
+        "text": "address",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 35
+      },
+      {
+        "text": "contact number",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 54
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0130",
+    "project_id": "student_system",
+    "text": "The teacher can view the attendance status.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 16,
+        "end": 20
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 42
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "IND-016",
+    "project_id": "vehicle_rental_system",
+    "text": "The system shall assign available cars to branch locations.",
+    "annotations": [
+      {
+        "text": "assign",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "cars",
+        "label": "ENTITY",
+        "start": 34,
+        "end": 38
+      },
+      {
+        "text": "branch locations",
+        "label": "ENTITY",
+        "start": 42,
+        "end": 58
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-SYN-0147",
+    "project_id": "student_system",
+    "text": "The system shall maintain classroom availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 35
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 48
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 53,
+        "end": 61
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0448",
+    "project_id": "transport_system",
+    "text": "A trip must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "trip",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 6
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 22,
+        "end": 32
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 45
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0419",
+    "project_id": "transport_system",
+    "text": "Each route must have a unique code.",
+    "annotations": [
+      {
+        "text": "route",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 10
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 34
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0446",
+    "project_id": "transport_system",
+    "text": "The driver can review a trip associated with a vehicle.",
+    "annotations": [
+      {
+        "text": "driver",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 10
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "trip",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 28
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 47,
+        "end": 54
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0134",
+    "project_id": "student_system",
+    "text": "The system shall store classroom code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 32
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 37
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 53
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0041",
+    "project_id": "hospital_system",
+    "text": "The nurse can submit a assignment.",
+    "annotations": [
+      {
+        "text": "nurse",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "assignment",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 33
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0025",
+    "project_id": "hospital_system",
+    "text": "The system shall store patient preferences and notes.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "preferences",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 42
+      },
+      {
+        "text": "notes",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0443",
+    "project_id": "transport_system",
+    "text": "The driver can delete a trip.",
+    "annotations": [
+      {
+        "text": "driver",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 10
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "trip",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 28
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0016",
+    "project_id": "hospital_system",
+    "text": "The patient can submit a appointment.",
+    "annotations": [
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 36
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0410",
+    "project_id": "transport_system",
+    "text": "The passenger can update the route description.",
+    "annotations": [
+      {
+        "text": "passenger",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 13
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 18,
+        "end": 24
+      },
+      {
+        "text": "route",
+        "label": "ENTITY",
+        "start": 29,
+        "end": 34
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0415",
+    "project_id": "transport_system",
+    "text": "A ticket must contain a status value.",
+    "annotations": [
+      {
+        "text": "ticket",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 24,
+        "end": 30
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "IND-011",
+    "project_id": "vehicle_rental_system",
+    "text": "Customers can reserve a vehicle for a pickup date.",
+    "annotations": [
+      {
+        "text": "Customers",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 9
+      },
+      {
+        "text": "reserve",
+        "label": "ACTION",
+        "start": 14,
+        "end": 21
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 31
+      },
+      {
+        "text": "pickup date",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 49
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-SYN-0420",
+    "project_id": "transport_system",
+    "text": "The system shall track ticket status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "ticket",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 36
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 56
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0121",
+    "project_id": "student_system",
+    "text": "The student can review a enrollment associated with a course.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 54,
+        "end": 60
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0441",
+    "project_id": "transport_system",
+    "text": "The driver can submit a trip.",
+    "annotations": [
+      {
+        "text": "driver",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 10
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "trip",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 28
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0435",
+    "project_id": "transport_system",
+    "text": "The driver can update the vehicle description.",
+    "annotations": [
+      {
+        "text": "driver",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 10
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 33
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 45
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0112",
+    "project_id": "student_system",
+    "text": "A enrollment must reference one student and one course.",
+    "annotations": [
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 12
+      },
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 32,
+        "end": 39
+      },
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 48,
+        "end": 54
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0439",
+    "project_id": "transport_system",
+    "text": "The system shall save the trip creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "trip",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 30
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 44
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0146",
+    "project_id": "student_system",
+    "text": "The teacher can review a attendance associated with a classroom.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      },
+      {
+        "text": "classroom",
+        "label": "ENTITY",
+        "start": 54,
+        "end": 63
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "IND-020",
+    "project_id": "vehicle_rental_system",
+    "text": "A customer can cancel a reservation before collection.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 10
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "reservation",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 35
+      }
+    ]
+  },
+  {
+    "requirement_id": "NLP-SYN-0445",
+    "project_id": "transport_system",
+    "text": "The system shall track trip status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "trip",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 27
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 34
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 54
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0429",
+    "project_id": "transport_system",
+    "text": "An driver can create a trip for a vehicle.",
+    "annotations": [
+      {
+        "text": "driver",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 9
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "trip",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 27
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 34,
+        "end": 41
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0413",
+    "project_id": "transport_system",
+    "text": "The passenger can search for a route by name.",
+    "annotations": [
+      {
+        "text": "passenger",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 13
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 18,
+        "end": 24
+      },
+      {
+        "text": "route",
+        "label": "ENTITY",
+        "start": 31,
+        "end": 36
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 44
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0107",
+    "project_id": "student_system",
+    "text": "Every enrollment must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "enrollment",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 16
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0407",
+    "project_id": "transport_system",
+    "text": "Every ticket must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "ticket",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 12
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0426",
+    "project_id": "transport_system",
+    "text": "The system shall store driver name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "driver",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 34
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 41
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 59
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0024",
+    "project_id": "hospital_system",
+    "text": "The patient can approve a appointment.",
+    "annotations": [
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 16,
+        "end": 23
+      },
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 37
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0005",
+    "project_id": "hospital_system",
+    "text": "The patient can view the appointment status.",
+    "annotations": [
+      {
+        "text": "patient",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 16,
+        "end": 20
+      },
+      {
+        "text": "appointment",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 36
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 43
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0119",
+    "project_id": "student_system",
+    "text": "Each course must have a unique code.",
+    "annotations": [
+      {
+        "text": "course",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 11
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0133",
+    "project_id": "student_system",
+    "text": "The teacher may cancel a attendance.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "attendance",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0127",
+    "project_id": "student_system",
+    "text": "Each teacher must provide an email address and registration date.",
+    "annotations": [
+      {
+        "text": "teacher",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 12
+      },
+      {
+        "text": "email address",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 42
+      },
+      {
+        "text": "registration date",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 64
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  }
+]

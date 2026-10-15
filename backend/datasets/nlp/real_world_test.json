@@ -1,0 +1,1372 @@
+[
+  {
+    "requirement_id": "IND-001",
+    "project_id": "agriculture_system",
+    "text": "The platform shall register farmers with a farm code and contact number.",
+    "annotations": [
+      {
+        "text": "register",
+        "label": "ACTION",
+        "start": 19,
+        "end": 27
+      },
+      {
+        "text": "farmers",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 35
+      },
+      {
+        "text": "farm code",
+        "label": "ATTRIBUTE",
+        "start": 43,
+        "end": 52
+      },
+      {
+        "text": "contact number",
+        "label": "ATTRIBUTE",
+        "start": 57,
+        "end": 71
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-002",
+    "project_id": "agriculture_system",
+    "text": "An agronomist can inspect a field and record soil moisture.",
+    "annotations": [
+      {
+        "text": "agronomist",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 13
+      },
+      {
+        "text": "inspect",
+        "label": "ACTION",
+        "start": 18,
+        "end": 25
+      },
+      {
+        "text": "field",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 33
+      },
+      {
+        "text": "soil moisture",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 58
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-003",
+    "project_id": "agriculture_system",
+    "text": "The system shall track irrigation schedules for each plot.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "irrigation schedules",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 43
+      },
+      {
+        "text": "plot",
+        "label": "ENTITY",
+        "start": 53,
+        "end": 57
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-004",
+    "project_id": "agriculture_system",
+    "text": "A farmer can report crop diseases with a diagnosis date.",
+    "annotations": [
+      {
+        "text": "farmer",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "report",
+        "label": "ACTION",
+        "start": 13,
+        "end": 19
+      },
+      {
+        "text": "crop diseases",
+        "label": "ENTITY",
+        "start": 20,
+        "end": 33
+      },
+      {
+        "text": "diagnosis date",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 55
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-005",
+    "project_id": "agriculture_system",
+    "text": "Each harvest record must contain crop variety and harvested weight.",
+    "annotations": [
+      {
+        "text": "harvest record",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 19
+      },
+      {
+        "text": "crop variety",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 45
+      },
+      {
+        "text": "harvested weight",
+        "label": "ATTRIBUTE",
+        "start": 50,
+        "end": 66
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-006",
+    "project_id": "agriculture_system",
+    "text": "Supervisors can assign equipment to field workers.",
+    "annotations": [
+      {
+        "text": "assign",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "equipment",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 32
+      },
+      {
+        "text": "field workers",
+        "label": "ENTITY",
+        "start": 36,
+        "end": 49
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-007",
+    "project_id": "agriculture_system",
+    "text": "The system shall store fertilizer applications and application dates.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "fertilizer applications",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 46
+      },
+      {
+        "text": "application dates",
+        "label": "ATTRIBUTE",
+        "start": 51,
+        "end": 68
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-008",
+    "project_id": "agriculture_system",
+    "text": "A grower may update the expected yield for a planting season.",
+    "annotations": [
+      {
+        "text": "grower",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 13,
+        "end": 19
+      },
+      {
+        "text": "expected yield",
+        "label": "ATTRIBUTE",
+        "start": 24,
+        "end": 38
+      },
+      {
+        "text": "planting season",
+        "label": "ENTITY",
+        "start": 45,
+        "end": 60
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-009",
+    "project_id": "agriculture_system",
+    "text": "The platform shall record pest observations against specific fields.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 19,
+        "end": 25
+      },
+      {
+        "text": "pest observations",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 43
+      },
+      {
+        "text": "fields",
+        "label": "ENTITY",
+        "start": 61,
+        "end": 67
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-010",
+    "project_id": "agriculture_system",
+    "text": "Managers can review water usage by irrigation zone.",
+    "annotations": [
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 13,
+        "end": 19
+      },
+      {
+        "text": "water usage",
+        "label": "ATTRIBUTE",
+        "start": 20,
+        "end": 31
+      },
+      {
+        "text": "irrigation zone",
+        "label": "ENTITY",
+        "start": 35,
+        "end": 50
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-011",
+    "project_id": "vehicle_rental_system",
+    "text": "Customers can reserve a vehicle for a pickup date.",
+    "annotations": [
+      {
+        "text": "Customers",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 9
+      },
+      {
+        "text": "reserve",
+        "label": "ACTION",
+        "start": 14,
+        "end": 21
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 31
+      },
+      {
+        "text": "pickup date",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 49
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-012",
+    "project_id": "vehicle_rental_system",
+    "text": "Each rental agreement must include a return deadline.",
+    "annotations": [
+      {
+        "text": "rental agreement",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 21
+      },
+      {
+        "text": "return deadline",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 52
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-013",
+    "project_id": "vehicle_rental_system",
+    "text": "The agency shall store vehicle registration numbers and mileage.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "registration numbers",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 51
+      },
+      {
+        "text": "mileage",
+        "label": "ATTRIBUTE",
+        "start": 56,
+        "end": 63
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-014",
+    "project_id": "vehicle_rental_system",
+    "text": "A clerk can issue an invoice for a completed rental.",
+    "annotations": [
+      {
+        "text": "clerk",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 7
+      },
+      {
+        "text": "issue",
+        "label": "ACTION",
+        "start": 12,
+        "end": 17
+      },
+      {
+        "text": "invoice",
+        "label": "ENTITY",
+        "start": 21,
+        "end": 28
+      },
+      {
+        "text": "rental",
+        "label": "ENTITY",
+        "start": 45,
+        "end": 51
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-015",
+    "project_id": "vehicle_rental_system",
+    "text": "Drivers may report damage with photographs and incident dates.",
+    "annotations": [
+      {
+        "text": "Drivers",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 7
+      },
+      {
+        "text": "report",
+        "label": "ACTION",
+        "start": 12,
+        "end": 18
+      },
+      {
+        "text": "damage",
+        "label": "ENTITY",
+        "start": 19,
+        "end": 25
+      },
+      {
+        "text": "photographs",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 42
+      },
+      {
+        "text": "incident dates",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 61
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-016",
+    "project_id": "vehicle_rental_system",
+    "text": "The system shall assign available cars to branch locations.",
+    "annotations": [
+      {
+        "text": "assign",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "cars",
+        "label": "ENTITY",
+        "start": 34,
+        "end": 38
+      },
+      {
+        "text": "branch locations",
+        "label": "ENTITY",
+        "start": 42,
+        "end": 58
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-017",
+    "project_id": "vehicle_rental_system",
+    "text": "Each payment must record its transaction reference.",
+    "annotations": [
+      {
+        "text": "payment",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 12
+      },
+      {
+        "text": "transaction reference",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 50
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-018",
+    "project_id": "vehicle_rental_system",
+    "text": "Staff can extend bookings after checking vehicle availability.",
+    "annotations": [
+      {
+        "text": "Staff",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 5
+      },
+      {
+        "text": "extend",
+        "label": "ACTION",
+        "start": 10,
+        "end": 16
+      },
+      {
+        "text": "bookings",
+        "label": "ENTITY",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "vehicle",
+        "label": "ENTITY",
+        "start": 41,
+        "end": 48
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-019",
+    "project_id": "vehicle_rental_system",
+    "text": "The platform shall maintain maintenance histories for vans.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 19,
+        "end": 27
+      },
+      {
+        "text": "maintenance histories",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 49
+      },
+      {
+        "text": "vans",
+        "label": "ENTITY",
+        "start": 54,
+        "end": 58
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-020",
+    "project_id": "vehicle_rental_system",
+    "text": "A customer can cancel a reservation before collection.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 10
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "reservation",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 35
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-021",
+    "project_id": "event_management_system",
+    "text": "Organizers can create conferences with a venue and start date.",
+    "annotations": [
+      {
+        "text": "Organizers",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 10
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "conferences",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 33
+      },
+      {
+        "text": "venue",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 46
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 51,
+        "end": 61
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-022",
+    "project_id": "event_management_system",
+    "text": "Attendees may register for workshops using their email address.",
+    "annotations": [
+      {
+        "text": "Attendees",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 9
+      },
+      {
+        "text": "register",
+        "label": "ACTION",
+        "start": 14,
+        "end": 22
+      },
+      {
+        "text": "workshops",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 36
+      },
+      {
+        "text": "email address",
+        "label": "ATTRIBUTE",
+        "start": 49,
+        "end": 62
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-023",
+    "project_id": "event_management_system",
+    "text": "The system shall allocate seats to ticket holders.",
+    "annotations": [
+      {
+        "text": "allocate",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "seats",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 31
+      },
+      {
+        "text": "ticket holders",
+        "label": "ENTITY",
+        "start": 35,
+        "end": 49
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-024",
+    "project_id": "event_management_system",
+    "text": "Each speaker profile must include a biography and affiliation.",
+    "annotations": [
+      {
+        "text": "speaker profile",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 20
+      },
+      {
+        "text": "biography",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 45
+      },
+      {
+        "text": "affiliation",
+        "label": "ATTRIBUTE",
+        "start": 50,
+        "end": 61
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-025",
+    "project_id": "event_management_system",
+    "text": "Coordinators can schedule sessions in available rooms.",
+    "annotations": [
+      {
+        "text": "Coordinators",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 12
+      },
+      {
+        "text": "schedule",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "sessions",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 34
+      },
+      {
+        "text": "rooms",
+        "label": "ENTITY",
+        "start": 48,
+        "end": 53
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-026",
+    "project_id": "event_management_system",
+    "text": "The platform shall track sponsorship pledges and pledged amounts.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 19,
+        "end": 24
+      },
+      {
+        "text": "sponsorship pledges",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 44
+      },
+      {
+        "text": "pledged amounts",
+        "label": "ATTRIBUTE",
+        "start": 49,
+        "end": 64
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-027",
+    "project_id": "event_management_system",
+    "text": "Visitors can submit feedback after an event.",
+    "annotations": [
+      {
+        "text": "Visitors",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 8
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 13,
+        "end": 19
+      },
+      {
+        "text": "feedback",
+        "label": "ENTITY",
+        "start": 20,
+        "end": 28
+      },
+      {
+        "text": "event",
+        "label": "ENTITY",
+        "start": 38,
+        "end": 43
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-028",
+    "project_id": "event_management_system",
+    "text": "An exhibitor may reserve a booth for the trade fair.",
+    "annotations": [
+      {
+        "text": "exhibitor",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 12
+      },
+      {
+        "text": "reserve",
+        "label": "ACTION",
+        "start": 17,
+        "end": 24
+      },
+      {
+        "text": "booth",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 32
+      },
+      {
+        "text": "trade fair",
+        "label": "ENTITY",
+        "start": 41,
+        "end": 51
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-029",
+    "project_id": "event_management_system",
+    "text": "The system shall record badge identifiers for participants.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "badge identifiers",
+        "label": "ATTRIBUTE",
+        "start": 24,
+        "end": 41
+      },
+      {
+        "text": "participants",
+        "label": "ENTITY",
+        "start": 46,
+        "end": 58
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-030",
+    "project_id": "event_management_system",
+    "text": "Managers can approve reimbursement requests from volunteers.",
+    "annotations": [
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 13,
+        "end": 20
+      },
+      {
+        "text": "reimbursement requests",
+        "label": "ENTITY",
+        "start": 21,
+        "end": 43
+      },
+      {
+        "text": "volunteers",
+        "label": "ENTITY",
+        "start": 49,
+        "end": 59
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-031",
+    "project_id": "warehouse_system",
+    "text": "Warehouse operators can receive shipments from suppliers.",
+    "annotations": [
+      {
+        "text": "Warehouse operators",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 19
+      },
+      {
+        "text": "receive",
+        "label": "ACTION",
+        "start": 24,
+        "end": 31
+      },
+      {
+        "text": "shipments",
+        "label": "ENTITY",
+        "start": 32,
+        "end": 41
+      },
+      {
+        "text": "suppliers",
+        "label": "ENTITY",
+        "start": 47,
+        "end": 56
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-032",
+    "project_id": "warehouse_system",
+    "text": "Every pallet must have a barcode and storage location.",
+    "annotations": [
+      {
+        "text": "pallet",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 12
+      },
+      {
+        "text": "barcode",
+        "label": "ATTRIBUTE",
+        "start": 25,
+        "end": 32
+      },
+      {
+        "text": "storage location",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 53
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-033",
+    "project_id": "warehouse_system",
+    "text": "The system shall track stock movements between bins.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "stock movements",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 38
+      },
+      {
+        "text": "bins",
+        "label": "ENTITY",
+        "start": 47,
+        "end": 51
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-034",
+    "project_id": "warehouse_system",
+    "text": "A picker can prepare dispatch orders for couriers.",
+    "annotations": [
+      {
+        "text": "picker",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "prepare",
+        "label": "ACTION",
+        "start": 13,
+        "end": 20
+      },
+      {
+        "text": "dispatch orders",
+        "label": "ENTITY",
+        "start": 21,
+        "end": 36
+      },
+      {
+        "text": "couriers",
+        "label": "ENTITY",
+        "start": 41,
+        "end": 49
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-035",
+    "project_id": "warehouse_system",
+    "text": "Supervisors may audit inventory counts for each product batch.",
+    "annotations": [
+      {
+        "text": "Supervisors",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 11
+      },
+      {
+        "text": "audit",
+        "label": "ACTION",
+        "start": 16,
+        "end": 21
+      },
+      {
+        "text": "inventory counts",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 38
+      },
+      {
+        "text": "product batch",
+        "label": "ENTITY",
+        "start": 48,
+        "end": 61
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-036",
+    "project_id": "warehouse_system",
+    "text": "The platform shall store expiry dates for perishable goods.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 19,
+        "end": 24
+      },
+      {
+        "text": "expiry dates",
+        "label": "ATTRIBUTE",
+        "start": 25,
+        "end": 37
+      },
+      {
+        "text": "perishable goods",
+        "label": "ENTITY",
+        "start": 42,
+        "end": 58
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-037",
+    "project_id": "warehouse_system",
+    "text": "Employees can report damaged packages with a damage reason.",
+    "annotations": [
+      {
+        "text": "Employees",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 9
+      },
+      {
+        "text": "report",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "damaged packages",
+        "label": "ENTITY",
+        "start": 21,
+        "end": 37
+      },
+      {
+        "text": "damage reason",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 58
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-038",
+    "project_id": "warehouse_system",
+    "text": "Each purchase receipt shall reference a supplier invoice.",
+    "annotations": [
+      {
+        "text": "purchase receipt",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 21
+      },
+      {
+        "text": "supplier invoice",
+        "label": "ENTITY",
+        "start": 40,
+        "end": 56
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-039",
+    "project_id": "warehouse_system",
+    "text": "The system must assign forklifts to warehouse shifts.",
+    "annotations": [
+      {
+        "text": "assign",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "forklifts",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 32
+      },
+      {
+        "text": "warehouse shifts",
+        "label": "ENTITY",
+        "start": 36,
+        "end": 52
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-040",
+    "project_id": "warehouse_system",
+    "text": "Managers can approve stock adjustments after reconciliation.",
+    "annotations": [
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 13,
+        "end": 20
+      },
+      {
+        "text": "stock adjustments",
+        "label": "ENTITY",
+        "start": 21,
+        "end": 38
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-041",
+    "project_id": "insurance_claims_system",
+    "text": "Policyholders can submit claims with an incident description.",
+    "annotations": [
+      {
+        "text": "Policyholders",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 13
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 18,
+        "end": 24
+      },
+      {
+        "text": "claims",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 31
+      },
+      {
+        "text": "incident description",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 60
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-042",
+    "project_id": "insurance_claims_system",
+    "text": "Every insurance policy must contain a coverage limit.",
+    "annotations": [
+      {
+        "text": "insurance policy",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 22
+      },
+      {
+        "text": "coverage limit",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 52
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-043",
+    "project_id": "insurance_claims_system",
+    "text": "An assessor can inspect a damaged asset and record its valuation.",
+    "annotations": [
+      {
+        "text": "assessor",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 11
+      },
+      {
+        "text": "inspect",
+        "label": "ACTION",
+        "start": 16,
+        "end": 23
+      },
+      {
+        "text": "damaged asset",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 39
+      },
+      {
+        "text": "valuation",
+        "label": "ATTRIBUTE",
+        "start": 55,
+        "end": 64
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-044",
+    "project_id": "insurance_claims_system",
+    "text": "The platform shall store beneficiary names and relationship types.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 19,
+        "end": 24
+      },
+      {
+        "text": "beneficiary",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 36
+      },
+      {
+        "text": "names",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 42
+      },
+      {
+        "text": "relationship types",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 65
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-045",
+    "project_id": "insurance_claims_system",
+    "text": "Claims officers may approve settlements after verification.",
+    "annotations": [
+      {
+        "text": "Claims officers",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 15
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 20,
+        "end": 27
+      },
+      {
+        "text": "settlements",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 39
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-046",
+    "project_id": "insurance_claims_system",
+    "text": "Each premium payment must include a receipt number.",
+    "annotations": [
+      {
+        "text": "premium payment",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 20
+      },
+      {
+        "text": "receipt number",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 50
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-047",
+    "project_id": "insurance_claims_system",
+    "text": "Customers can renew policies before their expiration date.",
+    "annotations": [
+      {
+        "text": "Customers",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 9
+      },
+      {
+        "text": "renew",
+        "label": "ACTION",
+        "start": 14,
+        "end": 19
+      },
+      {
+        "text": "policies",
+        "label": "ENTITY",
+        "start": 20,
+        "end": 28
+      },
+      {
+        "text": "expiration date",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 57
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-048",
+    "project_id": "insurance_claims_system",
+    "text": "The system shall track claim investigations assigned to adjusters.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "claim investigations",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 43
+      },
+      {
+        "text": "adjusters",
+        "label": "ENTITY",
+        "start": 56,
+        "end": 65
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-049",
+    "project_id": "insurance_claims_system",
+    "text": "A broker can update the mailing address of a policyholder.",
+    "annotations": [
+      {
+        "text": "broker",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 13,
+        "end": 19
+      },
+      {
+        "text": "mailing address",
+        "label": "ATTRIBUTE",
+        "start": 24,
+        "end": 39
+      },
+      {
+        "text": "policyholder",
+        "label": "ENTITY",
+        "start": 45,
+        "end": 57
+      }
+    ]
+  },
+  {
+    "requirement_id": "IND-050",
+    "project_id": "insurance_claims_system",
+    "text": "Auditors can review rejected claims and rejection reasons.",
+    "annotations": [
+      {
+        "text": "Auditors",
+        "label": "ENTITY",
+        "start": 0,
+        "end": 8
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 13,
+        "end": 19
+      },
+      {
+        "text": "rejected claims",
+        "label": "ENTITY",
+        "start": 20,
+        "end": 35
+      },
+      {
+        "text": "rejection reasons",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 57
+      }
+    ]
+  }
+]

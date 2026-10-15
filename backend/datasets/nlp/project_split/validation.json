@@ -1,0 +1,3990 @@
+[
+  {
+    "requirement_id": "NLP-SYN-0656",
+    "project_id": "insurance_system",
+    "text": "The system shall record claim date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "claim",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 29
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 34
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 45
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0663",
+    "project_id": "insurance_system",
+    "text": "The client can search for a policy by name.",
+    "annotations": [
+      {
+        "text": "client",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 10
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "policy",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 34
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 42
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0272",
+    "project_id": "banking_system",
+    "text": "The system shall maintain account availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "account",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 33
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 46
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 51,
+        "end": 59
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0282",
+    "project_id": "banking_system",
+    "text": "Every transfer must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "transfer",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 14
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0652",
+    "project_id": "insurance_system",
+    "text": "Each client must provide an email address and registration date.",
+    "annotations": [
+      {
+        "text": "client",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 11
+      },
+      {
+        "text": "email address",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 41
+      },
+      {
+        "text": "registration date",
+        "label": "ATTRIBUTE",
+        "start": 46,
+        "end": 63
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0902",
+    "project_id": "learning_system",
+    "text": "Each student must provide an email address and registration date.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 12
+      },
+      {
+        "text": "email address",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 42
+      },
+      {
+        "text": "registration date",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 64
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0943",
+    "project_id": "learning_system",
+    "text": "The tutor can delete a feedback.",
+    "annotations": [
+      {
+        "text": "tutor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "feedback",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 31
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0679",
+    "project_id": "insurance_system",
+    "text": "An assessor can create a review for a case.",
+    "annotations": [
+      {
+        "text": "assessor",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 11
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "review",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 31
+      },
+      {
+        "text": "case",
+        "label": "ENTITY",
+        "start": 38,
+        "end": 42
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0923",
+    "project_id": "learning_system",
+    "text": "A attempt must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "attempt",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 9
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 25,
+        "end": 35
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0284",
+    "project_id": "banking_system",
+    "text": "The system shall store branch code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "branch",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 34
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0671",
+    "project_id": "insurance_system",
+    "text": "The client can review a claim associated with a policy.",
+    "annotations": [
+      {
+        "text": "client",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 10
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "claim",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 29
+      },
+      {
+        "text": "policy",
+        "label": "ENTITY",
+        "start": 48,
+        "end": 54
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0268",
+    "project_id": "banking_system",
+    "text": "The customer can delete a transaction.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "transaction",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 37
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0676",
+    "project_id": "insurance_system",
+    "text": "The system shall store assessor name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "assessor",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 31
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 36
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 43
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 49,
+        "end": 61
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0905",
+    "project_id": "learning_system",
+    "text": "The student can view the attempt status.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 16,
+        "end": 20
+      },
+      {
+        "text": "attempt",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 32
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 39
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0658",
+    "project_id": "insurance_system",
+    "text": "The client may cancel a claim.",
+    "annotations": [
+      {
+        "text": "client",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 10
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "claim",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 29
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0664",
+    "project_id": "insurance_system",
+    "text": "The system shall save the claim creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "claim",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 31
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 45
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0295",
+    "project_id": "banking_system",
+    "text": "The system shall track transfer status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "transfer",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 31
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 38
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 43,
+        "end": 58
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0659",
+    "project_id": "insurance_system",
+    "text": "The system shall store policy code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "policy",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 34
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0677",
+    "project_id": "insurance_system",
+    "text": "Each assessor must provide an email address and registration date.",
+    "annotations": [
+      {
+        "text": "assessor",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 13
+      },
+      {
+        "text": "email address",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 43
+      },
+      {
+        "text": "registration date",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 65
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0950",
+    "project_id": "learning_system",
+    "text": "The system shall store tutor preferences and notes.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "tutor",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 28
+      },
+      {
+        "text": "preferences",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 40
+      },
+      {
+        "text": "notes",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0657",
+    "project_id": "insurance_system",
+    "text": "Every claim must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "claim",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 11
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 47
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0293",
+    "project_id": "banking_system",
+    "text": "The employee can delete a transfer.",
+    "annotations": [
+      {
+        "text": "employee",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "transfer",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 34
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0690",
+    "project_id": "insurance_system",
+    "text": "A review must contain a status value.",
+    "annotations": [
+      {
+        "text": "review",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 24,
+        "end": 30
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0288",
+    "project_id": "banking_system",
+    "text": "The employee can search for a branch by name.",
+    "annotations": [
+      {
+        "text": "employee",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "branch",
+        "label": "ENTITY",
+        "start": 30,
+        "end": 36
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 44
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0294",
+    "project_id": "banking_system",
+    "text": "Each branch must have a unique code.",
+    "annotations": [
+      {
+        "text": "branch",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 11
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0695",
+    "project_id": "insurance_system",
+    "text": "The system shall track review status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "review",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 36
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 56
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0285",
+    "project_id": "banking_system",
+    "text": "The employee can update the branch description.",
+    "annotations": [
+      {
+        "text": "employee",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "branch",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 34
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0919",
+    "project_id": "learning_system",
+    "text": "Each quiz must have a unique code.",
+    "annotations": [
+      {
+        "text": "quiz",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 9
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 33
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0259",
+    "project_id": "banking_system",
+    "text": "The system shall store account code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "account",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0925",
+    "project_id": "learning_system",
+    "text": "The system shall store student preferences and notes.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "preferences",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 42
+      },
+      {
+        "text": "notes",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0908",
+    "project_id": "learning_system",
+    "text": "The student may cancel a attempt.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "attempt",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 32
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0298",
+    "project_id": "banking_system",
+    "text": "A transfer must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "transfer",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 10
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 26,
+        "end": 36
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 49
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0937",
+    "project_id": "learning_system",
+    "text": "A feedback must reference one tutor and one topic.",
+    "annotations": [
+      {
+        "text": "feedback",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 10
+      },
+      {
+        "text": "tutor",
+        "label": "ENTITY",
+        "start": 30,
+        "end": 35
+      },
+      {
+        "text": "topic",
+        "label": "ENTITY",
+        "start": 44,
+        "end": 49
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0668",
+    "project_id": "insurance_system",
+    "text": "The client can delete a claim.",
+    "annotations": [
+      {
+        "text": "client",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 10
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "claim",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 29
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0669",
+    "project_id": "insurance_system",
+    "text": "Each policy must have a unique code.",
+    "annotations": [
+      {
+        "text": "policy",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 11
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0683",
+    "project_id": "insurance_system",
+    "text": "The assessor may cancel a review.",
+    "annotations": [
+      {
+        "text": "assessor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "review",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0944",
+    "project_id": "learning_system",
+    "text": "Each topic must have a unique code.",
+    "annotations": [
+      {
+        "text": "topic",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 10
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 34
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0938",
+    "project_id": "learning_system",
+    "text": "The tutor can search for a topic by name.",
+    "annotations": [
+      {
+        "text": "tutor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "topic",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 32
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 40
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0665",
+    "project_id": "insurance_system",
+    "text": "A claim must contain a status value.",
+    "annotations": [
+      {
+        "text": "claim",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 7
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 23,
+        "end": 29
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0699",
+    "project_id": "insurance_system",
+    "text": "The assessor can approve a review.",
+    "annotations": [
+      {
+        "text": "assessor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 17,
+        "end": 24
+      },
+      {
+        "text": "review",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 33
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0257",
+    "project_id": "banking_system",
+    "text": "Every transaction must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "transaction",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 17
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 53
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0297",
+    "project_id": "banking_system",
+    "text": "The system shall maintain branch availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "branch",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 45
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 50,
+        "end": 58
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0685",
+    "project_id": "insurance_system",
+    "text": "The assessor can update the case description.",
+    "annotations": [
+      {
+        "text": "assessor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "case",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 32
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 44
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0918",
+    "project_id": "learning_system",
+    "text": "The student can delete a attempt.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "attempt",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 32
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0662",
+    "project_id": "insurance_system",
+    "text": "A claim must reference one client and one policy.",
+    "annotations": [
+      {
+        "text": "claim",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 7
+      },
+      {
+        "text": "client",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 33
+      },
+      {
+        "text": "policy",
+        "label": "ENTITY",
+        "start": 42,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0934",
+    "project_id": "learning_system",
+    "text": "The system shall store topic code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "topic",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 28
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 33
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 49
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0912",
+    "project_id": "learning_system",
+    "text": "A attempt must reference one student and one quiz.",
+    "annotations": [
+      {
+        "text": "attempt",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 9
+      },
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 29,
+        "end": 36
+      },
+      {
+        "text": "quiz",
+        "label": "ENTITY",
+        "start": 45,
+        "end": 49
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0274",
+    "project_id": "banking_system",
+    "text": "The customer can approve a transaction.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 17,
+        "end": 24
+      },
+      {
+        "text": "transaction",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 38
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0692",
+    "project_id": "insurance_system",
+    "text": "The system shall store the assessor identifier.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "assessor",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 35
+      },
+      {
+        "text": "identifier",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0946",
+    "project_id": "learning_system",
+    "text": "The tutor can review a feedback associated with a topic.",
+    "annotations": [
+      {
+        "text": "tutor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "feedback",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 31
+      },
+      {
+        "text": "topic",
+        "label": "ENTITY",
+        "start": 50,
+        "end": 55
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0930",
+    "project_id": "learning_system",
+    "text": "The tutor can view the feedback status.",
+    "annotations": [
+      {
+        "text": "tutor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 14,
+        "end": 18
+      },
+      {
+        "text": "feedback",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 31
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 38
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0941",
+    "project_id": "learning_system",
+    "text": "The tutor can submit a feedback.",
+    "annotations": [
+      {
+        "text": "tutor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "feedback",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 31
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0924",
+    "project_id": "learning_system",
+    "text": "The student can approve a attempt.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 16,
+        "end": 23
+      },
+      {
+        "text": "attempt",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 33
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0691",
+    "project_id": "insurance_system",
+    "text": "The assessor can submit a review.",
+    "annotations": [
+      {
+        "text": "assessor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "review",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0265",
+    "project_id": "banking_system",
+    "text": "A transaction must contain a status value.",
+    "annotations": [
+      {
+        "text": "transaction",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 13
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0672",
+    "project_id": "insurance_system",
+    "text": "The system shall maintain policy availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "policy",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 45
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 50,
+        "end": 58
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0653",
+    "project_id": "insurance_system",
+    "text": "The system shall save client address and contact number.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "client",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 28
+      },
+      {
+        "text": "address",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 36
+      },
+      {
+        "text": "contact number",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 55
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0927",
+    "project_id": "learning_system",
+    "text": "Each tutor must provide an email address and registration date.",
+    "annotations": [
+      {
+        "text": "tutor",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 10
+      },
+      {
+        "text": "email address",
+        "label": "ATTRIBUTE",
+        "start": 27,
+        "end": 40
+      },
+      {
+        "text": "registration date",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 62
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0666",
+    "project_id": "insurance_system",
+    "text": "The client can submit a claim.",
+    "annotations": [
+      {
+        "text": "client",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 10
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "claim",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 29
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0901",
+    "project_id": "learning_system",
+    "text": "The system shall store student name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 42
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 60
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0286",
+    "project_id": "banking_system",
+    "text": "The system shall record the branch name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "branch",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 34
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 39
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 44,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0942",
+    "project_id": "learning_system",
+    "text": "The system shall store the tutor identifier.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "tutor",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 32
+      },
+      {
+        "text": "identifier",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 43
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0689",
+    "project_id": "insurance_system",
+    "text": "The system shall save the review creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "review",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0261",
+    "project_id": "banking_system",
+    "text": "The system shall record the account name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "account",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 35
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 40
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 53
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0688",
+    "project_id": "insurance_system",
+    "text": "The assessor can search for a case by name.",
+    "annotations": [
+      {
+        "text": "assessor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "case",
+        "label": "ENTITY",
+        "start": 30,
+        "end": 34
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 42
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0289",
+    "project_id": "banking_system",
+    "text": "The system shall save the transfer creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "transfer",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 34
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0264",
+    "project_id": "banking_system",
+    "text": "The system shall save the transaction creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "transaction",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 37
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0258",
+    "project_id": "banking_system",
+    "text": "The customer may cancel a transaction.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "transaction",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 37
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0916",
+    "project_id": "learning_system",
+    "text": "The student can submit a attempt.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "attempt",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 32
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0939",
+    "project_id": "learning_system",
+    "text": "The system shall save the feedback creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "feedback",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 34
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0681",
+    "project_id": "insurance_system",
+    "text": "The system shall record review date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "review",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 30
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 35
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0255",
+    "project_id": "banking_system",
+    "text": "The customer can view the transaction status.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "transaction",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 37
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 44
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0910",
+    "project_id": "learning_system",
+    "text": "The student can update the quiz description.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "quiz",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 31
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 43
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0254",
+    "project_id": "banking_system",
+    "text": "An customer can create a transaction for a account.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 11
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "transaction",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 36
+      },
+      {
+        "text": "account",
+        "label": "ENTITY",
+        "start": 43,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0651",
+    "project_id": "insurance_system",
+    "text": "The system shall store client name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "client",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 34
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 41
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 47,
+        "end": 59
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0283",
+    "project_id": "banking_system",
+    "text": "The employee may cancel a transfer.",
+    "annotations": [
+      {
+        "text": "employee",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "transfer",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 34
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0674",
+    "project_id": "insurance_system",
+    "text": "The client can approve a claim.",
+    "annotations": [
+      {
+        "text": "client",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 10
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 15,
+        "end": 22
+      },
+      {
+        "text": "claim",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 30
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0682",
+    "project_id": "insurance_system",
+    "text": "Every review must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "review",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 12
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0256",
+    "project_id": "banking_system",
+    "text": "The system shall record transaction date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "transaction",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 35
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 40
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 45,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0675",
+    "project_id": "insurance_system",
+    "text": "The system shall store client preferences and notes.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "client",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 29
+      },
+      {
+        "text": "preferences",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 41
+      },
+      {
+        "text": "notes",
+        "label": "ATTRIBUTE",
+        "start": 46,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0914",
+    "project_id": "learning_system",
+    "text": "The system shall save the attempt creation date.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "attempt",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 33
+      },
+      {
+        "text": "creation date",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 47
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0940",
+    "project_id": "learning_system",
+    "text": "A feedback must contain a status value.",
+    "annotations": [
+      {
+        "text": "feedback",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 10
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 26,
+        "end": 32
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0921",
+    "project_id": "learning_system",
+    "text": "The student can review a attempt associated with a quiz.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "attempt",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 32
+      },
+      {
+        "text": "quiz",
+        "label": "ENTITY",
+        "start": 51,
+        "end": 55
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0693",
+    "project_id": "insurance_system",
+    "text": "The assessor can delete a review.",
+    "annotations": [
+      {
+        "text": "assessor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "delete",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "review",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0694",
+    "project_id": "insurance_system",
+    "text": "Each case must have a unique code.",
+    "annotations": [
+      {
+        "text": "case",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 9
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 33
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0678",
+    "project_id": "insurance_system",
+    "text": "The system shall save assessor address and contact number.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "assessor",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 30
+      },
+      {
+        "text": "address",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 38
+      },
+      {
+        "text": "contact number",
+        "label": "ATTRIBUTE",
+        "start": 43,
+        "end": 57
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0299",
+    "project_id": "banking_system",
+    "text": "The employee can approve a transfer.",
+    "annotations": [
+      {
+        "text": "employee",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 17,
+        "end": 24
+      },
+      {
+        "text": "transfer",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 35
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0948",
+    "project_id": "learning_system",
+    "text": "A feedback must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "feedback",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 10
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 26,
+        "end": 36
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 49
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0296",
+    "project_id": "banking_system",
+    "text": "The employee can review a transfer associated with a branch.",
+    "annotations": [
+      {
+        "text": "employee",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "transfer",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 34
+      },
+      {
+        "text": "branch",
+        "label": "ENTITY",
+        "start": 53,
+        "end": 59
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0660",
+    "project_id": "insurance_system",
+    "text": "The client can update the policy description.",
+    "annotations": [
+      {
+        "text": "client",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 10
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "policy",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 44
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0928",
+    "project_id": "learning_system",
+    "text": "The system shall save tutor address and contact number.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "tutor",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 27
+      },
+      {
+        "text": "address",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 35
+      },
+      {
+        "text": "contact number",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 54
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0673",
+    "project_id": "insurance_system",
+    "text": "A claim must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "claim",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 7
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 23,
+        "end": 33
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 38,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0915",
+    "project_id": "learning_system",
+    "text": "A attempt must contain a status value.",
+    "annotations": [
+      {
+        "text": "attempt",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 9
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 25,
+        "end": 31
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0686",
+    "project_id": "insurance_system",
+    "text": "The system shall record the case name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "case",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 32
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 37
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0270",
+    "project_id": "banking_system",
+    "text": "The system shall track transaction status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "transaction",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 34
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 41
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 46,
+        "end": 61
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0917",
+    "project_id": "learning_system",
+    "text": "The system shall store the student identifier.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 34
+      },
+      {
+        "text": "identifier",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 45
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0931",
+    "project_id": "learning_system",
+    "text": "The system shall record feedback date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "feedback",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 32
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 37
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0920",
+    "project_id": "learning_system",
+    "text": "The system shall track attempt status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "attempt",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 30
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 37
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 57
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0680",
+    "project_id": "insurance_system",
+    "text": "The assessor can view the review status.",
+    "annotations": [
+      {
+        "text": "assessor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "review",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 39
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0269",
+    "project_id": "banking_system",
+    "text": "Each account must have a unique code.",
+    "annotations": [
+      {
+        "text": "account",
+        "label": "ENTITY",
+        "start": 5,
+        "end": 12
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 36
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0926",
+    "project_id": "learning_system",
+    "text": "The system shall store tutor name, email, and phone number.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "tutor",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 28
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 33
+      },
+      {
+        "text": "email",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 40
+      },
+      {
+        "text": "phone number",
+        "label": "ATTRIBUTE",
+        "start": 46,
+        "end": 58
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0932",
+    "project_id": "learning_system",
+    "text": "Every feedback must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "feedback",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 14
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0904",
+    "project_id": "learning_system",
+    "text": "An student can create a attempt for a quiz.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 10
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 15,
+        "end": 21
+      },
+      {
+        "text": "attempt",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 31
+      },
+      {
+        "text": "quiz",
+        "label": "ENTITY",
+        "start": 38,
+        "end": 42
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0281",
+    "project_id": "banking_system",
+    "text": "The system shall record transfer date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "transfer",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 32
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 37
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0906",
+    "project_id": "learning_system",
+    "text": "The system shall record attempt date and status.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "attempt",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 31
+      },
+      {
+        "text": "date",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 36
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 47
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0262",
+    "project_id": "banking_system",
+    "text": "A transaction must reference one customer and one account.",
+    "annotations": [
+      {
+        "text": "transaction",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 13
+      },
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 33,
+        "end": 41
+      },
+      {
+        "text": "account",
+        "label": "ENTITY",
+        "start": 50,
+        "end": 57
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0700",
+    "project_id": "insurance_system",
+    "text": "The system shall store assessor preferences and notes.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "assessor",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 31
+      },
+      {
+        "text": "preferences",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 43
+      },
+      {
+        "text": "notes",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 53
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0909",
+    "project_id": "learning_system",
+    "text": "The system shall store quiz code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "quiz",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 27
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 32
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0287",
+    "project_id": "banking_system",
+    "text": "A transfer must reference one employee and one branch.",
+    "annotations": [
+      {
+        "text": "transfer",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 10
+      },
+      {
+        "text": "employee",
+        "label": "ENTITY",
+        "start": 30,
+        "end": 38
+      },
+      {
+        "text": "branch",
+        "label": "ENTITY",
+        "start": 47,
+        "end": 53
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0929",
+    "project_id": "learning_system",
+    "text": "An tutor can create a feedback for a topic.",
+    "annotations": [
+      {
+        "text": "tutor",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 8
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 13,
+        "end": 19
+      },
+      {
+        "text": "feedback",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 30
+      },
+      {
+        "text": "topic",
+        "label": "ENTITY",
+        "start": 37,
+        "end": 42
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0945",
+    "project_id": "learning_system",
+    "text": "The system shall track feedback status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "feedback",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 31
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 38
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 43,
+        "end": 58
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0907",
+    "project_id": "learning_system",
+    "text": "Every attempt must have a unique reference number.",
+    "annotations": [
+      {
+        "text": "attempt",
+        "label": "ENTITY",
+        "start": 6,
+        "end": 13
+      },
+      {
+        "text": "reference number",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 49
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0670",
+    "project_id": "insurance_system",
+    "text": "The system shall track claim status and completion date.",
+    "annotations": [
+      {
+        "text": "track",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "claim",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 28
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 35
+      },
+      {
+        "text": "completion date",
+        "label": "ATTRIBUTE",
+        "start": 40,
+        "end": 55
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0696",
+    "project_id": "insurance_system",
+    "text": "The assessor can review a review associated with a case.",
+    "annotations": [
+      {
+        "text": "assessor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "review",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 32
+      },
+      {
+        "text": "case",
+        "label": "ENTITY",
+        "start": 51,
+        "end": 55
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0903",
+    "project_id": "learning_system",
+    "text": "The system shall save student address and contact number.",
+    "annotations": [
+      {
+        "text": "save",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 22,
+        "end": 29
+      },
+      {
+        "text": "address",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 37
+      },
+      {
+        "text": "contact number",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 56
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0661",
+    "project_id": "insurance_system",
+    "text": "The system shall record the policy name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "policy",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 34
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 39
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 44,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0911",
+    "project_id": "learning_system",
+    "text": "The system shall record the quiz name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "quiz",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 32
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 33,
+        "end": 37
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 42,
+        "end": 50
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0279",
+    "project_id": "banking_system",
+    "text": "An employee can create a transfer for a branch.",
+    "annotations": [
+      {
+        "text": "employee",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 11
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "transfer",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 33
+      },
+      {
+        "text": "branch",
+        "label": "ENTITY",
+        "start": 40,
+        "end": 46
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0933",
+    "project_id": "learning_system",
+    "text": "The tutor may cancel a feedback.",
+    "annotations": [
+      {
+        "text": "tutor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "cancel",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "feedback",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 31
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0654",
+    "project_id": "insurance_system",
+    "text": "An client can create a claim for a policy.",
+    "annotations": [
+      {
+        "text": "client",
+        "label": "ENTITY",
+        "start": 3,
+        "end": 9
+      },
+      {
+        "text": "create",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "claim",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 28
+      },
+      {
+        "text": "policy",
+        "label": "ENTITY",
+        "start": 35,
+        "end": 41
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0260",
+    "project_id": "banking_system",
+    "text": "The customer can update the account description.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "account",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 35
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 36,
+        "end": 47
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0280",
+    "project_id": "banking_system",
+    "text": "The employee can view the transfer status.",
+    "annotations": [
+      {
+        "text": "employee",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 17,
+        "end": 21
+      },
+      {
+        "text": "transfer",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 34
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 35,
+        "end": 41
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0697",
+    "project_id": "insurance_system",
+    "text": "The system shall maintain case availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "case",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 30
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 43
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 56
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0936",
+    "project_id": "learning_system",
+    "text": "The system shall record the topic name and category.",
+    "annotations": [
+      {
+        "text": "record",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "topic",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 33
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 38
+      },
+      {
+        "text": "category",
+        "label": "ATTRIBUTE",
+        "start": 43,
+        "end": 51
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0949",
+    "project_id": "learning_system",
+    "text": "The tutor can approve a feedback.",
+    "annotations": [
+      {
+        "text": "tutor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "approve",
+        "label": "ACTION",
+        "start": 14,
+        "end": 21
+      },
+      {
+        "text": "feedback",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 32
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0266",
+    "project_id": "banking_system",
+    "text": "The customer can submit a transaction.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "transaction",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 37
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0291",
+    "project_id": "banking_system",
+    "text": "The employee can submit a transfer.",
+    "annotations": [
+      {
+        "text": "employee",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "submit",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "transfer",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 34
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0687",
+    "project_id": "insurance_system",
+    "text": "A review must reference one assessor and one case.",
+    "annotations": [
+      {
+        "text": "review",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "assessor",
+        "label": "ENTITY",
+        "start": 28,
+        "end": 36
+      },
+      {
+        "text": "case",
+        "label": "ENTITY",
+        "start": 45,
+        "end": 49
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0290",
+    "project_id": "banking_system",
+    "text": "A transfer must contain a status value.",
+    "annotations": [
+      {
+        "text": "transfer",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 10
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 26,
+        "end": 32
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0271",
+    "project_id": "banking_system",
+    "text": "The customer can review a transaction associated with a account.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "review",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "transaction",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 37
+      },
+      {
+        "text": "account",
+        "label": "ENTITY",
+        "start": 56,
+        "end": 63
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0655",
+    "project_id": "insurance_system",
+    "text": "The client can view the claim status.",
+    "annotations": [
+      {
+        "text": "client",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 10
+      },
+      {
+        "text": "view",
+        "label": "ACTION",
+        "start": 15,
+        "end": 19
+      },
+      {
+        "text": "claim",
+        "label": "ENTITY",
+        "start": 24,
+        "end": 29
+      },
+      {
+        "text": "status",
+        "label": "ATTRIBUTE",
+        "start": 30,
+        "end": 36
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0684",
+    "project_id": "insurance_system",
+    "text": "The system shall store case code and description.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "case",
+        "label": "ENTITY",
+        "start": 23,
+        "end": 27
+      },
+      {
+        "text": "code",
+        "label": "ATTRIBUTE",
+        "start": 28,
+        "end": 32
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 48
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0698",
+    "project_id": "insurance_system",
+    "text": "A review must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "review",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 8
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 24,
+        "end": 34
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 39,
+        "end": 47
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0667",
+    "project_id": "insurance_system",
+    "text": "The system shall store the client identifier.",
+    "annotations": [
+      {
+        "text": "store",
+        "label": "ACTION",
+        "start": 17,
+        "end": 22
+      },
+      {
+        "text": "client",
+        "label": "ENTITY",
+        "start": 27,
+        "end": 33
+      },
+      {
+        "text": "identifier",
+        "label": "ATTRIBUTE",
+        "start": 34,
+        "end": 44
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0913",
+    "project_id": "learning_system",
+    "text": "The student can search for a quiz by name.",
+    "annotations": [
+      {
+        "text": "student",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 11
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 16,
+        "end": 22
+      },
+      {
+        "text": "quiz",
+        "label": "ENTITY",
+        "start": 29,
+        "end": 33
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 37,
+        "end": 41
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0947",
+    "project_id": "learning_system",
+    "text": "The system shall maintain topic availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "topic",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 31
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 32,
+        "end": 44
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 49,
+        "end": 57
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0273",
+    "project_id": "banking_system",
+    "text": "A transaction must include a start date and end date.",
+    "annotations": [
+      {
+        "text": "transaction",
+        "label": "ENTITY",
+        "start": 2,
+        "end": 13
+      },
+      {
+        "text": "start date",
+        "label": "ATTRIBUTE",
+        "start": 29,
+        "end": 39
+      },
+      {
+        "text": "end date",
+        "label": "ATTRIBUTE",
+        "start": 44,
+        "end": 52
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0935",
+    "project_id": "learning_system",
+    "text": "The tutor can update the topic description.",
+    "annotations": [
+      {
+        "text": "tutor",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 9
+      },
+      {
+        "text": "update",
+        "label": "ACTION",
+        "start": 14,
+        "end": 20
+      },
+      {
+        "text": "topic",
+        "label": "ENTITY",
+        "start": 25,
+        "end": 30
+      },
+      {
+        "text": "description",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 42
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0263",
+    "project_id": "banking_system",
+    "text": "The customer can search for a account by name.",
+    "annotations": [
+      {
+        "text": "customer",
+        "label": "ENTITY",
+        "start": 4,
+        "end": 12
+      },
+      {
+        "text": "search",
+        "label": "ACTION",
+        "start": 17,
+        "end": 23
+      },
+      {
+        "text": "account",
+        "label": "ENTITY",
+        "start": 30,
+        "end": 37
+      },
+      {
+        "text": "name",
+        "label": "ATTRIBUTE",
+        "start": 41,
+        "end": 45
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  },
+  {
+    "requirement_id": "NLP-SYN-0922",
+    "project_id": "learning_system",
+    "text": "The system shall maintain quiz availability and location.",
+    "annotations": [
+      {
+        "text": "maintain",
+        "label": "ACTION",
+        "start": 17,
+        "end": 25
+      },
+      {
+        "text": "quiz",
+        "label": "ENTITY",
+        "start": 26,
+        "end": 30
+      },
+      {
+        "text": "availability",
+        "label": "ATTRIBUTE",
+        "start": 31,
+        "end": 43
+      },
+      {
+        "text": "location",
+        "label": "ATTRIBUTE",
+        "start": 48,
+        "end": 56
+      }
+    ],
+    "annotation_source": "synthetic_template_unreviewed"
+  }
+]
