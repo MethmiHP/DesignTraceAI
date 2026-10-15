@@ -1,0 +1,37 @@
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local virtual environments
+venv/
+.env/
+.venv/
+.env
+
+# Non-BERT model artifacts and experiment scripts (paths relative to backend/)
+/datasets/api_semantic_extraction/spacy*/
+/datasets/api_semantic_extraction/*spacy*.py
+/modules/api_component_design/spacy_semantic_extractor.py
+/datasets/api_semantic_extraction/roberta*/
+/datasets/api_semantic_extraction/deberta*/
+
+# Rule-baseline experiment outputs and evaluation scripts
+/datasets/api_semantic_extraction/evaluate_rule*.py
+/datasets/api_semantic_extraction/rule_baseline_*
+
+# Large selected BERT model weight
+/datasets/api_semantic_bert/model.safetensors
+
+# Temporary local BERT verification scripts
+/test_bert_extractor.py
+/test_bert_model_load.py
+
+# Keep BERT scripts, weights, tokenizers, and shared datasets eligible for Git.
+# semantic_extractor.py is also retained because BERT imports it.
+
+# macOS
+.DS_Store
+
+# Generated process outputs (retain the directory placeholder and documentation)
+/outputs/*/
