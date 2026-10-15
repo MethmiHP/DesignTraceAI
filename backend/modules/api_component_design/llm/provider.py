@@ -17,6 +17,10 @@ class LLMUnavailableError(RuntimeError):
 
 
 class BaseLLMProvider(ABC):
+    provider_name = "llm"
+
+    def generate_structured_with_source(self, prompt: str, schema_class: type[T]):
+        return self.generate_structured(prompt, schema_class), self.provider_name
 
     @abstractmethod
     def generate_structured(
@@ -35,6 +39,7 @@ class BaseLLMProvider(ABC):
 class GeminiLLMProvider(
     BaseLLMProvider
 ):
+    provider_name = "gemini"
 
     def __init__(
         self,
@@ -84,6 +89,7 @@ class GeminiLLMProvider(
         self.client = genai.Client(
             api_key=resolved_api_key,
             http_options=types.HttpOptions(
+                timeout=30000,
                 retry_options=types.HttpRetryOptions(
                     attempts=4,
                     initial_delay=2.0,
@@ -147,3 +153,7 @@ class GeminiLLMProvider(
                 response.text
             )
         )
+
+
+    def close(self):
+        self.client.close()
