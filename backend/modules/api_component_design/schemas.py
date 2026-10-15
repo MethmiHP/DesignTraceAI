@@ -1,6 +1,6 @@
 #what the module receives from the Coordinator Agent and what it returns
 
-from typing import Optional
+from typing import Literal, Optional
 from pydantic import BaseModel, Field
 
 from shared.models.common import ValidationResult
@@ -91,6 +91,14 @@ class ResponsibilityDesign(BaseModel):
     mapping_reason: Optional[str] = None
 
 
+class APIParameter(BaseModel):
+    name: str = Field(min_length=1)
+    location: Literal["path", "query", "header"]
+    type: Literal["string", "uuid", "integer", "number", "boolean"] = "string"
+    required: bool = False
+    description: str = ""
+
+
 class APIOperation(BaseModel):
     operation_id: str
 
@@ -104,6 +112,7 @@ class APIOperation(BaseModel):
     response_schema: dict = Field(default_factory=dict)
 
     error_responses: dict = Field(default_factory=dict)
+    parameters: list[APIParameter] = Field(default_factory=list)
 
 
 class RequirementAPIMapping(BaseModel):

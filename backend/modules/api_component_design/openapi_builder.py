@@ -35,29 +35,31 @@ class OpenAPIBuilder:
                 "responses": {},
             }
 
-            # Path parameters
-            parameter_names = re.findall(
-                r"\{([^}]+)\}",
-                operation.path,
-            )
-
-            if parameter_names:
-
-                operation_object["parameters"] = []
-
-                for parameter_name in parameter_names:
-
-                    operation_object["parameters"].append(
-                        {
-                            "name": parameter_name,
-                            "in": "path",
-                            "required": True,
-                            "schema": {
-                                "type": "string",
-                                "format": "uuid",
-                            },
-                        }
-                    )
+            # Preserve explicit query/header/path metadata from generation.
+            parameters = [
+                {
+                    "name": parameter.name,
+                    "in": parameter.location,
+                    "required": True if parameter.location == "path" else parameter.required,
+                    "description": parameter.description,
+                    "schema": self._convert_type(parameter.type),
+                }
+                for parameter in operation.parameters
+                if not (parameter.location == "header" and parameter.name.lower()
+                        in {"content-type", "accept", "authorization"})
+            ]
+            declared_paths = {item["name"] for item in parameters if item["in"] == "path"}
+            for name in dict.fromkeys(re.findall(r"\{([^}]+)\}", operation.path)):
+                if name not in declared_paths:
+                    parameters.append({
+                        "name": name,
+                        "in": "path",
+                        "required": True,
+                        "description": f"Identifier for {name.removesuffix('_id').replace('_', ' ')}.",
+                        "schema": {"type": "string", "format": "uuid"},
+                    })
+            if parameters:
+                operation_object["parameters"] = parameters
 
             # Request body
             if operation.request_schema:
@@ -135,6 +137,9 @@ class OpenAPIBuilder:
                 "type": "string",
                 "format": "uuid",
             }
+
+        if isinstance(value, str) and value in {"integer", "number", "boolean"}:
+            return {"type": value}
 
         if value == "string":
             return {
