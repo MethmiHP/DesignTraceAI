@@ -1,3 +1,8 @@
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
 from fastapi import FastAPI
 
 from modules.api_component_design.router import (
