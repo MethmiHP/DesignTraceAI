@@ -296,4 +296,65 @@ logs/
 tmp/
 temp/
 
+# ==========================================
+# NLP comparison experiments (not selected)
+# ==========================================
 
+# BERT training and evaluation scripts
+/backend/datasets/nlp/train_bert.py
+/backend/datasets/nlp/train_bert_project_split.py
+/backend/datasets/nlp/evaluate_deberta_project_split.py
+
+# BERT-specific error analysis
+/backend/datasets/nlp/error_analysis_project_split.py
+
+# DeBERTa training, evaluation and alignment
+/backend/datasets/nlp/train_deberta_project_split.py
+/backend/datasets/nlp/evaluate_deberta_real_world.py
+/backend/datasets/nlp/error_analysis_deberta_real_world.py
+/backend/datasets/nlp/align_deberta_project_split.py
+
+# BERT and DeBERTa model artifacts
+/backend/outputs/nlp_models/bert/
+/backend/outputs/nlp_models/bert_cleaned/
+/backend/outputs/nlp_models/bert_project_split/
+/backend/outputs/nlp_models/deberta_project_split/
+
+# BERT and DeBERTa dataset alignment outputs
+/backend/datasets/nlp/project_split/bert/
+/backend/datasets/nlp/project_split/deberta/
+
+# ==========================================
+# Generated DesignTrace AI outputs
+# ==========================================
+
+# Ignore all generated backend outputs
+/backend/outputs/
+
+# Ignore temporary database design backups
+/backend/modules/database_design/*backup*
+*.zip
+
+# Python generated cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Generated backend outputs
+/backend/outputs/
+
+# Generated evaluation reports
+/backend/evaluation/baseline_results/
+/backend/evaluation/mapping_evaluation_results.json
+/backend/evaluation/mapping_review.csv
+
+# Generated NLP intermediate datasets
+/backend/datasets/nlp/cleaned/
+/backend/datasets/nlp/project_split/split_report.json
+/backend/datasets/nlp/project_split/*_aligned.json
+/backend/datasets/nlp/project_split/*_bio.json
+/backend/datasets/nlp/*_aligned.json
+/backend/datasets/nlp/*_bio.json
+
+# Temporary backups
+*.zip
