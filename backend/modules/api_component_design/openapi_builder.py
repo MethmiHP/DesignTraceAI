@@ -3,6 +3,7 @@
 import re
 
 from .schemas import APIOperation
+from .security import security_scheme
 
 
 class OpenAPIBuilder:
@@ -34,6 +35,18 @@ class OpenAPIBuilder:
                 "operationId": operation.operation_id,
                 "responses": {},
             }
+
+            scheme = security_scheme(operation.security)
+            if scheme:
+                name, definition = scheme
+                document.setdefault("components", {}).setdefault("securitySchemes", {})[name] = definition
+                operation_object["security"] = [{name: []}]
+            elif operation.security.authentication == "none":
+                operation_object["security"] = []
+            if operation.security.roles:
+                operation_object["x-required-roles"] = operation.security.roles
+            if operation.security.access_rules:
+                operation_object["x-access-rules"] = operation.security.access_rules
 
             # Preserve explicit query/header/path metadata from generation.
             parameters = [

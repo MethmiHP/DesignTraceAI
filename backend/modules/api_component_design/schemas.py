@@ -8,10 +8,19 @@ from shared.models.common import ValidationResult
 
 
 # INPUT MODELS
+class SecurityPolicy(BaseModel):
+    authentication: Literal["unspecified", "none", "bearer", "basic", "api_key"] = "unspecified"
+    api_key_name: str = Field(default="X-API-Key", min_length=1, pattern=r"^[A-Za-z0-9_-]+$")
+    api_key_location: Literal["header", "query", "cookie"] = "header"
+    roles: list[str] = Field(default_factory=list)
+    access_rules: list[str] = Field(default_factory=list)
+
+
 class FunctionalRequirement(BaseModel):
     requirement_id: str
     statement: str
     priority: Optional[str] = None
+    security: Optional[SecurityPolicy] = None
 
 
 class NonFunctionalRequirement(BaseModel):
@@ -52,6 +61,7 @@ class DatabaseDesign(BaseModel):
 
 
 class APIComponentDesignRequest(BaseModel):
+    security: SecurityPolicy = Field(default_factory=SecurityPolicy)
     project_id: str
 
     functional_requirements: list[FunctionalRequirement]
@@ -100,6 +110,8 @@ class APIParameter(BaseModel):
 
 
 class APIOperation(BaseModel):
+    security: SecurityPolicy = Field(default_factory=SecurityPolicy)
+    generation_source: Optional[Literal["gemini", "groq", "rule-based", "llm"]] = None
     operation_id: str
 
     requirement_id: str

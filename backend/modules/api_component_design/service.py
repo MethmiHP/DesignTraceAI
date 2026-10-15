@@ -1,3 +1,7 @@
+import logging
+import os
+
+
 from .bert_semantic_extractor import (
     BertSemanticExtractor,
 )
@@ -10,6 +14,17 @@ from .openapi_builder import OpenAPIBuilder
 from .validator import APIDesignValidator
 from .refinement import RefinementEngine
 from .semantic_normalizer import SemanticNormalizer
+from .security import apply_security, security_configuration_gaps
+
+from .llm.provider import (
+    BaseLLMProvider,
+)
+
+from .llm.fallback_provider import FallbackLLMProvider
+
+from .llm.llm_api_generator import (
+    LLMAPIGenerator,
+)
 
 from .schemas import (
     APIComponentDesignRequest,
@@ -22,40 +37,86 @@ from shared.models.common import (
     ValidationResult,
     ValidationIssue,
 )
+from shared.utils.output_store import save_outputs
+
+
+logger = logging.getLogger(__name__)
 
 
 class APIComponentDesignService:
 
-    def __init__(self):
+    def __init__(
+        self,
+        llm_provider: BaseLLMProvider | None = None,
+        enable_llm: bool | None = None,
+    ):
 
-       
-        # MODULE COMPONENTS
-
+        # Module components
 
         self.preprocessor = Preprocessor()
 
-        # Selected semantic extraction model:
-        # Fine-tuned BERT
+        # Requirement understanding using fine-tuned BERT
+
         self.semantic_extractor = (
             BertSemanticExtractor()
         )
 
-        # Semantic post-processing / normalization
+        # Semantic normalization and passive actor recovery
+
         self.semantic_normalizer = (
             SemanticNormalizer()
         )
+
+        # Architecture and responsibility mapping
 
         self.responsibility_mapper = (
             ResponsibilityMapper()
         )
 
+        # Database context integration
+
         self.database_context_builder = (
             DatabaseContextBuilder()
         )
 
-        self.api_generator = (
+        # Deterministic baseline generator used for
+        # fallback, offline testing and research comparison
+
+        self.baseline_api_generator = (
             BaselineAPIGenerator()
         )
+
+        # LLM API generator
+
+        if enable_llm is None:
+
+            enable_llm = (
+                os.environ.get(
+                    "API_COMPONENT_ENABLE_LLM",
+                    "false",
+                ).lower()
+                == "true"
+            )
+
+        self.llm_enabled = enable_llm
+
+        self.llm_api_generator = None
+
+        if self.llm_enabled:
+
+            provider = (
+                llm_provider
+                if llm_provider is not None
+                else FallbackLLMProvider()
+            )
+
+            self.llm_api_generator = (
+                LLMAPIGenerator(
+                    llm_provider=provider
+                )
+            )
+
+        # OpenAPI, validation and refinement
 
         self.openapi_builder = (
             OpenAPIBuilder()
@@ -76,6 +137,8 @@ class APIComponentDesignService:
     ) -> APIComponentDesignResponse:
 
         semantic_results = []
+        raw_semantic_results = []
+        database_context_results = []
         responsibilities = []
         operations = []
         mappings = []
@@ -84,9 +147,7 @@ class APIComponentDesignService:
             ValidationIssue
         ] = []
 
-
-        # 1. PREPROCESSING / INPUT VALIDATION
-
+        # 1. Preprocessing and input validation
 
         (
             request,
@@ -99,22 +160,27 @@ class APIComponentDesignService:
             preprocessing_issues
         )
 
+        security_gaps = security_configuration_gaps(request)
+        if security_gaps:
+            response = APIComponentDesignResponse(
+                project_id=request.project_id,
+                semantic_extractions=[], responsibilities=[], api_operations=[],
+                requirement_to_api_mapping=[],
+                validation=ValidationResult(valid=False, issues=[*issues, *security_gaps]),
+            )
+            save_outputs(request.project_id, {
+                'request': request.model_dump(mode='json'),
+                'response': response.model_dump(mode='json'),
+            })
+            return response
 
-        # PROCESS EACH FUNCTIONAL REQUIREMENT
-    
+        # Process each functional requirement
 
         for requirement in (
             request.functional_requirements
         ):
 
-          
-            # 2. REQUIREMENT UNDERSTANDING
-            #
-            # Fine-tuned BERT extracts:
-            # Actor
-            # Action
-            # Resource
-
+            # 2. Requirement understanding using BERT
 
             raw_semantic = (
                 self.semantic_extractor.extract(
@@ -122,20 +188,9 @@ class APIComponentDesignService:
                     requirement.statement,
                 )
             )
+            raw_semantic_results.append(raw_semantic.model_dump(mode="json"))
 
-
-   
-            # 2.1 SEMANTIC NORMALIZATION
-            #
-            # Examples:
-            # cancelled -> cancel
-            # rescheduled -> reschedule
-            # booked -> book
-            #
-            # Also supports deterministic passive
-            # actor recovery using the original
-            # requirement statement.
-  
+            # 2.1 Semantic normalization
 
             semantic = (
                 self.semantic_normalizer.normalize(
@@ -148,10 +203,7 @@ class APIComponentDesignService:
                 semantic
             )
 
-
-   
-            # 3. RESPONSIBILITY / ARCHITECTURE MAPPING
-
+            # 3. Architecture mapping
 
             architecture_element = (
                 self.responsibility_mapper
@@ -177,14 +229,11 @@ class APIComponentDesignService:
                     )
                 )
 
-                # Cannot safely generate an API
-                # without an architecture owner.
+                # API generation requires an architecture owner
+
                 continue
 
-
-         
-            # 4. DETAILED RESPONSIBILITY IDENTIFICATION
-          
+            # 4. Detailed responsibility identification
 
             detailed_responsibility = (
                 self.responsibility_mapper
@@ -192,7 +241,6 @@ class APIComponentDesignService:
                     semantic
                 )
             )
-
 
             responsibility = (
                 ResponsibilityDesign(
@@ -220,10 +268,7 @@ class APIComponentDesignService:
                 responsibility
             )
 
-
-       
-            # 5. DATABASE CONTEXT INTEGRATION
-   
+            # 5. Database context integration
 
             database_context = (
                 self.database_context_builder
@@ -232,23 +277,95 @@ class APIComponentDesignService:
                     request,
                 )
             )
+            database_context_results.append({
+                "requirement_id": requirement.requirement_id,
+                "entities": [entity.model_dump(mode="json") for entity in database_context],
+            })
 
+            # 6. API operation generation
 
-   
-            # 6. API OPERATION GENERATION
-          
+            operation = None
+            security_policy = requirement.security or request.security
 
-            operation = (
-                self.api_generator.generate(
-                    semantic=semantic,
-                    element_id=(
-                        architecture_element.element_id
-                    ),
-                    database_context=(
-                        database_context
-                    ),
+            # 6.1 Try context-grounded LLM generation
+
+            if (
+                self.llm_enabled
+                and self.llm_api_generator
+                is not None
+            ):
+
+                try:
+
+                    operation = (
+                        self.llm_api_generator
+                        .generate(
+                            requirement_statement=(
+                                requirement.statement
+                            ),
+                            security_policy=security_policy,
+                            semantic=semantic,
+                            architecture_element=(
+                                architecture_element
+                            ),
+                            database_context=(
+                                database_context
+                            ),
+                        )
+                    )
+
+                except Exception:
+
+                    # Keep the detailed provider error in
+                    # backend logs instead of the API response
+
+                    logger.exception(
+                        "LLM API generation failed "
+                        "for requirement %s",
+                        requirement.requirement_id,
+                    )
+
+                    issues.append(
+                        ValidationIssue(
+                            code=(
+                                "LLM_API_GENERATION_FAILED"
+                            ),
+                            message=(
+                                "LLM API generation failed "
+                                "for requirement "
+                                f"{requirement.requirement_id}. "
+                                "The deterministic baseline "
+                                "generator was used as a "
+                                "fallback."
+                            ),
+                            severity="WARNING",
+                        )
+                    )
+
+            # 6.2 Use deterministic baseline as fallback
+
+            if operation is None:
+
+                operation = (
+                    self.baseline_api_generator
+                    .generate(
+                        semantic=semantic,
+                        element_id=(
+                            architecture_element.element_id
+                        ),
+                        database_context=(
+                            database_context
+                        ),
+                    )
                 )
-            )
+
+                if operation is not None:
+                    operation.generation_source = "rule-based"
+
+            if operation is not None:
+                apply_security(operation, security_policy)
+
+            # 6.3 Store generated operation
 
             if operation is not None:
 
@@ -275,18 +392,15 @@ class APIComponentDesignService:
                             "API_GENERATION_FAILED"
                         ),
                         message=(
-                            "No baseline API rule exists "
-                            "for requirement "
+                            "Could not generate an API "
+                            "operation for requirement "
                             f"{requirement.requirement_id}."
                         ),
                         severity="WARNING",
                     )
                 )
 
-
-
-        # 7. BUILD INITIAL OPENAPI DOCUMENT
-       
+        # 7. Build initial OpenAPI document
 
         openapi_document = (
             self.openapi_builder.build(
@@ -294,10 +408,7 @@ class APIComponentDesignService:
             )
         )
 
-
-      
-        # 8. INITIAL API DESIGN VALIDATION
-    
+        # 8. Initial API design validation
 
         design_validation = (
             self.validator.validate(
@@ -309,17 +420,19 @@ class APIComponentDesignService:
             )
         )
 
+        # Combine generation and validation issues
+        # before refinement
 
-        # Issues supplied to refinement
         refinement_issues = [
             *issues,
             *design_validation.issues,
         ]
 
+        # Snapshot before refinement, which can mutate the operation models.
+        initial_operations = [operation.model_dump(mode="json") for operation in operations]
+        initial_openapi_document = openapi_document
 
-    
-        # 9. REFINEMENT
-     
+        # 9. Deterministic refinement
 
         refined_operations = (
             self.refinement_engine.refine(
@@ -328,19 +441,15 @@ class APIComponentDesignService:
             )
         )
 
+        # Rebuild OpenAPI from refined operations
 
-        # Rebuild OpenAPI document
-        # using refined operations
         openapi_document = (
             self.openapi_builder.build(
                 refined_operations
             )
         )
 
-
-     
-        # 10. FINAL VALIDATION
-     
+        # 10. Final validation
 
         final_design_validation = (
             self.validator.validate(
@@ -354,21 +463,18 @@ class APIComponentDesignService:
             )
         )
 
+        # Keep preprocessing, generation and
+        # final validation issues
 
-        # Keep preprocessing / architecture /
-        # API generation issues and final
-        # design validation issues
         final_issues = [
             *issues,
             *final_design_validation.issues,
         ]
 
-
         has_errors = any(
             issue.severity == "ERROR"
             for issue in final_issues
         )
-
 
         final_validation = (
             ValidationResult(
@@ -377,11 +483,9 @@ class APIComponentDesignService:
             )
         )
 
+        # 11. Return final module output
 
-        # 11. RETURN FINAL MODULE OUTPUT
-    
-
-        return APIComponentDesignResponse(
+        response = APIComponentDesignResponse(
             project_id=request.project_id,
             semantic_extractions=(
                 semantic_results
@@ -402,3 +506,19 @@ class APIComponentDesignService:
                 final_validation
             ),
         )
+
+        response_data = response.model_dump(mode="json")
+        output_path = save_outputs(request.project_id, {
+            "request": request.model_dump(mode="json"),
+            "raw_semantic_extractions": raw_semantic_results,
+            "database_context": database_context_results,
+            "preprocessing_issues": [issue.model_dump(mode="json") for issue in preprocessing_issues],
+            "initial_api_operations": initial_operations,
+            "initial_openapi_document": initial_openapi_document,
+            "initial_validation": design_validation.model_dump(mode="json"),
+            "refinement_issues": [issue.model_dump(mode="json") for issue in refinement_issues],
+            **{name: value for name, value in response_data.items() if name != "project_id"},
+            "response": response_data,
+        })
+        logger.info("Saved API design outputs to %s", output_path)
+        return response
