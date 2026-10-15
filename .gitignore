@@ -217,3 +217,7 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+# Generated module outputs
+backend/outputs/
+# Large trained model file
+backend/datasets/roberta/best_model/model.safetensors
