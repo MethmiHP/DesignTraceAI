@@ -1,0 +1,702 @@
+[
+    {
+        "statement": "Search results shall be returned within 150 milliseconds under p95 traffic conditions.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "API response latency for account balance queries must not exceed 80 milliseconds at the 99th percentile.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The image recognition pipeline must classify a submitted photo in under 200 milliseconds.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "Dashboard rendering must complete within two seconds on a standard enterprise workstation.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Real-time traffic signal updates must reach all roadside controllers within 50 milliseconds of a state change.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "Booking confirmation must be presented to the customer within three seconds of payment submission.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "The fraud scoring model must evaluate each transaction within 30 milliseconds before the authorisation decision.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Location coordinates from GPS receivers must be processed and mapped within 100 milliseconds.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The compiler service must build a student's submitted code and return results within 4 seconds.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "Vital signs from bedside monitors must be reflected on the nursing station display within 500 milliseconds.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "Query execution against the reporting database must return the first page of results within one second for up to 10 million records.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "The recommendation engine must compute and deliver product suggestions within 250 milliseconds of page load.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "The mobile application must achieve a time-to-interactive below 1.5 seconds on a 4G network.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Trade order execution must be acknowledged within 10 milliseconds of receipt at the matching engine.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Sensor data must be aggregated and written to the time-series store within 200 milliseconds of arrival.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Full-text search across a corpus of five million documents must return ranked results within 300 milliseconds.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "The ride-dispatch algorithm must produce a driver assignment within 500 milliseconds of a trip request.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "Video livestream encoding latency must not add more than 2 seconds end-to-end delay relative to the original source.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Shipment route recalculation must complete within 1 second when new traffic data is received mid-route.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The chatbot must produce a response token stream within 400 milliseconds of user message submission.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "Network packet inspection throughput must sustain 40 Gbps without dropping frames.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "Background payroll tax calculations for a 10,000-employee run must complete within a 15-minute window.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "Screen-sharing frame delivery to all participants in a multiplayer collaboration session must not exceed 150ms lag.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "Drug interaction lookup must return a safe/unsafe determination within 100 milliseconds at point of prescription.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The pricing engine must recompute product prices following a supplier cost change within 30 seconds.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "Certificate validation for cellular network access must complete within 20 milliseconds.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "The mapping API must render a street-level tile request within 80 milliseconds for 95% of requests.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "The ETL pipeline must transform and load 1 billion sensor readings overnight within the maintenance window.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Complaint ticket assignment must propagate to relevant agents within 2 seconds of submission.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "The genomics variant analysis pipeline must complete per-sample processing in under 4 hours.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The inventory reservation system must confirm stock allocation within 500 milliseconds during flash-sale events.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "Report PDF generation must complete within 5 seconds for documents not exceeding 200 pages.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The analytics event pipeline must process 500,000 click events per second without buffering backlogs.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Fund transfer instructions must be validated and queued within 200 milliseconds in the settlement layer.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Machine learning inference on uploaded CT scans must return a preliminary assessment within 10 seconds.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "Duty roster generation for 5,000 employees must complete within 60 seconds of triggering.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "The cargo manifesting system must produce a full vessel loading plan within 30 seconds of departure time confirmation.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "Authentication token validation must not add more than 5 milliseconds overhead to a downstream service call.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "The government benefits eligibility check must complete within 3 seconds per applicant.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Leaderboard updates must be computed and pushed to all players within 1 second of a score change.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Annual tax submissions must be processed and acknowledged within 24 hours of filing.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "The vehicle scheduling engine must produce a revised plan within 60 seconds of an emergency diversion request.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "Wireless spectrum allocation decisions must be computed and applied at the base station within 5 milliseconds.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "Student quiz autograding must return scores within 2 seconds of submission in an online examination context.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "Batch risk scoring for overnight loan books must complete by 04:00 UTC daily for morning trading readiness.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Object detection on warehouse camera feeds must run at no less than 25 frames per second on edge hardware.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The smart meter reading aggregation job must process 10 million readings within a 30-minute window.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Customer service chat routing must present the conversation to an agent within 500 milliseconds of escalation.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Cross-campus network path computation must return optimal route configurations within 2 seconds for campus rings of 500 nodes.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "The election system must tally regional results and publish them within 60 minutes of polling close.",
+        "labels": [
+            "Performance"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Failure of the payment notification service must not interrupt order fulfilment processing.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "A single node crash must not cause data loss for any committed transaction.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The ICU alarm system must continue operating during network partition from the central server.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "If a downstream route planning service is unavailable, the logistics system must fall back to the last known valid routing data.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The IoT gateway must buffer sensor readings locally if the cloud endpoint is temporarily unreachable.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Checkout must remain possible even if the product recommendation service is experiencing an outage.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "A failed task in the data processing pipeline must be automatically retried three times before raising an alert.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "The payroll calculation engine must produce consistent results regardless of whether it is rerun on the same input data.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "The student registrar system must preserve the integrity of enrollment records even if a partial hardware failure occurs mid-transaction.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "The national emergency notification system must broadcast alerts even when non-critical subsystems are offline.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Telematics data collection must be isolated from infotainment failures so that safety sensors remain operational.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "A transient downstream API error must not cause a permanent loss of an insurance claim submission.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Circuit breakers must prevent a slow third-party payment provider from exhausting the connection pool of the order service.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "In the event of a cache failure, the application must serve data directly from the primary data store without returning errors.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "Prescription dispensing records must be written durably so that a power outage cannot cause a gap in the medication audit trail.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The message broker must guarantee at-least-once delivery for shipment status updates.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "Fund transfer requests that encounter a timeout must not be silently dropped; they must be reliably queued for reprocessing.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Drone flight control commands must be acknowledged before the next command is issued to prevent desynchronisation.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "A partial failure in the social feed ranking subsystem must not prevent users from viewing their timeline.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Inter-network handover for active voice calls must be seamless, with no audible interruption.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "The academic grading system must produce provably identical grade aggregations whether computed once or idempotently recalculated.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "Work order updates must be durably committed before being communicated to field crews to avoid conflicting instructions.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "The supply chain visibility platform must degrade gracefully when partner APIs are partially unavailable.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The satellite command relay must queue outbound commands when a satellite is in a blackout zone.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "Cardiac monitoring alerts must be delivered even if network congestion degrades general monitoring traffic.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "Government benefits payments that fail at the bank interface must be re-queued the following business day automatically.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "An individual microservice restart must not cause a loss of in-flight user requests during rolling deployments.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "The vehicle charging network must maintain scheduling integrity across charging stations even during brief connectivity outages.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "The HR onboarding workflow must resume from its last completed step if interrupted midway.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "Any duplicate payment instruction must be idempotently rejected without double-charging the customer.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Exam submission acknowledgements must be held in a durable store until confirmed receipt by the grading server.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "A warehouse robot receiving an ambiguous instruction must halt and request clarification rather than execute the closest guess.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "Smart home automation rules must continue executing locally if the cloud management server is unreachable.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "The ride-share matching service must maintain trip integrity in the event of a replica failure mid-transaction.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "A failure in the campaign analytics pipeline must not affect the delivery of active marketing messages.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Patient appointment reminders must be retried up to five times if the initial delivery attempt fails.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The national tax portal must recover submitted returns from a crash-consistent snapshot within 15 minutes.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Outage in a single availability zone must not result in loss of queued background jobs.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "A billing pipeline failure must not generate duplicate invoices upon restart.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "Asset tracking events must continue to be written to durable storage even when the visualisation layer is unavailable.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "A failed financial close batch must be restartable at its last checkpoint without re-processing previously completed ledger entries.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The social verification flow must not leave a user partially registered if a downstream service times out mid-process.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Concurrently conflicting updates to the same booking slot must be consistently resolved without double-allocation.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "When the primary route calculation server is unavailable, emergency vehicles must fall back to a pre-computed route library.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "The field service mobile app must store completed inspection reports locally and sync when connectivity is restored.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "A sensor node that loses connectivity must continue local data capture and batch-upload upon reconnection without data loss.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Currency conversion factors must remain frozen if the rate feed is unavailable to prevent unbounded rounding errors in transactions.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The content delivery pipeline must handle upstream encoder failures by switching to a redundant stream without viewer interruption.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Leave balance deductions must be atomic with payroll entries to prevent inconsistency between HR and finance records.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "The course progress tracking system must recover to a consistent state following a database restore without losing completed milestones.",
+        "labels": [
+            "Reliability"
+        ],
+        "domain": "education"
+    }
+]

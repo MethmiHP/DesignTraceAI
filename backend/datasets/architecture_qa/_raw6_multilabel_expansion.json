@@ -1,0 +1,2192 @@
+[
+  {
+    "statement": "Requests for tax submissions must be authorised before execution and return a result within two seconds.",
+    "labels": [
+      "Security",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "moderation events must be encrypted end-to-end while still completing processing within 300 milliseconds.",
+    "labels": [
+      "Security",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "Requests for case files must be authorised before execution and return a result within two seconds.",
+    "labels": [
+      "Security",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "Requests for ticketing events must be authorised before execution and return a result within two seconds.",
+    "labels": [
+      "Security",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "Requests for service requests must be authorised before execution and return a result within two seconds.",
+    "labels": [
+      "Security",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud"
+  },
+  {
+    "statement": "device commands must be encrypted end-to-end while still completing processing within 300 milliseconds.",
+    "labels": [
+      "Security",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot"
+  },
+  {
+    "statement": "enrolment requests must be encrypted end-to-end while still completing processing within 300 milliseconds.",
+    "labels": [
+      "Security",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "medication orders must be encrypted end-to-end while still completing processing within 300 milliseconds.",
+    "labels": [
+      "Security",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare"
+  },
+  {
+    "statement": "Requests for warehouse scans must be authorised before execution and return a result within two seconds.",
+    "labels": [
+      "Security",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "routing updates must be encrypted end-to-end while still completing processing within 300 milliseconds.",
+    "labels": [
+      "Security",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "payment callbacks must be encrypted end-to-end while still completing processing within 300 milliseconds.",
+    "labels": [
+      "Security",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce"
+  },
+  {
+    "statement": "card transactions must be encrypted end-to-end while still completing processing within 300 milliseconds.",
+    "labels": [
+      "Security",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "settlement messages must be encrypted end-to-end while still completing processing within 300 milliseconds.",
+    "labels": [
+      "Security",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "Requests for configuration changes must be authorised before execution and return a result within two seconds.",
+    "labels": [
+      "Security",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "Encrypted handling of medication orders must continue as the service expands across hundreds of worker instances.",
+    "labels": [
+      "Security",
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare"
+  },
+  {
+    "statement": "The platform must protect attendance events with role-based controls while scaling to ten times the current request volume.",
+    "labels": [
+      "Security",
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "The platform must protect account statements with role-based controls while scaling to ten times the current request volume.",
+    "labels": [
+      "Security",
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "The platform must protect onboarding tasks with role-based controls while scaling to ten times the current request volume.",
+    "labels": [
+      "Security",
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "Encrypted handling of call records must continue as the service expands across hundreds of worker instances.",
+    "labels": [
+      "Security",
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "The platform must protect API traffic with role-based controls while scaling to ten times the current request volume.",
+    "labels": [
+      "Security",
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud"
+  },
+  {
+    "statement": "Encrypted handling of device identities must continue as the service expands across hundreds of worker instances.",
+    "labels": [
+      "Security",
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot"
+  },
+  {
+    "statement": "The platform must protect registry updates with role-based controls while scaling to ten times the current request volume.",
+    "labels": [
+      "Security",
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "Encrypted handling of moderation events must continue as the service expands across hundreds of worker instances.",
+    "labels": [
+      "Security",
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "The platform must protect shipment events with role-based controls while scaling to ten times the current request volume.",
+    "labels": [
+      "Security",
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "Encrypted handling of order events must continue as the service expands across hundreds of worker instances.",
+    "labels": [
+      "Security",
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce"
+  },
+  {
+    "statement": "The platform must protect routing updates with role-based controls while scaling to ten times the current request volume.",
+    "labels": [
+      "Security",
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "The platform must protect device identities with role-based controls while scaling to ten times the current request volume.",
+    "labels": [
+      "Security",
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot"
+  },
+  {
+    "statement": "The platform must protect route plans with role-based controls while scaling to ten times the current request volume.",
+    "labels": [
+      "Security",
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "feed requests must be cryptographically verified and preserved without loss when downstream services fail.",
+    "labels": [
+      "Security",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "business records must be cryptographically verified and preserved without loss when downstream services fail.",
+    "labels": [
+      "Security",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "payroll runs must be cryptographically verified and preserved without loss when downstream services fail.",
+    "labels": [
+      "Security",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "traffic updates must be cryptographically verified and preserved without loss when downstream services fail.",
+    "labels": [
+      "Security",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "The system must reject unauthorised identity records and safely retry legitimate operations after transient failures.",
+    "labels": [
+      "Security",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "fleet assignments must be cryptographically verified and preserved without loss when downstream services fail.",
+    "labels": [
+      "Security",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "shift schedules must be cryptographically verified and preserved without loss when downstream services fail.",
+    "labels": [
+      "Security",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "The system must reject unauthorised user profiles and safely retry legitimate operations after transient failures.",
+    "labels": [
+      "Security",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "API traffic must be cryptographically verified and preserved without loss when downstream services fail.",
+    "labels": [
+      "Security",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud"
+  },
+  {
+    "statement": "The system must reject unauthorised vehicle telemetry and safely retry legitimate operations after transient failures.",
+    "labels": [
+      "Security",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "network alarms must be cryptographically verified and preserved without loss when downstream services fail.",
+    "labels": [
+      "Security",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "employee records must be cryptographically verified and preserved without loss when downstream services fail.",
+    "labels": [
+      "Security",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "The system must reject unauthorised shipment events and safely retry legitimate operations after transient failures.",
+    "labels": [
+      "Security",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "tenant data must be cryptographically verified and preserved without loss when downstream services fail.",
+    "labels": [
+      "Security",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud"
+  },
+  {
+    "statement": "Access to case files must remain protected by authentication even during regional failover events.",
+    "labels": [
+      "Security",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "route plans must stay available through redundant infrastructure without weakening access controls.",
+    "labels": [
+      "Security",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "Access to product searches must remain protected by authentication even during regional failover events.",
+    "labels": [
+      "Security",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce"
+  },
+  {
+    "statement": "employee records must stay available through redundant infrastructure without weakening access controls.",
+    "labels": [
+      "Security",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "Access to course content must remain protected by authentication even during regional failover events.",
+    "labels": [
+      "Security",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "leave requests must stay available through redundant infrastructure without weakening access controls.",
+    "labels": [
+      "Security",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "Access to API traffic must remain protected by authentication even during regional failover events.",
+    "labels": [
+      "Security",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud"
+  },
+  {
+    "statement": "user profiles must stay available through redundant infrastructure without weakening access controls.",
+    "labels": [
+      "Security",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "Access to diagnostic images must remain protected by authentication even during regional failover events.",
+    "labels": [
+      "Security",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare"
+  },
+  {
+    "statement": "network alarms must stay available through redundant infrastructure without weakening access controls.",
+    "labels": [
+      "Security",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "direct messages must stay available through redundant infrastructure without weakening access controls.",
+    "labels": [
+      "Security",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "business records must stay available through redundant infrastructure without weakening access controls.",
+    "labels": [
+      "Security",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "SIM profiles must stay available through redundant infrastructure without weakening access controls.",
+    "labels": [
+      "Security",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "Access to exam submissions must remain protected by authentication even during regional failover events.",
+    "labels": [
+      "Security",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "The component protecting onboarding tasks must expose a stable interface so authentication mechanisms can be upgraded independently.",
+    "labels": [
+      "Security",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "The component protecting service requests must expose a stable interface so authentication mechanisms can be upgraded independently.",
+    "labels": [
+      "Security",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud"
+  },
+  {
+    "statement": "Security rules for API traffic must be enforced through a replaceable policy module with no duplicated authorisation logic.",
+    "labels": [
+      "Security",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud"
+  },
+  {
+    "statement": "Security rules for content uploads must be enforced through a replaceable policy module with no duplicated authorisation logic.",
+    "labels": [
+      "Security",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "Security rules for firmware packages must be enforced through a replaceable policy module with no duplicated authorisation logic.",
+    "labels": [
+      "Security",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot"
+  },
+  {
+    "statement": "The component protecting routing updates must expose a stable interface so authentication mechanisms can be upgraded independently.",
+    "labels": [
+      "Security",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "The component protecting permit requests must expose a stable interface so authentication mechanisms can be upgraded independently.",
+    "labels": [
+      "Security",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "Security rules for user profiles must be enforced through a replaceable policy module with no duplicated authorisation logic.",
+    "labels": [
+      "Security",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "The component protecting exam submissions must expose a stable interface so authentication mechanisms can be upgraded independently.",
+    "labels": [
+      "Security",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "The component protecting route plans must expose a stable interface so authentication mechanisms can be upgraded independently.",
+    "labels": [
+      "Security",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "The component protecting subscriber sessions must expose a stable interface so authentication mechanisms can be upgraded independently.",
+    "labels": [
+      "Security",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "Security rules for workflow tasks must be enforced through a replaceable policy module with no duplicated authorisation logic.",
+    "labels": [
+      "Security",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "The component protecting carrier messages must expose a stable interface so authentication mechanisms can be upgraded independently.",
+    "labels": [
+      "Security",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "Security rules for traffic updates must be enforced through a replaceable policy module with no duplicated authorisation logic.",
+    "labels": [
+      "Security",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "The platform must process student records from ten times more users while keeping p95 response time below 250 milliseconds.",
+    "labels": [
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "The platform must process route plans from ten times more users while keeping p95 response time below 250 milliseconds.",
+    "labels": [
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "Throughput for inventory updates must scale horizontally without increasing average processing latency.",
+    "labels": [
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce"
+  },
+  {
+    "statement": "Throughput for employee records must scale horizontally without increasing average processing latency.",
+    "labels": [
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "Throughput for subscriber sessions must scale horizontally without increasing average processing latency.",
+    "labels": [
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "Throughput for card transactions must scale horizontally without increasing average processing latency.",
+    "labels": [
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "The platform must process gateway messages from ten times more users while keeping p95 response time below 250 milliseconds.",
+    "labels": [
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot"
+  },
+  {
+    "statement": "Throughput for onboarding tasks must scale horizontally without increasing average processing latency.",
+    "labels": [
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "The platform must process enrolment requests from ten times more users while keeping p95 response time below 250 milliseconds.",
+    "labels": [
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "Throughput for identity records must scale horizontally without increasing average processing latency.",
+    "labels": [
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "The platform must process ticketing events from ten times more users while keeping p95 response time below 250 milliseconds.",
+    "labels": [
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "Throughput for payment instructions must scale horizontally without increasing average processing latency.",
+    "labels": [
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "Throughput for attendance events must scale horizontally without increasing average processing latency.",
+    "labels": [
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "Throughput for payroll runs must scale horizontally without increasing average processing latency.",
+    "labels": [
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "As exam submissions volume increases tenfold, failed processing nodes must be replaced without duplicate or missing results.",
+    "labels": [
+      "Scalability",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "The service must handle rapid growth in telemetry streams while isolating worker failures so accepted work is never lost.",
+    "labels": [
+      "Scalability",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot"
+  },
+  {
+    "statement": "The service must handle rapid growth in trip requests while isolating worker failures so accepted work is never lost.",
+    "labels": [
+      "Scalability",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "As shift schedules volume increases tenfold, failed processing nodes must be replaced without duplicate or missing results.",
+    "labels": [
+      "Scalability",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "The service must handle rapid growth in delivery confirmations while isolating worker failures so accepted work is never lost.",
+    "labels": [
+      "Scalability",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "As order events volume increases tenfold, failed processing nodes must be replaced without duplicate or missing results.",
+    "labels": [
+      "Scalability",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce"
+  },
+  {
+    "statement": "The service must handle rapid growth in customer profiles while isolating worker failures so accepted work is never lost.",
+    "labels": [
+      "Scalability",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce"
+  },
+  {
+    "statement": "The service must handle rapid growth in network alarms while isolating worker failures so accepted work is never lost.",
+    "labels": [
+      "Scalability",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "The service must handle rapid growth in card transactions while isolating worker failures so accepted work is never lost.",
+    "labels": [
+      "Scalability",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "As diagnostic images volume increases tenfold, failed processing nodes must be replaced without duplicate or missing results.",
+    "labels": [
+      "Scalability",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare"
+  },
+  {
+    "statement": "As sensor readings volume increases tenfold, failed processing nodes must be replaced without duplicate or missing results.",
+    "labels": [
+      "Scalability",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot"
+  },
+  {
+    "statement": "As workflow tasks volume increases tenfold, failed processing nodes must be replaced without duplicate or missing results.",
+    "labels": [
+      "Scalability",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "As grading results volume increases tenfold, failed processing nodes must be replaced without duplicate or missing results.",
+    "labels": [
+      "Scalability",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "The service must handle rapid growth in report jobs while isolating worker failures so accepted work is never lost.",
+    "labels": [
+      "Scalability",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "The platform must scale traffic updates processing across regions and continue operating if one region is unavailable.",
+    "labels": [
+      "Scalability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "Capacity for exam submissions must expand automatically while the service remains accessible during instance failures.",
+    "labels": [
+      "Scalability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "The platform must scale vehicle telemetry processing across regions and continue operating if one region is unavailable.",
+    "labels": [
+      "Scalability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "The platform must scale diagnostic images processing across regions and continue operating if one region is unavailable.",
+    "labels": [
+      "Scalability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare"
+  },
+  {
+    "statement": "Capacity for leave requests must expand automatically while the service remains accessible during instance failures.",
+    "labels": [
+      "Scalability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "The platform must scale registry updates processing across regions and continue operating if one region is unavailable.",
+    "labels": [
+      "Scalability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "The platform must scale patient records processing across regions and continue operating if one region is unavailable.",
+    "labels": [
+      "Scalability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare"
+  },
+  {
+    "statement": "Capacity for warehouse scans must expand automatically while the service remains accessible during instance failures.",
+    "labels": [
+      "Scalability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "The platform must scale delivery confirmations processing across regions and continue operating if one region is unavailable.",
+    "labels": [
+      "Scalability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "Capacity for citizen applications must expand automatically while the service remains accessible during instance failures.",
+    "labels": [
+      "Scalability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "Capacity for checkout requests must expand automatically while the service remains accessible during instance failures.",
+    "labels": [
+      "Scalability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce"
+  },
+  {
+    "statement": "Capacity for service requests must expand automatically while the service remains accessible during instance failures.",
+    "labels": [
+      "Scalability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "The platform must scale subscriber sessions processing across regions and continue operating if one region is unavailable.",
+    "labels": [
+      "Scalability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "Capacity for service requests must expand automatically while the service remains accessible during instance failures for the cloud platform.",
+    "labels": [
+      "Scalability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud"
+  },
+  {
+    "statement": "New processing modules for delivery confirmations must be added independently as workload grows without redesigning existing modules.",
+    "labels": [
+      "Scalability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "The architecture must scale routing updates handling while keeping domain components loosely coupled and replaceable.",
+    "labels": [
+      "Scalability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "New processing modules for ledger entries must be added independently as workload grows without redesigning existing modules.",
+    "labels": [
+      "Scalability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "New processing modules for enrolment requests must be added independently as workload grows without redesigning existing modules.",
+    "labels": [
+      "Scalability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "New processing modules for SIM profiles must be added independently as workload grows without redesigning existing modules.",
+    "labels": [
+      "Scalability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "The architecture must scale trip requests handling while keeping domain components loosely coupled and replaceable.",
+    "labels": [
+      "Scalability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "The architecture must scale student records handling while keeping domain components loosely coupled and replaceable.",
+    "labels": [
+      "Scalability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "New processing modules for diagnostic images must be added independently as workload grows without redesigning existing modules.",
+    "labels": [
+      "Scalability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare"
+  },
+  {
+    "statement": "New processing modules for billing events must be added independently as workload grows without redesigning existing modules.",
+    "labels": [
+      "Scalability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "New processing modules for tax submissions must be added independently as workload grows without redesigning existing modules.",
+    "labels": [
+      "Scalability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "The architecture must scale registry updates handling while keeping domain components loosely coupled and replaceable.",
+    "labels": [
+      "Scalability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "New processing modules for warehouse scans must be added independently as workload grows without redesigning existing modules.",
+    "labels": [
+      "Scalability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "New processing modules for settlement messages must be added independently as workload grows without redesigning existing modules.",
+    "labels": [
+      "Scalability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "The architecture must scale workflow tasks handling while keeping domain components loosely coupled and replaceable.",
+    "labels": [
+      "Scalability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "The system must process shift schedules with low latency while guaranteeing idempotent recovery after transient failures.",
+    "labels": [
+      "Performance",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "registry updates must complete within 500 milliseconds and be retried safely if a downstream dependency times out.",
+    "labels": [
+      "Performance",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "The system must process clinical alerts with low latency while guaranteeing idempotent recovery after transient failures.",
+    "labels": [
+      "Performance",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare"
+  },
+  {
+    "statement": "clinical alerts must complete within 500 milliseconds and be retried safely if a downstream dependency times out.",
+    "labels": [
+      "Performance",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare"
+  },
+  {
+    "statement": "configuration changes must complete within 500 milliseconds and be retried safely if a downstream dependency times out.",
+    "labels": [
+      "Performance",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "card transactions must complete within 500 milliseconds and be retried safely if a downstream dependency times out.",
+    "labels": [
+      "Performance",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "direct messages must complete within 500 milliseconds and be retried safely if a downstream dependency times out.",
+    "labels": [
+      "Performance",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "traffic updates must complete within 500 milliseconds and be retried safely if a downstream dependency times out.",
+    "labels": [
+      "Performance",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "The system must process permit requests with low latency while guaranteeing idempotent recovery after transient failures.",
+    "labels": [
+      "Performance",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "The system must process settlement messages with low latency while guaranteeing idempotent recovery after transient failures.",
+    "labels": [
+      "Performance",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "The system must process sensor readings with low latency while guaranteeing idempotent recovery after transient failures.",
+    "labels": [
+      "Performance",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot"
+  },
+  {
+    "statement": "shipment events must complete within 500 milliseconds and be retried safely if a downstream dependency times out.",
+    "labels": [
+      "Performance",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "ticketing events must complete within 500 milliseconds and be retried safely if a downstream dependency times out.",
+    "labels": [
+      "Performance",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "route changes must complete within 500 milliseconds and be retried safely if a downstream dependency times out.",
+    "labels": [
+      "Performance",
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "integration events must remain accessible during failover while maintaining response times below one second.",
+    "labels": [
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "product searches must remain accessible during failover while maintaining response times below one second.",
+    "labels": [
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce"
+  },
+  {
+    "statement": "shipment events must remain accessible during failover while maintaining response times below one second.",
+    "labels": [
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "The service must keep low-latency access to identity records even when traffic is redirected to standby infrastructure.",
+    "labels": [
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "ledger entries must remain accessible during failover while maintaining response times below one second.",
+    "labels": [
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "user profiles must remain accessible during failover while maintaining response times below one second.",
+    "labels": [
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "billing events must remain accessible during failover while maintaining response times below one second.",
+    "labels": [
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "carrier messages must remain accessible during failover while maintaining response times below one second.",
+    "labels": [
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "business records must remain accessible during failover while maintaining response times below one second.",
+    "labels": [
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "service requests must remain accessible during failover while maintaining response times below one second.",
+    "labels": [
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud"
+  },
+  {
+    "statement": "The service must keep low-latency access to fleet assignments even when traffic is redirected to standby infrastructure.",
+    "labels": [
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "vehicle telemetry must remain accessible during failover while maintaining response times below one second.",
+    "labels": [
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "call records must remain accessible during failover while maintaining response times below one second.",
+    "labels": [
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "report jobs must remain accessible during failover while maintaining response times below one second.",
+    "labels": [
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "Performance-critical logic for leave requests must be isolated so it can be tuned without modifying unrelated components.",
+    "labels": [
+      "Performance",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "Performance-critical logic for grading results must be isolated so it can be tuned without modifying unrelated components.",
+    "labels": [
+      "Performance",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "Performance-critical logic for shipment events must be isolated so it can be tuned without modifying unrelated components.",
+    "labels": [
+      "Performance",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "Performance-critical logic for service requests must be isolated so it can be tuned without modifying unrelated components.",
+    "labels": [
+      "Performance",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "The module processing ticketing events must meet sub-second latency goals while remaining independently replaceable.",
+    "labels": [
+      "Performance",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "The module processing vehicle telemetry must meet sub-second latency goals while remaining independently replaceable.",
+    "labels": [
+      "Performance",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "Performance-critical logic for route changes must be isolated so it can be tuned without modifying unrelated components.",
+    "labels": [
+      "Performance",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "Performance-critical logic for registry updates must be isolated so it can be tuned without modifying unrelated components.",
+    "labels": [
+      "Performance",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "The module processing settlement messages must meet sub-second latency goals while remaining independently replaceable.",
+    "labels": [
+      "Performance",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "Performance-critical logic for SIM profiles must be isolated so it can be tuned without modifying unrelated components.",
+    "labels": [
+      "Performance",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "The module processing media streams must meet sub-second latency goals while remaining independently replaceable.",
+    "labels": [
+      "Performance",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "The module processing routing updates must meet sub-second latency goals while remaining independently replaceable.",
+    "labels": [
+      "Performance",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "Performance-critical logic for routing updates must be isolated so it can be tuned without modifying unrelated components.",
+    "labels": [
+      "Performance",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "The module processing fleet assignments must meet sub-second latency goals while remaining independently replaceable.",
+    "labels": [
+      "Performance",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "content uploads must remain available through node failures and recover in-flight work without loss.",
+    "labels": [
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "The platform must keep serving direct messages during outages while preserving consistent state across failover.",
+    "labels": [
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "moderation events must remain available through node failures and recover in-flight work without loss.",
+    "labels": [
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "The platform must keep serving telemetry streams during outages while preserving consistent state across failover.",
+    "labels": [
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot"
+  },
+  {
+    "statement": "subscriber sessions must remain available through node failures and recover in-flight work without loss.",
+    "labels": [
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "patient records must remain available through node failures and recover in-flight work without loss.",
+    "labels": [
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare"
+  },
+  {
+    "statement": "route changes must remain available through node failures and recover in-flight work without loss.",
+    "labels": [
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "The platform must keep serving ledger entries during outages while preserving consistent state across failover.",
+    "labels": [
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "workflow tasks must remain available through node failures and recover in-flight work without loss.",
+    "labels": [
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "clinical alerts must remain available through node failures and recover in-flight work without loss.",
+    "labels": [
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare"
+  },
+  {
+    "statement": "The platform must keep serving route plans during outages while preserving consistent state across failover.",
+    "labels": [
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "The platform must keep serving audit events during outages while preserving consistent state across failover.",
+    "labels": [
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud"
+  },
+  {
+    "statement": "payroll runs must remain available through node failures and recover in-flight work without loss.",
+    "labels": [
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "tenant data must remain available through node failures and recover in-flight work without loss.",
+    "labels": [
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud"
+  },
+  {
+    "statement": "The workflow for business records must support safe retries while keeping recovery policies configurable and modular.",
+    "labels": [
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "Failure-handling logic for carrier messages must be isolated in reusable components that can be tested independently.",
+    "labels": [
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "The workflow for direct messages must support safe retries while keeping recovery policies configurable and modular.",
+    "labels": [
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "The workflow for benefit records must support safe retries while keeping recovery policies configurable and modular.",
+    "labels": [
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "The workflow for workflow tasks must support safe retries while keeping recovery policies configurable and modular.",
+    "labels": [
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "Failure-handling logic for shift schedules must be isolated in reusable components that can be tested independently.",
+    "labels": [
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "Failure-handling logic for inventory updates must be isolated in reusable components that can be tested independently.",
+    "labels": [
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce"
+  },
+  {
+    "statement": "The workflow for grading results must support safe retries while keeping recovery policies configurable and modular.",
+    "labels": [
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "Failure-handling logic for service requests must be isolated in reusable components that can be tested independently.",
+    "labels": [
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud"
+  },
+  {
+    "statement": "The workflow for tenant data must support safe retries while keeping recovery policies configurable and modular.",
+    "labels": [
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud"
+  },
+  {
+    "statement": "The workflow for content uploads must support safe retries while keeping recovery policies configurable and modular.",
+    "labels": [
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "The workflow for case files must support safe retries while keeping recovery policies configurable and modular.",
+    "labels": [
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "The workflow for payroll runs must support safe retries while keeping recovery policies configurable and modular.",
+    "labels": [
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "The workflow for ticketing events must support safe retries while keeping recovery policies configurable and modular.",
+    "labels": [
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "The component serving business records must support zero-downtime replacement through a clearly versioned interface.",
+    "labels": [
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "Configuration for settlement messages must be changeable independently while the service remains continuously available.",
+    "labels": [
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "The component serving exam submissions must support zero-downtime replacement through a clearly versioned interface.",
+    "labels": [
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "Configuration for service requests must be changeable independently while the service remains continuously available.",
+    "labels": [
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "Configuration for enrolment requests must be changeable independently while the service remains continuously available.",
+    "labels": [
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "The component serving content uploads must support zero-downtime replacement through a clearly versioned interface.",
+    "labels": [
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "The component serving audit events must support zero-downtime replacement through a clearly versioned interface.",
+    "labels": [
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud"
+  },
+  {
+    "statement": "The component serving employee records must support zero-downtime replacement through a clearly versioned interface.",
+    "labels": [
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "The component serving route changes must support zero-downtime replacement through a clearly versioned interface.",
+    "labels": [
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "Configuration for integration events must be changeable independently while the service remains continuously available.",
+    "labels": [
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "The component serving gateway messages must support zero-downtime replacement through a clearly versioned interface.",
+    "labels": [
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot"
+  },
+  {
+    "statement": "Configuration for sensor readings must be changeable independently while the service remains continuously available.",
+    "labels": [
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot"
+  },
+  {
+    "statement": "The component serving routing updates must support zero-downtime replacement through a clearly versioned interface.",
+    "labels": [
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "The component serving delivery confirmations must support zero-downtime replacement through a clearly versioned interface.",
+    "labels": [
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "The healthcare platform must authorise access to patient records, handle ten times the current workload, and keep p95 latency below 300 milliseconds.",
+    "labels": [
+      "Security",
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare"
+  },
+  {
+    "statement": "The banking service must protect ledger entries with authenticated access, recover accepted work after node failures, and remain available during regional failover.",
+    "labels": [
+      "Security",
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "The ecommerce system must scale order events processing to millions of events per day, respond within one second, and continue serving traffic during instance outages.",
+    "labels": [
+      "Scalability",
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce"
+  },
+  {
+    "statement": "The iot architecture must distribute telemetry streams across multiple workers, preserve in-flight work after failures, and stay operational if one zone is lost.",
+    "labels": [
+      "Scalability",
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot"
+  },
+  {
+    "statement": "Processing of grading results in the education platform must finish within 500 milliseconds, recover idempotently after interruption, and keep recovery logic isolated in a configurable module.",
+    "labels": [
+      "Performance",
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "The logistics component managing delivery confirmations must enforce authenticated access, support independent upgrades, and remain available during rolling deployments.",
+    "labels": [
+      "Security",
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "The hr platform must authorise access to employee records, handle ten times the current workload, and keep p95 latency below 300 milliseconds.",
+    "labels": [
+      "Security",
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "The telecom service must protect call records with authenticated access, recover accepted work after node failures, and remain available during regional failover.",
+    "labels": [
+      "Security",
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "The cloud system must scale tenant data processing to millions of events per day, respond within one second, and continue serving traffic during instance outages.",
+    "labels": [
+      "Scalability",
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud"
+  },
+  {
+    "statement": "The government architecture must distribute tax submissions across multiple workers, preserve in-flight work after failures, and stay operational if one zone is lost.",
+    "labels": [
+      "Scalability",
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "Processing of fleet assignments in the transportation platform must finish within 500 milliseconds, recover idempotently after interruption, and keep recovery logic isolated in a configurable module.",
+    "labels": [
+      "Performance",
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "The social media component managing media streams must enforce authenticated access, support independent upgrades, and remain available during rolling deployments.",
+    "labels": [
+      "Security",
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "The enterprise platform must authorise access to workflow tasks, handle ten times the current workload, and keep p95 latency below 300 milliseconds.",
+    "labels": [
+      "Security",
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "The healthcare service must protect clinical alerts with authenticated access, recover accepted work after node failures, and remain available during regional failover.",
+    "labels": [
+      "Security",
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare"
+  },
+  {
+    "statement": "The banking system must scale loan applications processing to millions of events per day, respond within one second, and continue serving traffic during instance outages.",
+    "labels": [
+      "Scalability",
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "The ecommerce architecture must distribute inventory updates across multiple workers, preserve in-flight work after failures, and stay operational if one zone is lost.",
+    "labels": [
+      "Scalability",
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce"
+  },
+  {
+    "statement": "Processing of gateway messages in the iot platform must finish within 500 milliseconds, recover idempotently after interruption, and keep recovery logic isolated in a configurable module.",
+    "labels": [
+      "Performance",
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot"
+  },
+  {
+    "statement": "The education component managing attendance events must enforce authenticated access, support independent upgrades, and remain available during rolling deployments.",
+    "labels": [
+      "Security",
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education"
+  },
+  {
+    "statement": "The logistics platform must authorise access to shipment events, handle ten times the current workload, and keep p95 latency below 300 milliseconds.",
+    "labels": [
+      "Security",
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics"
+  },
+  {
+    "statement": "The hr service must protect payroll runs with authenticated access, recover accepted work after node failures, and remain available during regional failover.",
+    "labels": [
+      "Security",
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr"
+  },
+  {
+    "statement": "The telecom system must scale network alarms processing to millions of events per day, respond within one second, and continue serving traffic during instance outages.",
+    "labels": [
+      "Scalability",
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom"
+  },
+  {
+    "statement": "The cloud architecture must distribute API traffic across multiple workers, preserve in-flight work after failures, and stay operational if one zone is lost.",
+    "labels": [
+      "Scalability",
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud"
+  },
+  {
+    "statement": "Processing of case files in the government platform must finish within 500 milliseconds, recover idempotently after interruption, and keep recovery logic isolated in a configurable module.",
+    "labels": [
+      "Performance",
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government"
+  },
+  {
+    "statement": "The transportation component managing traffic updates must enforce authenticated access, support independent upgrades, and remain available during rolling deployments.",
+    "labels": [
+      "Security",
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation"
+  },
+  {
+    "statement": "The social media platform must authorise access to direct messages, handle ten times the current workload, and keep p95 latency below 300 milliseconds.",
+    "labels": [
+      "Security",
+      "Scalability",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media"
+  },
+  {
+    "statement": "The enterprise service must protect business records with authenticated access, recover accepted work after node failures, and remain available during regional failover.",
+    "labels": [
+      "Security",
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise"
+  },
+  {
+    "statement": "The healthcare system must scale medication orders processing to millions of events per day, respond within one second, and continue serving traffic during instance outages.",
+    "labels": [
+      "Scalability",
+      "Performance",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare"
+  },
+  {
+    "statement": "The banking architecture must distribute card transactions across multiple workers, preserve in-flight work after failures, and stay operational if one zone is lost.",
+    "labels": [
+      "Scalability",
+      "Reliability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking"
+  },
+  {
+    "statement": "Processing of customer profiles in the ecommerce platform must finish within 500 milliseconds, recover idempotently after interruption, and keep recovery logic isolated in a configurable module.",
+    "labels": [
+      "Performance",
+      "Reliability",
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce"
+  },
+  {
+    "statement": "The iot component managing device identities must enforce authenticated access, support independent upgrades, and remain available during rolling deployments.",
+    "labels": [
+      "Security",
+      "Maintainability",
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot"
+  }
+]

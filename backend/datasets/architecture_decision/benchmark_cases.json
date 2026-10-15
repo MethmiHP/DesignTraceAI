@@ -1,0 +1,130 @@
+[
+    {
+        "case_id": "ARCH-001",
+        "project_id": "BENCH-COMMERCE",
+        "title": "High-Throughput E-Commerce Order Streaming",
+        "status": "prototype / developer-authored / pending expert validation",
+        "asrs": [
+            {
+                "requirement_id": "REQ-101",
+                "statement": "The platform shall ingest and process up to 50,000 checkout events per second during peak flash sales."
+            },
+            {
+                "requirement_id": "REQ-102",
+                "statement": "Payment processing failures must be isolated and not halt inventory or order capture streams."
+            }
+        ],
+        "expected_quality_attributes": [
+            "Scalability",
+            "Reliability",
+            "Performance"
+        ],
+        "expected_preferred_styles": [
+            "Event-Driven Architecture",
+            "Microservices"
+        ],
+        "notes": "High concurrency asynchronous stream with strict fault isolation."
+    },
+    {
+        "case_id": "ARCH-002",
+        "project_id": "BENCH-FINANCE",
+        "title": "Banking Ledger and Audit Management",
+        "status": "prototype / developer-authored / pending expert validation",
+        "asrs": [
+            {
+                "requirement_id": "REQ-201",
+                "statement": "All transactions must be strictly audited with cryptographic tamper protection and role-based access control."
+            },
+            {
+                "requirement_id": "REQ-202",
+                "statement": "Financial statements must enforce deterministic consistency and rollback capabilities on failure."
+            }
+        ],
+        "expected_quality_attributes": [
+            "Security",
+            "Reliability",
+            "Maintainability"
+        ],
+        "expected_preferred_styles": [
+            "Layered Architecture",
+            "Microservices"
+        ],
+        "notes": "Strict transactional boundaries, centralized authorization, and verifiable ledger layers."
+    },
+    {
+        "case_id": "ARCH-003",
+        "project_id": "BENCH-ADMIN",
+        "title": "Internal Company HR & Employee Management Portal",
+        "status": "prototype / developer-authored / pending expert validation",
+        "asrs": [
+            {
+                "requirement_id": "REQ-301",
+                "statement": "The portal shall be easily maintainable by a small 3-person developer team with minimal operational complexity."
+            },
+            {
+                "requirement_id": "REQ-302",
+                "statement": "New employee profile modules and payroll reporting plugins must be modularly extendable without full re-architecture."
+            }
+        ],
+        "expected_quality_attributes": [
+            "Maintainability"
+        ],
+        "expected_preferred_styles": [
+            "Modular Monolith",
+            "Layered Architecture"
+        ],
+        "notes": "Small team boundary favors unified deployment units with clear internal domain modularity."
+    },
+    {
+        "case_id": "ARCH-004",
+        "project_id": "BENCH-IOT",
+        "title": "Industrial IoT Fleet Telemetry Ingestion",
+        "status": "prototype / developer-authored / pending expert validation",
+        "asrs": [
+            {
+                "requirement_id": "REQ-401",
+                "statement": "The telemetry gateway shall ingest sensor time-series packets from 250,000 edge devices with under 100ms processing latency."
+            },
+            {
+                "requirement_id": "REQ-402",
+                "statement": "Critical temperature warning events must be immediately broadcasted to alerting services asynchronously."
+            }
+        ],
+        "expected_quality_attributes": [
+            "Scalability",
+            "Performance",
+            "Reliability"
+        ],
+        "expected_preferred_styles": [
+            "Event-Driven Architecture",
+            "Microservices"
+        ],
+        "notes": "Asynchronous event pub-sub pipeline with low latency alert dispatch."
+    },
+    {
+        "case_id": "ARCH-005",
+        "project_id": "BENCH-HEALTH",
+        "title": "Hospital Patient Records and Monitoring Hub",
+        "status": "prototype / developer-authored / pending expert validation",
+        "asrs": [
+            {
+                "requirement_id": "REQ-501",
+                "statement": "Medical records access must comply with HIPAA, maintaining complete data confidentiality and tamper-proof audit trails."
+            },
+            {
+                "requirement_id": "REQ-502",
+                "statement": "The vital sign alerting subsystem must guarantee 99.999% uptime and zero single points of failure."
+            }
+        ],
+        "expected_quality_attributes": [
+            "Security",
+            "Reliability",
+            "Availability"
+        ],
+        "expected_preferred_styles": [
+            "Microservices",
+            "Layered Architecture"
+        ],
+        "notes": "Regulatory compliance with mission-critical high availability and fault isolation."
+    }
+]

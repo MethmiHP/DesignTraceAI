@@ -1,0 +1,67 @@
+{
+  "random_seed": 42,
+  "total_records": 992,
+  "duplicates_rejected": 0,
+  "train_count": 694,
+  "validation_count": 149,
+  "test_count": 149,
+  "label_counts_total": {
+    "Security": 232,
+    "Scalability": 230,
+    "Performance": 226,
+    "Reliability": 232,
+    "Maintainability": 226,
+    "Availability": 219
+  },
+  "label_counts_train": {
+    "Security": 177,
+    "Scalability": 178,
+    "Performance": 175,
+    "Reliability": 182,
+    "Maintainability": 182,
+    "Availability": 171
+  },
+  "label_counts_validation": {
+    "Security": 27,
+    "Scalability": 26,
+    "Performance": 26,
+    "Reliability": 25,
+    "Maintainability": 22,
+    "Availability": 24
+  },
+  "label_counts_test": {
+    "Security": 28,
+    "Scalability": 26,
+    "Performance": 25,
+    "Reliability": 25,
+    "Maintainability": 22,
+    "Availability": 24
+  },
+  "label_percentages": {
+    "Security": 23.39,
+    "Scalability": 23.19,
+    "Performance": 22.78,
+    "Reliability": 23.39,
+    "Maintainability": 22.78,
+    "Availability": 22.08
+  },
+  "single_label_count": 651,
+  "multi_label_count": 341,
+  "multi_label_percentage": 34.38,
+  "avg_labels_per_example": 1.376,
+  "domain_counts": {
+    "banking": 87,
+    "cloud": 72,
+    "ecommerce": 58,
+    "education": 67,
+    "enterprise": 79,
+    "government": 73,
+    "healthcare": 77,
+    "hr": 75,
+    "iot": 87,
+    "logistics": 79,
+    "social_media": 86,
+    "telecom": 67,
+    "transportation": 85
+  }
+}

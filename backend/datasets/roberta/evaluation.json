@@ -1,0 +1,136 @@
+{
+  "model_key": "roberta",
+  "hf_model_name": "roberta-base",
+  "seed": 42,
+  "threshold": 0.5,
+  "epochs": 4,
+  "batch_size": 8,
+  "learning_rate": 2e-05,
+  "weight_decay": 0.01,
+  "max_length": 128,
+  "best_epoch": 4,
+  "best_validation_micro_f1": 0.9211,
+  "validation_metrics": {
+    "micro_precision": 0.9091,
+    "micro_recall": 0.9333,
+    "micro_f1": 0.9211,
+    "macro_precision": 0.9159,
+    "macro_recall": 0.9335,
+    "macro_f1": 0.9219,
+    "per_label": {
+      "Security": {
+        "precision": 0.8889,
+        "recall": 0.8889,
+        "f1": 0.8889,
+        "support": 27
+      },
+      "Scalability": {
+        "precision": 0.8929,
+        "recall": 0.9615,
+        "f1": 0.9259,
+        "support": 26
+      },
+      "Performance": {
+        "precision": 0.9615,
+        "recall": 0.9615,
+        "f1": 0.9615,
+        "support": 26
+      },
+      "Reliability": {
+        "precision": 1.0,
+        "recall": 0.88,
+        "f1": 0.9362,
+        "support": 25
+      },
+      "Maintainability": {
+        "precision": 0.9524,
+        "recall": 0.9091,
+        "f1": 0.9302,
+        "support": 22
+      },
+      "Availability": {
+        "precision": 0.8,
+        "recall": 1.0,
+        "f1": 0.8889,
+        "support": 24
+      }
+    }
+  },
+  "test_metrics": {
+    "micro_precision": 0.9459,
+    "micro_recall": 0.9333,
+    "micro_f1": 0.9396,
+    "macro_precision": 0.9475,
+    "macro_recall": 0.9337,
+    "macro_f1": 0.9392,
+    "per_label": {
+      "Security": {
+        "precision": 0.963,
+        "recall": 0.9286,
+        "f1": 0.9455,
+        "support": 28
+      },
+      "Scalability": {
+        "precision": 0.9286,
+        "recall": 1.0,
+        "f1": 0.963,
+        "support": 26
+      },
+      "Performance": {
+        "precision": 1.0,
+        "recall": 0.92,
+        "f1": 0.9583,
+        "support": 25
+      },
+      "Reliability": {
+        "precision": 0.8846,
+        "recall": 0.92,
+        "f1": 0.902,
+        "support": 25
+      },
+      "Maintainability": {
+        "precision": 0.9565,
+        "recall": 1.0,
+        "f1": 0.9778,
+        "support": 22
+      },
+      "Availability": {
+        "precision": 0.9524,
+        "recall": 0.8333,
+        "f1": 0.8889,
+        "support": 24
+      }
+    }
+  },
+  "training_history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.500136,
+      "validation_loss": 0.245691,
+      "validation_micro_f1": 0.8626,
+      "validation_macro_f1": 0.8631
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.232951,
+      "validation_loss": 0.169288,
+      "validation_micro_f1": 0.891,
+      "validation_macro_f1": 0.8908
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.133198,
+      "validation_loss": 0.133737,
+      "validation_micro_f1": 0.9049,
+      "validation_macro_f1": 0.9066
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.078095,
+      "validation_loss": 0.104906,
+      "validation_micro_f1": 0.9211,
+      "validation_macro_f1": 0.9219
+    }
+  ],
+  "training_seconds": 100.86
+}

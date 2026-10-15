@@ -1,0 +1,716 @@
+[
+    {
+        "statement": "Only authorised clinical personnel may access patient diagnostic history.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "Access to financial transaction records must be restricted to roles with explicit read permissions.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "All inter-service API calls must be authenticated using signed JWT tokens.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "Sensitive personally identifiable information must be encrypted at rest using AES-256.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Audit trails must record every modification to a patient medication record, including the operator identity and timestamp.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "Requests from unverified devices must be rejected before reaching the core processing layer.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Privileged administrative commands must require a secondary authentication challenge.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Communication between the mobile client and the payment gateway must rely solely on TLS 1.3 or later.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "Data exported from the case management system must be stripped of personally identifiable information before leaving the secure boundary.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Failed login attempts exceeding five consecutive tries within ten minutes must trigger an automatic account lockout.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Session tokens must expire after thirty minutes of inactivity.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "Role-based access control must prevent users from querying records outside their assigned organisational unit.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "HIPAA-covered entities must log every access to protected health information with immutable timestamps.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The firmware update mechanism must verify the digital signature of every payload before applying it to edge hardware.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Cardholder data must never be stored in plain text at any tier of the payment pipeline.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "All inbound webhooks must validate the HMAC signature in the request header before processing.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "Court documents may only be downloaded by judges and clerks with active case assignments.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Cryptographic keys must be rotated quarterly without requiring downtime.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Third-party integrations must operate through a dedicated sandboxed API gateway with rate limiting and token scoping.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "The student information system must enforce column-level permissions so that advisors cannot view financial aid balances.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "Warehouse telemetry data in transit must be protected from interception through mutual TLS.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "Vehicle telematics uploads must be authenticated using certificate-based device credentials.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "The content moderation pipeline must prevent non-moderators from retrieving flagged media in its original form.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Each microservice must validate the caller's OAuth scopes before executing privileged operations.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "Database connections must use service accounts with least-privilege grants, never shared application credentials.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Administrative access to production infrastructure must flow through a bastion host with full session recording.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "PCI-DSS-compliant systems must prohibit the retention of full magnetic stripe data post-authorisation.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Identity tokens issued to external brokers must have a maximum validity of fifteen minutes.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "The dispatch system must reject routing commands originating from IP addresses outside the approved carrier network.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "All data crossing the national network boundary must pass through government-approved cryptographic inspection points.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Users must not be able to access another subscriber's call history, even when using the same corporate account.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "A passenger's trip history must only be readable by the passenger and authorised support staff.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "Genome sequencing data must be protected with end-to-end encryption throughout processing and long-term archival.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "Execution of financial settlements must require dual authorisation from independent officers.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Uploaded curriculum files must be scanned for malware before being made accessible to students.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "Social login tokens from third-party identity providers must be validated against the provider's JWKS endpoint on each request.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Trade secret documentation in the internal knowledge base must be accessible only through a need-to-know approval workflow.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "API credentials issued to logistics partners must be scoped strictly to shipment status queries.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "Biometric authentication data must remain on the source device and must never be transmitted to the cloud.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "Container images deployed in production must be built from signed base images listed in the approved registry.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "Disaster recovery procedures for classified data systems must use hardware security modules for key material.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Remote access for field engineers must be confined to a VPN tunnel with device health attestation.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Health records shared between hospital systems must be transmitted using HL7-compliant encrypted channels.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "Customer profile exports triggered through the self-service portal must be delivered to the verified email address only.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "The loan origination system must maintain immutable decision logs to facilitate regulatory examination.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Privilege escalation within the HR portal must require supervisory co-authorisation.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "Smart meter firmware must refuse configuration changes that originate from unregistered management systems.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Personally identifiable student data must be anonymised before being exposed to third-party analytics vendors.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "The streaming platform must isolate each tenant's viewing data from other tenants' query access.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Payment instrument details must be tokenised immediately upon capture at the point of sale terminal.",
+        "labels": [
+            "Security"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "The platform must handle a tenfold increase in transaction volume without requiring architectural redesign.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The system must be capable of onboarding new geographic regions without redeploying the core application stack.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "Order processing capacity must scale horizontally by adding compute nodes with no manual configuration changes.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "The telemetry ingestion pipeline must accommodate a fivefold growth in connected sensor count without degradation.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "The e-learning platform must support 500,000 simultaneous video streams during a national examination period.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "Chat message routing must remain fully operational when active user sessions increase tenfold overnight.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "The fleet management service must support the addition of 10,000 new vehicles with no change to the core software.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "Database read capacity must be expandable by adding read replicas without altering the application query layer.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "The billing engine must process invoices for a million customers within a two-hour batch window.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "The warehouse management system must handle peak seasonal workload that is eight times the daily average.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The recommendation engine must scale to serve personalised results for 50 million daily active users.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Infrastructure provisioning time must not increase proportionally as the number of managed cloud accounts grows.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "The payroll service must process salary runs for up to 200,000 employees within a four-hour window.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "Clinical trial data ingestion must scale to accommodate ten times the current volume of participant submissions.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "Fraud detection scoring must maintain current latency targets as transaction volume grows to 100,000 transactions per minute.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The messaging queue must support millions of events per second during promotional campaigns.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "The network analytics platform must remain effective as monitored endpoint count increases from 50,000 to 500,000.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "The grading system must process examination submissions for an entire national cohort within a defined window.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "Route optimisation for last-mile deliveries must scale from 5,000 to 100,000 daily parcels without code changes.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The microgrid control platform must integrate new energy sources without replanning the existing topology.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "User-generated content storage capacity must scale automatically as the community grows beyond current projections.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "The healthcare data warehouse must absorb records from newly affiliated hospitals without manual schema negotiation.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The document management system must accommodate a tripling in stored file count without reducing search performance.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Server-side rendering throughput must scale linearly as product catalogue size increases from 100,000 to 10 million SKUs.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "The vehicle scheduling system must support fleets five times the current size without refactoring the optimisation engine.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "The identity federation service must accommodate new integration partners without modifying its core token exchange logic.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Streaming media transcoding capacity must automatically expand during live broadcast events.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "The application server cluster must add capacity automatically in response to CPU utilisation exceeding 70% for three consecutive minutes.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "The smart city platform must handle a doubling of integrated device types without prolonged integration projects.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Cargo booking throughput must scale during global peak shipping weeks without pre-provisioning hardware.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The appointment scheduling API must handle demand spikes caused by mass public health announcements.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The consumer credit platform must support entry into ten new countries without rebuilding its data tier.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The online auction platform must sustain bidding activity from one million concurrent participants at closing time.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "Permit application processing must scale to handle a national infrastructure programme adding 100,000 applications monthly.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "The event notification hub must fan out messages to 10 million subscriber endpoints without batching delays.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "Student enrollment processing must scale for university-wide registration day without manual capacity increases.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "The ride-matching engine must scale to cover a new metropolitan area with no changes to the core dispatch logic.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "Corporate directory lookups must remain within specified response times as headcount grows from 5,000 to 50,000.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "The telematics data lake must be capable of storing ten years of historical readings for a fleet of 200,000 sensors.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Report generation must scale with the size of the underlying transactional dataset without manual tuning.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "The push notification system must deliver alerts to 100 million mobile clients within sixty seconds of an event.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "The mortgage origination platform must accommodate a surge from 10,000 to 200,000 applications per month.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Cross-border parcel tracking must scale to support 50 carrier integrations simultaneously.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The virtual classroom system must handle concurrent sessions for an entire national school system.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "The content delivery network must replicate assets to additional edge nodes as viewership grows beyond regional projections.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "The population health registry must scale ingestion pipelines to absorb national census updates.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "Infrastructure cost must not grow superlinearly as the tenant count doubles over a twelve-month period.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "The corporate expense reporting system must accommodate workforce acquisitions that triple the user base overnight.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "The digital twin platform must support an order-of-magnitude increase in simulated asset entities.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "The traffic signal optimisation system must integrate roadside units for all major urban corridors simultaneously.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "Employment verification API call volume must be handled elastically without provisioning additional server instances manually.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "The satellite communication ground station must support concurrent uplinks from 5,000 active terminals.",
+        "labels": [
+            "Scalability"
+        ],
+        "domain": "telecom"
+    }
+]

@@ -1,0 +1,65 @@
+{
+    "version": "1.0-prototype",
+    "description": "Gold reference mappings for the Architecture Decision benchmark dataset.",
+    "status": "prototype / developer-authored / pending expert validation",
+    "cases": {
+        "ARCH-001": {
+            "quality_attributes": [
+                "Scalability",
+                "Reliability",
+                "Performance"
+            ],
+            "preferred_architecture_styles": [
+                "Event-Driven Architecture",
+                "Microservices"
+            ],
+            "rationales": "Flash sale burst concurrency requires asynchronous queuing and decoupling of checkout events."
+        },
+        "ARCH-002": {
+            "quality_attributes": [
+                "Security",
+                "Reliability",
+                "Maintainability"
+            ],
+            "preferred_architecture_styles": [
+                "Layered Architecture",
+                "Microservices"
+            ],
+            "rationales": "Cryptographic ledger auditability and strict transactional ACID boundaries."
+        },
+        "ARCH-003": {
+            "quality_attributes": [
+                "Maintainability"
+            ],
+            "preferred_architecture_styles": [
+                "Modular Monolith",
+                "Layered Architecture"
+            ],
+            "rationales": "Small team with low operational overhead prioritizes maintainable modular units."
+        },
+        "ARCH-004": {
+            "quality_attributes": [
+                "Scalability",
+                "Performance",
+                "Reliability"
+            ],
+            "preferred_architecture_styles": [
+                "Event-Driven Architecture",
+                "Microservices"
+            ],
+            "rationales": "High sensor count stream ingestion demands decoupled reactive event workers."
+        },
+        "ARCH-005": {
+            "quality_attributes": [
+                "Security",
+                "Reliability",
+                "Availability"
+            ],
+            "preferred_architecture_styles": [
+                "Microservices",
+                "Layered Architecture"
+            ],
+            "rationales": "HIPAA compliance combined with mission-critical 99.999% uptime."
+        }
+    }
+}

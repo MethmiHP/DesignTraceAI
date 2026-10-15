@@ -1,0 +1,812 @@
+[
+    {
+        "statement": "The platform must support 100,000 concurrent clients while maintaining API response times below 250 milliseconds.",
+        "labels": [
+            "Scalability",
+            "Performance"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "Patient data transfers between clinical systems must be encrypted and delivered within 500 milliseconds.",
+        "labels": [
+            "Security",
+            "Performance"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The ride-sharing platform must handle a fivefold increase in trip requests while dispatching drivers within one second.",
+        "labels": [
+            "Scalability",
+            "Performance"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "Financial ledger writes must be durable and must complete within 100 milliseconds at peak trading volumes.",
+        "labels": [
+            "Reliability",
+            "Performance"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The smart grid command platform must remain operational during failover and must dispatch commands within 50 milliseconds.",
+        "labels": [
+            "Availability",
+            "Performance"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "An unauthorised firmware image must be rejected before deployment and the roll-back must complete in under 30 seconds.",
+        "labels": [
+            "Security",
+            "Performance"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "The e-commerce checkout must scale to Black Friday peak loads while completing order confirmation within 3 seconds.",
+        "labels": [
+            "Scalability",
+            "Performance"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "Sensitive medical device telemetry must be transmitted via encrypted channels and processed within 200 milliseconds.",
+        "labels": [
+            "Security",
+            "Performance"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The streaming platform must expand capacity automatically for live events and must sustain sub-2-second video buffering.",
+        "labels": [
+            "Scalability",
+            "Performance"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Bulk payroll calculations must complete within the nightly batch window while keeping each employee record consistent.",
+        "labels": [
+            "Performance",
+            "Reliability"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "Fraud detection must operate even when a partner credit bureau API is offline, falling back to local scoring models.",
+        "labels": [
+            "Reliability",
+            "Security"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The vehicle navigation service must maintain map data freshness and remain available even when cloud sync is interrupted.",
+        "labels": [
+            "Availability",
+            "Reliability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "New insurance product rules must be deployable independently of the claims service and must not disrupt active claims processing.",
+        "labels": [
+            "Maintainability",
+            "Reliability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "The IoT firmware distribution service must authenticate device certificates and must scale to update one million devices within 4 hours.",
+        "labels": [
+            "Security",
+            "Scalability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "A citizen's tax submission must be encrypted in transit and the confirmation portal must remain available throughout the filing deadline.",
+        "labels": [
+            "Security",
+            "Availability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "The logistics route optimiser must process shipment data from ten times the current carrier count while integrating new carriers through a standardised adapter.",
+        "labels": [
+            "Scalability",
+            "Maintainability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "Student grade submissions must be processed by an independently deployable grading service without disrupting the enrolment system.",
+        "labels": [
+            "Maintainability",
+            "Reliability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "API endpoints serving healthcare analytics must restrict access by institution RBAC and must respond within 300 milliseconds.",
+        "labels": [
+            "Security",
+            "Performance"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The national election results platform must withstand traffic surges on election night and must remain accessible to all verified media partners.",
+        "labels": [
+            "Scalability",
+            "Availability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Telematics reading ingestion must sustain throughput for a fleet of 500,000 vehicles and must accept data within 100 milliseconds of transmission.",
+        "labels": [
+            "Scalability",
+            "Performance"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "The mobile banking app must authenticate users biometrically and must load the account summary in under 2 seconds.",
+        "labels": [
+            "Security",
+            "Performance"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Warehouse management workflows must be expressible as configurable rule chains and must continue operating if a single rule engine node fails.",
+        "labels": [
+            "Maintainability",
+            "Reliability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The video CDN must serve encrypted streams to subscribers while expanding edge capacity to maintain sub-second start times for concurrent viewers.",
+        "labels": [
+            "Security",
+            "Scalability",
+            "Performance"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "The payroll engine must isolate country-specific rules in dedicated modules and must remain available for salary queries throughout year-end close processing.",
+        "labels": [
+            "Maintainability",
+            "Availability"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "E-commerce order pipelines must handle holiday traffic spikes and must ensure that payment failures do not leave orders in an inconsistent state.",
+        "labels": [
+            "Scalability",
+            "Reliability"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "The telecom billing platform must scale to 50 million subscribers and must remain available through CDR processing batch windows.",
+        "labels": [
+            "Scalability",
+            "Availability"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "The hospital bed management system must prevent unauthorised access and must remain functional when non-critical administrative services are offline.",
+        "labels": [
+            "Security",
+            "Availability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The cargo manifest API must process large vessel schedules within 5 seconds and must tolerate intermittent port authority gateway failures.",
+        "labels": [
+            "Performance",
+            "Reliability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "Corporate single sign-on must validate credentials within 300 milliseconds and must support adding new identity providers without application changes.",
+        "labels": [
+            "Performance",
+            "Maintainability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Drone mission commands must be authenticated by device certificate and must be delivered within 100 milliseconds even under load.",
+        "labels": [
+            "Security",
+            "Performance"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "The smart city operations platform must add new district sensor feeds without architectural changes and must aggregate readings within 500 milliseconds.",
+        "labels": [
+            "Scalability",
+            "Performance"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Patient record access must be restricted to the treating care team and must remain possible during planned infrastructure maintenance windows.",
+        "labels": [
+            "Security",
+            "Availability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The open banking API layer must authenticate third-party providers using OAuth 2.0 and must scale to 10,000 requests per second.",
+        "labels": [
+            "Security",
+            "Scalability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The fleet dispatch system must sustain operations when GPS signal is lost and must route emergency replacements within 2 minutes.",
+        "labels": [
+            "Reliability",
+            "Performance"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "New compliance checks must be addable to the onboarding pipeline without touching existing identity verification steps, and must complete within 2 seconds.",
+        "labels": [
+            "Maintainability",
+            "Performance"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The social platform must preserve encrypted direct messages and must scale storage capacity to accommodate 10 billion messages per year.",
+        "labels": [
+            "Security",
+            "Scalability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Campus network bandwidth allocation must be adjustable through a configuration interface while keeping the core routing engine stable.",
+        "labels": [
+            "Maintainability",
+            "Reliability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "Cross-border parcel data must be encrypted during transit and must remain accessible to customs clearance agents even when the primary integration system is under maintenance.",
+        "labels": [
+            "Security",
+            "Availability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The HR onboarding portal must be modularly extended for each new country office and must remain available to global employees 24/7.",
+        "labels": [
+            "Maintainability",
+            "Availability"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "Analytics pipelines must process clickstream data at 1 million events per second without reengineering the query layer.",
+        "labels": [
+            "Scalability",
+            "Performance"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "The telecoms network management platform must scale monitoring to a million endpoints and must maintain SLA dashboards through rolling maintenance.",
+        "labels": [
+            "Scalability",
+            "Availability"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "Vehicle emission reports must be independently auditable by regulators and the reporting module must be replaceable without affecting the telemetry ingestion layer.",
+        "labels": [
+            "Maintainability",
+            "Security"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "Batch fraud reconciliation must complete within nightly cut-off windows and must isolate processing anomalies from affecting the next day's transaction book.",
+        "labels": [
+            "Performance",
+            "Reliability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The government grant application portal must authenticate applicants via verified national identity and must handle event-driven traffic spikes when new grants open.",
+        "labels": [
+            "Security",
+            "Scalability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "API rate-limiting policies must be independently configurable per partner tier and must not require service restarts when policy tables are updated.",
+        "labels": [
+            "Maintainability",
+            "Scalability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "The supply chain event hub must guarantee delivery of shipment milestones to downstream subscribers and must forward events within 500 milliseconds.",
+        "labels": [
+            "Reliability",
+            "Performance"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "Clinical trial result uploads must be encrypted and the upload pipeline must remain available for the 72 hours around study closeout.",
+        "labels": [
+            "Security",
+            "Availability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "Smart building HVAC rules must be updatable from a facilities management UI and the system must sustain climate regulation during a cloud outage.",
+        "labels": [
+            "Maintainability",
+            "Availability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "The insurance underwriting platform must compute premium estimates in under 3 seconds and must handle a 300% annual growth in submitted policies.",
+        "labels": [
+            "Performance",
+            "Scalability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Social commerce checkout must encrypt card details at capture and must sustain completion rates during peak influencer campaign traffic.",
+        "labels": [
+            "Security",
+            "Scalability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Emergency call centre software must route 999 calls within 2 seconds and must remain operational during single-server outages.",
+        "labels": [
+            "Performance",
+            "Availability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Personalised learning pathways must be constructable from pluggable course modules and must remain consistent through concurrent student enrollments.",
+        "labels": [
+            "Maintainability",
+            "Reliability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "The satellite data ingestion pipeline must absorb burst transmissions from 2,000 concurrent satellites and must archive imagery within 3 hours of downlink.",
+        "labels": [
+            "Scalability",
+            "Performance"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Supply chain provider credentials must be cryptographically verified and the credentialing module must be independently upgradable.",
+        "labels": [
+            "Security",
+            "Maintainability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The ride matching algorithm must pair drivers and passengers within 1 second and must operate continuously without planned downtime.",
+        "labels": [
+            "Performance",
+            "Availability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "The billing reconciliation service must remain available during statement generation batch jobs and must process statements for 20 million accounts overnight.",
+        "labels": [
+            "Availability",
+            "Scalability"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "Customer-facing APIs must be documented through a versioned developer portal that non-API owners can update without breaking contracts.",
+        "labels": [
+            "Maintainability",
+            "Reliability"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "The healthcare consent management service must protect access to consent flags and must scale to support multi-site hospital networks.",
+        "labels": [
+            "Security",
+            "Scalability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The data lake ingestion layer must sustain throughput for 10 TB per day and must continue ingesting during schema migration windows.",
+        "labels": [
+            "Scalability",
+            "Availability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "Field telemetry must be transmitted over encrypted channels and the edge processing service must resume automatically after a gateway restart.",
+        "labels": [
+            "Security",
+            "Reliability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "The financial reporting module must be separable from the transactional database so that reports can be generated without impacting operating performance.",
+        "labels": [
+            "Maintainability",
+            "Performance"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The national immunisation registry must be accessible to any participating health facility during public health campaigns and must reject forged patient IDs.",
+        "labels": [
+            "Availability",
+            "Security"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "Automated test suites for the shipment tracker must be runnable in isolation and must confirm delivery status within 500 milliseconds.",
+        "labels": [
+            "Maintainability",
+            "Performance"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The social login flow must validate identity tokens from multiple providers within 200 milliseconds and must be extensible to new providers via configuration.",
+        "labels": [
+            "Performance",
+            "Maintainability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Carrier invoice matching must tolerate temporary unavailability of the carrier portal API and must produce a reconciled report within the agreed settlement window.",
+        "labels": [
+            "Reliability",
+            "Performance"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "Customer data exports must be anonymised to comply with GDPR before leaving the organisation's network boundary and must complete within a 24-hour request window.",
+        "labels": [
+            "Security",
+            "Performance"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Network probe failures must not propagate faults to the orchestration layer and the probe fleet must scale automatically with new network segments.",
+        "labels": [
+            "Reliability",
+            "Scalability"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "Core claim processing must remain isolated from experimental AI adjudication features so that experimental failures do not disrupt live claims.",
+        "labels": [
+            "Reliability",
+            "Maintainability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "The vehicle registration renewal portal must authenticate agency credentials and must avoid any downtime during tax season processing peaks.",
+        "labels": [
+            "Security",
+            "Availability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Geo-distributed caching layers must serve product listings within 50 milliseconds globally while handling promotional traffic that is 20 times the baseline.",
+        "labels": [
+            "Performance",
+            "Scalability"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "Smart meter configurations must be authenticated before application and the configuration service must remain accessible through rolling device firmware rollouts.",
+        "labels": [
+            "Security",
+            "Availability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "The loan decisioning engine must provide an approval recommendation within 5 seconds and must support new product rule sets as standalone modules.",
+        "labels": [
+            "Performance",
+            "Maintainability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The multi-tenant SaaS application must isolate each tenant's data at the database layer and must sustain response times below 300 milliseconds regardless of tenant count.",
+        "labels": [
+            "Security",
+            "Performance"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "The cargo routing optimiser must recover planning state after a node crash and must complete rerouting within 30 seconds for disrupted shipments.",
+        "labels": [
+            "Reliability",
+            "Performance"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The public transport ticketing system must issue tickets within 3 seconds and must remain operational if the central validation service is unreachable.",
+        "labels": [
+            "Performance",
+            "Availability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "Backend microservices must be independently deployable through CI/CD pipelines and must sustain zero data loss during updates.",
+        "labels": [
+            "Maintainability",
+            "Reliability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "The crowd monitoring system must ingest person-count events at a rate of 500,000 per minute and must alert venue security within 2 seconds of a density threshold breach.",
+        "labels": [
+            "Scalability",
+            "Performance"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Campaign personalisation must be computed from encrypted user segments and must return targeting decisions within 150 milliseconds.",
+        "labels": [
+            "Security",
+            "Performance"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "The workforce scheduling system must allow shift rules to be configured by operations managers and must remain available through payroll batch cycles.",
+        "labels": [
+            "Maintainability",
+            "Availability"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "Vaccination record uploads must be encrypted using the national PKI and must be processed within 30 seconds of receipt.",
+        "labels": [
+            "Security",
+            "Performance"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "Aircraft maintenance tracking must log each inspection to an immutable record and must be accessible to ground crew even when the central server is rebooting.",
+        "labels": [
+            "Security",
+            "Availability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "The course enrollment API must scale to handle registration-day surges and must guarantee idempotent enrollment operations under concurrent requests.",
+        "labels": [
+            "Scalability",
+            "Reliability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "Tax configuration updates for new fiscal years must be deployable without service interruption and must not affect in-flight tax calculations.",
+        "labels": [
+            "Maintainability",
+            "Reliability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The real-time traffic analytics engine must process motorway sensor data at sub-second latency and must continue operating during cloud maintenance periods.",
+        "labels": [
+            "Performance",
+            "Availability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "Subscriber number portability requests must be processed within 4 hours and must remain consistent if the backing registry is temporarily unreachable.",
+        "labels": [
+            "Performance",
+            "Reliability"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "Equipment calibration records in the laboratory information system must be write-once and must be accessible to quality auditors at all times.",
+        "labels": [
+            "Security",
+            "Availability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The student loan disbursement service must scale to semester-start peaks and must protect disbursement records through end-to-end encryption.",
+        "labels": [
+            "Scalability",
+            "Security"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "The connected car concierge platform must process in-vehicle voice commands within 500 milliseconds and must authenticate the driver's identity before executing account commands.",
+        "labels": [
+            "Performance",
+            "Security"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "The renewable energy trading platform must match buy and sell orders within 1 second and must sustain matching operations during connectivity disruptions between exchanges.",
+        "labels": [
+            "Performance",
+            "Reliability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Sensor alert rules for predictive maintenance must be editable without redeploying the monitoring agent and must trigger notifications within 10 seconds of a threshold breach.",
+        "labels": [
+            "Maintainability",
+            "Performance"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Government health insurance claims must be kept confidential and the claims service must remain available during high-volume reimbursement periods.",
+        "labels": [
+            "Security",
+            "Availability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "The financial data aggregation pipeline must merge feeds from 100 banks within a 60-minute window and must validate each record's integrity using checksums.",
+        "labels": [
+            "Scalability",
+            "Reliability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The streaming music platform must deliver audio to 50 million listeners with less than 500ms buffering while encrypting streams to prevent unauthorised redistribution.",
+        "labels": [
+            "Scalability",
+            "Performance",
+            "Security"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "The warehouse robotics controller must continue to assign pick tasks when connectivity to the cloud WMS is degraded and must process assignments within 200 milliseconds.",
+        "labels": [
+            "Availability",
+            "Performance"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The grid balancing service must scale to monitor 1 million smart meters and must detect demand anomalies within 1 second of occurrence.",
+        "labels": [
+            "Scalability",
+            "Performance"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Single sign-on must authenticate employees to all corporate applications within 300 milliseconds and the service must remain available across all global offices simultaneously.",
+        "labels": [
+            "Performance",
+            "Availability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "The autonomous vehicle decision module must verify sensor data authenticity and must compute path corrections within 50 milliseconds.",
+        "labels": [
+            "Security",
+            "Performance"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "Media archival workflows must be updateable by digital preservation staff and the archive must remain queryable for asset retrieval during migration projects.",
+        "labels": [
+            "Maintainability",
+            "Availability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "The call analytics platform must handle a 10x surge in recorded calls during incident management periods and must store call data with encrypted access control.",
+        "labels": [
+            "Scalability",
+            "Security"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "The national emergency broadcast system must reach all subscriber devices within 30 seconds of an alert and must operate continuously without dependence on internet connectivity.",
+        "labels": [
+            "Performance",
+            "Availability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Loan amortisation schedule computations must be isolated in a financial library that can be updated for regulatory changes without touching the origination UI.",
+        "labels": [
+            "Maintainability",
+            "Reliability"
+        ],
+        "domain": "banking"
+    }
+]

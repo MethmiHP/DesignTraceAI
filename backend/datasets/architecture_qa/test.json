@@ -1,0 +1,1344 @@
+[
+  {
+    "statement": "medication orders must be encrypted end-to-end while still completing processing within 300 milliseconds.",
+    "labels": [
+      "Security",
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0760"
+  },
+  {
+    "statement": "The processing pipeline for parcel updates must complete each unit of work in under 100 milliseconds.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics",
+    "example_id": "QA-0525"
+  },
+  {
+    "statement": "The platform must continue serving direct messages during failure of one availability zone.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media",
+    "example_id": "QA-0716"
+  },
+  {
+    "statement": "Loss of a single server must not make ledger entries unavailable to users.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking",
+    "example_id": "QA-0745"
+  },
+  {
+    "statement": "Access to financial transaction records must be restricted to roles with explicit read permissions.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking",
+    "example_id": "QA-0002"
+  },
+  {
+    "statement": "payment instructions exchanged between services must use mutually authenticated encrypted channels.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking",
+    "example_id": "QA-0445"
+  },
+  {
+    "statement": "The social media platform must maintain content delivery availability during single-region failures through active-active deployments.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media",
+    "example_id": "QA-0257"
+  },
+  {
+    "statement": "The platform must support a tenfold increase in diagnostic images without redesigning the application architecture.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0491"
+  },
+  {
+    "statement": "The system must reduce waiting time for tax submissions so that users receive confirmation within three seconds.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "government",
+    "example_id": "QA-0535"
+  },
+  {
+    "statement": "Every request involving configuration changes must carry a verifiable identity token before processing begins.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise",
+    "example_id": "QA-0444"
+  },
+  {
+    "statement": "The application must sustain burst traffic in course content that is at least eight times the normal workload.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education",
+    "example_id": "QA-0476"
+  },
+  {
+    "statement": "The dispatch system must reject routing commands originating from IP addresses outside the approved carrier network.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics",
+    "example_id": "QA-0029"
+  },
+  {
+    "statement": "Cross-campus network path computation must return optimal route configurations within 2 seconds for campus rings of 500 nodes.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom",
+    "example_id": "QA-0151"
+  },
+  {
+    "statement": "The network analytics platform must remain effective as monitored endpoint count increases from 50,000 to 500,000.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom",
+    "example_id": "QA-0067"
+  },
+  {
+    "statement": "Concurrent updates to inventory updates must not result in lost or partially applied changes.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce",
+    "example_id": "QA-0612"
+  },
+  {
+    "statement": "The platform must restore access to trip requests within two minutes after a node outage.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation",
+    "example_id": "QA-0735"
+  },
+  {
+    "statement": "Failure of one component processing leave requests must not cause loss of already accepted work.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr",
+    "example_id": "QA-0574"
+  },
+  {
+    "statement": "Cross-border parcel tracking must scale to support 50 carrier integrations simultaneously.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics",
+    "example_id": "QA-0093"
+  },
+  {
+    "statement": "The processing pipeline for user profiles must complete each unit of work in under 100 milliseconds.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media",
+    "example_id": "QA-0516"
+  },
+  {
+    "statement": "Citizen housing benefit applications must remain submittable via an offline form that synchronises when connectivity is restored.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government",
+    "example_id": "QA-0291"
+  },
+  {
+    "statement": "If an external dependency fails, processing of exam submissions must fall back to a safe degraded mode.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education",
+    "example_id": "QA-0596"
+  },
+  {
+    "statement": "Machine learning inference on uploaded CT scans must return a preliminary assessment within 10 seconds.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0137"
+  },
+  {
+    "statement": "Duplicate deliveries of container workloads must be handled idempotently without creating inconsistent state.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud",
+    "example_id": "QA-0580"
+  },
+  {
+    "statement": "PCI-DSS-compliant systems must prohibit the retention of full magnetic stripe data post-authorisation.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking",
+    "example_id": "QA-0027"
+  },
+  {
+    "statement": "registry updates must be processed within 200 milliseconds for at least 95% of requests.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "government",
+    "example_id": "QA-0548"
+  },
+  {
+    "statement": "The platform must handle a tenfold increase in transaction volume without requiring architectural redesign.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking",
+    "example_id": "QA-0051"
+  },
+  {
+    "statement": "The smart meter reading aggregation job must process 10 million readings within a 30-minute window.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot",
+    "example_id": "QA-0149"
+  },
+  {
+    "statement": "Cargo booking throughput must scale during global peak shipping weeks without pre-provisioning hardware.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics",
+    "example_id": "QA-0080"
+  },
+  {
+    "statement": "Feature flags must be used to activate new clinical decision support rules without code deployments.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0211"
+  },
+  {
+    "statement": "The system must preserve workflow tasks in durable storage before acknowledging successful processing.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise",
+    "example_id": "QA-0558"
+  },
+  {
+    "statement": "Processing capacity for call records must expand horizontally by adding worker instances without service interruption.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom",
+    "example_id": "QA-0473"
+  },
+  {
+    "statement": "All data crossing the national network boundary must pass through government-approved cryptographic inspection points.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "government",
+    "example_id": "QA-0030"
+  },
+  {
+    "statement": "The chatbot must produce a response token stream within 400 milliseconds of user message submission.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "education",
+    "example_id": "QA-0122"
+  },
+  {
+    "statement": "Administrative changes to parcel updates must require multi-factor authentication and be recorded in an immutable audit log.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics",
+    "example_id": "QA-0436"
+  },
+  {
+    "statement": "The platform must restore access to product searches within two minutes after a node outage.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce",
+    "example_id": "QA-0724"
+  },
+  {
+    "statement": "The social verification flow must not leave a user partially registered if a downstream service times out mid-process.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media",
+    "example_id": "QA-0194"
+  },
+  {
+    "statement": "The cargo manifesting system must produce a full vessel loading plan within 30 seconds of departure time confirmation.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics",
+    "example_id": "QA-0139"
+  },
+  {
+    "statement": "Audit trails must record every modification to a patient medication record, including the operator identity and timestamp.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0005"
+  },
+  {
+    "statement": "Domain-specific language constructs used in the policy engine must be documented so that non-engineers can author rules.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government",
+    "example_id": "QA-0214"
+  },
+  {
+    "statement": "A failed financial close batch must be restartable at its last checkpoint without re-processing previously completed ledger entries.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking",
+    "example_id": "QA-0193"
+  },
+  {
+    "statement": "The data layer must accommodate rapid growth in parcel updates without requiring a single larger server.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics",
+    "example_id": "QA-0488"
+  },
+  {
+    "statement": "Administrative changes to device commands must require multi-factor authentication and be recorded in an immutable audit log.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot",
+    "example_id": "QA-0428"
+  },
+  {
+    "statement": "The system must route requests for parcel updates to healthy replicas when an instance becomes unavailable.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics",
+    "example_id": "QA-0710"
+  },
+  {
+    "statement": "Batch processing of patient records must finish within the nightly two-hour maintenance window.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0524"
+  },
+  {
+    "statement": "The smart meter command dispatcher must abstract communication protocols so that new device generations are supported by implementing a protocol adapter.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot",
+    "example_id": "QA-0240"
+  },
+  {
+    "statement": "The application must detect failed handling of attendance events and route unrecoverable cases to a dead-letter workflow.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education",
+    "example_id": "QA-0600"
+  },
+  {
+    "statement": "The service must support regional expansion of direct messages processing without changes to core business logic.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media",
+    "example_id": "QA-0455"
+  },
+  {
+    "statement": "Secrets used to protect tax submissions must be rotated automatically without exposing plaintext credentials.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "government",
+    "example_id": "QA-0424"
+  },
+  {
+    "statement": "The machine vision quality inspection service must resume automatically after a firmware update without manual line restart.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot",
+    "example_id": "QA-0280"
+  },
+  {
+    "statement": "The platform must isolate failures affecting user profiles so they do not cascade to unrelated services.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media",
+    "example_id": "QA-0606"
+  },
+  {
+    "statement": "The platform must support a tenfold increase in content uploads without redesigning the application architecture.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media",
+    "example_id": "QA-0505"
+  },
+  {
+    "statement": "A passenger's trip history must only be readable by the passenger and authorised support staff.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation",
+    "example_id": "QA-0032"
+  },
+  {
+    "statement": "The module responsible for call records must be independently testable without requiring external production services.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom",
+    "example_id": "QA-0653"
+  },
+  {
+    "statement": "Interactive queries over audit events must return visible results within two seconds.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud",
+    "example_id": "QA-0545"
+  },
+  {
+    "statement": "Remote access for field engineers must be confined to a VPN tunnel with device health attestation.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot",
+    "example_id": "QA-0042"
+  },
+  {
+    "statement": "Authentication token validation must not add more than 5 milliseconds overhead to a downstream service call.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud",
+    "example_id": "QA-0140"
+  },
+  {
+    "statement": "The system must route requests for checkout requests to healthy replicas when an instance becomes unavailable.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce",
+    "example_id": "QA-0725"
+  },
+  {
+    "statement": "payment callbacks must be retried automatically after transient downstream failures.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce",
+    "example_id": "QA-0621"
+  },
+  {
+    "statement": "The pricing engine must recompute product prices following a supplier cost change within 30 seconds.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce",
+    "example_id": "QA-0127"
+  },
+  {
+    "statement": "The implementation of case files must expose a stable contract so internal refactoring does not affect consumers.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government",
+    "example_id": "QA-0658"
+  },
+  {
+    "statement": "The traffic management system must continue routing vehicles during a single control server failure.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation",
+    "example_id": "QA-0259"
+  },
+  {
+    "statement": "Route optimisation for last-mile deliveries must scale from 5,000 to 100,000 daily parcels without code changes.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics",
+    "example_id": "QA-0069"
+  },
+  {
+    "statement": "Interactive queries over loan applications must return visible results within two seconds.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking",
+    "example_id": "QA-0523"
+  },
+  {
+    "statement": "Satellite broadband terminals must automatically reacquire a beam and restore service within 90 seconds of a signal dropout.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom",
+    "example_id": "QA-0266"
+  },
+  {
+    "statement": "Rules governing call records must be configurable without modifying core application code.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom",
+    "example_id": "QA-0654"
+  },
+  {
+    "statement": "medication orders exchanged between services must use mutually authenticated encrypted channels.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0426"
+  },
+  {
+    "statement": "The sensor driver layer must be abstracted so that new hardware models can be certified without altering the data pipeline.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot",
+    "example_id": "QA-0213"
+  },
+  {
+    "statement": "Each microservice must validate the caller's OAuth scopes before executing privileged operations.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud",
+    "example_id": "QA-0024"
+  },
+  {
+    "statement": "Processing capacity for settlement messages must expand horizontally by adding worker instances without service interruption.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking",
+    "example_id": "QA-0500"
+  },
+  {
+    "statement": "Shipment route recalculation must complete within 1 second when new traffic data is received mid-route.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics",
+    "example_id": "QA-0121"
+  },
+  {
+    "statement": "Inter-network handover for active voice calls must be seamless, with no audible interruption.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom",
+    "example_id": "QA-0172"
+  },
+  {
+    "statement": "Customer profile exports triggered through the self-service portal must be delivered to the verified email address only.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce",
+    "example_id": "QA-0044"
+  },
+  {
+    "statement": "The system must continue to accept course content when demand grows from thousands to millions per day.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education",
+    "example_id": "QA-0464"
+  },
+  {
+    "statement": "Booking confirmation must be presented to the customer within three seconds of payment submission.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce",
+    "example_id": "QA-0108"
+  },
+  {
+    "statement": "The content recommendation service must serve personalised feeds from a stale cache rather than returning errors during a model refresh.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media",
+    "example_id": "QA-0281"
+  },
+  {
+    "statement": "The ICU alarm system must continue operating during network partition from the central server.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0155"
+  },
+  {
+    "statement": "External providers used for network alarms must be wrapped behind adapters so vendors can be replaced with minimal code changes.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom",
+    "example_id": "QA-0645"
+  },
+  {
+    "statement": "Batch processing of report jobs must finish within the nightly two-hour maintenance window.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise",
+    "example_id": "QA-0533"
+  },
+  {
+    "statement": "Maintenance of non-critical components must not interrupt access to patient records.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0751"
+  },
+  {
+    "statement": "Each payment channel integration must be encapsulated behind a common interface to allow channels to be added or swapped without changing routing logic.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking",
+    "example_id": "QA-0207"
+  },
+  {
+    "statement": "A single node crash must not cause data loss for any committed transaction.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking",
+    "example_id": "QA-0154"
+  },
+  {
+    "statement": "Clinical trial data ingestion must scale to accommodate ten times the current volume of participant submissions.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0064"
+  },
+  {
+    "statement": "audit events must remain accessible during rolling deployments with no planned downtime.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud",
+    "example_id": "QA-0743"
+  },
+  {
+    "statement": "Logic for handling shipment events must be isolated behind a clear interface so it can be changed independently.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics",
+    "example_id": "QA-0660"
+  },
+  {
+    "statement": "The application must detect failed handling of route changes and route unrecoverable cases to a dead-letter workflow.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation",
+    "example_id": "QA-0565"
+  },
+  {
+    "statement": "The field workforce management app must present last-known task assignments when cellular connectivity is unavailable.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise",
+    "example_id": "QA-0267"
+  },
+  {
+    "statement": "The content moderation pipeline must prevent non-moderators from retrieving flagged media in its original form.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media",
+    "example_id": "QA-0023"
+  },
+  {
+    "statement": "The corporate expense reporting system must accommodate workforce acquisitions that triple the user base overnight.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise",
+    "example_id": "QA-0098"
+  },
+  {
+    "statement": "Cardiac monitoring alerts must be delivered even if network congestion degrades general monitoring traffic.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0177"
+  },
+  {
+    "statement": "Exports containing attendance events must remove or mask personally identifiable fields before leaving the trusted boundary.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "education",
+    "example_id": "QA-0450"
+  },
+  {
+    "statement": "The service must support regional expansion of payroll runs processing without changes to core business logic.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr",
+    "example_id": "QA-0481"
+  },
+  {
+    "statement": "Rules governing checkout requests must be configurable without modifying core application code.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce",
+    "example_id": "QA-0685"
+  },
+  {
+    "statement": "The platform must distribute diagnostic images across multiple processing nodes as volume increases.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0495"
+  },
+  {
+    "statement": "Social login tokens from third-party identity providers must be validated against the provider's JWKS endpoint on each request.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media",
+    "example_id": "QA-0036"
+  },
+  {
+    "statement": "Sensor data must be aggregated and written to the time-series store within 200 milliseconds of arrival.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot",
+    "example_id": "QA-0117"
+  },
+  {
+    "statement": "Privileged access to patient records must expire automatically after a short inactivity period.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0447"
+  },
+  {
+    "statement": "The service responsible for route plans must achieve at least 99.95% monthly availability.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics",
+    "example_id": "QA-0727"
+  },
+  {
+    "statement": "If an external dependency fails, processing of sensor readings must fall back to a safe degraded mode.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot",
+    "example_id": "QA-0595"
+  },
+  {
+    "statement": "Each module must expose a documented initialisation contract so that new developers can onboard services in isolation.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education",
+    "example_id": "QA-0228"
+  },
+  {
+    "statement": "Container images deployed in production must be built from signed base images listed in the approved registry.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud",
+    "example_id": "QA-0040"
+  },
+  {
+    "statement": "Any duplicate payment instruction must be idempotently rejected without double-charging the customer.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking",
+    "example_id": "QA-0182"
+  },
+  {
+    "statement": "Logic for handling inventory updates must be isolated behind a clear interface so it can be changed independently.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce",
+    "example_id": "QA-0689"
+  },
+  {
+    "statement": "Health records shared between hospital systems must be transmitted using HL7-compliant encrypted channels.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0043"
+  },
+  {
+    "statement": "Complaint ticket assignment must propagate to relevant agents within 2 seconds of submission.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "government",
+    "example_id": "QA-0131"
+  },
+  {
+    "statement": "Trade secret documentation in the internal knowledge base must be accessible only through a need-to-know approval workflow.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise",
+    "example_id": "QA-0037"
+  },
+  {
+    "statement": "Concurrent updates to workflow tasks must not result in lost or partially applied changes.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise",
+    "example_id": "QA-0613"
+  },
+  {
+    "statement": "The system must onboard new tenants generating ticketing events without manual capacity planning.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation",
+    "example_id": "QA-0453"
+  },
+  {
+    "statement": "Rules governing sensor readings must be configurable without modifying core application code.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "iot",
+    "example_id": "QA-0649"
+  },
+  {
+    "statement": "The rendering engine must be separate from data-fetching logic to allow front-end technology updates without backend changes.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce",
+    "example_id": "QA-0216"
+  },
+  {
+    "statement": "The digital identity platform must maintain credential validation services through rolling infrastructure updates with zero downtime.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud",
+    "example_id": "QA-0289"
+  },
+  {
+    "statement": "The ride-dispatch algorithm must produce a driver assignment within 500 milliseconds of a trip request.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation",
+    "example_id": "QA-0119"
+  },
+  {
+    "statement": "Data exported from the case management system must be stripped of personally identifiable information before leaving the secure boundary.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "government",
+    "example_id": "QA-0009"
+  },
+  {
+    "statement": "Maintenance of non-critical components must not interrupt access to appointment data.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0738"
+  },
+  {
+    "statement": "The platform must process at least 20,000 leave requests per second without dropping work.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr",
+    "example_id": "QA-0519"
+  },
+  {
+    "statement": "If an external dependency fails, processing of parcel updates must fall back to a safe degraded mode.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics",
+    "example_id": "QA-0577"
+  },
+  {
+    "statement": "The vehicle scheduling system must support fleets five times the current size without refactoring the optimisation engine.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation",
+    "example_id": "QA-0075"
+  },
+  {
+    "statement": "The analytics event pipeline must process 500,000 click events per second without buffering backlogs.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media",
+    "example_id": "QA-0135"
+  },
+  {
+    "statement": "The system must allow the component handling permit requests to be replaced without requiring full re-architecture.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government",
+    "example_id": "QA-0652"
+  },
+  {
+    "statement": "Public-facing APIs must continue serving cached responses for up to 5 minutes during upstream service disruptions.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud",
+    "example_id": "QA-0268"
+  },
+  {
+    "statement": "Permit application processing must scale to handle a national infrastructure programme adding 100,000 applications monthly.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government",
+    "example_id": "QA-0084"
+  },
+  {
+    "statement": "The platform must isolate failures affecting audit events so they do not cascade to unrelated services.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud",
+    "example_id": "QA-0584"
+  },
+  {
+    "statement": "Every request involving vehicle telemetry must carry a verifiable identity token before processing begins.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation",
+    "example_id": "QA-0414"
+  },
+  {
+    "statement": "Student progress metrics must be computed by reusable functions that can be tested in isolation without a running database.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education",
+    "example_id": "QA-0241"
+  },
+  {
+    "statement": "The processing pipeline for shift schedules must complete each unit of work in under 100 milliseconds.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr",
+    "example_id": "QA-0521"
+  },
+  {
+    "statement": "The billing engine must process invoices for a million customers within a two-hour batch window.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom",
+    "example_id": "QA-0059"
+  },
+  {
+    "statement": "A restart during deployment jobs processing must resume from the last safe checkpoint without duplication.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud",
+    "example_id": "QA-0556"
+  },
+  {
+    "statement": "Shared helper libraries must be published to an internal package registry with semantic versioning to avoid dependency conflicts.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud",
+    "example_id": "QA-0223"
+  },
+  {
+    "statement": "Duplicate deliveries of delivery confirmations must be handled idempotently without creating inconsistent state.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics",
+    "example_id": "QA-0570"
+  },
+  {
+    "statement": "The system must route requests for loan applications to healthy replicas when an instance becomes unavailable.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking",
+    "example_id": "QA-0721"
+  },
+  {
+    "statement": "Tax rule updates must be configurable through a back-office interface without requiring a new software release.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking",
+    "example_id": "QA-0219"
+  },
+  {
+    "statement": "A partial failure in the social feed ranking subsystem must not prevent users from viewing their timeline.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "social_media",
+    "example_id": "QA-0171"
+  },
+  {
+    "statement": "The system must be capable of onboarding new geographic regions without redeploying the core application stack.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud",
+    "example_id": "QA-0052"
+  },
+  {
+    "statement": "appointment data must remain accessible during rolling deployments with no planned downtime.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0741"
+  },
+  {
+    "statement": "Patient appointment reminders must be retried up to five times if the initial delivery attempt fails.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0188"
+  },
+  {
+    "statement": "The vehicle scheduling engine must produce a revised plan within 60 seconds of an emergency diversion request.",
+    "labels": [
+      "Performance"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation",
+    "example_id": "QA-0144"
+  },
+  {
+    "statement": "audit events exchanged between services must use mutually authenticated encrypted channels.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "cloud",
+    "example_id": "QA-0413"
+  },
+  {
+    "statement": "The payroll service must process salary runs for up to 200,000 employees within a four-hour window.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr",
+    "example_id": "QA-0063"
+  },
+  {
+    "statement": "Logic for handling payroll runs must be isolated behind a clear interface so it can be changed independently.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr",
+    "example_id": "QA-0670"
+  },
+  {
+    "statement": "The system must continue to accept SIM profiles when demand grows from thousands to millions per day.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom",
+    "example_id": "QA-0479"
+  },
+  {
+    "statement": "Cached or replicated copies of business records must remain readable during temporary upstream outages.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "enterprise",
+    "example_id": "QA-0749"
+  },
+  {
+    "statement": "Secrets used to protect network alarms must be rotated automatically without exposing plaintext credentials.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "telecom",
+    "example_id": "QA-0417"
+  },
+  {
+    "statement": "Infrastructure handling payroll runs must scale automatically in response to sustained workload growth.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "hr",
+    "example_id": "QA-0485"
+  },
+  {
+    "statement": "Curriculum data models must be versioned to allow backward-compatible changes as course structures evolve.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "education",
+    "example_id": "QA-0220"
+  },
+  {
+    "statement": "The core banking platform must not accumulate more than 52 minutes of unplanned downtime per year.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "banking",
+    "example_id": "QA-0244"
+  },
+  {
+    "statement": "Business rules for order events must be versioned and maintainable by changing a dedicated rules module.",
+    "labels": [
+      "Maintainability"
+    ],
+    "source_type": "synthetic",
+    "domain": "ecommerce",
+    "example_id": "QA-0647"
+  },
+  {
+    "statement": "The document management system must accommodate a tripling in stored file count without reducing search performance.",
+    "labels": [
+      "Scalability"
+    ],
+    "source_type": "synthetic",
+    "domain": "government",
+    "example_id": "QA-0073"
+  },
+  {
+    "statement": "The application must detect failed handling of clinical alerts and route unrecoverable cases to a dead-letter workflow.",
+    "labels": [
+      "Reliability"
+    ],
+    "source_type": "synthetic",
+    "domain": "healthcare",
+    "example_id": "QA-0568"
+  },
+  {
+    "statement": "Vehicle telematics uploads must be authenticated using certificate-based device credentials.",
+    "labels": [
+      "Security"
+    ],
+    "source_type": "synthetic",
+    "domain": "transportation",
+    "example_id": "QA-0022"
+  },
+  {
+    "statement": "The supply chain visibility dashboard must achieve a monthly uptime of at least 99.9% inclusive of deployments.",
+    "labels": [
+      "Availability"
+    ],
+    "source_type": "synthetic",
+    "domain": "logistics",
+    "example_id": "QA-0254"
+  }
+]

@@ -1,0 +1,625 @@
+[
+    {
+        "statement": "New business modules should be introduced without modifying existing core modules.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Each microservice must own a clearly bounded context and must not share a database with another service.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "Configuration values must be externalised from the application binary so that settings can be changed without redeployment.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "The codebase must adhere to defined module boundaries so that the HR subsystem can be replaced independently of payroll.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "Each payment channel integration must be encapsulated behind a common interface to allow channels to be added or swapped without changing routing logic.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Automated test coverage for all public API endpoints must reach at least 85% before a release can proceed.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Dependency injection must be used throughout the service layer to decouple components from concrete infrastructure implementations.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "The analytics schema must be versioned so that historical queries remain valid as new dimensions are added.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Feature flags must be used to activate new clinical decision support rules without code deployments.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "All business rules governing fare calculations must reside in an isolated rules engine rather than spread across controllers.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "The sensor driver layer must be abstracted so that new hardware models can be certified without altering the data pipeline.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Domain-specific language constructs used in the policy engine must be documented so that non-engineers can author rules.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "All inter-service contracts must be described by machine-readable OpenAPI specifications that are versioned alongside the code.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "The rendering engine must be separate from data-fetching logic to allow front-end technology updates without backend changes.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "Deployment procedures must be fully scripted so that a new engineer can release a hotfix within four hours of onboarding.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Data transformation logic must reside in named, reusable pipeline stages rather than anonymised inline lambdas.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "Tax rule updates must be configurable through a back-office interface without requiring a new software release.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Curriculum data models must be versioned to allow backward-compatible changes as course structures evolve.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "The notification system must support adding new delivery channels through a plug-in registration pattern.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "The telemetry protocol parser must be separated from the storage layer to allow independent evolution of each component.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Shared helper libraries must be published to an internal package registry with semantic versioning to avoid dependency conflicts.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "The claims processing workflow must be configurable from a rules table rather than hard-coded in procedural logic.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "All third-party API wrappers must implement a standard adapter interface so that vendors can be replaced without code changes beyond the adapter.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "System administrators must be able to adjust session timeout durations from a runtime configuration panel without restarting services.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Integration tests must be executable in an isolated local environment without access to production systems.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Each module must expose a documented initialisation contract so that new developers can onboard services in isolation.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "Routing rules for the logistics network must be updatable by operations staff using a configuration file, not code changes.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "Pricing strategy logic must be externalisable to allow finance teams to adjust margins without developer intervention.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "Legacy patient record formats must be handled through an isolated translation layer that shields the rest of the system from format specifics.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The vehicle firmware update orchestration layer must be replaceable without altering the underlying diagnostic data model.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "Compliance rule definitions must be represented as structured data that regulatory analysts can amend without engineering support.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "A new developer must be able to run the complete local development environment within sixty minutes by following documented steps.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "The content classification model interface must allow swapping underlying classifiers without changing the moderation workflow.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "All environment-specific secrets must be injected through a secrets management service rather than stored in the source repository.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "Report templates must be defined in a declarative format so that business analysts can update layouts without code changes.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "The payroll period calculation logic must be isolated in a single module to facilitate legislative updates.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "Carrier-specific shipment label formats must be generated through dedicated adapter classes with no cross-contamination of logic.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The smart meter command dispatcher must abstract communication protocols so that new device generations are supported by implementing a protocol adapter.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Student progress metrics must be computed by reusable functions that can be tested in isolation without a running database.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "The fraud prevention rule set must be declared in a versioned YAML format that supports rollback to previous rule versions.",
+        "labels": [
+            "Maintainability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The emergency monitoring service must remain accessible 99.99% of every calendar month.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The core banking platform must not accumulate more than 52 minutes of unplanned downtime per year.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The national identity verification API must maintain continuous operation throughout electoral periods without scheduled maintenance windows.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "The order processing API must remain reachable across at least two independent cloud availability zones at all times.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "Control plane upgrades must be performed through a rolling deployment strategy that keeps the service accessible throughout.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "The vehicle breakdown assistance hotline system must sustain full functionality during regional network outages.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "Student examination portals must not undergo maintenance downtime between 08:00 and 22:00 on examination dates.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "The IoT device management console must support zero-downtime firmware rollouts to avoid field outages.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "Call routing infrastructure must maintain an annual availability of 99.999% to meet carrier-grade SLA requirements.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "The claims submission portal must remain reachable from all certified hospital networks with no planned blackout windows.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The e-commerce storefront must remain accessible during data centre failover events with no user-visible interruption.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "ecommerce"
+    },
+    {
+        "statement": "The supply chain visibility dashboard must achieve a monthly uptime of at least 99.9% inclusive of deployments.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "Human resources self-service must be available 24 hours a day to support geographically distributed employees.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "The citizen services portal must remain online through data centre failover triggered by a regional natural disaster.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "The social media platform must maintain content delivery availability during single-region failures through active-active deployments.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Database failover must complete within 30 seconds with no manual operator intervention when the primary instance is lost.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "The traffic management system must continue routing vehicles during a single control server failure.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "The payment gateway must be deployable to a warm standby environment within 5 minutes of a primary site failure.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Connected sensor gateways must fall back to an alternate connectivity path when the primary LPWAN uplink is congested.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "The remote proctoring platform must remain operational during peak examination periods with no degradation to video feeds.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "The package tracking API must present current status to customers even when backend warehouse systems are in a planned maintenance state via cached responses.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The trading platform must execute a geographic failover within 60 seconds of detecting a primary data centre failure.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The enterprise messaging gateway must tolerate the loss of any single relay node without message queuing interruption.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Satellite broadband terminals must automatically reacquire a beam and restore service within 90 seconds of a signal dropout.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "The field workforce management app must present last-known task assignments when cellular connectivity is unavailable.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Public-facing APIs must continue serving cached responses for up to 5 minutes during upstream service disruptions.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "Critical care monitoring dashboards must remain accessible when non-critical administrative modules are undergoing maintenance.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "The fraud alert notification system must be available across all major time zones with redundant delivery paths.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "Passport verification services at border control must operate continuously with an offline lookup cache for network disruptions.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "The video streaming CDN must route traffic to an alternative edge POP automatically within 10 seconds of a regional failure.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Dispatch commands for autonomous delivery robots must remain deliverable when the central orchestration cluster undergoes rolling maintenance.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "Climate control systems in server rooms must continue operating from local automation logic during cloud management outages.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "The national exam registration system must sustain service during the final 48-hour registration window without planned maintenance.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "The HR system must replicate employee records to a secondary region so that payroll can run even if the primary region is unavailable.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "Emergency service dispatch must be preserved through local server failover during wide-area network outages.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "government"
+    },
+    {
+        "statement": "Corporate VPN concentrators must achieve geographic redundancy so that remote workers can always connect via an alternate gateway.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "The rail signal system must continue safe autonomous operation for at least 4 hours after losing contact with the central control system.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "The machine vision quality inspection service must resume automatically after a firmware update without manual line restart.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "iot"
+    },
+    {
+        "statement": "The content recommendation service must serve personalised feeds from a stale cache rather than returning errors during a model refresh.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "social_media"
+    },
+    {
+        "statement": "Customer support ticket routing must remain available even if the AI classification service is degraded, by falling back to round-robin assignment.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "enterprise"
+    },
+    {
+        "statement": "Wholesale market price feeds must remain accessible to broker clients for at least 15 minutes via cached snapshots during a connectivity disruption.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "banking"
+    },
+    {
+        "statement": "The international parcel customs pre-clearance service must maintain 99.95% monthly availability to meet cross-border partner SLAs.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "logistics"
+    },
+    {
+        "statement": "The learning management system must continue to serve already-enrolled course content during upstream content management system outages.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "education"
+    },
+    {
+        "statement": "The fleet telematics service must remain queryable from emergency responder systems at all times.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "transportation"
+    },
+    {
+        "statement": "Patient insurance eligibility verification must be available on-demand with no dependency on a single insurer API that may go offline.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "healthcare"
+    },
+    {
+        "statement": "Network probes must operate autonomously to ensure continuous fault detection even when the network management system is rebooting.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "telecom"
+    },
+    {
+        "statement": "The digital identity platform must maintain credential validation services through rolling infrastructure updates with zero downtime.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "cloud"
+    },
+    {
+        "statement": "Attendance management must be operable from a local device when the centralised HR API is undergoing upgrades.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "hr"
+    },
+    {
+        "statement": "Citizen housing benefit applications must remain submittable via an offline form that synchronises when connectivity is restored.",
+        "labels": [
+            "Availability"
+        ],
+        "domain": "government"
+    }
+]
