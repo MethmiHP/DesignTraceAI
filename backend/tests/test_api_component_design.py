@@ -4,6 +4,26 @@ from fastapi.testclient import TestClient
 
 from app import app
 
+import asyncio
+
+from modules.api_component_design.service import (
+    APIComponentDesignService,
+)
+
+from modules.api_component_design.schemas import (
+    APIComponentDesignRequest,
+)
+
+from modules.api_component_design.llm.stub_provider import (
+    StubLLMProvider,
+)
+
+from modules.api_component_design.llm.structured_schemas import (
+    APIFieldSpec,
+    APIErrorSpec,
+    LLMAPIOperation,
+)
+
 
 client = TestClient(app)
 
@@ -666,4 +686,741 @@ def test_duplicate_requirement_id():
     assert (
         "DUPLICATE_REQUIREMENT_ID"
         in issue_codes
+    )
+
+
+
+# TEST 8 - SERVICE USES LLM API GENERATION
+
+
+
+def test_service_uses_llm_api_generator():
+
+
+    # Fake structured response from the LLM.
+    #
+    # We intentionally use a different operation_id from
+    # the baseline generator so that we can prove the
+    # LLM path was actually selected.
+    
+
+    llm_response = LLMAPIOperation(
+        operation_id="bookAppointmentViaLLM",
+
+        requirement_id="FR-003",
+
+        element_id="COMP-APPOINTMENT",
+
+        method="POST",
+
+        path="/appointments",
+
+        request_fields=[
+            APIFieldSpec(
+                name="doctor_id",
+                type="uuid",
+            ),
+
+            APIFieldSpec(
+                name="availability_id",
+                type="uuid",
+            ),
+        ],
+
+        response_fields=[
+            APIFieldSpec(
+                name="appointment_id",
+                type="uuid",
+            ),
+
+            APIFieldSpec(
+                name="status",
+                type="string",
+            ),
+        ],
+
+        errors=[
+            APIErrorSpec(
+                status_code="400",
+                message="Invalid request",
+            ),
+
+            APIErrorSpec(
+                status_code="401",
+                message="Authentication required",
+            ),
+
+            APIErrorSpec(
+                status_code="409",
+                message=(
+                    "Selected slot is unavailable"
+                ),
+            ),
+        ],
+    )
+
+
+
+    # Stub LLM provider
+
+
+    stub_llm = StubLLMProvider(
+        llm_response
+    )
+
+
+
+    # Create service with LLM explicitly enabled.
+    #
+    # Gemini is NOT called because we inject StubLLMProvider.
+   
+
+    service = APIComponentDesignService(
+        llm_provider=stub_llm,
+        enable_llm=True,
+    )
+
+
+
+    # Use the same request data as the existing
+    # appointment tests.
+    
+
+    request_data = get_base_request()
+
+    request = APIComponentDesignRequest(
+        **request_data
+    )
+
+
+   
+    # Run service
+   
+
+    result = asyncio.run(
+        service.design(
+            request
+        )
+    )
+
+
+
+    # VERIFY LLM PATH WAS USED
+
+
+    assert len(
+        result.api_operations
+    ) == 1
+
+
+    operation = (
+        result.api_operations[0]
+    )
+
+
+    # Baseline generator would return:
+    #
+    # createAppointment
+    #
+    # Therefore this proves that the LLM result
+    # was selected instead.
+    assert (
+        operation.operation_id
+        == "bookAppointmentViaLLM"
+    )
+
+
+    assert (
+        operation.method
+        == "POST"
+    )
+
+
+    assert (
+        operation.path
+        == "/appointments"
+    )
+
+
+    assert (
+        operation.request_schema
+        == {
+            "doctor_id": "uuid",
+            "availability_id": "uuid",
+        }
+    )
+
+
+    assert (
+        operation.response_schema
+        == {
+            "appointment_id": "uuid",
+            "status": "string",
+        }
+    )
+
+
+
+    # VERIFY REQUIREMENT -> API TRACEABILITY
+
+
+    assert len(
+        result.requirement_to_api_mapping
+    ) == 1
+
+
+    mapping = (
+        result.requirement_to_api_mapping[0]
+    )
+
+
+    assert (
+        mapping.requirement_id
+        == "FR-003"
+    )
+
+
+    assert (
+        mapping.operation_id
+        == "bookAppointmentViaLLM"
+    )
+
+
+
+    # VERIFY THE LLM RECEIVED THE GROUNDED PROMPT
+ 
+    prompt = stub_llm.last_prompt
+
+    assert prompt is not None
+
+    assert (
+        "A patient shall book an available "
+        "appointment with a selected doctor."
+        in prompt
+    )
+
+    assert "Patient" in prompt
+
+    assert "book" in prompt
+
+    assert "Appointment" in prompt
+
+    assert "Appointment Module" in prompt
+
+    assert "appointment_id" in prompt
+
+    assert "doctor_id" in prompt
+
+    assert "availability_id" in prompt
+
+
+# TEST 9 - LLM HALLUCINATED REQUEST FIELD IS DETECTED
+
+
+def test_llm_ungrounded_request_field_detected():
+
+    # Simulate an LLM response that invents a field
+    # which does not exist in the supplied database context.
+
+    llm_response = LLMAPIOperation(
+        operation_id="bookAppointmentViaLLM",
+
+        requirement_id="FR-003",
+
+        element_id="COMP-APPOINTMENT",
+
+        method="POST",
+
+        path="/appointments",
+
+        request_fields=[
+            APIFieldSpec(
+                name="doctor_id",
+                type="uuid",
+            ),
+
+            APIFieldSpec(
+                name="availability_id",
+                type="uuid",
+            ),
+
+            # Hallucinated field
+            APIFieldSpec(
+                name="insurance_secret_code",
+                type="string",
+            ),
+        ],
+
+        response_fields=[
+            APIFieldSpec(
+                name="appointment_id",
+                type="uuid",
+            ),
+
+            APIFieldSpec(
+                name="status",
+                type="string",
+            ),
+        ],
+
+        errors=[
+            APIErrorSpec(
+                status_code="400",
+                message="Invalid request",
+            ),
+        ],
+    )
+
+
+    stub_llm = StubLLMProvider(
+        llm_response
+    )
+
+
+    service = APIComponentDesignService(
+        llm_provider=stub_llm,
+        enable_llm=True,
+    )
+
+
+    request = APIComponentDesignRequest(
+        **get_base_request()
+    )
+
+
+    result = asyncio.run(
+        service.design(
+            request
+        )
+    )
+
+
+    issue_codes = [
+        issue.code
+        for issue
+        in result.validation.issues
+    ]
+
+
+    # The validator should identify the
+    # hallucinated request field.
+    assert (
+        "UNGROUNDED_REQUEST_FIELD"
+        in issue_codes
+    )
+
+
+    # Currently this issue is a WARNING,
+    # therefore the complete design is still
+    # considered valid.
+    assert (
+        result.validation.valid
+        is True
+    )
+
+
+  
+# TEST 10 - LLM HALLUCINATED PATH PARAMETER IS REJECTED
+
+
+
+def test_llm_ungrounded_path_parameter_rejected():
+
+    # Simulate an LLM response that invents a path
+    # parameter that does not exist in the database.
+
+    llm_response = LLMAPIOperation(
+        operation_id="updateAppointmentViaLLM",
+
+        requirement_id="FR-003",
+
+        element_id="COMP-APPOINTMENT",
+
+        method="PATCH",
+
+        # made_up_id does NOT exist
+        # in the supplied database context.
+        path=(
+            "/appointments/"
+            "{made_up_id}"
+        ),
+
+        request_fields=[
+            APIFieldSpec(
+                name="status",
+                type="string",
+            ),
+        ],
+
+        response_fields=[
+            APIFieldSpec(
+                name="appointment_id",
+                type="uuid",
+            ),
+
+            APIFieldSpec(
+                name="status",
+                type="string",
+            ),
+        ],
+
+        errors=[
+            APIErrorSpec(
+                status_code="404",
+                message="Appointment not found",
+            ),
+        ],
+    )
+
+
+    stub_llm = StubLLMProvider(
+        llm_response
+    )
+
+
+    service = APIComponentDesignService(
+        llm_provider=stub_llm,
+        enable_llm=True,
+    )
+
+
+    request = APIComponentDesignRequest(
+        **get_base_request()
+    )
+
+
+    result = asyncio.run(
+        service.design(
+            request
+        )
+    )
+
+
+    issue_codes = [
+        issue.code
+        for issue
+        in result.validation.issues
+    ]
+
+
+    # Unknown path identifiers are treated
+    # more strictly than request-body fields.
+    assert (
+        "UNGROUNDED_PATH_PARAMETER"
+        in issue_codes
+    )
+
+
+    # This guardrail is an ERROR,
+    # therefore final validation must fail.
+    assert (
+        result.validation.valid
+        is False
+    )
+
+
+# TEST 11 - SAFE STRUCTURAL REFINEMENT
+
+
+
+def test_refinement_fixes_safe_structural_issues():
+
+    # Simulate an LLM result with:
+    #
+    # - lowercase HTTP method
+    # - missing leading /
+    # - uppercase path segment
+    # - duplicated trailing /
+    #
+    # These are safe deterministic corrections.
+
+    llm_response = LLMAPIOperation(
+        operation_id="bookAppointmentViaLLM",
+
+        requirement_id="FR-003",
+
+        element_id="COMP-APPOINTMENT",
+
+        method="post",
+
+        path="Appointments//",
+
+        request_fields=[
+            APIFieldSpec(
+                name="doctor_id",
+                type="uuid",
+            ),
+
+            APIFieldSpec(
+                name="availability_id",
+                type="uuid",
+            ),
+        ],
+
+        response_fields=[
+            APIFieldSpec(
+                name="appointment_id",
+                type="uuid",
+            ),
+
+            APIFieldSpec(
+                name="status",
+                type="string",
+            ),
+        ],
+
+        errors=[
+            APIErrorSpec(
+                status_code="400",
+                message="Invalid request",
+            ),
+        ],
+    )
+
+
+    stub_llm = StubLLMProvider(
+        llm_response
+    )
+
+
+    service = APIComponentDesignService(
+        llm_provider=stub_llm,
+        enable_llm=True,
+    )
+
+
+    request = APIComponentDesignRequest(
+        **get_base_request()
+    )
+
+
+    result = asyncio.run(
+        service.design(
+            request
+        )
+    )
+
+
+    assert len(
+        result.api_operations
+    ) == 1
+
+
+    operation = (
+        result.api_operations[0]
+    )
+
+
+    # Refinement should normalize method.
+    assert (
+        operation.method
+        == "POST"
+    )
+
+
+    # Refinement should normalize path:
+    #
+    # Appointments//
+    # ->
+    # /appointments
+    assert (
+        operation.path
+        == "/appointments"
+    )
+
+
+    # Final validation is performed after
+    # refinement, so the corrected operation
+    # should now be valid.
+    assert (
+        result.validation.valid
+        is True
+    )
+
+
+    issue_codes = [
+        issue.code
+        for issue
+        in result.validation.issues
+    ]
+
+
+    assert (
+        "INVALID_PATH"
+        not in issue_codes
+    )
+
+    assert (
+        "INVALID_HTTP_METHOD"
+        not in issue_codes
+    )
+
+
+
+# TEST 12 - REFINEMENT DOES NOT HIDE UNSUPPORTED METHOD
+
+
+
+def test_refinement_preserves_unfixable_http_method_error():
+
+    # TRACE is not part of the supported API method set.
+    #
+    # Refinement may normalize its casing, but it must
+    # NOT invent a different method such as GET or POST.
+
+    llm_response = LLMAPIOperation(
+        operation_id="bookAppointmentViaLLM",
+
+        requirement_id="FR-003",
+
+        element_id="COMP-APPOINTMENT",
+
+        method="trace",
+
+        path="/appointments",
+
+        request_fields=[],
+
+        response_fields=[
+            APIFieldSpec(
+                name="appointment_id",
+                type="uuid",
+            ),
+        ],
+
+        errors=[],
+    )
+
+
+    stub_llm = StubLLMProvider(
+        llm_response
+    )
+
+
+    service = APIComponentDesignService(
+        llm_provider=stub_llm,
+        enable_llm=True,
+    )
+
+
+    request = APIComponentDesignRequest(
+        **get_base_request()
+    )
+
+
+    result = asyncio.run(
+        service.design(
+            request
+        )
+    )
+
+
+    assert len(
+        result.api_operations
+    ) == 1
+
+
+    operation = (
+        result.api_operations[0]
+    )
+
+
+    # Refinement normalizes casing only.
+    assert (
+        operation.method
+        == "TRACE"
+    )
+
+
+    # It must NOT guess a replacement method.
+    assert (
+        operation.method
+        not in {
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE",
+        }
+    )
+
+
+    issue_codes = [
+        issue.code
+        for issue
+        in result.validation.issues
+    ]
+
+
+    assert (
+        "INVALID_HTTP_METHOD"
+        in issue_codes
+    )
+
+
+    assert (
+        result.validation.valid
+        is False
+    )
+
+
+    # TEST 13 - LLM PROVIDER FAILURE USES BASELINE FALLBACK
+
+def test_llm_provider_failure_uses_baseline_fallback():
+
+    class FailingLLMProvider:
+
+        def generate_structured(
+            self,
+            prompt,
+            schema_class,
+        ):
+            raise RuntimeError(
+                "Simulated LLM provider failure"
+            )
+
+
+    service = APIComponentDesignService(
+        llm_provider=FailingLLMProvider(),
+        enable_llm=True,
+    )
+
+
+    request = APIComponentDesignRequest(
+        **get_base_request()
+    )
+
+
+    result = asyncio.run(
+        service.design(
+            request
+        )
+    )
+
+
+    issue_codes = [
+        issue.code
+        for issue
+        in result.validation.issues
+    ]
+
+
+    assert (
+        "LLM_API_GENERATION_FAILED"
+        in issue_codes
+    )
+
+
+    # FR-003 has a deterministic appointment
+    # baseline rule, so fallback should still
+    # produce an API operation.
+
+    assert len(
+        result.api_operations
+    ) == 1
+
+
+    assert (
+        result.validation.valid
+        is True
     )
