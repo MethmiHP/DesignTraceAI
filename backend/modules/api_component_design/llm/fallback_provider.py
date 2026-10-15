@@ -1,0 +1,45 @@
+"""Ordered, lazy LLM fallback. The service owns the final baseline fallback."""
+import logging
+
+from pydantic import BaseModel
+
+from .provider import BaseLLMProvider, GeminiLLMProvider, LLMUnavailableError, T
+from .groq_provider import GroqLLMProvider
+
+logger = logging.getLogger(__name__)
+
+
+class FallbackLLMProvider(BaseLLMProvider):
+    def __init__(self, providers=None):
+        # Factories delay key/SDK checks until the provider is actually needed.
+        self.providers = providers if providers is not None else [
+            ('Gemini', GeminiLLMProvider),
+            ('Groq', GroqLLMProvider),
+        ]
+
+    def generate_structured(self, prompt: str, schema_class: type[T]) -> T:
+        result, _ = self.generate_structured_with_source(prompt, schema_class)
+        return result
+
+    def generate_structured_with_source(self, prompt: str, schema_class: type[T]):
+        failures = []
+        for name, factory in self.providers:
+            try:
+                provider = factory()
+                try:
+                    result = provider.generate_structured(prompt, schema_class)
+                    # Validate again at the boundary, including injected providers.
+                    if isinstance(result, BaseModel):
+                        result = result.model_dump()
+                    validated = schema_class.model_validate(result, strict=True)
+                finally:
+                    close = getattr(provider, 'close', None)
+                    if close is not None:
+                        close()
+                logger.info('Structured API generation succeeded with %s', name)
+                return validated, name.lower() if name.lower() in {"gemini", "groq"} else "llm"
+            except Exception as exc:
+                # Do not log prompts, keys, raw output, or provider response bodies.
+                failures.append(f'{name}: {type(exc).__name__}')
+                logger.warning('%s generation unavailable or invalid (%s); trying next fallback', name, type(exc).__name__)
+        raise LLMUnavailableError('All configured LLM providers failed: ' + '; '.join(failures))

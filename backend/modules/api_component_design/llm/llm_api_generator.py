@@ -8,6 +8,7 @@ from ..schemas import (
     APIOperation,
     DatabaseEntity,
     SemanticExtraction,
+    SecurityPolicy,
 )
 
 
@@ -30,6 +31,7 @@ class LLMAPIGenerator:
         semantic: SemanticExtraction,
         architecture_element,
         database_context: list[DatabaseEntity],
+        security_policy: SecurityPolicy | None = None,
     ) -> APIOperation:
 
         prompt = self._build_prompt(
@@ -37,6 +39,7 @@ class LLMAPIGenerator:
             semantic=semantic,
             architecture_element=architecture_element,
             database_context=database_context,
+            security_policy=security_policy,
         )
 
 
@@ -49,20 +52,19 @@ class LLMAPIGenerator:
         # structured output.
 
 
-        llm_operation = (
-            self.llm_provider.generate_structured(
-                prompt,
-                LLMAPIOperation,
-            )
-        )
+        generate_with_source = getattr(self.llm_provider, "generate_structured_with_source", None)
+        if generate_with_source is not None:
+            llm_operation, generation_source = generate_with_source(prompt, LLMAPIOperation)
+        else:
+            llm_operation = self.llm_provider.generate_structured(prompt, LLMAPIOperation)
+            generation_source = "llm"
 
-
-      
         # CONVERT LLM STRUCTURE
         # INTO INTERNAL APIOperation
        
 
         operation = APIOperation(
+            generation_source=generation_source,
             parameters=llm_operation.parameters,
             operation_id=(
                 llm_operation.operation_id
@@ -117,6 +119,7 @@ class LLMAPIGenerator:
         semantic: SemanticExtraction,
         architecture_element,
         database_context: list[DatabaseEntity],
+        security_policy: SecurityPolicy | None = None,
     ) -> str:
 
         database_text = (
@@ -356,6 +359,9 @@ schema.
 """
 
 
+        if security_policy is not None:
+            prompt += "\n\nSECURITY POLICY (supplied by the user)\n" + security_policy.model_dump_json(indent=2)
+            prompt += "\nRespect these access restrictions. Do not invent roles, credentials, tokens, or security schemes. Security metadata is attached deterministically from this policy."
         return prompt.strip()
 
 
@@ -366,6 +372,7 @@ schema.
     @staticmethod
     def _format_database_context(
         database_context: list[DatabaseEntity],
+        security_policy: SecurityPolicy | None = None,
     ) -> str:
 
         if not database_context:
