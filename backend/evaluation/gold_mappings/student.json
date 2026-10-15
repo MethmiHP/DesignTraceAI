@@ -1,0 +1,51 @@
+{
+  "project_id": "BASE-004",
+  "project_name": "Student Management System",
+  "review_status": "DRAFT_REQUIRES_HUMAN_REVIEW",
+  "evaluation_policy": {
+    "include_implicit_primary_keys": false,
+    "include_constraint_links": false
+  },
+  "requirement_mappings": [
+    {
+      "requirement_id": "FR-01",
+      "database_elements": [
+        "students",
+        "students.name",
+        "students.email",
+        "students.phone"
+      ]
+    },
+    {
+      "requirement_id": "FR-02",
+      "database_elements": [
+        "courses",
+        "courses.title",
+        "courses.code",
+        "courses.credits"
+      ]
+    },
+    {
+      "requirement_id": "FR-03",
+      "database_elements": [
+        "enrollments",
+        "enrollments.student_id",
+        "enrollments.course_id",
+        "relationship:REL-01",
+        "relationship:REL-02"
+      ]
+    },
+    {
+      "requirement_id": "FR-04",
+      "database_elements": [
+        "students.email"
+      ]
+    },
+    {
+      "requirement_id": "FR-05",
+      "database_elements": [
+        "enrollments.status"
+      ]
+    }
+  ]
+}

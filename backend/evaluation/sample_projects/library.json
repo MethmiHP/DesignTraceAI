@@ -1,0 +1,45 @@
+{
+  "project_id": "BASE-002",
+  "project_name": "Library Management System",
+  "project_description": "A library system for managing books, members, and borrowing records.",
+  "requirements": [
+    {
+      "requirement_id": "FR-01",
+      "requirement_text": "The system shall store book information including title, ISBN and publication date.",
+      "requirement_type": "FR",
+      "database_relevant": true
+    },
+    {
+      "requirement_id": "FR-02",
+      "requirement_text": "The system shall store member information including name and email.",
+      "requirement_type": "FR",
+      "database_relevant": true
+    },
+    {
+      "requirement_id": "FR-03",
+      "requirement_text": "A member can borrow a book.",
+      "requirement_type": "FR",
+      "database_relevant": true
+    },
+    {
+      "requirement_id": "FR-04",
+      "requirement_text": "Book ISBN must be unique.",
+      "requirement_type": "FR",
+      "database_relevant": true
+    },
+    {
+      "requirement_id": "FR-05",
+      "requirement_text": "Every borrowing record must have a status.",
+      "requirement_type": "FR",
+      "database_relevant": true
+    }
+  ],
+  "architecture_context": {
+    "architecture_style": "Layered Architecture",
+    "database_type": "Relational",
+    "constraints": [
+      "Every table must have a primary key.",
+      "Foreign keys must reference existing tables and columns."
+    ]
+  }
+}

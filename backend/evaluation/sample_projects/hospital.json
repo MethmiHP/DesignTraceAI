@@ -1,0 +1,51 @@
+{
+  "project_id": "BASE-001",
+  "project_name": "Hospital Appointment System",
+  "project_description": "A hospital system for managing patients, doctors, and appointments.",
+  "requirements": [
+    {
+      "requirement_id": "FR-01",
+      "requirement_text": "The system shall store patient information including name, email and phone.",
+      "requirement_type": "FR",
+      "database_relevant": true
+    },
+    {
+      "requirement_id": "FR-02",
+      "requirement_text": "The system shall store doctor information including name and specialization.",
+      "requirement_type": "FR",
+      "database_relevant": true
+    },
+    {
+      "requirement_id": "FR-03",
+      "requirement_text": "A patient can book an appointment with a doctor.",
+      "requirement_type": "FR",
+      "database_relevant": true
+    },
+    {
+      "requirement_id": "FR-04",
+      "requirement_text": "Patient email must be unique.",
+      "requirement_type": "FR",
+      "database_relevant": true
+    },
+    {
+      "requirement_id": "FR-05",
+      "requirement_text": "Every appointment must have a status.",
+      "requirement_type": "FR",
+      "database_relevant": true
+    },
+    {
+      "requirement_id": "FR-06",
+      "requirement_text": "Appointment status must be one of pending, confirmed, cancelled.",
+      "requirement_type": "FR",
+      "database_relevant": true
+    }
+  ],
+  "architecture_context": {
+    "architecture_style": "Layered Architecture",
+    "database_type": "Relational",
+    "constraints": [
+      "Every table must have a primary key.",
+      "Foreign keys must reference existing tables and columns."
+    ]
+  }
+}

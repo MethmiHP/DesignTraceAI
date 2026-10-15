@@ -1,0 +1,56 @@
+{
+  "project_id": "BASE-001",
+  "project_name": "Hospital Appointment System",
+  "review_status": "DRAFT_REQUIRES_HUMAN_REVIEW",
+  "evaluation_policy": {
+    "include_implicit_primary_keys": false,
+    "include_constraint_links": false
+  },
+  "requirement_mappings": [
+    {
+      "requirement_id": "FR-01",
+      "database_elements": [
+        "patients",
+        "patients.name",
+        "patients.email",
+        "patients.phone"
+      ]
+    },
+    {
+      "requirement_id": "FR-02",
+      "database_elements": [
+        "doctors",
+        "doctors.name",
+        "doctors.specialization"
+      ]
+    },
+    {
+      "requirement_id": "FR-03",
+      "database_elements": [
+        "appointments",
+        "appointments.patient_id",
+        "appointments.doctor_id",
+        "relationship:REL-01",
+        "relationship:REL-02"
+      ]
+    },
+    {
+      "requirement_id": "FR-04",
+      "database_elements": [
+        "patients.email"
+      ]
+    },
+    {
+      "requirement_id": "FR-05",
+      "database_elements": [
+        "appointments.status"
+      ]
+    },
+    {
+      "requirement_id": "FR-06",
+      "database_elements": [
+        "appointments.status"
+      ]
+    }
+  ]
+}

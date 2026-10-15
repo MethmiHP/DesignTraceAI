@@ -1,0 +1,45 @@
+{
+  "project_id": "BASE-003",
+  "project_name": "E-commerce System",
+  "project_description": "An online shopping system for managing customers, products, and orders.",
+  "requirements": [
+    {
+      "requirement_id": "FR-01",
+      "requirement_text": "The system shall store customer information including name and email.",
+      "requirement_type": "FR",
+      "database_relevant": true
+    },
+    {
+      "requirement_id": "FR-02",
+      "requirement_text": "The system shall store product information including name, price and quantity.",
+      "requirement_type": "FR",
+      "database_relevant": true
+    },
+    {
+      "requirement_id": "FR-03",
+      "requirement_text": "A customer can place an order containing products.",
+      "requirement_type": "FR",
+      "database_relevant": true
+    },
+    {
+      "requirement_id": "FR-04",
+      "requirement_text": "Customer email must be unique.",
+      "requirement_type": "FR",
+      "database_relevant": true
+    },
+    {
+      "requirement_id": "FR-05",
+      "requirement_text": "Every order must have a status.",
+      "requirement_type": "FR",
+      "database_relevant": true
+    }
+  ],
+  "architecture_context": {
+    "architecture_style": "Layered Architecture",
+    "database_type": "Relational",
+    "constraints": [
+      "Every table must have a primary key.",
+      "Foreign keys must reference existing tables and columns."
+    ]
+  }
+}
