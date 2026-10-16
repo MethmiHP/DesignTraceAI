@@ -217,3 +217,7 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+backend/datasets/roberta/best_model/model.safetensors
+backend/outputs/architecture_designs/
+backend/outputs/architecture_evaluation/
+backend/outputs/adr/backend/datasets/adr_significance/models/**/*.pkl
