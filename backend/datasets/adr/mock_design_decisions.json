@@ -1,0 +1,204 @@
+{
+  "project_id": "BANKING-ADR-001",
+  "decisions": [
+    {
+      "decision_id": "ARCH-DEC-001",
+      "project_id": "BANKING-ADR-001",
+      "source_module": "architecture_decision",
+      "title": "Adopt Microservices Architecture",
+      "decision": "Use Microservices as the primary architecture style.",
+      "context": "The banking platform requires independent scalability, fault isolation, high availability and independent service deployment.",
+      "rationale": "Microservices provide independent deployment and scaling while improving fault isolation between major banking capabilities.",
+      "alternatives": [
+        "Layered Architecture",
+        "Modular Monolith",
+        "Event-Driven Architecture"
+      ],
+      "rejected_alternative_reasons": [
+        "Layered Architecture provides limited independent scalability.",
+        "Modular Monolith simplifies deployment but provides weaker service-level isolation.",
+        "Event-Driven Architecture is useful for asynchronous processing but was not selected as the primary architecture style."
+      ],
+      "decision_criteria": [
+        "Scalability",
+        "Availability",
+        "Fault isolation",
+        "Maintainability",
+        "Independent deployment"
+      ],
+      "benefits": [
+        "Independent service scaling",
+        "Improved fault isolation",
+        "Independent deployment"
+      ],
+      "risks": [
+        "Higher operational complexity",
+        "Distributed system failures"
+      ],
+      "consequences": [
+        "The system must manage communication between independent services.",
+        "Deployment and monitoring infrastructure becomes more complex."
+      ],
+      "trade_offs": [
+        "Higher operational complexity in exchange for improved scalability and service independence."
+      ],
+      "requirement_ids": [
+        "NFR-001",
+        "NFR-002",
+        "NFR-003"
+      ],
+      "design_element_ids": [
+        "ARCH-001",
+        "COMP-001",
+        "COMP-002"
+      ],
+      "evidence": [
+        "Architecture alternative evaluation",
+        "Quality attribute profile",
+        "Architecture recommendation result"
+      ],
+      "confidence": 0.91
+    },
+    {
+      "decision_id": "DB-DEC-001",
+      "project_id": "BANKING-ADR-001",
+      "source_module": "database_design",
+      "title": "Use PostgreSQL for Transaction Data",
+      "decision": "Use PostgreSQL as the main database for financial transaction records.",
+      "context": "Financial transactions require structured relationships, consistency and reliable transaction handling.",
+      "rationale": "PostgreSQL provides relational modelling and ACID transaction guarantees suitable for financial transaction records.",
+      "alternatives": [
+        "MongoDB",
+        "Cassandra"
+      ],
+      "rejected_alternative_reasons": [
+        "MongoDB was not selected because the primary transaction records require stronger relational consistency.",
+        "Cassandra was not selected because the use case prioritises transaction consistency over large-scale distributed write throughput."
+      ],
+      "decision_criteria": [
+        "Consistency",
+        "Transaction support",
+        "Reliability",
+        "Data integrity"
+      ],
+      "benefits": [
+        "Strong transaction consistency",
+        "Relational integrity",
+        "Reliable transaction processing"
+      ],
+      "risks": [
+        "Horizontal scaling may require additional configuration."
+      ],
+      "consequences": [
+        "Transactional data will follow relational schemas."
+      ],
+      "trade_offs": [
+        "Stronger consistency is prioritised over schema flexibility."
+      ],
+      "requirement_ids": [
+        "FR-005",
+        "NFR-004"
+      ],
+      "design_element_ids": [
+        "DB-001",
+        "ENTITY-TRANSACTION"
+      ],
+      "evidence": [
+        "Database design evaluation"
+      ],
+      "confidence": 0.88
+    },
+    {
+      "decision_id": "API-DEC-001",
+      "project_id": "BANKING-ADR-001",
+      "source_module": "api_component_design",
+      "title": "Use REST APIs for Client Communication",
+      "decision": "Expose banking functionality to web and mobile clients through REST APIs.",
+      "context": "The system requires interoperable communication between web clients, mobile clients and backend services.",
+      "rationale": "REST provides standard HTTP-based communication that is widely supported by client platforms.",
+      "alternatives": [
+        "GraphQL",
+        "gRPC"
+      ],
+      "rejected_alternative_reasons": [
+        "GraphQL introduces additional query-layer complexity that is not required for the initial design.",
+        "gRPC has weaker direct browser compatibility for the intended client-facing APIs."
+      ],
+      "decision_criteria": [
+        "Interoperability",
+        "Client compatibility",
+        "Implementation complexity"
+      ],
+      "benefits": [
+        "Broad client support",
+        "Simple HTTP integration"
+      ],
+      "risks": [
+        "Multiple requests may be required for complex client workflows."
+      ],
+      "consequences": [
+        "Client-facing endpoints must follow consistent REST conventions."
+      ],
+      "trade_offs": [
+        "Simplicity and compatibility are prioritised over specialised RPC performance."
+      ],
+      "requirement_ids": [
+        "FR-001",
+        "FR-002"
+      ],
+      "design_element_ids": [
+        "API-001",
+        "COMP-003"
+      ],
+      "evidence": [
+        "API design output",
+        "Component communication analysis"
+      ],
+      "confidence": 0.86
+    },
+    {
+      "decision_id": "QUAL-DEC-001",
+      "project_id": "BANKING-ADR-001",
+      "source_module": "quality_evaluation",
+      "title": "Require Token-Based Authentication",
+      "decision": "Protected banking APIs must use token-based authentication and authorization.",
+      "context": "Banking operations process sensitive user and financial information and therefore require controlled access.",
+      "rationale": "Token-based authentication supports stateless API security and can be combined with role-based authorization.",
+      "alternatives": [
+        "Server-side session authentication"
+      ],
+      "rejected_alternative_reasons": [
+        "Server-side sessions introduce additional shared session-state requirements across independently deployed services."
+      ],
+      "decision_criteria": [
+        "Security",
+        "Scalability",
+        "Service independence"
+      ],
+      "benefits": [
+        "Stateless API authentication",
+        "Supports distributed services"
+      ],
+      "risks": [
+        "Token expiration and revocation must be handled securely."
+      ],
+      "consequences": [
+        "Protected endpoints must validate authentication tokens."
+      ],
+      "trade_offs": [
+        "Stateless authentication reduces session-state requirements but introduces token lifecycle management."
+      ],
+      "requirement_ids": [
+        "NFR-SEC-001"
+      ],
+      "design_element_ids": [
+        "SEC-001",
+        "API-001"
+      ],
+      "evidence": [
+        "Security quality evaluation"
+      ],
+      "confidence": 0.93
+    }
+  ]
+}
