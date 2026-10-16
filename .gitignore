@@ -217,3 +217,32 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+# ==========================================
+# DesignTrace AI - Local generated files
+# ==========================================
+
+# Local backup archives
+/database_design_backup.zip
+
+# Generated evaluation results
+/backend/outputs/database_designs/
+/backend/outputs/llm_evaluation/
+
+# Trained NLP models and checkpoints
+/backend/outputs/nlp_models/
+
+# Other generated evaluation artifacts
+/backend/evaluation/baseline_results/
+/backend/evaluation/mapping_evaluation_results.json
+/backend/evaluation/mapping_review.csv
+
+# Intermediate NLP datasets
+/backend/datasets/nlp/train_aligned.json
+/backend/datasets/nlp/test_aligned.json
+/backend/datasets/nlp/validation_aligned.json
+/backend/datasets/nlp/train_bio.json
+/backend/datasets/nlp/test_bio.json
+/backend/datasets/nlp/validation_bio.json
+
+# Hide untracked NLP research files during Coordinator development
+/backend/datasets/nlp/
