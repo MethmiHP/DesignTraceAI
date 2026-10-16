@@ -1,20 +1,13 @@
-# IMPORTANT:
-# - Do not create requirement IDs.
-# - IDs are assigned by deterministic backend logic.
-# - Do not return Markdown.
-# - Do not wrap JSON inside ``` blocks.
-# """
-
-# Builds the structured LLM prompt used to analyze raw software
-# project descriptions.
+# Builds the structured prompt used by Gemini for requirement extraction
+# and contextual requirement-quality analysis.
 #
 # Gemini responsibilities:
-# - Extract ALL explicit atomic requirements
+# - Extract atomic requirements
 # - Normalize requirement statements
-# - Detect Architecturally Significant Requirements (ASRs)
-# - Detect requirement quality issues
+# - Detect ASRs
+# - Detect contextual quality issues
 #
-# RoBERTa responsibilities are handled later in service.py:
+# RoBERTa responsibilities:
 # - FR/NFR classification
 # - NFR quality-attribute classification
 # - Classification confidence
@@ -45,85 +38,112 @@ def build_requirement_analysis_prompt(
 
     context_json = json.dumps(
         project_context,
-        indent=2
+        ensure_ascii=False
     )
 
     rules_json = json.dumps(
         rule_findings or {},
-        indent=2
+        ensure_ascii=False
     )
 
     return f"""
 You are a software requirements engineering assistant.
 
-Your main responsibility is to extract and analyse ALL software
-requirements contained in the supplied raw project description.
+Analyse the supplied project description and return structured JSON only.
 
 PROJECT CONTEXT:
 {context_json}
 
-RAW PROJECT DESCRIPTION:
+PROJECT DESCRIPTION:
 {raw_description}
 
 DETERMINISTIC RULE FINDINGS:
 {rules_json}
 
+TASK 1 - EXTRACT ATOMIC REQUIREMENTS
 
-============================================================
-TASK 1 - EXTRACT ALL EXPLICIT REQUIREMENTS
-============================================================
-
-Extract EVERY explicit software requirement present in the raw
+Extract every explicit software requirement from the complete project
 description.
 
-IMPORTANT EXTRACTION RULES:
+Each independently implementable or independently testable obligation
+must be returned as a separate requirement object.
 
-- Do NOT stop after the first requirement.
-- Read the ENTIRE raw description before producing the result.
-- Every independent requirement must appear as a separate object.
-- Preserve requirements appearing later in the description.
-- Do not omit non-functional requirements such as:
-  security, performance, availability, scalability, usability,
-  reliability, privacy, maintainability, portability, or integration.
-- If the input contains 3 independent requirements, return 3
-  requirement objects.
-- If the input contains 5 independent requirements, return 5
-  requirement objects.
-- Do not merge unrelated requirements into one requirement.
-- Split compound statements when they contain multiple independent
-  obligations.
-- Do not invent requirements that are not supported by the input.
-- A sentence may contain more than one atomic requirement.
-- Multiple sentences may belong to different atomic requirements.
+Important atomic-decomposition rules:
+
+- One independent obligation = one requirement object.
+- Split compound requirements when one statement contains multiple
+  independent actions, capabilities, constraints, or quality goals.
+- Conjunctions such as "and", "or", commas, and lists may indicate
+  multiple requirements when the individual parts can be implemented
+  or tested separately.
+- Do not split wording when all parts are necessary to describe one
+  inseparable operation.
+- Do not invent requirements that are not supported by the source text.
+- Do not treat introductory project context as an explicit requirement
+  unless it contains a clear system obligation.
+- Analyse the entire project description before returning results.
+
+Examples:
+
+Input:
+"Patients shall be able to book, reschedule, or cancel appointments."
+
+Return three requirements:
+1. Patients shall be able to book appointments.
+2. Patients shall be able to reschedule appointments.
+3. Patients shall be able to cancel appointments.
+
+Input:
+"Doctors shall be able to view appointment schedules and update their
+available time slots."
+
+Return two requirements:
+1. Doctors shall be able to view appointment schedules.
+2. Doctors shall be able to update their available time slots.
+
+Input:
+"The system shall encrypt sensitive data during transmission."
+
+Return one requirement only.
+
+Input:
+"The system shall support 500 concurrent users."
+
+Return one requirement only.
+
+Do not convert introductory project context, actor lists, or domain descriptions
+into requirements unless they explicitly state a system obligation.
 
 Example:
 
 Input:
+"A hospital appointment management system is required for patients,
+doctors, and administrators."
 
-"Patients should be able to book appointments online.
-The system shall encrypt patient information.
-The system should respond within 2 seconds."
+Do not create a requirement from this sentence alone.
 
-Correct extraction:
+Also split a statement when it contains independent quality concerns.
 
-1. Patients should be able to book appointments online.
-2. The system shall encrypt patient information.
-3. The system should respond within 2 seconds.
+Example:
 
-Do NOT return only the first requirement.
+Input:
+"The user interface should be easy to use on both desktop and mobile devices."
 
+Return:
+1. The user interface shall be easy to use.
+2. The system shall support use on desktop and mobile devices.
 
-============================================================
 TASK 2 - NORMALIZE EACH REQUIREMENT
-============================================================
 
 For every extracted requirement:
 
-- Keep the meaning of the original statement.
-- Rewrite it into clear software requirement language.
-- Do not introduce additional functionality.
+- Preserve the original meaning.
+- Rewrite it as a clear software requirement.
+- Do not add functionality, constraints, actors, or numerical values
+  that are not present in the source.
+- Keep the normalized statement atomic.
 
-Preferred forms include:
+Preferred wording:
 
 "The system shall ..."
 
@@ -131,40 +151,12 @@ or
 
 "[Actor] shall be able to ..."
 
-Examples:
-
-Original:
-"Patients should be able to book appointments online."
-
-Normalized:
-"Patients shall be able to book appointments online."
-
-Original:
-"It should load quickly."
-
-Normalized:
-"The system shall respond within the stated performance constraint."
-
-Do not invent numerical values that are not present in the input.
-
-
-============================================================
 TASK 3 - ARCHITECTURALLY SIGNIFICANT REQUIREMENTS
-============================================================
 
-For every extracted requirement determine whether it is an
-Architecturally Significant Requirement (ASR).
+For each requirement determine whether it is architecturally significant.
 
-ASR is a Boolean value:
-
-true
-or
-false
-
-ASR is NOT a third requirement type.
-
-A requirement may be architecturally significant when it has major
-implications for areas such as:
+Set asr = true when the requirement has important architectural impact,
+for example:
 
 - security
 - privacy
@@ -175,165 +167,67 @@ implications for areas such as:
 - integration
 - persistence
 - deployment
-- external systems
-- architectural structure
-- technology constraints
 - major data-management decisions
+- technology constraints
 
-Examples:
+Otherwise set asr = false.
 
-"The system shall encrypt all patient records."
-May be ASR = true because it affects security architecture.
-
-"The system shall respond within 2 seconds."
-May be ASR = true because it may affect performance architecture.
-
-"Patients shall be able to edit their profile."
-Usually ASR = false unless the project context indicates otherwise.
-
-
-============================================================
 TASK 4 - REQUIREMENT QUALITY ANALYSIS
-============================================================
 
-For every extracted requirement analyse these four quality issues:
+For every requirement analyse:
 
-1. ambiguous
-2. incomplete
-3. conflicting
-4. potentially_missing
+ambiguous:
+true only when wording is vague, subjective, unclear, or open to
+multiple interpretations.
 
-Each value must be either true or false.
+incomplete:
+true only when important information needed to understand or implement
+the requirement is genuinely missing.
 
+conflicting:
+true only when the requirement contradicts another supplied requirement
+or project statement.
 
-AMBIGUOUS
----------
+potentially_missing:
+true only when the supplied context strongly indicates that an important
+related requirement is absent.
 
-Mark ambiguous = true when the requirement contains unclear,
-subjective, vague, or multiple possible interpretations.
-
-Examples of vague terms:
-
-- fast
-- user-friendly
-- efficient
-- adequate
-- appropriate
-- quickly
-- secure enough
-- easy to use
-- sufficient
-
-
-INCOMPLETE
-----------
-
-Mark incomplete = true only when important information required to
-understand or implement the stated requirement is genuinely missing.
-
-Do NOT automatically mark a simple but valid requirement as
-incomplete.
-
-For example:
-
-"Patients shall be able to book appointments online."
-
-is a valid functional requirement and should NOT automatically be
-marked incomplete merely because it does not describe every booking
-workflow detail.
-
-
-CONFLICTING
------------
-
-Mark conflicting = true only when the requirement clearly contradicts
-another requirement or information present in the supplied description.
-
-Do not claim a conflict unless there is evidence in the provided
-project description.
-
-
-POTENTIALLY MISSING
--------------------
-
-Mark potentially_missing = true only when the supplied project context
-or surrounding requirements strongly indicate that an important
-related requirement may be absent.
-
-Use this carefully.
-
-Do not invent missing requirements.
-
-
-============================================================
 TASK 5 - ISSUE DETAILS
-============================================================
 
-If one or more quality issues are detected, provide issue details.
-
-Each issue detail should contain:
+If a quality issue exists, add an issue_details entry containing:
 
 - issue_type
 - evidence
 - rationale
 - recommendation
 
-Allowed issue_type values should normally be:
+Allowed issue types:
 
 - ambiguity
 - incompleteness
 - conflict
 - potentially_missing
 
-The evidence should quote or identify the relevant wording from the
-requirement.
+If there are no issues, return an empty issue_details array.
 
-The rationale should explain why it is an issue.
+IMPORTANT
 
-The recommendation should explain how the requirement could be
-improved.
+- Do not generate requirement IDs.
+- Do not return Markdown.
+- Return JSON only.
+- Do not add unsupported information.
+- Every explicit requirement must appear exactly once.
+- Do not merge independent obligations.
+- Do not create requirements from general background/context statements.
 
-If no quality issue exists, return an empty issue_details array.
+FR/NFR classification and NFR quality-attribute classification are
+performed later by trained RoBERTa models.
 
+The fields requirement_type and quality_attribute are retained only for
+response-schema compatibility and are replaced by backend classifier
+results.
 
-============================================================
-CLASSIFICATION NOTE
-============================================================
-
-The final FR/NFR classification and final NFR quality attribute are
-performed by trained RoBERTa classifiers in the backend.
-
-Therefore:
-
-- Do not rely on yourself as the final FR/NFR classifier.
-- Do not calculate classification confidence.
-- The backend will override any classification-related information.
-
-You may infer requirement meaning when performing ASR and quality
-analysis, but your primary responsibility is extraction and quality
-analysis.
-
-
-============================================================
-OUTPUT RULES
-============================================================
-
-Return JSON only.
-
-Do NOT return Markdown.
-
-Do NOT wrap the result inside ``` blocks.
-
-Do NOT provide explanations outside the JSON.
-
-Do NOT create requirement IDs.
-
-Requirement IDs are assigned later by deterministic backend logic.
-
-Every extracted atomic requirement must be represented exactly once.
-
-
-Expected JSON structure:
+Return this structure:
 
 {{
   "requirements": [
@@ -353,20 +247,4 @@ Expected JSON structure:
     }}
   ]
 }}
-
-
-============================================================
-FINAL CHECK BEFORE RESPONDING
-============================================================
-
-Before returning the JSON:
-
-1. Re-read the full RAW PROJECT DESCRIPTION.
-2. Count the independent explicit requirements.
-3. Verify that every explicit requirement has a corresponding object.
-4. Verify that no requirement was accidentally omitted.
-5. Verify that unrelated requirements were not merged.
-6. Verify that compound requirements were split when appropriate.
-7. Verify that no unsupported requirement was invented.
-8. Return the complete requirements array.
 """
