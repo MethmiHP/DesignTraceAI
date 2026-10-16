@@ -1,9 +1,15 @@
 from fastapi import FastAPI
 
+from coordinator.api import router as coordinator_router
+
+
 app = FastAPI(
     title="DesignTrace AI",
-    description="Multi-Agent AI Framework for SDLC Design Automation",
-    version="0.1.0"
+    description=(
+        "Coordinator-Orchestrated Framework for "
+        "Software Design Automation"
+    ),
+    version="0.1.0",
 )
 
 
@@ -19,3 +25,6 @@ def health_check():
     return {
         "status": "healthy"
     }
+
+
+app.include_router(coordinator_router)
