@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from modules.adr.router import router as adr_router
 
 app = FastAPI(
     title="DesignTrace AI",
@@ -19,3 +20,5 @@ def health_check():
     return {
         "status": "healthy"
     }
+
+app.include_router(adr_router)
