@@ -221,3 +221,5 @@ __marimo__/
 # Trained models and checkpoints
 backend/trained_models/
 **/checkpoint-*/
+
+backend/outputs/traceability/
