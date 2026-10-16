@@ -1,0 +1,3263 @@
+==============================================================================
+FAMILY 1
+==============================================================================
+
+Source module: api_component_design
+Scenario family: api_rate_limit_contract
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Define Public API Rate Limits - Banking
+
+Sample context:
+External clients can generate unpredictable request volumes.
+
+Sample decision:
+Define explicit rate-limit rules for public API consumers.
+
+Sample rationale:
+Rate limits protect shared backend capacity.
+
+Alternatives:
+Unlimited client requests
+
+Trade-offs:
+Protection can throttle legitimate bursts.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 2
+==============================================================================
+
+Source module: api_component_design
+Scenario family: api_retry_policy
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Adopt Controlled Retry Policy - Banking
+
+Sample context:
+Transient service failures affect transaction workflows.
+
+Sample decision:
+Use bounded retries with exponential backoff for retry-safe requests.
+
+Sample rationale:
+Controlled retries improve resilience without overwhelming dependencies.
+
+Alternatives:
+Immediate failure|Unlimited retries
+
+Trade-offs:
+Resilience can increase total request latency.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 3
+==============================================================================
+
+Source module: api_component_design
+Scenario family: async_api
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Use Asynchronous API for Long Operations - Banking
+
+Sample context:
+Some transaction operations cannot complete within normal request timeouts.
+
+Sample decision:
+Use asynchronous job submission with status polling for long operations.
+
+Sample rationale:
+Async processing avoids holding HTTP requests open.
+
+Alternatives:
+Long synchronous request
+
+Trade-offs:
+Better responsiveness requires job-state management.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 4
+==============================================================================
+
+Source module: api_component_design
+Scenario family: bulk_endpoint
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Introduce Bulk Processing Endpoint - Banking
+
+Sample context:
+Clients currently make hundreds of individual transaction requests.
+
+Sample decision:
+Provide a bounded bulk endpoint for supported transaction operations.
+
+Sample rationale:
+Bulk processing reduces network overhead.
+
+Alternatives:
+Individual requests only
+
+Trade-offs:
+Lower network overhead increases request-validation complexity.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 5
+==============================================================================
+
+Source module: api_component_design
+Scenario family: error_contract
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Standardise API Error Contract - Banking
+
+Sample context:
+Clients receive incompatible error structures from different services.
+
+Sample decision:
+Adopt a common machine-readable API error representation.
+
+Sample rationale:
+Consistent errors simplify client handling and observability.
+
+Alternatives:
+Service-specific error formats
+
+Trade-offs:
+Consistency limits service-specific error representations.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 6
+==============================================================================
+
+Source module: api_component_design
+Scenario family: idempotency
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Require Idempotent Commands - Banking
+
+Sample context:
+Network retries may duplicate the money transfer operation.
+
+Sample decision:
+Require idempotency keys for critical command endpoints.
+
+Sample rationale:
+Idempotency prevents repeated business processing.
+
+Alternatives:
+Unrestricted retry processing
+
+Trade-offs:
+Duplicate protection requires additional state.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 7
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: background_worker_architecture
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Separate Long-Running Background Work - Banking
+
+Sample context:
+Some transaction operations continue long after the user request has completed.
+
+Sample decision:
+Execute long-running work through dedicated background workers.
+
+Sample rationale:
+Background workers prevent lengthy operations from blocking request handling.
+
+Alternatives:
+Execute all work synchronously
+
+Trade-offs:
+Responsive requests require queue and worker management.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 8
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: container_orchestration
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Adopt Container Orchestration - Banking
+
+Sample context:
+The online banking platform contains multiple independently deployed services requiring scaling and recovery.
+
+Sample decision:
+Use container orchestration for deployment and service recovery.
+
+Sample rationale:
+Orchestration supports automated scheduling, scaling and restart.
+
+Alternatives:
+Manually managed service deployments
+
+Trade-offs:
+Automation introduces platform administration complexity.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 9
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: modular_monolith_selection
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Adopt Modular Monolith - Banking
+
+Sample context:
+The online banking platform needs strong internal modularity but the team does not yet require independently deployed services.
+
+Sample decision:
+Use a Modular Monolith with explicit internal module boundaries.
+
+Sample rationale:
+The architecture preserves modularity while maintaining a simpler deployment model.
+
+Alternatives:
+Microservices|Traditional Layered Monolith
+
+Trade-offs:
+Simpler operations limit independent module scaling.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 10
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: multi_zone_deployment
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Use Multi-Zone Deployment - Banking
+
+Sample context:
+The online banking platform must remain available after a single infrastructure-zone failure.
+
+Sample decision:
+Deploy critical services across multiple availability zones.
+
+Sample rationale:
+Geographic redundancy reduces single-zone failure impact.
+
+Alternatives:
+Single-zone deployment
+
+Trade-offs:
+Higher infrastructure cost provides improved availability.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 11
+==============================================================================
+
+Source module: database_design
+Scenario family: audit_storage
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Use Immutable Audit Records - Banking
+
+Sample context:
+Changes to financial transaction data require durable historical auditing.
+
+Sample decision:
+Store audit events using append-only persistence.
+
+Sample rationale:
+Immutable records preserve historical evidence.
+
+Alternatives:
+Overwrite current records only
+
+Trade-offs:
+Auditability increases storage consumption.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 12
+==============================================================================
+
+Source module: database_design
+Scenario family: database_partitioning
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Partition High-Volume Records - Banking
+
+Sample context:
+financial transaction data is expected to grow beyond efficient single-table operation.
+
+Sample decision:
+Partition transaction records by business identifier and time.
+
+Sample rationale:
+Partitioning limits query scope and supports growth.
+
+Alternatives:
+Single unpartitioned table
+
+Trade-offs:
+Scalability introduces partition management.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 13
+==============================================================================
+
+Source module: database_design
+Scenario family: distributed_database
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Distribute Data Across Regions - Banking
+
+Sample context:
+The online banking platform serves geographically distributed users with strict availability needs.
+
+Sample decision:
+Use a multi-region database deployment for critical records.
+
+Sample rationale:
+Regional distribution improves locality and disaster resilience.
+
+Alternatives:
+Single-region database
+
+Trade-offs:
+Regional resilience introduces consistency and replication complexity.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 14
+==============================================================================
+
+Source module: database_design
+Scenario family: document_database
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Use Document Database for Flexible Records - Banking
+
+Sample context:
+Some transaction metadata changes frequently and varies across records.
+
+Sample decision:
+Use a document database for flexible transaction metadata.
+
+Sample rationale:
+Document storage accommodates evolving semi-structured data.
+
+Alternatives:
+Relational table with many nullable columns
+
+Trade-offs:
+Schema flexibility reduces relational enforcement.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 15
+==============================================================================
+
+Source module: database_design
+Scenario family: schema_migration_strategy
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Adopt Backward-Compatible Schema Migration - Banking
+
+Sample context:
+Services cannot all be deployed simultaneously during schema changes.
+
+Sample decision:
+Use backward-compatible expand-and-contract database migrations.
+
+Sample rationale:
+Compatibility allows old and new application versions to coexist.
+
+Alternatives:
+Breaking schema replacement
+
+Trade-offs:
+Safer deployments require multi-stage migrations.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 16
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: backup_recovery_objective
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Define Recovery Objectives - Banking
+
+Sample context:
+Loss of financial transaction data would significantly affect business operations.
+
+Sample decision:
+Define explicit recovery-point and recovery-time objectives.
+
+Sample rationale:
+Recovery objectives guide backup and resilience mechanisms.
+
+Alternatives:
+Undefined best-effort recovery
+
+Trade-offs:
+Stricter recovery objectives require greater infrastructure investment.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 17
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: central_observability
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Adopt Centralised Observability - Banking
+
+Sample context:
+Distributed failures are difficult to diagnose in the online banking platform.
+
+Sample decision:
+Use centralised logs, metrics and distributed tracing.
+
+Sample rationale:
+Unified telemetry improves operational diagnosis.
+
+Alternatives:
+Local logs only
+
+Trade-offs:
+Observability requires additional infrastructure and storage.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 18
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: circuit_breaker
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Use Circuit Breakers for Remote Dependencies - Banking
+
+Sample context:
+Repeated downstream failures can exhaust resources across the online banking platform.
+
+Sample decision:
+Apply circuit breakers to critical remote-service calls.
+
+Sample rationale:
+Circuit breakers reduce cascading failure.
+
+Alternatives:
+Continue calling failed services indefinitely
+
+Trade-offs:
+Failure isolation temporarily rejects some requests.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 19
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: data_retention_policy
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Adopt Data Retention Policy - Banking
+
+Sample context:
+The online banking platform stores sensitive financial transaction data for long periods.
+
+Sample decision:
+Apply explicit retention and deletion periods to sensitive records.
+
+Sample rationale:
+Retention rules reduce unnecessary long-term data exposure.
+
+Alternatives:
+Retain records indefinitely
+
+Trade-offs:
+Reduced exposure may limit access to historical information.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 20
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: disaster_recovery
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Define Disaster Recovery Strategy - Banking
+
+Sample context:
+A regional failure could make the online banking platform unavailable.
+
+Sample decision:
+Maintain tested disaster-recovery procedures and secondary infrastructure.
+
+Sample rationale:
+Recovery planning limits prolonged outages.
+
+Alternatives:
+Ad hoc restoration
+
+Trade-offs:
+Disaster readiness increases operational cost.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 21
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: rate_limiting
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Apply Platform Rate Limiting - Banking
+
+Sample context:
+Public endpoints require protection from excessive traffic.
+
+Sample decision:
+Apply centrally managed rate limits to exposed APIs.
+
+Sample rationale:
+Rate limiting protects shared resources.
+
+Alternatives:
+No global rate limiting
+
+Trade-offs:
+Protection may reject legitimate traffic bursts.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 22
+==============================================================================
+
+Source module: api_component_design
+Scenario family: controller_file_name
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Controller Source File - Banking
+
+Sample context:
+A controller filename violates naming conventions.
+
+Sample decision:
+Rename the source file containing transaction handlers.
+
+Sample rationale:
+Routes and compiled behaviour remain unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 23
+==============================================================================
+
+Source module: api_component_design
+Scenario family: documentation_order
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Reorder Swagger Documentation - Banking
+
+Sample context:
+Endpoint documentation appears in an inconvenient order.
+
+Sample decision:
+Change documentation ordering for transaction endpoints.
+
+Sample rationale:
+No contract changes.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 24
+==============================================================================
+
+Source module: api_component_design
+Scenario family: api_timeout_policy
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Define Service Timeout Policy - Banking
+
+Sample context:
+Cross-service calls can remain open indefinitely during failures.
+
+Sample decision:
+Apply explicit timeout limits to remote service calls.
+
+Sample rationale:
+Timeouts prevent resource exhaustion during downstream failure.
+
+Alternatives:
+Unlimited waiting
+
+Trade-offs:
+Failure containment may terminate genuinely slow operations.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 25
+==============================================================================
+
+Source module: api_component_design
+Scenario family: api_versioning
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Introduce API Versioning - Banking
+
+Sample context:
+Client applications cannot always upgrade together with backend services.
+
+Sample decision:
+Use explicit versioning for public APIs.
+
+Sample rationale:
+Versioning supports controlled interface evolution.
+
+Alternatives:
+Unversioned breaking changes
+
+Trade-offs:
+Compatibility creates additional maintenance effort.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 26
+==============================================================================
+
+Source module: api_component_design
+Scenario family: authentication_contract
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Standardise API Authentication - Banking
+
+Sample context:
+Protected endpoints in the online banking platform currently use inconsistent authentication.
+
+Sample decision:
+Require bearer-token authentication for protected APIs.
+
+Sample rationale:
+A consistent authentication contract simplifies enforcement.
+
+Alternatives:
+Different authentication method per endpoint
+
+Trade-offs:
+Standardisation requires migration of legacy clients.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 27
+==============================================================================
+
+Source module: api_component_design
+Scenario family: service_contract_versioning
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Version Inter-Service Contracts - Banking
+
+Sample context:
+Independently deployed services exchange transaction information.
+
+Sample decision:
+Use versioned schemas for inter-service communication.
+
+Sample rationale:
+Versioned contracts reduce integration breakage.
+
+Alternatives:
+Unversioned internal messages
+
+Trade-offs:
+Compatibility requires contract governance.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 28
+==============================================================================
+
+Source module: api_component_design
+Scenario family: webhook_contract
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Introduce Webhook Notifications - Banking
+
+Sample context:
+External clients require timely notification of transaction state changes.
+
+Sample decision:
+Provide signed webhook callbacks for important state changes.
+
+Sample rationale:
+Webhooks avoid repeated client polling.
+
+Alternatives:
+Frequent polling
+
+Trade-offs:
+Push notifications require delivery retries and signature validation.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 29
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: api_gateway
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Introduce API Gateway - Banking
+
+Sample context:
+Multiple external clients access several backend services within the online banking platform.
+
+Sample decision:
+Use an API Gateway as the controlled external entry point.
+
+Sample rationale:
+The gateway centralises routing and cross-cutting policies.
+
+Alternatives:
+Expose every backend service directly
+
+Trade-offs:
+Centralised control introduces an additional critical component.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 30
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: edge_proxy
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Introduce Reverse Proxy Layer - Banking
+
+Sample context:
+External traffic requires central TLS termination, routing and protection before reaching application services.
+
+Sample decision:
+Use a reverse proxy in front of externally exposed services.
+
+Sample rationale:
+The proxy centralises edge networking responsibilities.
+
+Alternatives:
+Expose application services directly
+
+Trade-offs:
+Central networking simplifies services but adds another infrastructure layer.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 31
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: event_driven_architecture
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Introduce Event-Driven Communication - Banking
+
+Sample context:
+The online banking platform performs asynchronous workflows involving transaction processing across multiple components.
+
+Sample decision:
+Use event-driven communication for asynchronous business workflows.
+
+Sample rationale:
+Events reduce temporal coupling between producers and consumers.
+
+Alternatives:
+Synchronous REST communication only
+
+Trade-offs:
+Loose coupling increases event tracing and schema complexity.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 32
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: external_identity_provider
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Centralise Identity Management - Banking
+
+Sample context:
+Multiple components in the online banking platform require consistent authentication and identity information.
+
+Sample decision:
+Use a central identity service for authentication and identity management.
+
+Sample rationale:
+Central identity management avoids duplicated authentication logic.
+
+Alternatives:
+Independent authentication inside every component
+
+Trade-offs:
+Consistency increases dependency on the identity service.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 33
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: fault_isolation_boundary
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Create Fault Isolation Boundary - Banking
+
+Sample context:
+Failure in transaction processing can currently interrupt unrelated workflows.
+
+Sample decision:
+Isolate transaction processing behind an independent failure boundary.
+
+Sample rationale:
+Isolation limits cascading failures across the online banking platform.
+
+Alternatives:
+Shared failure boundary
+
+Trade-offs:
+Fault containment introduces additional communication boundaries.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 34
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: message_broker
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Introduce Message Broker - Banking
+
+Sample context:
+The online banking platform requires reliable asynchronous delivery of transaction-related events.
+
+Sample decision:
+Introduce a message broker for asynchronous service communication.
+
+Sample rationale:
+A broker supports buffering, retries and decoupled communication.
+
+Alternatives:
+Direct synchronous calls
+
+Trade-offs:
+Improved resilience requires broker operation and monitoring.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 35
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: service_boundary
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Separate Core Capability - Banking
+
+Sample context:
+The transaction capability has scaling and release needs different from other parts of the online banking platform.
+
+Sample decision:
+Extract transaction processing into an independently deployable service.
+
+Sample rationale:
+Independent ownership allows isolated evolution and scaling.
+
+Alternatives:
+Keep transaction processing in the main application
+
+Trade-offs:
+Service independence introduces remote communication overhead.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 36
+==============================================================================
+
+Source module: database_design
+Scenario family: database_backup_strategy
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Adopt Point-in-Time Recovery - Banking
+
+Sample context:
+The online banking platform requires recovery of financial transaction data after accidental corruption.
+
+Sample decision:
+Enable automated backups with point-in-time recovery.
+
+Sample rationale:
+Point-in-time recovery limits permanent data loss.
+
+Alternatives:
+Periodic manual backup only
+
+Trade-offs:
+Stronger recovery guarantees increase storage and operational cost.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 37
+==============================================================================
+
+Source module: database_design
+Scenario family: database_connection_pooling
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Introduce Central Connection Pooling - Banking
+
+Sample context:
+High request concurrency creates excessive database connections.
+
+Sample decision:
+Use bounded database connection pools for application services.
+
+Sample rationale:
+Pooling protects database resources under high concurrency.
+
+Alternatives:
+Open new connection per request
+
+Trade-offs:
+Resource protection requires careful pool sizing.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 38
+==============================================================================
+
+Source module: database_design
+Scenario family: database_encryption
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Encrypt Sensitive Database Fields - Banking
+
+Sample context:
+financial transaction data contains information requiring additional protection.
+
+Sample decision:
+Encrypt sensitive database fields before persistent storage.
+
+Sample rationale:
+Field-level encryption reduces exposure after storage compromise.
+
+Alternatives:
+Storage-volume encryption only
+
+Trade-offs:
+Additional protection increases key-management complexity.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 39
+==============================================================================
+
+Source module: database_design
+Scenario family: database_replication
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Introduce Database Replication - Banking
+
+Sample context:
+The online banking platform requires improved read availability and recovery.
+
+Sample decision:
+Use primary-replica database deployment.
+
+Sample rationale:
+Replication provides redundancy and read capacity.
+
+Alternatives:
+Single database instance
+
+Trade-offs:
+Availability requires replication management.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 40
+==============================================================================
+
+Source module: database_design
+Scenario family: read_replica
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Route Reporting Queries to Read Replica - Banking
+
+Sample context:
+Reporting queries compete with operational transaction transactions.
+
+Sample decision:
+Use read replicas for reporting and analytical queries.
+
+Sample rationale:
+Separating read workload protects transactional performance.
+
+Alternatives:
+Run all queries on primary database
+
+Trade-offs:
+Read scalability introduces possible replication lag.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 41
+==============================================================================
+
+Source module: database_design
+Scenario family: service_data_ownership
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Assign Service Data Ownership - Banking
+
+Sample context:
+Multiple services currently access shared transaction tables directly.
+
+Sample decision:
+Give the transaction service exclusive ownership of its persistent data.
+
+Sample rationale:
+Explicit ownership reduces cross-service coupling.
+
+Alternatives:
+Shared database tables
+
+Trade-offs:
+Reduced coupling makes distributed queries harder.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 42
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: alert_name
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Existing Alert - Banking
+
+Sample context:
+An alert name is unclear to operators.
+
+Sample decision:
+Rename the existing transaction alert.
+
+Sample rationale:
+Alert conditions remain unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 43
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: authorization_model
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Adopt Role-Based Access Control - Banking
+
+Sample context:
+Different types of bank customers require different permissions.
+
+Sample decision:
+Use role-based access control for protected business operations.
+
+Sample rationale:
+RBAC provides consistent permission enforcement.
+
+Alternatives:
+Per-endpoint custom permission checks
+
+Trade-offs:
+Central role design may be less flexible for unusual permissions.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 44
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: automatic_failover
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Introduce Automatic Failover - Banking
+
+Sample context:
+Critical transaction workflows must continue after service failure.
+
+Sample decision:
+Use automated health monitoring and failover for critical services.
+
+Sample rationale:
+Automatic failover reduces service interruption.
+
+Alternatives:
+Manual recovery
+
+Trade-offs:
+Higher availability increases infrastructure complexity.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 45
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: encryption_strategy
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Require Sensitive Data Encryption - Banking
+
+Sample context:
+The online banking platform stores and transfers confidential financial transaction data.
+
+Sample decision:
+Encrypt sensitive information both in transit and at rest.
+
+Sample rationale:
+Encryption reduces exposure of confidential data.
+
+Alternatives:
+Transport encryption only
+
+Trade-offs:
+Stronger protection increases key-management responsibilities.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 46
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: secrets_management
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Centralise Secrets Management - Banking
+
+Sample context:
+Multiple services require database credentials and API secrets.
+
+Sample decision:
+Store runtime secrets in a dedicated secrets-management service.
+
+Sample rationale:
+Central management reduces hard-coded credential exposure.
+
+Alternatives:
+Secrets in source-controlled configuration
+
+Trade-offs:
+Improved security introduces dependency on secret infrastructure.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 47
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: security_audit_logging
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Introduce Security Audit Logging - Banking
+
+Sample context:
+Access to financial account data must be auditable.
+
+Sample decision:
+Record security-sensitive access and modification events.
+
+Sample rationale:
+Audit events support accountability and investigation.
+
+Alternatives:
+General application logs only
+
+Trade-offs:
+Audit coverage increases storage and privacy-management requirements.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 48
+==============================================================================
+
+Source module: api_component_design
+Scenario family: comment_update
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Update Endpoint Code Comment - Banking
+
+Sample context:
+A comment above an endpoint is outdated.
+
+Sample decision:
+Rewrite the comment describing transaction handling.
+
+Sample rationale:
+No API behaviour changes.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 49
+==============================================================================
+
+Source module: api_component_design
+Scenario family: controller_method_name
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Private Controller Method - Banking
+
+Sample context:
+A private method has an unclear name.
+
+Sample decision:
+Rename the private method handling transaction requests.
+
+Sample rationale:
+Routes and behaviour remain unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 50
+==============================================================================
+
+Source module: api_component_design
+Scenario family: dto_variable
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Local DTO Variable - Banking
+
+Sample context:
+A local DTO variable has an unclear name.
+
+Sample decision:
+Rename the local transaction DTO variable.
+
+Sample rationale:
+The serialized DTO contract remains unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 51
+==============================================================================
+
+Source module: api_component_design
+Scenario family: formatting_cleanup
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Reformat Controller Source - Banking
+
+Sample context:
+Controller formatting is inconsistent.
+
+Sample decision:
+Apply standard formatting to the transaction controller.
+
+Sample rationale:
+Behaviour remains identical.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 52
+==============================================================================
+
+Source module: api_component_design
+Scenario family: import_order
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Reorder Controller Imports - Banking
+
+Sample context:
+Controller imports are inconsistently ordered.
+
+Sample decision:
+Reorder imports in the transaction controller.
+
+Sample rationale:
+Executable behaviour is unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 53
+==============================================================================
+
+Source module: api_component_design
+Scenario family: local_constant_name
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Controller Constant - Banking
+
+Sample context:
+An internal constant has a vague name.
+
+Sample decision:
+Rename the local constant used in transaction handling.
+
+Sample rationale:
+The constant value remains identical.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 54
+==============================================================================
+
+Source module: api_component_design
+Scenario family: parameter_name
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Local Request Variable - Banking
+
+Sample context:
+An internal request variable is unclear.
+
+Sample decision:
+Rename the local variable handling transaction input.
+
+Sample rationale:
+The public contract remains unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 55
+==============================================================================
+
+Source module: api_component_design
+Scenario family: swagger_description
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Improve Swagger Description - Banking
+
+Sample context:
+The transaction endpoint description is unclear.
+
+Sample decision:
+Rewrite the Swagger description.
+
+Sample rationale:
+Only documentation changes.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 56
+==============================================================================
+
+Source module: api_component_design
+Scenario family: swagger_example_text
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Correct Swagger Example Text - Banking
+
+Sample context:
+An API example contains a spelling mistake.
+
+Sample decision:
+Correct the example text.
+
+Sample rationale:
+No endpoint behaviour changes.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 57
+==============================================================================
+
+Source module: api_component_design
+Scenario family: test_method_name
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename API Unit Test - Banking
+
+Sample context:
+An API test name is unclear.
+
+Sample decision:
+Rename the test covering transaction requests.
+
+Sample rationale:
+The test assertions remain unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 58
+==============================================================================
+
+Source module: api_component_design
+Scenario family: api_style
+Current label: 1 (SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Select External API Style - Banking
+
+Sample context:
+bank customers require interoperable access to the online banking platform.
+
+Sample decision:
+Use REST for externally consumed APIs.
+
+Sample rationale:
+REST is broadly supported by web and mobile clients.
+
+Alternatives:
+GraphQL|gRPC
+
+Trade-offs:
+Compatibility is prioritised over specialised RPC performance.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 59
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: comment_update
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Update Architecture Code Comment - Banking
+
+Sample context:
+A source comment uses old terminology.
+
+Sample decision:
+Update the comment describing the transaction component.
+
+Sample rationale:
+Executable behaviour is unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 60
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: component_naming
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Internal Component - Banking
+
+Sample context:
+An internal transaction component name is inconsistent.
+
+Sample decision:
+Rename the internal transaction helper component.
+
+Sample rationale:
+The change improves naming consistency.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 61
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: diagram_alias
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Diagram Alias - Banking
+
+Sample context:
+A PlantUML alias is difficult to understand.
+
+Sample decision:
+Rename the internal alias for the transaction component.
+
+Sample rationale:
+The generated architecture semantics remain unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 62
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: diagram_colour
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Change Diagram Colour - Banking
+
+Sample context:
+A diagram element has poor visual contrast.
+
+Sample decision:
+Change the colour of the transaction diagram element.
+
+Sample rationale:
+Only visual styling changes.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 63
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: diagram_layout
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rearrange Architecture Diagram - Banking
+
+Sample context:
+Architecture elements overlap in documentation.
+
+Sample decision:
+Move the transaction component to a clearer diagram position.
+
+Sample rationale:
+Only diagram presentation changes.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 64
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: documentation_typo
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Correct Architecture Typo - Banking
+
+Sample context:
+Architecture documentation contains a spelling error.
+
+Sample decision:
+Correct the typo in the transaction description.
+
+Sample rationale:
+The correction has no design impact.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 65
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: file_name
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Architecture File - Banking
+
+Sample context:
+The architecture source filename is inconsistent.
+
+Sample decision:
+Rename the transaction architecture file.
+
+Sample rationale:
+The file content remains unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 66
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: legend_update
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Update Diagram Legend - Banking
+
+Sample context:
+The architecture diagram legend is incomplete.
+
+Sample decision:
+Add the transaction symbol description to the legend.
+
+Sample rationale:
+Only documentation clarity changes.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 67
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: package_naming
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Internal Package - Banking
+
+Sample context:
+A helper package uses an outdated name.
+
+Sample decision:
+Rename the package containing transaction helper classes.
+
+Sample rationale:
+Runtime behaviour is unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 68
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: plantuml_spacing
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Adjust PlantUML Spacing - Banking
+
+Sample context:
+Generated diagrams contain crowded elements.
+
+Sample decision:
+Adjust spacing directives in the architecture diagram.
+
+Sample rationale:
+Only diagram readability changes.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 69
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: title_format
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Change Architecture Diagram Title - Banking
+
+Sample context:
+The diagram title does not follow report formatting.
+
+Sample decision:
+Rename the diagram title for the online banking platform.
+
+Sample rationale:
+No architectural decision changes.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 70
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: whitespace_cleanup
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Clean Architecture Configuration Formatting - Banking
+
+Sample context:
+Architecture configuration contains unnecessary whitespace.
+
+Sample decision:
+Reformat the configuration without changing values.
+
+Sample rationale:
+Runtime architecture remains identical.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 71
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: architecture_style_selection
+Current label: 1 (SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Select Primary Architecture Style - Banking
+
+Sample context:
+The online banking platform requires independent scalability, fault isolation and independent deployment.
+
+Sample decision:
+Adopt Microservices as the primary architecture style.
+
+Sample rationale:
+Independent services support isolated deployment and scaling.
+
+Alternatives:
+Modular Monolith|Layered Architecture
+
+Trade-offs:
+Greater scalability introduces distributed-system complexity.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 72
+==============================================================================
+
+Source module: database_design
+Scenario family: column_name
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Internal Column - Banking
+
+Sample context:
+An internal transaction metadata column has an unclear name.
+
+Sample decision:
+Rename the metadata column without changing its type.
+
+Sample rationale:
+Only schema naming changes.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 73
+==============================================================================
+
+Source module: database_design
+Scenario family: database_comment
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Add Database Comment - Banking
+
+Sample context:
+A table purpose is unclear to developers.
+
+Sample decision:
+Add documentation comments to the transaction table.
+
+Sample rationale:
+The database design remains unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 74
+==============================================================================
+
+Source module: database_design
+Scenario family: developer_script_name
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Local Database Script - Banking
+
+Sample context:
+A local maintenance script has a vague filename.
+
+Sample decision:
+Rename the local transaction database script.
+
+Sample rationale:
+The script's database operations remain unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 75
+==============================================================================
+
+Source module: database_design
+Scenario family: documentation_example
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Update Schema Documentation Example - Banking
+
+Sample context:
+Schema documentation shows an old transaction value.
+
+Sample decision:
+Replace the example in database documentation.
+
+Sample rationale:
+The actual schema remains unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 76
+==============================================================================
+
+Source module: database_design
+Scenario family: indentation_cleanup
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Clean Migration Formatting - Banking
+
+Sample context:
+A migration file has inconsistent indentation.
+
+Sample decision:
+Reformat the migration without modifying statements.
+
+Sample rationale:
+Database changes remain identical.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 77
+==============================================================================
+
+Source module: database_design
+Scenario family: migration_file_name
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Migration File - Banking
+
+Sample context:
+A migration filename does not follow conventions.
+
+Sample decision:
+Rename the migration file without changing statements.
+
+Sample rationale:
+Only repository naming changes.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 78
+==============================================================================
+
+Source module: database_design
+Scenario family: query_variable_name
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Query Variable - Banking
+
+Sample context:
+A local query variable has a confusing name.
+
+Sample decision:
+Rename the variable used to hold transaction query results.
+
+Sample rationale:
+The query remains identical.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 79
+==============================================================================
+
+Source module: database_design
+Scenario family: sample_value
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Change Sample Database Value - Banking
+
+Sample context:
+Local demonstration data contains outdated wording.
+
+Sample decision:
+Update a sample value in development data.
+
+Sample rationale:
+No production data is affected.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 80
+==============================================================================
+
+Source module: database_design
+Scenario family: seed_data
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Update Development Seed Data - Banking
+
+Sample context:
+Local development uses outdated sample transaction data.
+
+Sample decision:
+Replace the sample development record.
+
+Sample rationale:
+Production behaviour is unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 81
+==============================================================================
+
+Source module: database_design
+Scenario family: sql_comment
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Update SQL Comment - Banking
+
+Sample context:
+A SQL comment contains outdated terminology.
+
+Sample decision:
+Rewrite the comment above the transaction query.
+
+Sample rationale:
+Execution behaviour remains unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 82
+==============================================================================
+
+Source module: database_design
+Scenario family: sql_formatting
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Reformat SQL Script - Banking
+
+Sample context:
+A SQL script has inconsistent formatting.
+
+Sample decision:
+Apply standard formatting to the transaction SQL script.
+
+Sample rationale:
+SQL semantics remain unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 83
+==============================================================================
+
+Source module: database_design
+Scenario family: whitespace_cleanup
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Remove SQL Whitespace - Banking
+
+Sample context:
+A SQL file contains unnecessary blank lines.
+
+Sample decision:
+Remove unnecessary whitespace from the file.
+
+Sample rationale:
+No database behaviour changes.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 84
+==============================================================================
+
+Source module: database_design
+Scenario family: database_technology
+Current label: 1 (SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Select Transactional Database - Banking
+
+Sample context:
+The online banking platform requires consistent storage for financial transaction data.
+
+Sample decision:
+Use PostgreSQL as the primary transactional database.
+
+Sample rationale:
+ACID transactions and relational integrity suit the workload.
+
+Alternatives:
+MongoDB|Cassandra
+
+Trade-offs:
+Consistency is prioritised over schema flexibility.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 85
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: dashboard_colour
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Change Dashboard Colour - Banking
+
+Sample context:
+A dashboard colour has poor contrast.
+
+Sample decision:
+Change the visual colour for the transaction widget.
+
+Sample rationale:
+No monitoring logic changes.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 86
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: dashboard_label
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Change Dashboard Label - Banking
+
+Sample context:
+A monitoring label uses outdated terminology.
+
+Sample decision:
+Rename the label showing transaction activity.
+
+Sample rationale:
+Metrics and alerting remain unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 87
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: dashboard_order
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Reorder Dashboard Widgets - Banking
+
+Sample context:
+Monitoring widgets are displayed in an inconvenient order.
+
+Sample decision:
+Move the transaction widget to a different dashboard position.
+
+Sample rationale:
+Monitoring behaviour remains unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 88
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: documentation_typo
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Correct Security Documentation Typo - Banking
+
+Sample context:
+Security documentation contains a spelling mistake.
+
+Sample decision:
+Correct the typo relating to transaction protection.
+
+Sample rationale:
+Security controls remain unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 89
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: format_test_output
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Reformat Test Output - Banking
+
+Sample context:
+Quality-test output is difficult to read.
+
+Sample decision:
+Change formatting of the transaction test output.
+
+Sample rationale:
+Pass/fail behaviour remains unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 90
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: log_wording
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rewrite Debug Log Message - Banking
+
+Sample context:
+A debug message for transaction processing is unclear.
+
+Sample decision:
+Rewrite the debug message.
+
+Sample rationale:
+Runtime quality behaviour remains unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 91
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: metric_description
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Update Metric Description - Banking
+
+Sample context:
+A metric description is incomplete.
+
+Sample decision:
+Rewrite the description for the transaction metric.
+
+Sample rationale:
+Metric collection remains unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 92
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: monitoring_comment
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Update Monitoring Comment - Banking
+
+Sample context:
+A monitoring configuration comment is outdated.
+
+Sample decision:
+Rewrite the comment describing transaction metrics.
+
+Sample rationale:
+Configuration values remain unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 93
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: report_heading
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Quality Report Heading - Banking
+
+Sample context:
+A report heading uses inconsistent wording.
+
+Sample decision:
+Rename the transaction quality-report heading.
+
+Sample rationale:
+Evaluation results remain unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 94
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: test_description
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rewrite Test Description - Banking
+
+Sample context:
+A test description is difficult to understand.
+
+Sample decision:
+Rewrite the description of the transaction quality test.
+
+Sample rationale:
+Test logic remains unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 95
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: test_name
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Quality Test - Banking
+
+Sample context:
+A quality test has an unclear name.
+
+Sample decision:
+Rename the test covering transaction behaviour.
+
+Sample rationale:
+Assertions remain unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 96
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: authentication_strategy
+Current label: 1 (SIGNIFICANT)
+Difficulty: easy
+Records: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Adopt Token-Based Authentication - Banking
+
+Sample context:
+The online banking platform exposes protected operations involving financial transaction data.
+
+Sample decision:
+Use token-based authentication with role-based authorization.
+
+Sample rationale:
+Stateless tokens support distributed API protection.
+
+Alternatives:
+Server-side sessions
+
+Trade-offs:
+Stateless authentication introduces token lifecycle management.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________

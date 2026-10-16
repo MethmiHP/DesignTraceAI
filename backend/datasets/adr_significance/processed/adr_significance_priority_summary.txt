@@ -1,0 +1,815 @@
+==============================================================================
+FAMILY 1
+==============================================================================
+
+Source module: api_component_design
+Scenario family: graphql_selection
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Use GraphQL for Aggregated Client Queries - Education
+
+Sample context:
+Clients require flexible combinations of related student record data.
+
+Sample decision:
+Expose a GraphQL interface for complex client-side data retrieval.
+
+Sample rationale:
+GraphQL reduces over-fetching across flexible query shapes.
+
+Alternatives:
+Multiple fixed REST endpoints
+
+Trade-offs:
+Flexible queries increase server-side query-control complexity.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 2
+==============================================================================
+
+Source module: api_component_design
+Scenario family: grpc_internal
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Use gRPC for Internal Service Calls - Education
+
+Sample context:
+High-frequency internal service calls require efficient typed communication.
+
+Sample decision:
+Use gRPC for selected internal service-to-service communication.
+
+Sample rationale:
+Binary contracts and generated clients reduce serialization overhead.
+
+Alternatives:
+JSON REST for all internal communication
+
+Trade-offs:
+Higher efficiency reduces direct browser compatibility.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 3
+==============================================================================
+
+Source module: api_component_design
+Scenario family: pagination_contract
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Require Collection Pagination - Education
+
+Sample context:
+course history may contain thousands of records.
+
+Sample decision:
+Require pagination for large course collection endpoints.
+
+Sample rationale:
+Pagination limits response size and latency.
+
+Alternatives:
+Return entire collection
+
+Trade-offs:
+Smaller responses require client pagination logic.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 4
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: backend_for_frontend
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Introduce Client-Specific Backend Layer - Education
+
+Sample context:
+students and lecturers use different client applications with substantially different interaction requirements.
+
+Sample decision:
+Introduce client-specific backend interfaces for major client types.
+
+Sample rationale:
+Client-specific APIs reduce unnecessary client-side orchestration.
+
+Alternatives:
+One identical API surface for all clients
+
+Trade-offs:
+Improved client optimisation creates additional backend components.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 5
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: cache_layer
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Introduce Distributed Cache - Education
+
+Sample context:
+Frequently requested student record data creates repeated database load in the university learning platform.
+
+Sample decision:
+Introduce a distributed cache for frequently accessed read data.
+
+Sample rationale:
+Caching reduces database load and request latency.
+
+Alternatives:
+Database access for every request
+
+Trade-offs:
+Lower latency introduces cache invalidation complexity.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 6
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: read_write_separation
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Separate Read and Write Workloads - Education
+
+Sample context:
+Read traffic and modification traffic have substantially different performance characteristics.
+
+Sample decision:
+Separate read-oriented and write-oriented processing paths.
+
+Sample rationale:
+Independent optimisation supports different workload characteristics.
+
+Alternatives:
+Single processing path
+
+Trade-offs:
+Independent paths improve scalability but increase design complexity.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 7
+==============================================================================
+
+Source module: database_design
+Scenario family: data_archival
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Introduce Historical Data Archival - Education
+
+Sample context:
+Old course records reduce operational query performance.
+
+Sample decision:
+Move historical records into lower-cost archival storage.
+
+Sample rationale:
+Archival keeps operational datasets smaller.
+
+Alternatives:
+Keep all history in active tables
+
+Trade-offs:
+Faster operational queries make historical retrieval slower.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 8
+==============================================================================
+
+Source module: database_design
+Scenario family: soft_delete_strategy
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Adopt Soft Deletion for Regulated Records - Education
+
+Sample context:
+student record records require historical retention after user removal.
+
+Sample decision:
+Use soft deletion with retention metadata for regulated records.
+
+Sample rationale:
+Historical records remain auditable while being hidden operationally.
+
+Alternatives:
+Immediate physical deletion
+
+Trade-offs:
+Retention improves auditability but requires lifecycle management.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 9
+==============================================================================
+
+Source module: database_design
+Scenario family: unique_id_strategy
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Adopt Distributed Identifier Strategy - Education
+
+Sample context:
+Multiple independently deployed components create course records.
+
+Sample decision:
+Use globally unique identifiers for distributed record creation.
+
+Sample rationale:
+Globally unique IDs avoid coordination for identifier allocation.
+
+Alternatives:
+Central auto-increment sequence
+
+Trade-offs:
+Distributed generation improves independence but increases identifier size.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 10
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: availability_sla
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Define High Availability Target - Education
+
+Sample context:
+The university learning platform supports time-sensitive operations for students and lecturers.
+
+Sample decision:
+Design critical components to support a 99.9 percent availability target.
+
+Sample rationale:
+An explicit target drives redundancy and recovery design.
+
+Alternatives:
+Best-effort availability
+
+Trade-offs:
+Higher availability targets increase infrastructure cost.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 11
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: performance_budget
+Current label: 1 (SIGNIFICANT)
+Difficulty: hard
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Define API Performance Budget - Education
+
+Sample context:
+The course registration workflow must remain responsive under expected load.
+
+Sample decision:
+Apply a documented latency budget to critical request paths.
+
+Sample rationale:
+Performance budgets make response-time requirements measurable.
+
+Alternatives:
+No explicit latency target
+
+Trade-offs:
+Strict performance targets may constrain implementation choices.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 12
+==============================================================================
+
+Source module: api_component_design
+Scenario family: response_message
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: medium
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rewrite Development Success Message - Education
+
+Sample context:
+A development response message is unclear.
+
+Sample decision:
+Rewrite the local success message.
+
+Sample rationale:
+The response contract used by clients is unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 13
+==============================================================================
+
+Source module: api_component_design
+Scenario family: sample_header
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: medium
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Update Documentation Header Example - Education
+
+Sample context:
+Swagger shows an outdated sample header value.
+
+Sample decision:
+Replace the documented header example.
+
+Sample rationale:
+The required header contract is unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 14
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: component_description
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: medium
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rewrite Component Description - Education
+
+Sample context:
+Documentation uses outdated wording.
+
+Sample decision:
+Rewrite the documentation for the course component.
+
+Sample rationale:
+The architecture itself is unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 15
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: documentation_order
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: medium
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Reorder Architecture Documentation - Education
+
+Sample context:
+Architecture sections are difficult to navigate.
+
+Sample decision:
+Move the course documentation section earlier in the document.
+
+Sample rationale:
+Only presentation order changes.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 16
+==============================================================================
+
+Source module: architecture_decision
+Scenario family: folder_reorganisation
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: medium
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Move Diagram Source File - Education
+
+Sample context:
+Architecture diagram files are stored inconsistently.
+
+Sample decision:
+Move the course diagram source into the documentation folder.
+
+Sample rationale:
+Only repository organisation changes.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 17
+==============================================================================
+
+Source module: database_design
+Scenario family: alias_name
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: medium
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename SQL Alias - Education
+
+Sample context:
+A local SQL alias is difficult to understand.
+
+Sample decision:
+Rename an alias used in a development query.
+
+Sample rationale:
+The returned data is unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 18
+==============================================================================
+
+Source module: database_design
+Scenario family: fixture_order
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: medium
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Reorder Test Fixtures - Education
+
+Sample context:
+Database test fixtures are difficult to read.
+
+Sample decision:
+Reorder course test fixtures in the source file.
+
+Sample rationale:
+Loaded fixture content remains unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 19
+==============================================================================
+
+Source module: database_design
+Scenario family: test_table_name
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: medium
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Test-Only Table - Education
+
+Sample context:
+A temporary unit-test table has an unclear name.
+
+Sample decision:
+Rename the test-only course table.
+
+Sample rationale:
+Production persistence is unaffected.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 20
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: input_validation_policy
+Current label: 1 (SIGNIFICANT)
+Difficulty: medium
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Standardise Input Validation - Education
+
+Sample context:
+External inputs reach multiple components in the university learning platform.
+
+Sample decision:
+Apply consistent schema validation at system boundaries.
+
+Sample rationale:
+Boundary validation prevents malformed data from spreading internally.
+
+Alternatives:
+Validate independently inside each business function
+
+Trade-offs:
+Consistent validation requires shared schemas and governance.
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 21
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: security_comment
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: medium
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Update Security Comment - Education
+
+Sample context:
+A security middleware comment uses outdated terminology.
+
+Sample decision:
+Rewrite the comment for course security handling.
+
+Sample rationale:
+The security mechanism remains unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 22
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: test_file_name
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: medium
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Rename Quality Test File - Education
+
+Sample context:
+A test filename is inconsistent with conventions.
+
+Sample decision:
+Rename the file containing course quality tests.
+
+Sample rationale:
+Test execution behaviour remains unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 23
+==============================================================================
+
+Source module: quality_evaluation
+Scenario family: threshold_description
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: medium
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Clarify Threshold Documentation - Education
+
+Sample context:
+Documentation describing a performance threshold is unclear.
+
+Sample decision:
+Rewrite the threshold description.
+
+Sample rationale:
+The numerical threshold remains unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
+
+==============================================================================
+FAMILY 24
+==============================================================================
+
+Source module: api_component_design
+Scenario family: example_payload
+Current label: 0 (NOT SIGNIFICANT)
+Difficulty: easy
+Records in priority set: 5
+Domains: banking, ecommerce, education, healthcare, logistics
+
+Sample title:
+Update Example API Payload - Education
+
+Sample context:
+Swagger shows outdated sample course data.
+
+Sample decision:
+Replace the example payload.
+
+Sample rationale:
+Runtime API behaviour is unchanged.
+
+Alternatives:
+(none)
+
+Trade-offs:
+(none)
+
+REVIEW:
+  Recommended action: ____________________
+  Reviewed label: ________________________
+  Comment: _______________________________
