@@ -8,21 +8,41 @@ Requirement Analysis Module Evaluation Results
 | End-to-End NFR Classification Chain | 25 reviewed NFR requirements | 0.3200 | - | - | 0.2994 | 0.3108 |
 | Rule-Based Ambiguity Detection | 50 reviewed requirements | 0.8400 | 1.0000 | 0.3846 | 0.5556 | - |
 | Rule-Based Incompleteness Detection | 50 reviewed requirements | 0.6000 | 0.0000 | 0.0000 | 0.0000 | - |
-| Hybrid End-to-End Requirement Analysis | 50 reviewed requirements across 5 projects | Pending | Pending | Pending | Pending | Pending |
+| Hybrid FR/NFR Classification | 50 reviewed requirements across 5 projects | 0.8000 | - | - | 0.7997 | 0.7997 |
+| Hybrid NFR Quality Attribute Classification | 25 reviewed NFR requirements | 0.3200 | - | - | 0.2228 | 0.3041 |
+| Hybrid ASR Detection | 50 reviewed requirements | 0.8400 | 0.8621 | 0.8621 | 0.8621 | - |
+| Hybrid Ambiguity Detection | 50 reviewed requirements | 0.9000 | 1.0000 | 0.6154 | 0.7619 | - |
+| Hybrid Incompleteness Detection | 50 reviewed requirements | 0.6200 | 0.6667 | 0.1000 | 0.1739 | - |
+| Hybrid Conflict Detection* | 50 reviewed requirements | 1.0000 | - | - | - | - |
+| Hybrid Potentially-Missing Detection* | 50 reviewed requirements | 1.0000 | - | - | - | - |
 
 
 Interpretation Notes
 
-1. The FR/NFR classifier achieved an accuracy of 78.0% on the external reviewed evaluation set.
+1. The standalone FR/NFR classifier achieved 78.0% accuracy and a Macro F1 score of 0.7799 on the reviewed external evaluation set.
 
-2. The standalone NFR category classifier achieved 44.0% accuracy, indicating weaker performance on fine-grained quality-attribute classification.
+2. The standalone NFR category classifier achieved 44.0% accuracy and a Macro F1 score of 0.3206, indicating weaker performance on fine-grained quality-attribute classification.
 
-3. The end-to-end NFR classification chain achieved 32.0% accuracy because FR/NFR misclassification can prevent the NFR category classifier from being executed.
+3. The end-to-end NFR classification chain achieved 32.0% accuracy because FR/NFR classification errors can prevent the NFR category classifier from being executed.
 
-4. The rule-based ambiguity detector achieved high precision (100%) but low recall (38.46%). This indicates that deterministic rules are reliable when they flag an ambiguity, but they miss many contextual ambiguity cases.
+4. The rule-based ambiguity detector achieved 100% precision but only 38.46% recall, showing that deterministic rules are reliable when they flag ambiguity but miss many contextual ambiguity cases.
 
-5. The rule-based incompleteness detector achieved zero recall because the current rules mainly detect explicit placeholders such as TBD and TBA, while the reviewed evaluation set contains broader contextual incompleteness.
+5. The rule-based incompleteness detector achieved zero recall because it mainly detects explicit indicators such as TBD and TBA, while the reviewed dataset contains broader contextual forms of incompleteness.
 
-6. The results support the hybrid architecture combining deterministic rules, fine-tuned transformer classifiers, and LLM-based contextual reasoning.
+6. The final hybrid FR/NFR classification achieved 80.0% accuracy and a Macro F1 score of 0.7997.
 
-7. Final hybrid end-to-end results will be added after the remaining Gemini-based evaluation projects are completed.
+7. Hybrid ASR detection achieved 84.0% accuracy, with precision, recall, and F1 all equal to 0.8621. This was one of the strongest contextual-analysis results.
+
+8. Hybrid ambiguity detection improved over the rule-only approach. Recall increased from 0.3846 to 0.6154 and F1 increased from 0.5556 to 0.7619 while maintaining 100% precision.
+
+9. Hybrid incompleteness detection improved over the deterministic rules, but recall remained low at 0.1000, indicating that contextual incompleteness remains difficult to detect reliably.
+
+10. Hybrid NFR quality-attribute classification achieved 32.0% accuracy and a Macro F1 score of 0.2228. Performance remained weak for minority categories such as Fault Tolerance, Legal, Portability, and Scalability.
+
+11. Conflict detection and potentially-missing detection each achieved 100% accuracy; however, the evaluation dataset contained no positive gold examples for these categories. Therefore, precision, recall, and F1 are not meaningful for these two tasks.
+
+12. The final hybrid evaluation processed all 50 requirements across 5 projects, giving 100% evaluation coverage.
+
+13. Overall, the results support the hybrid architecture combining deterministic rules, fine-tuned RoBERTa classifiers, and Gemini-based contextual reasoning, while also highlighting limitations in fine-grained NFR classification and incompleteness detection.
+
+* No positive gold examples were available for Conflict Detection or Potentially-Missing Detection.

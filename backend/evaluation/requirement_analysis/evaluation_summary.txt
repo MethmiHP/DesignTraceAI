@@ -178,68 +178,45 @@ alongside deterministic rules.
 6. HYBRID END-TO-END REQUIREMENT ANALYSIS
 ==================================================
 
-Status:
-IN PROGRESS
+FR/NFR Classification
+Accuracy    = 0.8000
+Macro F1    = 0.7997
+Weighted F1 = 0.7997
 
-Evaluation dataset:
-50 requirements
-5 projects
-10 requirements per project
+NFR Quality Attribute
+Accuracy    = 0.3200
+Macro F1    = 0.2228
+Weighted F1 = 0.3041
 
-Current completed evaluation:
-P001 completed successfully
-10 / 50 requirements processed
+ASR Detection
+Accuracy  = 0.8400
+Precision = 0.8621
+Recall    = 0.8621
+F1        = 0.8621
 
-Remaining:
-P002
-P003
-P004
-P005
+Ambiguity Detection
+Accuracy  = 0.9000
+Precision = 1.0000
+Recall    = 0.6154
+F1        = 0.7619
 
-Blocked temporarily by:
-Gemini API free-tier quota exhaustion
+Incompleteness Detection
+Accuracy  = 0.6200
+Precision = 0.6667
+Recall    = 0.1000
+F1        = 0.1739
 
-Final hybrid metrics to add later:
+Conflict Detection
+Accuracy = 1.0000
+No positive gold examples were present.
 
-FR/NFR classification:
-Accuracy    =
-Macro F1    =
-Weighted F1 =
+Potentially Missing Detection
+Accuracy = 1.0000
+No positive gold examples were present.
 
-NFR quality attribute:
-Accuracy    =
-Macro F1    =
-Weighted F1 =
-
-ASR detection:
-Accuracy  =
-Precision =
-Recall    =
-F1        =
-
-Ambiguity detection:
-Accuracy  =
-Precision =
-Recall    =
-F1        =
-
-Incompleteness detection:
-Accuracy  =
-Precision =
-Recall    =
-F1        =
-
-Conflict detection:
-Accuracy  =
-Precision =
-Recall    =
-F1        =
-
-Potentially-missing detection:
-Accuracy  =
-Precision =
-Recall    =
-F1        =
+Evaluation Coverage
+50 / 50
+100%
 
 
 ==================================================

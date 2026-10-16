@@ -1,0 +1,51 @@
+﻿project_id,requirement_id,statement,gold_requirement_type,gold_quality_attribute,gold_asr,gold_ambiguous,gold_incomplete,gold_conflicting,gold_potentially_missing,pred_requirement_type,pred_quality_attribute,pred_asr,pred_ambiguous,pred_incomplete,pred_conflicting,pred_potentially_missing,pred_confidence,status
+P001,REQ-001,Patients shall be able to register.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9959,OK
+P001,REQ-002,Patients shall be able to log in using valid credentials.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.7579,OK
+P001,REQ-003,Patients shall be able to search for doctors by specialization.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.996,OK
+P001,REQ-004,Patients shall be able to book appointments with available doctors.,FR,,True,True,True,False,False,FR,,False,False,False,False,False,0.9961,OK
+P001,REQ-005,Patient information must be secure.,NFR,Security,True,True,True,False,False,NFR,Security,True,True,False,False,False,0.7638,OK
+P001,REQ-006,The system shall support at least 500 concurrent users.,NFR,Scalability,True,False,False,False,False,NFR,Performance,True,False,False,False,False,0.1856,OK
+P001,REQ-007,The system should be user friendly.,NFR,Usability,False,True,True,False,False,NFR,Usability,False,True,False,False,False,0.3611,OK
+P001,REQ-008,The service shall be available 99.9% of the time each month.,NFR,Availability,True,False,False,False,False,NFR,Availability,True,False,False,False,False,0.2004,OK
+P001,REQ-009,The system shall send appointment reminders to patients before scheduled appointments.,FR,,False,False,True,False,False,FR,,False,False,False,False,False,0.9968,OK
+P001,REQ-010,The system shall maintain an audit trail of changes to patient records.,NFR,Security,True,False,False,False,False,FR,,True,False,False,False,False,0.9489,OK
+P002,REQ-001,Customers shall be able to create an account.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9932,OK
+P002,REQ-002,Customers shall be able to add products to a shopping cart.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9962,OK
+P002,REQ-003,Customers shall be able to place orders using items in the shopping cart.,FR,,True,False,False,False,False,FR,,False,False,False,False,False,0.9954,OK
+P002,REQ-004,The platform shall support payments through an external payment gateway.,FR,,True,False,False,False,False,NFR,Security,True,False,False,False,False,0.4734,OK
+P002,REQ-005,Payment information shall be encrypted in transit.,NFR,Security,True,False,False,False,False,NFR,Security,True,False,False,False,False,0.767,OK
+P002,REQ-006,Product search results should appear quickly.,NFR,Performance,False,True,True,False,False,NFR,Usability,True,True,False,False,False,0.2876,OK
+P002,REQ-007,The system shall return product search results within 2 seconds for 95% of requests.,NFR,Performance,True,False,False,False,False,NFR,Performance,True,False,False,False,False,0.4372,OK
+P002,REQ-008,The marketplace shall support multiple independent vendors.,FR,,True,True,True,False,False,NFR,Operational,True,False,False,False,False,0.2433,OK
+P002,REQ-009,The application shall remain available if one catalogue instance fails.,NFR,Fault Tolerance,True,False,False,False,False,NFR,Security,True,False,False,False,False,0.3124,OK
+P002,REQ-010,The system shall comply with applicable data protection regulations.,NFR,Legal,True,True,True,False,False,NFR,Security,True,False,False,False,False,0.6706,OK
+P003,REQ-001,"Passengers shall be able to search flights by origin, destination, and travel date.",FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9955,OK
+P003,REQ-002,Passengers shall be able to reserve an available seat on a selected flight.,FR,,True,False,False,False,False,FR,,False,False,False,False,False,0.9961,OK
+P003,REQ-003,The system shall prevent two passengers from reserving the same seat for the same flight.,FR,,True,False,False,False,False,FR,,True,False,False,False,False,0.9957,OK
+P003,REQ-004,Flight status updates shall be shown to passengers.,FR,,False,False,True,False,False,FR,,False,False,False,False,False,0.9968,OK
+P003,REQ-005,The system shall process booking confirmation within 3 seconds under normal operating load.,NFR,Performance,True,True,True,False,False,NFR,Performance,True,False,False,False,False,0.4221,OK
+P003,REQ-006,The booking service shall be scalable.,NFR,Scalability,True,True,True,False,False,NFR,Usability,True,True,True,False,False,0.2152,OK
+P003,REQ-007,The system shall integrate with an external airline schedule provider.,FR,,True,False,False,False,False,NFR,Operational,True,False,True,False,False,0.3615,OK
+P003,REQ-008,The application shall recover unfinished booking transactions after a temporary service interruption.,NFR,Fault Tolerance,True,False,False,False,False,FR,,True,False,False,False,False,0.9145,OK
+P003,REQ-009,Administrators shall be able to update flight schedules.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9964,OK
+P003,REQ-010,The system shall store booking records for a defined retention period.,NFR,Legal,False,False,True,False,False,FR,,True,False,True,False,False,0.9961,OK
+P004,REQ-001,Students shall be able to submit assignment files before the deadline.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9918,OK
+P004,REQ-002,Lecturers shall be able to publish grades for submitted assignments.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9974,OK
+P004,REQ-003,Only authorized lecturers shall be able to modify student grades.,NFR,Security,True,False,False,False,False,NFR,Security,True,False,False,False,False,0.752,OK
+P004,REQ-004,The system should load course pages fast.,NFR,Performance,False,True,True,False,False,NFR,Performance,True,True,False,False,False,0.3083,OK
+P004,REQ-005,"The system shall support 2,000 concurrent student sessions during examinations.",NFR,Scalability,True,False,False,False,False,NFR,Performance,True,False,False,False,False,0.1813,OK
+P004,REQ-006,The service shall provide automatic backups of submitted assignment files.,NFR,Fault Tolerance,True,False,True,False,False,FR,,True,False,False,False,False,0.9465,OK
+P004,REQ-007,Students shall receive notifications when a deadline is changed.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9962,OK
+P004,REQ-008,The application shall work on common desktop and mobile browsers.,NFR,Portability,False,True,True,False,False,NFR,Operational,True,True,False,False,False,0.3213,OK
+P004,REQ-009,The system shall allow students to submit assignments and lecturers to grade them in one operation.,FR,,False,True,True,False,False,FR,,False,False,False,False,False,0.9956,OK
+P004,REQ-010,The system shall retain audit records for grade changes.,NFR,Security,True,False,True,False,False,FR,,True,False,False,False,False,0.9959,OK
+P005,REQ-001,Drivers shall be able to view assigned deliveries.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9972,OK
+P005,REQ-002,Drivers shall be able to update delivery status from a mobile device.,FR,,True,False,False,False,False,FR,,False,False,False,False,False,0.984,OK
+P005,REQ-003,The application shall continue to show the current route when network connectivity is temporarily lost.,NFR,Availability,True,False,True,False,False,NFR,Operational,True,False,False,False,False,0.1941,OK
+P005,REQ-004,Location information should be updated frequently.,NFR,Performance,True,True,True,False,False,NFR,Security,True,True,False,False,False,0.3265,OK
+P005,REQ-005,The system shall encrypt driver location data during transmission.,NFR,Security,True,False,False,False,False,FR,,True,False,False,False,False,0.9502,OK
+P005,REQ-006,Dispatchers shall be able to reassign a delivery to another driver.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9969,OK
+P005,REQ-007,The platform shall integrate with a mapping provider for route calculation.,FR,,True,False,False,False,False,NFR,Operational,True,False,False,False,False,0.3885,OK
+P005,REQ-008,Delivery events shall be synchronized with the central system after connectivity is restored.,NFR,Fault Tolerance,True,False,False,False,False,NFR,Security,True,False,False,False,False,0.2875,OK
+P005,REQ-009,The system shall support several delivery vehicles.,NFR,Scalability,True,True,True,False,False,NFR,Operational,True,True,False,False,False,0.2125,OK
+P005,REQ-010,The system shall provide a mechanism for reporting delivery issues.,FR,,False,False,True,False,False,FR,,False,False,False,False,False,0.9939,OK
