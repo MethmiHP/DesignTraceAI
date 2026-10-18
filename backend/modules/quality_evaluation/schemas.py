@@ -231,6 +231,8 @@ class RuleEvaluationResult(BaseModel):
 
     provider: Optional[str] = None
 
+    recommendation: str | None = None
+
 
 class QualityFinding(BaseModel):
     finding_id: str

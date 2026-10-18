@@ -166,6 +166,8 @@ class SemanticEvaluator:
                 assessment.rationale
             ),
 
+            recommendation=assessment.recommendation,
+
             affected_nfr_ids=(
                 affected_nfr_ids
             ),
