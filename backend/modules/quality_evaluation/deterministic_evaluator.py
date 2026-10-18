@@ -1,4 +1,5 @@
 import re
+
 from collections import Counter
 
 from .schemas import (
@@ -12,12 +13,14 @@ from .schemas import (
 
 class DeterministicEvaluator:
 
+    # Routes each deterministic rule to its configured handler
     def evaluate(
         self,
         rule: QualityRule,
         context: QualityEvaluationRequest,
     ) -> RuleEvaluationResult:
 
+        # Skip rules that do not define a deterministic handler
         if not rule.handler:
             return self._result(
                 rule=rule,
@@ -28,6 +31,8 @@ class DeterministicEvaluator:
                 ),
             )
 
+        # Maps rule handler names from the knowledge base
+        # to deterministic evaluation functions
         handlers = {
             "openapi_version_is_3":
                 self._openapi_version_is_3,
@@ -55,6 +60,8 @@ class DeterministicEvaluator:
             rule.handler
         )
 
+        # Skip unknown handler names instead of failing the
+        # entire quality evaluation process
         if handler is None:
             return self._result(
                 rule=rule,
@@ -70,6 +77,7 @@ class DeterministicEvaluator:
             context,
         )
 
+    # Finds NFRs whose categories match the rule
     def _matching_nfr_ids(
         self,
         rule: QualityRule,
@@ -87,6 +95,7 @@ class DeterministicEvaluator:
             if nfr.category in categories
         ]
 
+    # Creates a common structured result for deterministic checks
     def _result(
         self,
         rule: QualityRule,
@@ -112,6 +121,7 @@ class DeterministicEvaluator:
             ),
         )
 
+    # Checks whether the API contract uses OpenAPI 3.x
     def _openapi_version_is_3(
         self,
         rule: QualityRule,
@@ -153,6 +163,7 @@ class DeterministicEvaluator:
             ],
         )
 
+    # Checks whether API operation identifiers are unique
     def _unique_operation_ids(
         self,
         rule: QualityRule,
@@ -198,6 +209,8 @@ class DeterministicEvaluator:
             ],
         )
 
+    # Checks whether database foreign keys reference
+    # entities that exist in the supplied database design
     def _database_foreign_keys_resolve(
         self,
         rule: QualityRule,
@@ -214,21 +227,27 @@ class DeterministicEvaluator:
 
         checked_references = 0
 
+        # Inspect every supplied foreign-key declaration
         for entity in context.database.entities:
 
             for foreign_key in entity.foreign_keys:
 
+                # Only evaluate foreign keys that follow
+                # the expected "field -> Entity" format
                 if "->" not in foreign_key:
                     continue
 
                 checked_references += 1
 
+                # Extract the referenced database entity
                 target = (
                     foreign_key
                     .split("->", 1)[1]
                     .strip()
                 )
 
+                # Support references such as
+                # User.id or User(id)
                 target = (
                     target
                     .split(".", 1)[0]
@@ -245,6 +264,8 @@ class DeterministicEvaluator:
                         )
                     )
 
+        # Fail when one or more foreign keys reference
+        # database entities that do not exist
         if invalid_references:
             return self._result(
                 rule,
@@ -258,6 +279,21 @@ class DeterministicEvaluator:
                 invalid_references,
             )
 
+        # A rule cannot pass when there were no foreign
+        # keys available to evaluate
+        if checked_references == 0:
+            return self._result(
+                rule,
+                RuleStatus.SKIPPED,
+                (
+                    "No database foreign-key references "
+                    "were available for this rule."
+                ),
+                [],
+            )
+
+        # Pass only when at least one foreign key was
+        # checked and all targets were valid
         return self._result(
             rule,
             RuleStatus.PASS,
@@ -273,6 +309,8 @@ class DeterministicEvaluator:
             ],
         )
 
+    # Checks whether API operation identifiers use
+    # lower camel case
     def _operation_ids_are_camel_case(
         self,
         rule: QualityRule,
@@ -322,6 +360,8 @@ class DeterministicEvaluator:
             ],
         )
 
+    # Iterates through supported operations
+    # in the OpenAPI paths object
     def _iter_openapi_operations(
         self,
         context: QualityEvaluationRequest,
@@ -377,6 +417,8 @@ class DeterministicEvaluator:
                     path_item,
                 )
 
+    # Checks whether state-changing API operations
+    # define at least one 4xx or 5xx response
     def _api_has_error_responses(
         self,
         rule: QualityRule,
@@ -467,6 +509,8 @@ class DeterministicEvaluator:
             affected_nfr_ids,
         )
 
+    # Checks collection GET endpoints for common
+    # pagination or bounded-retrieval parameters
     def _collection_get_has_pagination(
         self,
         rule: QualityRule,
@@ -504,9 +548,12 @@ class DeterministicEvaluator:
             context
         ):
 
+            # Only collection GET operations are relevant
             if method != "get":
                 continue
 
+            # A path containing a parameter normally
+            # represents an individual resource
             if "{" in path:
                 continue
 
@@ -544,6 +591,7 @@ class DeterministicEvaluator:
                     operation_parameters
                 )
 
+            # Extract query parameter names
             query_parameter_names = {
                 str(
                     parameter.get(
@@ -562,6 +610,8 @@ class DeterministicEvaluator:
                 ) == "query"
             }
 
+            # Fail the operation when no recognized
+            # bounded retrieval parameter is present
             if not (
                 query_parameter_names
                 & pagination_names
@@ -607,6 +657,8 @@ class DeterministicEvaluator:
             affected_nfr_ids,
         )
 
+    # Checks whether an OpenAPI security scheme exists
+    # and whether the scheme is actually applied
     def _security_declaration_present(
         self,
         rule: QualityRule,
@@ -646,12 +698,16 @@ class DeterministicEvaluator:
             schemes
         )
 
+        # First check for a top-level OpenAPI
+        # security declaration
         has_security_usage = bool(
             document.get(
                 "security"
             )
         )
 
+        # If no top-level declaration exists,
+        # inspect individual operations
         if not has_security_usage:
 
             for (
@@ -668,6 +724,8 @@ class DeterministicEvaluator:
                     has_security_usage = True
                     break
 
+        # Both a scheme and its usage are required
+        # for this deterministic rule to pass
         if (
             has_scheme
             and has_security_usage

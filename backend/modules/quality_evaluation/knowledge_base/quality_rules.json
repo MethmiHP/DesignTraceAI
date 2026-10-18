@@ -3,7 +3,9 @@
     "rule_id": "OPS-001",
     "title": "OpenAPI contract should use OpenAPI 3.x",
     "source": "Project-authored rule informed by OpenAPI Specification",
-    "artifact_types": ["API"],
+    "artifact_types": [
+      "API"
+    ],
     "quality_attribute": "Operational",
     "nfr_categories": [],
     "applicability": "An API contract exists.",
@@ -19,7 +21,9 @@
     "rule_id": "MAIN-001",
     "title": "API operation identifiers should be unique",
     "source": "Project-authored API maintainability rule",
-    "artifact_types": ["API"],
+    "artifact_types": [
+      "API"
+    ],
     "quality_attribute": "Maintainability",
     "nfr_categories": [],
     "applicability": "API operations exist.",
@@ -35,7 +39,9 @@
     "rule_id": "OPS-002",
     "title": "Database foreign-key targets should exist",
     "source": "Project-authored cross-artifact integrity rule",
-    "artifact_types": ["DATABASE"],
+    "artifact_types": [
+      "DATABASE"
+    ],
     "quality_attribute": "Operational",
     "nfr_categories": [],
     "applicability": "Database entities contain foreign-key references.",
@@ -45,13 +51,16 @@
     "severity_default": "HIGH",
     "evidence_required": true,
     "recommendation_template": "Correct foreign-key references so that they point to existing database entities.",
-    "always_apply": true
+    "always_apply": true,
+    "applicability_handler": "database_has_foreign_keys"
   },
   {
     "rule_id": "USE-001",
     "title": "API operation identifiers should use a consistent readable format",
     "source": "Project-authored API usability rule",
-    "artifact_types": ["API"],
+    "artifact_types": [
+      "API"
+    ],
     "quality_attribute": "Usability",
     "nfr_categories": [],
     "applicability": "API operations exist.",
@@ -67,7 +76,10 @@
     "rule_id": "SEC-001",
     "title": "Security-sensitive API operations should have explicit security requirements",
     "source": "Project-authored rule informed by OWASP API security guidance",
-    "artifact_types": ["API", "FR"],
+    "artifact_types": [
+      "API",
+      "FR"
+    ],
     "quality_attribute": "Security",
     "nfr_categories": [],
     "applicability": "API operations and their source functional requirements exist.",
@@ -83,9 +95,14 @@
     "rule_id": "AVAIL-001",
     "title": "Availability requirements should have supporting design evidence",
     "source": "Project-authored rule informed by software quality guidance",
-    "artifact_types": ["ARCHITECTURE", "NFR"],
+    "artifact_types": [
+      "ARCHITECTURE",
+      "NFR"
+    ],
     "quality_attribute": "Availability",
-    "nfr_categories": ["Availability"],
+    "nfr_categories": [
+      "Availability"
+    ],
     "applicability": "At least one Availability NFR exists.",
     "check_type": "semantic",
     "handler": null,
@@ -99,9 +116,14 @@
     "rule_id": "FT-001",
     "title": "State-changing API operations should define failure responses",
     "source": "Project-authored fault-tolerance API rule",
-    "artifact_types": ["API", "NFR"],
+    "artifact_types": [
+      "API",
+      "NFR"
+    ],
     "quality_attribute": "Fault Tolerance",
-    "nfr_categories": ["Fault Tolerance"],
+    "nfr_categories": [
+      "Fault Tolerance"
+    ],
     "applicability": "A Fault Tolerance NFR exists and state-changing API operations are present.",
     "check_type": "deterministic",
     "handler": "api_has_error_responses",
@@ -109,15 +131,20 @@
     "severity_default": "HIGH",
     "evidence_required": true,
     "recommendation_template": "Define appropriate 4xx or 5xx failure responses for state-changing operations.",
-    "always_apply": false
+    "always_apply": false,
+    "applicability_handler": "api_has_state_changing_operation"
   },
   {
     "rule_id": "LEGAL-001",
     "title": "Legal requirements should have traceable design evidence",
     "source": "Project-authored legal-requirement traceability rule",
-    "artifact_types": ["NFR"],
+    "artifact_types": [
+      "NFR"
+    ],
     "quality_attribute": "Legal",
-    "nfr_categories": ["Legal"],
+    "nfr_categories": [
+      "Legal"
+    ],
     "applicability": "At least one Legal NFR exists.",
     "check_type": "semantic",
     "handler": null,
@@ -131,9 +158,13 @@
     "rule_id": "LAF-001",
     "title": "Look and Feel requirements should have relevant design evidence",
     "source": "Project-authored user-interface quality rule",
-    "artifact_types": ["NFR"],
+    "artifact_types": [
+      "NFR"
+    ],
     "quality_attribute": "Look and Feel",
-    "nfr_categories": ["Look and Feel"],
+    "nfr_categories": [
+      "Look and Feel"
+    ],
     "applicability": "At least one Look and Feel NFR exists.",
     "check_type": "semantic",
     "handler": null,
@@ -147,9 +178,15 @@
     "rule_id": "MAIN-002",
     "title": "Component responsibilities should remain cohesive",
     "source": "Project-authored maintainability rule informed by software design principles",
-    "artifact_types": ["ARCHITECTURE", "COMPONENT", "NFR"],
+    "artifact_types": [
+      "ARCHITECTURE",
+      "COMPONENT",
+      "NFR"
+    ],
     "quality_attribute": "Maintainability",
-    "nfr_categories": ["Maintainability"],
+    "nfr_categories": [
+      "Maintainability"
+    ],
     "applicability": "A Maintainability NFR and component responsibilities exist.",
     "check_type": "semantic",
     "handler": null,
@@ -163,9 +200,14 @@
     "rule_id": "OPER-001",
     "title": "Operational requirements should have design support",
     "source": "Project-authored operational quality rule",
-    "artifact_types": ["ARCHITECTURE", "NFR"],
+    "artifact_types": [
+      "ARCHITECTURE",
+      "NFR"
+    ],
     "quality_attribute": "Operational",
-    "nfr_categories": ["Operational"],
+    "nfr_categories": [
+      "Operational"
+    ],
     "applicability": "At least one Operational NFR exists.",
     "check_type": "semantic",
     "handler": null,
@@ -179,10 +221,16 @@
     "rule_id": "PERF-001",
     "title": "Collection retrieval endpoints should expose bounded retrieval controls",
     "source": "Project-authored performance-efficiency API rule",
-    "artifact_types": ["API", "NFR"],
+    "artifact_types": [
+      "API",
+      "NFR"
+    ],
     "quality_attribute": "Performance",
-    "nfr_categories": ["Performance"],
+    "nfr_categories": [
+      "Performance"
+    ],
     "applicability": "A Performance NFR exists and collection GET operations are present.",
+    "applicability_handler": "api_has_collection_get",
     "check_type": "deterministic",
     "handler": "collection_get_has_pagination",
     "semantic_instruction": null,
@@ -195,9 +243,14 @@
     "rule_id": "PORT-001",
     "title": "Portability requirements should be supported by architecture evidence",
     "source": "Project-authored portability rule informed by software quality guidance",
-    "artifact_types": ["ARCHITECTURE", "NFR"],
+    "artifact_types": [
+      "ARCHITECTURE",
+      "NFR"
+    ],
     "quality_attribute": "Portability",
-    "nfr_categories": ["Portability"],
+    "nfr_categories": [
+      "Portability"
+    ],
     "applicability": "At least one Portability NFR exists.",
     "check_type": "semantic",
     "handler": null,
@@ -211,10 +264,16 @@
     "rule_id": "SCAL-001",
     "title": "Collection retrieval should avoid unbounded result sets",
     "source": "Project-authored scalability API rule",
-    "artifact_types": ["API", "NFR"],
+    "artifact_types": [
+      "API",
+      "NFR"
+    ],
     "quality_attribute": "Scalability",
-    "nfr_categories": ["Scalability"],
+    "nfr_categories": [
+      "Scalability"
+    ],
     "applicability": "A Scalability NFR exists and collection GET operations are present.",
+    "applicability_handler": "api_has_collection_get",
     "check_type": "deterministic",
     "handler": "collection_get_has_pagination",
     "semantic_instruction": null,
@@ -227,10 +286,16 @@
     "rule_id": "SEC-002",
     "title": "Explicit Security NFRs should be represented by API security declarations",
     "source": "Project-authored rule informed by OWASP API security guidance and OpenAPI",
-    "artifact_types": ["API", "NFR"],
+    "artifact_types": [
+      "API",
+      "NFR"
+    ],
     "quality_attribute": "Security",
-    "nfr_categories": ["Security"],
-    "applicability": "At least one Security NFR exists.",
+    "nfr_categories": [
+      "Security"
+    ],
+    "applicability": "A Security NFR explicitly requires API authentication, authorization, or access control.",
+    "applicability_handler": "security_nfr_requires_api_access_control",
     "check_type": "deterministic",
     "handler": "security_declaration_present",
     "semantic_instruction": null,
@@ -243,9 +308,14 @@
     "rule_id": "USE-002",
     "title": "Usability requirements should be reflected in consumer-facing API design",
     "source": "Project-authored usability rule",
-    "artifact_types": ["API", "NFR"],
+    "artifact_types": [
+      "API",
+      "NFR"
+    ],
     "quality_attribute": "Usability",
-    "nfr_categories": ["Usability"],
+    "nfr_categories": [
+      "Usability"
+    ],
     "applicability": "At least one Usability NFR exists.",
     "check_type": "semantic",
     "handler": null,

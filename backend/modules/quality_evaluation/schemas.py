@@ -190,6 +190,7 @@ class QualityRule(BaseModel):
     )
 
     applicability: str
+    applicability_handler: str | None = None
 
     check_type: CheckType
 
