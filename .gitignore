@@ -246,3 +246,7 @@ __marimo__/
 
 # Hide untracked NLP research files during Coordinator development
 /backend/datasets/nlp/
+
+
+# Generated outputs
+/backend/outputs/coordinator_demo
