@@ -1897,9 +1897,7 @@ button:disabled {
 }
 
 
-/* =========================================================
-   QUALITY SUMMARY
-   ========================================================= */
+/* QUALITY SUMMARY */
 
 .quality-summary-grid {
   display: grid;
@@ -1943,9 +1941,7 @@ button:disabled {
 }
 
 
-/* =========================================================
-   ATTENTION LIST
-   ========================================================= */
+/* ATTENTION LIST */
 
 .attention-list {
   display: flex;
@@ -1996,9 +1992,7 @@ button:disabled {
 }
 
 
-/* =========================================================
-   GENERATED SRS
-   ========================================================= */
+/* GENERATED SRS*/
 
 .results-srs-section {
   margin-top: 22px;
@@ -2040,9 +2034,7 @@ button:disabled {
 }
 
 
-/* =========================================================
-   BOTTOM RESULTS BAR
-   ========================================================= */
+/* BOTTOM RESULTS BAR */
 
 .results-bottom-bar {
   min-height: 64px;
@@ -2078,9 +2070,7 @@ button:disabled {
 }
 
 
-/* =========================================================
-   SUMMARY OVERRIDES FOR DASHBOARD RESULTS
-   ========================================================= */
+/* SUMMARY OVERRIDES FOR DASHBOARD RESULTS */
 
 .analysis-summary-section {
   margin-top: 0;
@@ -2150,9 +2140,7 @@ button:disabled {
 }
 
 
-/* =========================================================
-   REQUIREMENTS TABLE RESULTS OVERRIDES
-   ========================================================= */
+/* REQUIREMENTS TABLE RESULTS OVERRIDES*/
 
 .requirements-table-section {
   margin-top: 18px;
@@ -2206,9 +2194,7 @@ button:disabled {
 }
 
 
-/* =========================================================
-   RESPONSIVE RESULTS PAGE
-   ========================================================= */
+/*  RESPONSIVE RESULTS PAGE */
 
 @media (max-width: 1050px) {
 
@@ -2257,9 +2243,7 @@ button:disabled {
 
 }
 
-/* =========================================================
-   ASR CARD
-   ========================================================= */
+/* ASR CARD */
 
 .asr-attention-item {
   padding: 10px;
@@ -2299,9 +2283,7 @@ button:disabled {
 }
 
 
-/* =========================================================
-   QUALITY ATTENTION CARD
-   ========================================================= */
+/*  QUALITY ATTENTION CARD */
 
 .attention-item-header {
   display: flex;
@@ -2368,9 +2350,7 @@ button:disabled {
   text-align: center;
 }
 
-/* =========================================================
-   RESULT PAGE FONT SIZE - LARGER
-   ========================================================= */
+/* RESULT PAGE FONT SIZE - LARGER */
 
 .workspace-header h1 {
   font-size: 27px;
@@ -2466,9 +2446,7 @@ button:disabled {
   font-size: 12px;
 }
 
-/* =========================================================
-   REQUIRES ATTENTION - LARGER TEXT
-   ========================================================= */
+/* REQUIRES ATTENTION - LARGER TEXT*/
 
 .attention-item {
   padding: 12px;
@@ -2501,9 +2479,7 @@ button:disabled {
   font-size: 10px !important;
 }
 
-/* =========================================================
-   RESULT HEADER ACTIONS
-   ========================================================= */
+/* RESULT HEADER ACTIONS */
 
 .workspace-header-actions {
   display: flex;
@@ -2534,9 +2510,7 @@ button:disabled {
 }
 
 
-/* =========================================================
-   GOLD / ASR ACTION BUTTON
-   ========================================================= */
+/* GOLD / ASR ACTION BUTTON */
 
 .gold-action-button {
   padding: 10px 16px;
@@ -2559,18 +2533,14 @@ button:disabled {
 }
 
 
-/* =========================================================
-   GENERATED SRS HEADING ACTION
-   ========================================================= */
+/* GENERATED SRS HEADING ACTION*/
 
 .results-srs-section .section-heading {
   align-items: center;
 }
 
 
-/* =========================================================
-   MOBILE HEADER
-   ========================================================= */
+/*MOBILE HEADER */
 
 @media (max-width: 1000px) {
   .workspace-header-actions {

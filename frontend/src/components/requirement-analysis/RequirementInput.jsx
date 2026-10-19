@@ -82,10 +82,7 @@ export default function RequirementInput() {
   const [error, setError] = useState("");
 
 
-  // ========================================================
   // SAVE CURRENT FORM DRAFT
-  // ========================================================
-
   useEffect(() => {
     const draft = {
       mode,
@@ -123,9 +120,7 @@ export default function RequirementInput() {
   ]);
 
 
-  // ========================================================
   // FILE CHANGE
-  // ========================================================
 
   const handleFileChange = (event) => {
     const file =
@@ -140,9 +135,7 @@ export default function RequirementInput() {
   };
 
 
-  // ========================================================
   // MODE CHANGE
-  // ========================================================
 
   const handleModeChange = (
     newMode
@@ -152,9 +145,7 @@ export default function RequirementInput() {
   };
 
 
-  // ========================================================
   // SUBMIT
-  // ========================================================
 
   const handleSubmit = async (
     event
@@ -203,9 +194,7 @@ export default function RequirementInput() {
       let response;
 
 
-      // ----------------------------------------------------
       // MANUAL ANALYSIS
-      // ----------------------------------------------------
 
       if (mode === "manual") {
         response =
@@ -225,9 +214,7 @@ export default function RequirementInput() {
       }
 
 
-      // ----------------------------------------------------
       // DOCUMENT ANALYSIS
-      // ----------------------------------------------------
 
       else {
         response =
@@ -247,9 +234,7 @@ export default function RequirementInput() {
       }
 
 
-      // ----------------------------------------------------
       // SAVE DRAFT
-      // ----------------------------------------------------
 
       const draft = {
         mode,
@@ -303,9 +288,7 @@ export default function RequirementInput() {
       );
 
 
-      // ----------------------------------------------------
       // GO TO RESULTS PAGE
-      // ----------------------------------------------------
 
       navigate(
         "/requirements/results",
@@ -331,9 +314,7 @@ export default function RequirementInput() {
   return (
     <section className="requirement-card">
 
-      {/* ==================================================
-          INPUT MODE
-          ================================================== */}
+      {/* INPUT MODE */}
 
       <div className="input-tabs">
 
@@ -373,9 +354,7 @@ export default function RequirementInput() {
       </div>
 
 
-      {/* ==================================================
-          FORM
-          ================================================== */}
+      {/* FORM */}
 
       <form
         className="requirement-form"
@@ -455,9 +434,7 @@ export default function RequirementInput() {
         </div>
 
 
-        {/* ==================================================
-            DOCUMENT MODE
-            ================================================== */}
+        {/* DOCUMENT MODE*/}
 
         {mode === "document" && (
           <div className="upload-section">
@@ -563,9 +540,7 @@ export default function RequirementInput() {
         )}
 
 
-        {/* ==================================================
-            MANUAL MODE
-            ================================================== */}
+        {/* MANUAL MODE */}
 
         {mode === "manual" && (
 

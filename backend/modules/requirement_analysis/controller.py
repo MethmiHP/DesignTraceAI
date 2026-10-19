@@ -1,59 +1,6 @@
-# # Defines the FastAPI endpoint for requirement analysis,
-# # receives the request, calls the RequirementAnalysisService,
-# # and returns the analyzed requirement response to the client.
-
-# from fastapi import APIRouter, HTTPException
-
-# from modules.requirement_analysis.schemas import (
-#     RequirementAnalysisRequest,
-#     RequirementAnalysisResponse
-# )
-
-# from modules.requirement_analysis.service import (
-#     RequirementAnalysisService
-# )
-
-
-# router = APIRouter(
-#     prefix="/requirements",
-#     tags=["Requirement Analysis"]
-# )
-
-
-# service = RequirementAnalysisService()
-
-
-# @router.post(
-#     "/analyze",
-#     response_model=RequirementAnalysisResponse
-# )
-# async def analyze_requirements(
-#     request: RequirementAnalysisRequest
-# ):
-
-#     try:
-
-#         result = await service.analyze(
-#             request
-#         )
-
-#         return result
-
-#     except Exception as exc:
-
-#         raise HTTPException(
-#             status_code=500,
-#             detail=f"Requirement analysis failed: {str(exc)}"
-#         )
-
-# Defines FastAPI endpoints for Requirement Analysis.
-#
-# Supports:
-# 1. Manual/raw-text requirement analysis
-# 2. Document-based requirement analysis for:
-#       - TXT
-#       - PDF with extractable text
-#       - DOCX
+# Defines the FastAPI endpoint for requirement analysis,
+# receives the request, calls the RequirementAnalysisService,
+# and returns the analyzed requirement response to the client.
 
 from fastapi import (
     APIRouter,
@@ -88,9 +35,7 @@ router = APIRouter(
 service = RequirementAnalysisService()
 
 
-# ============================================================
 # MANUAL / RAW TEXT ANALYSIS
-# ============================================================
 
 @router.post(
     "/analyze",
@@ -119,9 +64,7 @@ async def analyze_requirements(
         ) from exc
 
 
-# ============================================================
 # DOCUMENT ANALYSIS
-# ============================================================
 
 @router.post(
     "/analyze-document",
@@ -141,9 +84,7 @@ async def analyze_requirement_document(
 
     try:
 
-        # ----------------------------------------------------
         # VALIDATE PROJECT ID
-        # ----------------------------------------------------
 
         project_id = (
             project_id
@@ -161,16 +102,12 @@ async def analyze_requirement_document(
             )
 
 
-        # ----------------------------------------------------
         # READ UPLOADED FILE
-        # ----------------------------------------------------
 
         file_bytes = await file.read()
 
 
-        # ----------------------------------------------------
         # EXTRACT TEXT
-        # ----------------------------------------------------
 
         extracted_text = (
             extract_document_text(
@@ -185,9 +122,7 @@ async def analyze_requirement_document(
         )
 
 
-        # ----------------------------------------------------
         # BUILD NORMAL REQUIREMENT ANALYSIS REQUEST
-        # ----------------------------------------------------
 
         request = (
             RequirementAnalysisRequest(
@@ -217,9 +152,7 @@ async def analyze_requirement_document(
         )
 
 
-        # ----------------------------------------------------
         # USE THE SAME EXISTING ANALYSIS SERVICE
-        # ----------------------------------------------------
 
         result = await service.analyze(
             request

@@ -25,9 +25,7 @@ export default function RequirementAnalysisResultsPage() {
   const location = useLocation();
 
 
-  // ========================================================
   // RESTORE RESULT
-  // ========================================================
 
   const getStoredResult = () => {
     if (location.state?.result) {
@@ -56,9 +54,7 @@ export default function RequirementAnalysisResultsPage() {
   };
 
 
-  // ========================================================
   // RESTORE INPUT DRAFT
-  // ========================================================
 
   const getStoredDraft = () => {
     if (location.state?.draft) {
@@ -92,9 +88,7 @@ export default function RequirementAnalysisResultsPage() {
   const draft = getStoredDraft();
 
 
-  // ========================================================
   // THEME
-  // ========================================================
 
   const [theme, setTheme] = useState(() => {
     return (
@@ -127,9 +121,7 @@ export default function RequirementAnalysisResultsPage() {
   };
 
 
-  // ========================================================
   // ASR REQUIREMENTS
-  // ========================================================
 
   const asrRequirements = useMemo(() => {
     if (!result?.requirements) {
@@ -143,10 +135,7 @@ export default function RequirementAnalysisResultsPage() {
   }, [result]);
 
 
-  // ========================================================
   // QUALITY ISSUES
-  // ========================================================
-
   const attentionRequirements = useMemo(() => {
     if (!result?.requirements) {
       return [];
@@ -173,9 +162,9 @@ export default function RequirementAnalysisResultsPage() {
   }, [result]);
 
 
-  // ========================================================
+
   // AVERAGE CONFIDENCE
-  // ========================================================
+  
 
   const averageConfidence = useMemo(() => {
     if (
@@ -206,9 +195,9 @@ export default function RequirementAnalysisResultsPage() {
   }, [result]);
 
 
-  // ========================================================
+  
   // EDIT REQUIREMENTS
-  // ========================================================
+  
 
   const handleEditRequirements = () => {
     navigate(
@@ -222,10 +211,8 @@ export default function RequirementAnalysisResultsPage() {
   };
 
 
-  // ========================================================
+  
   // EXPORT ANALYSIS
-  // ========================================================
-
   const handleExportAnalysis = () => {
     if (!result) {
       return;
@@ -277,9 +264,7 @@ export default function RequirementAnalysisResultsPage() {
   };
 
 
-  // ========================================================
   // EXPORT SRS
-  // ========================================================
 
   const handleExportSRS = () => {
     if (!result?.generated_srs) {
@@ -327,10 +312,7 @@ export default function RequirementAnalysisResultsPage() {
   };
 
 
-  // ========================================================
   // NO RESULT
-  // ========================================================
-
   if (!result) {
     return (
       <div className="designtrace-layout">
@@ -487,9 +469,7 @@ export default function RequirementAnalysisResultsPage() {
   return (
     <div className="designtrace-layout">
 
-      {/* ==================================================
-          LEFT SIDEBAR
-          ================================================== */}
+      {/* LEFT SIDEBAR */}
 
       <aside className="designtrace-sidebar">
 
@@ -638,9 +618,7 @@ export default function RequirementAnalysisResultsPage() {
       </aside>
 
 
-      {/* ==================================================
-          RESULTS WORKSPACE
-          ================================================== */}
+      {/* RESULTS WORKSPACE*/}
 
       <main className="requirement-workspace">
 
@@ -712,9 +690,7 @@ export default function RequirementAnalysisResultsPage() {
         </header>
 
 
-        {/* ==================================================
-            RESULTS CONTENT
-            ================================================== */}
+        {/* RESULTS CONTENT*/}
 
         <div className="results-layout">
 
@@ -784,9 +760,7 @@ export default function RequirementAnalysisResultsPage() {
           </div>
 
 
-          {/* ==================================================
-              RIGHT PANEL
-              ================================================== */}
+          {/* RIGHT PANEL */}
 
           <aside className="results-right-panel">
 
@@ -878,9 +852,7 @@ export default function RequirementAnalysisResultsPage() {
             </section>
 
 
-            {/* ==================================================
-                QUALITY SUMMARY
-                ================================================== */}
+            {/* QUALITY SUMMARY */}
 
             <section className="results-side-card">
 
@@ -980,9 +952,7 @@ export default function RequirementAnalysisResultsPage() {
             </section>
 
 
-            {/* ==================================================
-                ASR SECTION
-                ================================================== */}
+            {/* ASR SECTION */}
 
             <section className="results-side-card">
 
@@ -1072,9 +1042,7 @@ export default function RequirementAnalysisResultsPage() {
             </section>
 
 
-            {/* ==================================================
-                REQUIRES ATTENTION
-                ================================================== */}
+            {/* REQUIRES ATTENTION */}
 
             <section className="results-side-card">
 
@@ -1252,9 +1220,7 @@ export default function RequirementAnalysisResultsPage() {
         </div>
 
 
-        {/* ==================================================
-            BOTTOM ACTION BAR
-            ================================================== */}
+        {/* BOTTOM ACTION BAR */}
 
         <div className="results-bottom-bar">
 

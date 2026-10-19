@@ -48,9 +48,7 @@ from modules.requirement_analysis.requirement_llm_client import (
 )
 
 
-# ============================================================
 # OUTPUT DIRECTORY
-# ============================================================
 
 OUTPUT_DIR = (
     Path(__file__).resolve().parents[2]
@@ -59,9 +57,7 @@ OUTPUT_DIR = (
 )
 
 
-# ============================================================
 # REQUIREMENT ANALYSIS SERVICE
-# ============================================================
 
 class RequirementAnalysisService:
 
@@ -82,18 +78,14 @@ class RequirementAnalysisService:
         )
 
 
-    # ========================================================
     # MAIN ANALYSIS PIPELINE
-    # ========================================================
 
     async def analyze(
         self,
         request: RequirementAnalysisRequest
     ) -> RequirementAnalysisResponse:
 
-        # ----------------------------------------------------
         # STEP 1 - PREPROCESS RAW TEXT
-        # ----------------------------------------------------
 
         preprocessing = preprocess_text(
             request.raw_description
@@ -108,9 +100,7 @@ class RequirementAnalysisService:
         ]
 
 
-        # ----------------------------------------------------
         # STEP 2 - RUN DETERMINISTIC QUALITY RULES
-        # ----------------------------------------------------
 
         sentence_rule_results = []
 
@@ -126,9 +116,7 @@ class RequirementAnalysisService:
             })
 
 
-        # ----------------------------------------------------
         # STEP 3 - BUILD LLM PROMPT
-        # ----------------------------------------------------
 
         prompt = build_requirement_analysis_prompt(
 
@@ -148,9 +136,7 @@ class RequirementAnalysisService:
         )
 
 
-        # ----------------------------------------------------
         # STEP 4 - ASK GEMINI FOR STRUCTURED ANALYSIS
-        # ----------------------------------------------------
 
         llm_result = (
             await self.llm.generate_structured(
@@ -283,10 +269,7 @@ class RequirementAnalysisService:
         )
 
 
-        # ----------------------------------------------------
         # STEP 5 - PROCESS EACH EXTRACTED REQUIREMENT
-        # ----------------------------------------------------
-
         requirements = []
 
 
@@ -295,18 +278,14 @@ class RequirementAnalysisService:
             start=1
         ):
 
-            # ------------------------------------------------
             # Deterministic requirement ID
-            # ------------------------------------------------
 
             requirement_id = (
                 f"REQ-{index:03d}"
             )
 
 
-            # ------------------------------------------------
             # Requirement text
-            # ------------------------------------------------
 
             original_text = item.get(
                 "original_text",
@@ -330,10 +309,7 @@ class RequirementAnalysisService:
                 )
 
 
-            # ------------------------------------------------
             # STEP 5A - FINE-TUNED ROBERTA CLASSIFICATION
-            # ------------------------------------------------
-
             classification = (
                 self.classifier.classify(
                     original_text
@@ -369,9 +345,7 @@ class RequirementAnalysisService:
             )
 
 
-            # ------------------------------------------------
             # STEP 5B - CLASSIFICATION CONFIDENCE
-            # ------------------------------------------------
 
             if (
                 requirement_type == "NFR"
@@ -391,20 +365,14 @@ class RequirementAnalysisService:
                 )
 
 
-            # ------------------------------------------------
             # STEP 5C - LLM QUALITY ANALYSIS
-            # ------------------------------------------------
-
             quality_data = item.get(
                 "quality_issues",
                 {}
             )
 
 
-            # ------------------------------------------------
             # STEP 5D - DETERMINISTIC QUALITY ANALYSIS
-            # ------------------------------------------------
-
             deterministic_quality = (
                 run_quality_rules(
                     original_text
@@ -412,9 +380,7 @@ class RequirementAnalysisService:
             )
 
 
-            # ------------------------------------------------
             # STEP 5E - PRESERVE ORIGINAL SOURCE RULE RESULTS
-            # ------------------------------------------------
 
             source_rule_quality = {}
 
@@ -470,9 +436,7 @@ class RequirementAnalysisService:
                         break
 
 
-            # ------------------------------------------------
             # STEP 5F - MERGE QUALITY RESULTS
-            # ------------------------------------------------
 
             final_ambiguous = (
 
@@ -536,10 +500,7 @@ class RequirementAnalysisService:
             )
 
 
-            # ------------------------------------------------
             # STEP 5G - ISSUE DETAILS
-            # ------------------------------------------------
-
             issue_details = []
 
 
@@ -583,10 +544,7 @@ class RequirementAnalysisService:
                     continue
 
 
-            # ------------------------------------------------
             # STEP 5H - CREATE FINAL REQUIREMENT
-            # ------------------------------------------------
-
             requirement = (
                 AnalyzedRequirement(
 
@@ -652,19 +610,14 @@ class RequirementAnalysisService:
             )
 
 
-        # ----------------------------------------------------
         # STEP 6 - CREATE SUMMARY
-        # ----------------------------------------------------
 
         summary = self._create_summary(
             requirements
         )
 
 
-        # ----------------------------------------------------
         # STEP 7 - GENERATE SRS
-        # ----------------------------------------------------
-
         generated_srs = (
             self._generate_srs(
 
@@ -677,10 +630,7 @@ class RequirementAnalysisService:
         )
 
 
-        # ----------------------------------------------------
         # STEP 8 - VALIDATE FINAL OUTPUT
-        # ----------------------------------------------------
-
         validation = (
             self._validate_requirements(
                 requirements
@@ -688,9 +638,7 @@ class RequirementAnalysisService:
         )
 
 
-        # ----------------------------------------------------
         # STEP 9 - BUILD FINAL RESPONSE
-        # ----------------------------------------------------
 
         result = RequirementAnalysisResponse(
 
@@ -711,10 +659,7 @@ class RequirementAnalysisService:
         )
 
 
-        # ----------------------------------------------------
         # STEP 10 - SAVE RESULT
-        # ----------------------------------------------------
-
         self._save_result(
             result
         )
@@ -723,9 +668,7 @@ class RequirementAnalysisService:
         return result
 
 
-    # ========================================================
     # SAVE RESULT
-    # ========================================================
 
     def _save_result(
         self,
@@ -794,10 +737,7 @@ class RequirementAnalysisService:
         return output_file
 
 
-    # ========================================================
     # SUMMARY
-    # ========================================================
-
     def _create_summary(
         self,
         requirements: list[
@@ -894,10 +834,7 @@ class RequirementAnalysisService:
         )
 
 
-    # ========================================================
     # VALIDATION
-    # ========================================================
-
     def _validate_requirements(
         self,
         requirements: list[
@@ -972,10 +909,7 @@ class RequirementAnalysisService:
         )
 
 
-    # ========================================================
     # SRS GENERATION
-    # ========================================================
-
     def _generate_srs(
         self,
         project_id: str,
@@ -1026,9 +960,7 @@ class RequirementAnalysisService:
         )
 
 
-        # ----------------------------------------------------
         # FUNCTIONAL REQUIREMENTS
-        # ----------------------------------------------------
 
         lines.append("")
 
@@ -1045,10 +977,7 @@ class RequirementAnalysisService:
             )
 
 
-        # ----------------------------------------------------
         # NON-FUNCTIONAL REQUIREMENTS
-        # ----------------------------------------------------
-
         lines.append("")
 
         lines.append(
@@ -1065,10 +994,7 @@ class RequirementAnalysisService:
             )
 
 
-        # ----------------------------------------------------
         # ARCHITECTURALLY SIGNIFICANT REQUIREMENTS
-        # ----------------------------------------------------
-
         lines.append("")
 
         lines.append(

@@ -1,63 +1,3 @@
-// import { useEffect, useState } from "react";
-
-// import RequirementInput from "../../components/requirement-analysis/RequirementInput";
-
-// export default function RequirementAnalysisPage() {
-//   const [theme, setTheme] = useState(() => {
-//     return localStorage.getItem("designtrace-theme") || "dark";
-//   });
-
-//   useEffect(() => {
-//     document.documentElement.setAttribute(
-//       "data-theme",
-//       theme
-//     );
-
-//     localStorage.setItem(
-//       "designtrace-theme",
-//       theme
-//     );
-//   }, [theme]);
-
-//   const toggleTheme = () => {
-//     setTheme((currentTheme) =>
-//       currentTheme === "dark"
-//         ? "light"
-//         : "dark"
-//     );
-//   };
-
-//   return (
-//     <div className="requirement-page">
-//       <header className="requirement-topbar">
-//         <div>
-//           <h1>Requirement Analysis</h1>
-
-//           <p>
-//             Analyze software requirements using AI-assisted
-//             extraction, classification, quality analysis,
-//             and ASR detection.
-//           </p>
-//         </div>
-
-//         <button
-//           className="theme-toggle"
-//           type="button"
-//           onClick={toggleTheme}
-//         >
-//           {theme === "dark"
-//             ? "☀ Light"
-//             : "☾ Dark"}
-//         </button>
-//       </header>
-
-//       <main className="requirement-content">
-//         <RequirementInput />
-//       </main>
-//     </div>
-//   );
-// }
-
 import { useEffect, useState } from "react";
 
 import RequirementInput from "../../components/requirement-analysis/RequirementInput";
@@ -97,9 +37,7 @@ export default function RequirementAnalysisPage() {
   return (
     <div className="designtrace-layout">
 
-      {/* ==============================
-          LEFT SIDEBAR
-          ============================== */}
+      {/* LEFT SIDEBAR */}
 
       <aside className="designtrace-sidebar">
 
@@ -242,9 +180,7 @@ export default function RequirementAnalysisPage() {
       </aside>
 
 
-      {/* ==============================
-          MAIN WORKSPACE
-          ============================== */}
+      {/* MAIN WORKSPACE*/}
 
       <main className="requirement-workspace">
 
