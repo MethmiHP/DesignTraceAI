@@ -14,6 +14,7 @@ Supported:
 """
 
 import re
+from decimal import Decimal
 
 
 def quote_identifier(value):
@@ -137,7 +138,20 @@ def validate_sql_constraints(sql_text, rules):
                 f"{rule['operator']} {rule['value']})"
             )
 
-        success = compact_sql(expected) in body
+        if "allowed_values" in rule:
+            success = compact_sql(expected) in body
+        else:
+            # Numeric equivalents such as 0 and 0.0 are the same CHECK.
+            check_pattern = (
+                r"CHECK\s*\(\s*"
+                + re.escape(quote_identifier(column))
+                + r"\s*" + re.escape(str(rule["operator"]))
+                + r"\s*(-?\d+(?:\.\d+)?)\s*\)"
+            )
+            success = any(
+                Decimal(match.group(1)) == Decimal(str(rule["value"]))
+                for match in re.finditer(check_pattern, get_table_body(sql_text, table), re.IGNORECASE)
+            )
 
         record(
             success,
