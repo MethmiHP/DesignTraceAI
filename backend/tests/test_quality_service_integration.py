@@ -629,3 +629,136 @@ def test_service_skips_semantic_rule_when_llm_is_disabled():
         response.finding_groups
         == []
     )
+
+def test_nfr_coverage_is_none_when_no_nfrs_exist():
+
+    request = (
+        build_request()
+        .model_copy(
+            deep=True
+        )
+    )
+
+    request.non_functional_requirements = []
+
+    service = (
+        QualityEvaluationService(
+            enable_llm=False,
+        )
+    )
+
+    response = service.evaluate(
+        request
+    )
+
+    assert (
+        response.metrics.applicable_nfrs
+        == 0
+    )
+
+    assert (
+        response.metrics.evaluated_nfrs
+        == 0
+    )
+
+    # No NFRs means coverage is not applicable,
+    # not a successful 100 percent result
+    assert (
+        response
+        .metrics
+        .nfr_coverage_percentage
+        is None
+    )
+
+    for category in (
+        response
+        .metrics
+        .category_summaries
+    ):
+
+        if (
+            category.applicable_nfrs
+            == 0
+        ):
+            assert (
+                category
+                .nfr_coverage_percentage
+                is None
+            )
+
+    assert "NFR Coverage: Not applicable." in response.summary
+    assert response.model_dump(mode="json")["metrics"]["nfr_coverage_percentage"] is None
+
+
+def test_service_handles_no_applicable_rules(
+    monkeypatch,
+):
+
+    service = (
+        QualityEvaluationService(
+            enable_llm=False,
+        )
+    )
+
+    # Simulate a project where no quality
+    # rules are applicable
+    monkeypatch.setattr(
+        service.rule_selector,
+        "select",
+        lambda context, rules: [],
+    )
+
+    response = service.evaluate(
+        build_request()
+    )
+
+    assert (
+        response.applicable_rule_ids
+        == []
+    )
+
+    assert (
+        response.rule_results
+        == []
+    )
+
+    assert (
+        response.findings
+        == []
+    )
+
+    assert (
+        response.finding_groups
+        == []
+    )
+
+    assert (
+        response.metrics.total_applicable_rules
+        == 0
+    )
+
+    assert (
+        response.metrics.passed_rules
+        == 0
+    )
+
+    assert (
+        response.metrics.failed_rules
+        == 0
+    )
+
+    assert (
+        response.metrics.skipped_rules
+        == 0
+    )
+
+    # No applicable rules means the
+    # Quality Pass percentage is N/A
+    assert (
+        response
+        .metrics
+        .quality_pass_percentage
+        is None
+    )
+
+    assert response.summary

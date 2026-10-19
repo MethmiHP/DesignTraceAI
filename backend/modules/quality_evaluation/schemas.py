@@ -286,12 +286,12 @@ class QualityMetrics(BaseModel):
     failed_rules: int
     skipped_rules: int
 
-    quality_pass_percentage: float
+    quality_pass_percentage: float | None = None
 
     applicable_nfrs: int
     evaluated_nfrs: int
 
-    nfr_coverage_percentage: float
+    nfr_coverage_percentage: float | None = None
 
     category_summaries: list[
         CategoryQualitySummary

@@ -57,7 +57,7 @@ class QualityMetricsCalculator:
                 * 100
             )
         else:
-            quality_pass_percentage = 100.0
+            quality_pass_percentage = None
 
         applicable_nfr_ids = (
             self._applicable_nfr_ids(
@@ -95,7 +95,7 @@ class QualityMetricsCalculator:
                 * 100
             )
         else:
-            nfr_coverage_percentage = 100.0
+            nfr_coverage_percentage = None
 
         category_summaries = []
 
@@ -245,9 +245,10 @@ class QualityMetricsCalculator:
             failed_rules=failed,
             skipped_rules=skipped,
 
-            quality_pass_percentage=round(
-                quality_pass_percentage,
-                2,
+            quality_pass_percentage=(
+                round(quality_pass_percentage, 2)
+                if quality_pass_percentage is not None
+                else None
             ),
 
             applicable_nfrs=len(
@@ -258,9 +259,10 @@ class QualityMetricsCalculator:
                 evaluated_nfr_ids
             ),
 
-            nfr_coverage_percentage=round(
-                nfr_coverage_percentage,
-                2,
+            nfr_coverage_percentage=(
+                round(nfr_coverage_percentage, 2)
+                if nfr_coverage_percentage is not None
+                else None
             ),
 
             category_summaries=(

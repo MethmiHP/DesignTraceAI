@@ -12,14 +12,25 @@ class QualityReportBuilder:
         findings: list[QualityFinding],
     ) -> str:
 
+        quality_pass = (
+            f"{metrics.quality_pass_percentage}%"
+            if metrics.quality_pass_percentage is not None
+            else "Not applicable"
+        )
+        coverage = (
+            f"{metrics.nfr_coverage_percentage}%"
+            if metrics.nfr_coverage_percentage is not None
+            else "Not applicable"
+        )
+
         if not findings:
             return (
                 "No quality issues were detected by "
                 "the applicable evaluation rules. "
                 f"Quality Pass: "
-                f"{metrics.quality_pass_percentage}%. "
+                f"{quality_pass}. "
                 f"NFR Coverage: "
-                f"{metrics.nfr_coverage_percentage}%."
+                f"{coverage}."
             )
 
         severity_order = {
@@ -44,7 +55,7 @@ class QualityReportBuilder:
             f"Highest severity: "
             f"{highest.severity.value}. "
             f"Quality Pass: "
-            f"{metrics.quality_pass_percentage}%. "
+            f"{quality_pass}. "
             f"NFR Coverage: "
-            f"{metrics.nfr_coverage_percentage}%."
+            f"{coverage}."
         )
