@@ -37,7 +37,7 @@ FR_NFR_MODEL_PATH = (
 NFR_CATEGORY_MODEL_PATH = (
     TRAINED_MODEL_DIR
     / "nfr_category"
-    / "roberta"
+    / "roberta_balanced_augmented"
     / "final"
 )
 
