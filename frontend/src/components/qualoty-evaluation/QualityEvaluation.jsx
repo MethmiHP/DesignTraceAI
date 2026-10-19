@@ -11,7 +11,9 @@ function Panel({ title, subtitle, children, id, extra }) {
 }
 function Empty({ children }) { return <p className="qe-empty">{children}</p> }
 
-export default function QualityEvaluation() {
+export default function QualityEvaluation({ user = null }) {
+  const displayName = user?.name?.trim() || 'Guest user'
+  const initials = displayName.split(/\s+/).slice(0, 2).map((part) => part[0]).join('').toUpperCase()
   const app = useQualityEvaluation()
   const { result, history, busy, editor, setEditor, theme } = app
   const [filter, setFilter] = useState('ALL')
@@ -22,14 +24,14 @@ export default function QualityEvaluation() {
   const recommendations = [...findings].sort((a, b) => ranking[b.severity] - ranking[a.severity])
   return <div className="qe-app" data-theme={theme}>
     <aside className="qe-sidebar">
-      <a className="qe-brand" href="#overview"><span className="qe-logo">◇</span>DesignTrace <b>AI</b></a>
+      <a className="qe-brand" href="#overview"><img className="qe-logo" src="/designtrace-logo.svg" alt="" width="30" height="30" />DesignTrace <b>AI</b></a>
       <div className="qe-project"><small>CURRENT PROJECT</small><strong>{result?.project_id || 'No evaluation yet'}</strong></div>
       <div className="qe-nav-label">DESIGN WORKSPACE</div>
       <nav aria-label="Quality evaluation"><a className="active" href="#overview">◈ <span>Quality Evaluation</span></a><button onClick={() => setEditor(true)}>▤ <span>Evaluation input</span></button><a href="#categories">▦ <span>NFR categories</span></a><a href="#issues">⚑ <span>Detected issues</span></a><a href="#recommendations">◇ <span>Recommendations</span></a><a href="#history">◷ <span>Evaluation history</span></a></nav>
-      <div className="qe-sidebar-bottom"><div className="qe-about"><strong>ABOUT EVALUATION</strong><p>Results reflect applicable quality rules and the supplied design evidence. Skipped checks remain visible for review.</p></div><div className="qe-module"><span>QE</span><div>Quality workspace<small>DesignTrace AI</small></div></div><button className="qe-theme" role="switch" aria-checked={theme === 'light'} aria-label="Light theme" onClick={app.toggleTheme}><span>{theme === 'dark' ? '☾ Dark theme' : '☀ Light theme'}</span><span className="qe-switch"><i /></span></button></div>
+      <div className="qe-sidebar-bottom"><div className="qe-about"><strong>ABOUT EVALUATION</strong><p>Results reflect applicable quality rules and the supplied design evidence. Skipped checks remain visible for review.</p></div><div className="qe-module" aria-label="User profile"><span aria-hidden="true">{initials}</span><div>{displayName}<small>{user?.role || 'User profile'}</small></div></div><button className="qe-theme" role="switch" aria-checked={theme === 'light'} aria-label="Light theme" onClick={app.toggleTheme}><span>{theme === 'dark' ? '☾ Dark theme' : '☀ Light theme'}</span><span className="qe-switch"><i /></span></button></div>
     </aside>
     <main className="qe-main" id="overview">
-      <header className="qe-header"><div><div className="qe-eyebrow">DESIGN ASSURANCE / OVERVIEW</div><h1>Quality Evaluation</h1><p>Continuous architectural and security quality assessment.</p></div><button className="qe-primary" onClick={() => setEditor(true)} disabled={busy}>＋ New evaluation</button></header>
+      <header className="qe-header"><div><div className="qe-eyebrow">DESIGN ASSURANCE / OVERVIEW</div><h1>Quality Evaluation</h1><p>Continuous architectural and security quality assessment.</p></div><div className="qe-header-actions"><button className="qe-primary" onClick={() => setEditor(true)} disabled={busy}>＋ New evaluation</button><button className="qe-primary" disabled={!result || busy} onClick={app.exportResult}>Export report ↓</button></div></header>
       {editor && <Panel title="Evaluation input" subtitle="Paste the complete coordinator payload to evaluate your design." extra={<button onClick={() => setEditor(false)} disabled={busy} aria-label="Close input">×</button>}>
         <form onSubmit={app.evaluate}><label htmlFor="quality-json">Request JSON</label><textarea id="quality-json" required spellCheck={false} value={app.input} disabled={busy} onChange={(event) => app.setInput(event.target.value)} placeholder='{"project_id": "banking-001", "architecture": {}, "database": {}, "api_component_design": {}}' rows={15} />{app.error && <p className="qe-error" role="alert">{app.error}</p>}<div className="qe-form-actions"><button type="button" onClick={app.loadExample} disabled={busy}>Load example</button><span role="status">{busy ? 'Evaluating design…' : 'Example: banking design with security and scalability gaps.'}</span><button className="qe-primary" disabled={busy}>{busy ? 'Evaluating…' : 'Run evaluation →'}</button></div></form>
       </Panel>}
@@ -58,7 +60,7 @@ export default function QualityEvaluation() {
         <Panel id="recommendations" title="Key Recommendations">{recommendations.length ? recommendations.map((item) => <article className="qe-recommendation" key={item.finding_id}><Badge value={item.severity} /><p>{item.recommendation}</p><code>Rule: {item.rule_id}</code></article>) : <Empty>{result ? 'No recommendations were returned.' : 'Recommendations will be grounded in your evaluation findings.'}</Empty>}</Panel>
         {!!result?.rule_results.filter((item) => item.status === 'SKIPPED').length && <Panel title="Checks Needing Review">{result.rule_results.filter((item) => item.status === 'SKIPPED').map((item) => <div className="qe-group" key={item.rule_id}><code>{item.rule_id}</code><p>{item.rationale}</p></div>)}</Panel>}
       </aside></div>
-      <footer className="qe-footer"><button onClick={() => setEditor(true)}>← Edit evaluation input</button><span>{result ? `Run ${result.evaluation_id}` : 'Ready to evaluate'}</span><button className="qe-primary" disabled={!result || busy} onClick={app.exportResult}>Export report ↓</button></footer>
+      <footer className="qe-footer"><button onClick={() => setEditor(true)}>← Edit evaluation input</button><span>{result ? `Run ${result.evaluation_id}` : 'Ready to evaluate'}</span></footer>
     </main>
   </div>
 }
