@@ -133,7 +133,7 @@
   line-height: 1.6;
 }
 
-.db-demo-notice > span {
+.db-demo-notice>span {
   margin-left: auto;
   padding: 7px 10px;
   border-radius: 6px;
@@ -195,7 +195,7 @@
   margin-bottom: 17px;
 }
 
-.db-form-field > label {
+.db-form-field>label {
   display: block;
   color: #466052;
   font-size: 11px;
@@ -442,7 +442,9 @@
 }
 
 @keyframes db-spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .db-output-content {
@@ -874,7 +876,7 @@
   background: #eff6ef;
 }
 
-.db-schema-card-header > div {
+.db-schema-card-header>div {
   display: flex;
   align-items: center;
   gap: 7px;
@@ -882,7 +884,7 @@
   font-size: 12px;
 }
 
-.db-schema-card-header > span {
+.db-schema-card-header>span {
   font-size: 10px;
   color: #7e9a87;
 }
@@ -901,7 +903,7 @@
   font-size: 11px;
 }
 
-.db-schema-column > div {
+.db-schema-column>div {
   display: flex;
   align-items: center;
   gap: 7px;
@@ -978,7 +980,7 @@
   overflow-wrap: anywhere;
 }
 
-.db-relationship-row > span {
+.db-relationship-row>span {
   color: #568269;
   background: #eaf5ed;
   padding: 7px;
@@ -1012,12 +1014,12 @@
   border-bottom: 1px solid #e8eee9;
 }
 
-.db-mapping-item > strong {
+.db-mapping-item>strong {
   font-size: 12px;
   color: #365b47;
 }
 
-.db-mapping-item > div {
+.db-mapping-item>div {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
@@ -1172,6 +1174,7 @@
 }
 
 @media (max-width: 700px) {
+
   .db-page-header,
   .db-output-topline,
   .db-output-footer {
@@ -1179,7 +1182,7 @@
     align-items: flex-start;
   }
 
-  .db-demo-notice > span {
+  .db-demo-notice>span {
     display: none;
   }
 
@@ -1202,4 +1205,223 @@
     min-height: 330px;
     justify-content: flex-start;
   }
+}
+
+
+/* === Coordinator-matched dark/light theme overrides === */
+.database-studio {
+  color: var(--dt-text) !important
+}
+
+.database-studio h1,
+.database-studio h2,
+.database-studio h3,
+.database-studio h4,
+.database-studio strong,
+.database-studio label {
+  color: var(--dt-text)
+}
+
+.database-studio p,
+.database-studio small,
+.database-studio .db-small-label,
+.database-studio .db-breadcrumb-label {
+  color: var(--dt-muted)
+}
+
+.database-studio .db-surface,
+.database-studio .db-schema-card,
+.database-studio .db-metric,
+.database-studio .db-diagram-shell,
+.database-studio .db-diagram-toolbar,
+.database-studio .db-demo-notice,
+.database-studio .db-inspector-content {
+  background: var(--dt-panel) !important;
+  border-color: var(--dt-border) !important;
+  color: var(--dt-text) !important;
+  box-shadow: 0 6px 22px var(--dt-shadow)
+}
+
+.database-studio input:not([type="checkbox"]),
+.database-studio textarea,
+.database-studio select {
+  background: var(--dt-field) !important;
+  color: var(--dt-text) !important;
+  border: 1px solid var(--dt-border) !important;
+  border-radius: 8px !important
+}
+
+.database-studio input::placeholder,
+.database-studio textarea::placeholder {
+  color: var(--dt-muted) !important
+}
+
+.database-studio .db-diagram-canvas {
+  background-color: var(--dt-card) !important;
+  background-image: radial-gradient(var(--dt-border) .8px, transparent .8px) !important
+}
+
+.database-studio .db-generate-button,
+.database-studio .db-primary-button {
+  background: var(--dt-accent) !important;
+  color: white !important;
+  border-color: var(--dt-accent) !important
+}
+
+.database-studio .db-secondary-button,
+.database-studio .db-text-button,
+.database-studio .db-add-button,
+.database-studio .db-tab-bar button,
+.database-studio .db-diagram-actions button {
+  background: var(--dt-card) !important;
+  color: var(--dt-text) !important;
+  border-color: var(--dt-border) !important
+}
+
+.database-studio .db-tab-bar button.active,
+.database-studio .db-text-button:hover {
+  color: var(--dt-accent) !important;
+  border-bottom-color: var(--dt-accent) !important
+}
+
+.database-studio .db-engine-tag,
+.database-studio .db-notice-icon,
+.database-studio .db-empty-art,
+.database-studio .db-validation-pill.passed {
+  background: var(--dt-accent-soft) !important;
+  color: var(--dt-accent) !important
+}
+
+.database-studio .db-schema-card.selected {
+  border-color: var(--dt-accent) !important;
+  box-shadow: 0 0 0 1px var(--dt-accent) !important
+}
+
+.database-studio .db-tab-bar {
+  border-color: var(--dt-border) !important
+}
+
+.database-studio code,
+.database-studio pre {
+  color: var(--dt-text)
+}
+
+.db-example-picker {
+  padding: 17px 19px;
+  background: var(--dt-accent-soft);
+  border-bottom: 1px solid var(--dt-border)
+}
+
+.db-example-picker>label {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  margin-bottom: 11px
+}
+
+.db-example-controls {
+  display: flex;
+  gap: 9px;
+  align-items: center
+}
+
+.db-example-controls select {
+  flex: 1;
+  min-width: 0;
+  padding: 10px !important
+}
+
+.db-example-controls button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  background: var(--dt-accent);
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 12px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700
+}
+
+.db-example-picker small {
+  display: block;
+  margin-top: 10px;
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--dt-muted)
+}
+
+@media(max-width:560px) {
+  .db-example-controls {
+    flex-direction: column;
+    align-items: stretch
+  }
+
+  .db-example-controls button {
+    justify-content: center
+  }
+}
+
+/* === Requirement cards: accessible colors in both themes === */
+.database-studio .db-requirement {
+  background: #211d35 !important;
+  border: 1px solid #48405f !important;
+  color: #f5f2ff !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.database-studio .db-requirement-header span {
+  color: #b9aaff !important;
+}
+
+.database-studio .db-requirement label,
+.database-studio .db-requirement .db-checkbox {
+  color: #e0d9f1 !important;
+}
+
+.database-studio .db-requirement input:not([type="checkbox"]),
+.database-studio .db-requirement textarea,
+.database-studio .db-requirement select {
+  background: #131020 !important;
+  color: #ffffff !important;
+  border: 1px solid #59506d !important;
+}
+
+.database-studio .db-requirement input:focus,
+.database-studio .db-requirement textarea:focus,
+.database-studio .db-requirement select:focus {
+  outline: 2px solid #9b86ed;
+  outline-offset: 1px;
+}
+
+.database-studio .db-requirement input[type="checkbox"] {
+  accent-color: #8f7be8;
+}
+
+/* Light theme: follows the coordinator's html data-theme switch */
+:root[data-theme="light"] .database-studio .db-requirement {
+  background: #f5f3ff !important;
+  border-color: #d8d0ec !important;
+  color: #211a36 !important;
+  box-shadow: 0 4px 14px rgba(51, 38, 89, 0.05);
+}
+
+:root[data-theme="light"] .database-studio .db-requirement-header span {
+  color: #6752c8 !important;
+}
+
+:root[data-theme="light"] .database-studio .db-requirement label,
+:root[data-theme="light"] .database-studio .db-requirement .db-checkbox {
+  color: #504765 !important;
+}
+
+:root[data-theme="light"] .database-studio .db-requirement input:not([type="checkbox"]),
+:root[data-theme="light"] .database-studio .db-requirement textarea,
+:root[data-theme="light"] .database-studio .db-requirement select {
+  background: #ffffff !important;
+  color: #211a36 !important;
+  border-color: #d8d0ec !important;
 }

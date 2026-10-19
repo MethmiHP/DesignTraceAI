@@ -68,6 +68,25 @@ import {
 
 import "./DatabaseDesignPage.css";
 
+const DATABASE_EXAMPLES = {
+  hospital: { project_id: "TEST-HOSPITAL-AI-001", project_name: "Hospital Management System", project_description: "A system for managing patients, doctors, and hospital appointments.", architecture_style: "Layered", constraints: ["Use a relational database.", "Each appointment must reference an existing patient and doctor.", "Patient email addresses must be unique."], requirements: [
+    {requirement_id:"FR-001",requirement_text:"The system shall register patients with name and unique email address.",requirement_type:"functional",database_relevant:true},
+    {requirement_id:"FR-002",requirement_text:"The system shall store doctor name and specialization.",requirement_type:"functional",database_relevant:true},
+    {requirement_id:"FR-003",requirement_text:"Patients shall book appointments with doctors, and each appointment shall have an appointment date and status.",requirement_type:"functional",database_relevant:true},
+  ]},
+  library: { project_id:"TEST-LIBRARY-002",project_name:"Library Management System",project_description:"Manage books, library members, and borrowing records.",architecture_style:"Layered",constraints:["Book ISBN values must be unique.","Member email addresses must be unique.","Publication year must be greater than zero.","Each borrowing record must reference an existing book and member."],requirements:[
+    {requirement_id:"FR-001",requirement_text:"The system shall store books with title, ISBN, author, and publication year.",requirement_type:"functional",database_relevant:true},
+    {requirement_id:"FR-002",requirement_text:"The system shall register members with name and unique email address.",requirement_type:"functional",database_relevant:true},
+    {requirement_id:"FR-003",requirement_text:"Members shall borrow books and the system shall record borrowing and return dates.",requirement_type:"functional",database_relevant:true},
+  ]},
+  university: { project_id:"TEST-UNIVERSITY-001",project_name:"Student Course Registration System",project_description:"Manage students, instructors, courses, and registrations.",architecture_style:"Layered",constraints:["Student email addresses must be unique.","Course codes must be unique.","Course credit hours must be greater than zero.","Course maximum capacity must be greater than zero.","Each registration must reference an existing student and course."],requirements:[
+    {requirement_id:"FR-001",requirement_text:"The system shall register students with a unique email address.",requirement_type:"functional",database_relevant:true},
+    {requirement_id:"FR-002",requirement_text:"The system shall store instructors and their departments.",requirement_type:"functional",database_relevant:true},
+    {requirement_id:"FR-003",requirement_text:"The system shall store courses with unique course codes, credit hours, maximum capacity, and instructor details.",requirement_type:"functional",database_relevant:true},
+    {requirement_id:"FR-004",requirement_text:"Students shall register for courses and the system shall record registration date and grade.",requirement_type:"functional",database_relevant:true},
+  ]},
+};
+
 const EXAMPLE_REQUIREMENTS = [
 
   {
@@ -235,6 +254,8 @@ function buildMermaid(design) {
 }
 
 function MermaidDiagram({ definition }) {
+  const [theme, setTheme] = useState(document.documentElement.getAttribute("data-theme") || "dark");
+  useEffect(() => { const observer = new MutationObserver(() => setTheme(document.documentElement.getAttribute("data-theme") || "dark")); observer.observe(document.documentElement, {attributes:true,attributeFilter:["data-theme"]}); return () => observer.disconnect(); }, []);
 
   const containerRef = useRef(null);
 
@@ -262,19 +283,19 @@ function MermaidDiagram({ definition }) {
 
           themeVariables: {
 
-            primaryColor: "#e7f2ed",
+            primaryColor: theme === "dark" ? "#28233f" : "#f1ecff",
 
-            primaryTextColor: "#23483c",
+            primaryTextColor: theme === "dark" ? "#f5f2ff" : "#30244d",
 
-            primaryBorderColor: "#8ab5a3",
+            primaryBorderColor: "#8e7be9",
 
-            lineColor: "#6d9b89",
+            lineColor: "#8e7be9",
 
-            secondaryColor: "#edf4f0",
+            secondaryColor: theme === "dark" ? "#201c35" : "#f7f3ff",
 
-            tertiaryColor: "#ffffff",
+            tertiaryColor: theme === "dark" ? "#161326" : "#ffffff",
 
-            background: "#ffffff",
+            background: theme === "dark" ? "#171527" : "#ffffff",
 
             fontFamily: "Inter, sans-serif",
 
@@ -318,7 +339,7 @@ function MermaidDiagram({ definition }) {
 
     };
 
-  }, [definition]);
+  }, [definition, theme]);
 
   return (
 
@@ -686,7 +707,8 @@ function TableInspector({ table, onUpdate }) {
 
 }
 
-export default function DatabaseDesignPage() {
+export default function DatabaseDesignPage({ onProjectChange }) {
+  const [selectedExample, setSelectedExample] = useState("hospital");
 
   const [projectId, setProjectId] = useState("TEST-HOSPITAL-AI-001");
 
@@ -827,40 +849,24 @@ export default function DatabaseDesignPage() {
 
   }
 
-  function resetExample() {
-
-    setProjectId("TEST-HOSPITAL-AI-001");
-
-    setProjectName("Hospital Management System");
-
-    setProjectDescription("A system for managing patients, doctors, and hospital appointments.");
-
-    setRequirements(
-
-      EXAMPLE_REQUIREMENTS.map((item) => ({ ...item }))
-
-    );
-
-    setArchitectureStyle("Layered");
-
+  function loadExample(exampleKey = selectedExample) {
+    const example = DATABASE_EXAMPLES[exampleKey];
+    if (!example) return;
+    setSelectedExample(exampleKey);
+    setProjectId(example.project_id);
+    setProjectName(example.project_name);
+    setProjectDescription(example.project_description);
+    setRequirements(example.requirements.map(item => ({...item})));
+    setArchitectureStyle(example.architecture_style);
     setDatabaseType("Relational");
-
-    setConstraints(
-
-      "Use a relational database.\nEach appointment must reference an existing patient and doctor.\nPatient email addresses must be unique."
-
-    );
-
+    setConstraints(example.constraints.join("\n"));
     setResult(null);
-
     setDraftDesign(null);
-
+    setSqlContent("");
     setHasLocalEdits(false);
-
     setError("");
-
     setShowInputs(true);
-
+    onProjectChange?.({id: example.project_id, name: example.project_name});
   }
 
   async function handleGenerate() {
@@ -958,6 +964,7 @@ export default function DatabaseDesignPage() {
       }
 
       setResult(data);
+      onProjectChange?.({id: projectId.trim(), name: projectName.trim()});
 
       setDraftDesign(structuredClone(data.design));
 
@@ -1141,9 +1148,9 @@ export default function DatabaseDesignPage() {
 
           <p>
 
-            Enter requirements manually and generate a database design.
+            Enter requirements or load an example to generate a database design.
 
-            Coordinator Agent integration and approval are future steps.
+            This Module generates and validates database drafts. Coordinator approval is managed separately.
 
           </p>
 
@@ -1175,18 +1182,30 @@ export default function DatabaseDesignPage() {
 
                 className="db-text-button"
 
-                onClick={resetExample}
+                onClick={() => loadExample()}
 
               >
 
                 <RefreshCw size={14} />
 
-                Example
+                Load Example
 
               </button>
 
             </div>
 
+            <div className="db-example-picker">
+              <label htmlFor="db-example-select">QUICK START / SAMPLE PROJECT</label>
+              <div className="db-example-controls">
+                <select id="db-example-select" value={selectedExample} onChange={event => setSelectedExample(event.target.value)}>
+                  <option value="hospital">Hospital Management</option>
+                  <option value="library">Library Management</option>
+                  <option value="university">University Registration</option>
+                </select>
+                <button type="button" onClick={() => loadExample()}><WandSparkles size={15}/> Load Example</button>
+              </div>
+              <small>Fills project details, requirements, and architecture constraints. Click Generate to call FastAPI.</small>
+            </div>
             <div className="db-input-content">
 
               <div className="db-form-field">
