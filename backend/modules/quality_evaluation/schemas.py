@@ -205,6 +205,9 @@ class QualityRule(BaseModel):
 
     always_apply: bool = False
 
+    # Optional key used to group related findings
+    finding_group: str | None = None
+
 
 # Evaluation models
 
@@ -296,6 +299,18 @@ class QualityMetrics(BaseModel):
         default_factory=list
     )
 
+class QualityFindingGroup(BaseModel):
+    group_id: str
+    group_key: str
+    title: str
+    quality_attribute: str
+    severity: Severity
+    finding_ids: list[str]
+    rule_ids: list[str]
+    affected_nfr_ids: list[str]
+    recommendations: list[str]
+    summary: str
+
 
 class QualityEvaluationResponse(BaseModel):
     project_id: str
@@ -316,3 +331,8 @@ class QualityEvaluationResponse(BaseModel):
     summary: str
 
     generated_at: str
+
+    finding_groups: list[QualityFindingGroup] = Field(
+    default_factory=list
+)
+

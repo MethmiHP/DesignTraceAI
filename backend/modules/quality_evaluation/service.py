@@ -10,6 +10,9 @@ from uuid import uuid4
 from .deterministic_evaluator import (
     DeterministicEvaluator,
 )
+from .finding_grouper import (
+    QualityFindingGrouper,
+)
 from .knowledge_base_validator import (
     QualityKnowledgeBaseValidator,
 )
@@ -141,6 +144,12 @@ class QualityEvaluationService:
         # Generates finding recommendations
         self.recommendation_generator = (
             RecommendationGenerator()
+        )
+
+        # Groups findings that describe
+        # the same broader quality concern
+        self.finding_grouper = (
+            QualityFindingGrouper()
         )
 
         # Calculates quality metrics
@@ -316,6 +325,14 @@ class QualityEvaluationService:
 
             finding_number += 1
 
+        # Group related findings for reporting
+        finding_groups = (
+            self.finding_grouper.group(
+                findings,
+                applicable_rules,
+            )
+        )
+
         # Calculate Quality Pass,
         # NFR coverage and category summaries
         metrics = (
@@ -362,6 +379,9 @@ class QualityEvaluationService:
             ),
             findings=(
                 findings
+            ),
+            finding_groups=(
+                finding_groups
             ),
             metrics=(
                 metrics

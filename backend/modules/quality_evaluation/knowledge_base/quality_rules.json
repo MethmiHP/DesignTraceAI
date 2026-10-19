@@ -89,7 +89,8 @@
     "severity_default": "HIGH",
     "evidence_required": true,
     "recommendation_template": "Define explicit authentication and authorization requirements for the identified security-sensitive operation.",
-    "always_apply": true
+    "always_apply": true,
+    "finding_group": "API_ACCESS_CONTROL"
   },
   {
     "rule_id": "AVAIL-001",
@@ -302,7 +303,8 @@
     "severity_default": "HIGH",
     "evidence_required": true,
     "recommendation_template": "Define and apply an explicit API security scheme that is consistent with the approved Security requirement.",
-    "always_apply": false
+    "always_apply": false,
+    "finding_group": "API_ACCESS_CONTROL"
   },
   {
     "rule_id": "USE-002",
