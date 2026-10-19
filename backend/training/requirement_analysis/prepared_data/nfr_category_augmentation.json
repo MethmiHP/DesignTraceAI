@@ -1,0 +1,127 @@
+[
+  {
+    "text": "The service shall continue operating when a processing node becomes unavailable.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "The application shall recover automatically after the failure of an internal component.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "A failure in one service component shall not cause the entire system to stop operating.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "The system shall switch to a backup component when the primary component fails.",
+    "label": "Fault Tolerance"
+  },
+  {
+    "text": "The application shall preserve its operational state when a recoverable component failure occurs.",
+    "label": "Fault Tolerance"
+  },
+
+  {
+    "text": "The software shall comply with all regulations applicable to electronic record retention.",
+    "label": "Legal"
+  },
+  {
+    "text": "Records shall be retained for the period required by applicable legislation.",
+    "label": "Legal"
+  },
+  {
+    "text": "The system shall satisfy statutory requirements governing financial records.",
+    "label": "Legal"
+  },
+  {
+    "text": "The application shall comply with applicable licensing and regulatory obligations.",
+    "label": "Legal"
+  },
+  {
+    "text": "Data processing activities shall conform to relevant legal and regulatory requirements.",
+    "label": "Legal"
+  },
+
+  {
+    "text": "The application shall operate on both desktop and handheld computing platforms.",
+    "label": "Portability"
+  },
+  {
+    "text": "The software shall support execution across multiple hardware platforms.",
+    "label": "Portability"
+  },
+  {
+    "text": "The application shall be deployable in different operating environments without source-code modification.",
+    "label": "Portability"
+  },
+  {
+    "text": "The client application shall operate on multiple supported device types.",
+    "label": "Portability"
+  },
+  {
+    "text": "The software shall support migration between supported operating environments.",
+    "label": "Portability"
+  },
+
+  {
+    "text": "The platform shall accommodate growth in the number of simultaneously active users.",
+    "label": "Scalability"
+  },
+  {
+    "text": "The service shall support increasing transaction volumes as demand grows.",
+    "label": "Scalability"
+  },
+  {
+    "text": "The system shall scale to support additional organizational locations.",
+    "label": "Scalability"
+  },
+  {
+    "text": "The platform shall support growth in concurrent requests without architectural redesign.",
+    "label": "Scalability"
+  },
+  {
+    "text": "Additional computing resources shall allow the system to support increased workloads.",
+    "label": "Scalability"
+  },
+
+  {
+    "text": "The service shall remain accessible during the failure of a redundant infrastructure component.",
+    "label": "Availability"
+  },
+  {
+    "text": "The application shall maintain service availability during planned infrastructure maintenance.",
+    "label": "Availability"
+  },
+  {
+    "text": "The service shall minimize interruption during infrastructure failover.",
+    "label": "Availability"
+  },
+  {
+    "text": "Users shall continue to have access to the service during scheduled component replacement.",
+    "label": "Availability"
+  },
+  {
+    "text": "The system shall provide continuous service during normal infrastructure failover operations.",
+    "label": "Availability"
+  },
+
+  {
+    "text": "The software shall be structured so that individual components can be modified independently.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The application shall support corrective maintenance without extensive changes to unrelated modules.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The source code shall be organized to simplify future modifications.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "System components shall be modular to reduce the effort required for maintenance.",
+    "label": "Maintainability"
+  },
+  {
+    "text": "The software shall allow defective modules to be replaced with minimal impact on other components.",
+    "label": "Maintainability"
+  }
+]

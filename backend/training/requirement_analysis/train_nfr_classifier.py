@@ -1,14 +1,18 @@
-# Trains multiple transformer models for requirement classification and
-# compares their performance on the same test dataset using evaluation
-# metrics such as accuracy, precision, recall, F1-score, and inference time.
+# Trains an NFR quality-attribute classifier using:
+# 1. RoBERTa
+# 2. Class-weighted cross-entropy
+# 3. Additional domain-generic augmentation examples
+#
+# The augmented model is saved separately from the baseline
+# and balanced-only models so they can be compared fairly.
 
 from pathlib import Path
 import json
 import time
+from collections import Counter
 
 import numpy as np
-
-from datasets import Dataset
+import torch
 
 from sklearn.metrics import (
     accuracy_score,
@@ -46,7 +50,6 @@ MODEL_OUTPUT_DIR = (
 )
 
 
-
 # NFR LABELS
 
 NFR_LABELS = [
@@ -76,7 +79,6 @@ ID_TO_LABEL = {
 }
 
 
-
 # LOAD JSON
 
 def load_json(
@@ -91,58 +93,193 @@ def load_json(
         return json.load(file)
 
 
+# PYTORCH DATASET
 
-# CREATE HUGGING FACE DATASET
+class RequirementDataset(
+    torch.utils.data.Dataset
+):
 
-def create_dataset(
-    records: list[dict]
-) -> Dataset:
+    def __init__(
+        self,
+        records: list[dict],
+        tokenizer
+    ):
 
-    texts = []
-    labels = []
+        texts = []
+        labels = []
 
-    for item in records:
+        for item in records:
 
-        text = item.get("text")
-        label = item.get("label")
+            text = item.get(
+                "text"
+            )
 
-        if not text:
-            continue
+            label = item.get(
+                "label"
+            )
 
-        if label not in LABEL_TO_ID:
-            continue
+            if not text:
+                continue
 
-        texts.append(text)
+            if label not in LABEL_TO_ID:
+                continue
 
-        labels.append(
-            LABEL_TO_ID[label]
+            texts.append(
+                text
+            )
+
+            labels.append(
+                LABEL_TO_ID[
+                    label
+                ]
+            )
+
+
+        self.encodings = tokenizer(
+            texts,
+            padding="max_length",
+            truncation=True,
+            max_length=128,
         )
 
-    return Dataset.from_dict({
-        "text": texts,
-        "label": labels,
-    })
+        self.labels = labels
 
+
+    def __len__(self):
+
+        return len(
+            self.labels
+        )
+
+
+    def __getitem__(
+        self,
+        index
+    ):
+
+        item = {
+            key: torch.tensor(
+                values[index]
+            )
+            for key, values
+            in self.encodings.items()
+        }
+
+        item["labels"] = torch.tensor(
+            self.labels[index],
+            dtype=torch.long
+        )
+
+        return item
+
+
+# CALCULATE CLASS WEIGHTS
+
+def calculate_class_weights(
+    records: list[dict]
+) -> torch.Tensor:
+
+    valid_labels = [
+        item.get("label")
+        for item in records
+        if item.get("label")
+        in LABEL_TO_ID
+    ]
+
+    counts = Counter(
+        valid_labels
+    )
+
+    total_samples = len(
+        valid_labels
+    )
+
+    number_of_classes = len(
+        NFR_LABELS
+    )
+
+    weights = []
+
+
+    print(
+        "\nTraining class distribution:"
+    )
+
+    for label in NFR_LABELS:
+
+        count = counts.get(
+            label,
+            0
+        )
+
+        print(
+            f"{label}: {count}"
+        )
+
+        if count == 0:
+
+            weight = 0.0
+
+        else:
+
+            weight = (
+                total_samples
+                /
+                (
+                    number_of_classes
+                    *
+                    count
+                )
+            )
+
+        weights.append(
+            weight
+        )
+
+
+    print(
+        "\nCalculated class weights:"
+    )
+
+    for label, weight in zip(
+        NFR_LABELS,
+        weights
+    ):
+
+        print(
+            f"{label}: "
+            f"{weight:.4f}"
+        )
+
+
+    return torch.tensor(
+        weights,
+        dtype=torch.float
+    )
 
 
 # METRICS
+
 def compute_metrics(
     eval_prediction
 ):
 
-    logits, labels = eval_prediction
+    logits, labels = (
+        eval_prediction
+    )
 
     predictions = np.argmax(
         logits,
         axis=-1
     )
 
+
     accuracy = accuracy_score(
         labels,
         predictions
     )
 
-    # Weighted metrics
+
     weighted_precision, weighted_recall, weighted_f1, _ = (
         precision_recall_fscore_support(
             labels,
@@ -152,7 +289,7 @@ def compute_metrics(
         )
     )
 
-    # Macro metrics
+
     macro_precision, macro_recall, macro_f1, _ = (
         precision_recall_fscore_support(
             labels,
@@ -161,6 +298,7 @@ def compute_metrics(
             zero_division=0,
         )
     )
+
 
     return {
         "accuracy":
@@ -186,33 +324,114 @@ def compute_metrics(
     }
 
 
+# WEIGHTED TRAINER
+
+class WeightedTrainer(
+    Trainer
+):
+
+    def __init__(
+        self,
+        *args,
+        class_weights=None,
+        **kwargs
+    ):
+
+        super().__init__(
+            *args,
+            **kwargs
+        )
+
+        self.class_weights = (
+            class_weights
+        )
+
+
+    def compute_loss(
+        self,
+        model,
+        inputs,
+        return_outputs=False,
+        num_items_in_batch=None,
+    ):
+
+        labels = inputs.get(
+            "labels"
+        )
+
+        outputs = model(
+            **inputs
+        )
+
+        logits = (
+            outputs.logits
+        )
+
+
+        weights = (
+            self.class_weights
+            .to(
+                logits.device
+            )
+        )
+
+
+        loss_function = (
+            torch.nn.CrossEntropyLoss(
+                weight=weights
+            )
+        )
+
+
+        loss = loss_function(
+            logits,
+            labels
+        )
+
+
+        if return_outputs:
+
+            return (
+                loss,
+                outputs
+            )
+
+        return loss
+
 
 # TRAIN MODEL
 
 def train_model(
-    model_key: str = "distilbert"
+    model_key: str = "roberta"
 ):
 
     if model_key not in MODELS:
 
         raise ValueError(
-            f"Unknown model: {model_key}"
+            f"Unknown model: "
+            f"{model_key}"
         )
 
-    model_name = MODELS[
-        model_key
-    ]
+
+    model_name = (
+        MODELS[
+            model_key
+        ]
+    )
+
 
     print(
         "\n================================"
     )
 
     print(
-        f"TRAINING NFR MODEL: {model_key}"
+        f"TRAINING BALANCED + AUGMENTED "
+        f"NFR MODEL: {model_key}"
     )
 
     print(
-        f"Base model: {model_name}"
+        f"Base model: "
+        f"{model_name}"
     )
 
     print(
@@ -220,33 +439,105 @@ def train_model(
     )
 
 
-    # LOAD DATA
-
-    train_records = load_json(
+    # LOAD ORIGINAL TRAINING DATA
+    original_train_records = load_json(
         DATA_DIR
         / "nfr_category_train.json"
     )
+
+
+    # LOAD AUGMENTATION DATA
+
+    augmentation_records = load_json(
+        DATA_DIR
+        / "nfr_category_augmentation.json"
+    )
+
+
+    # COMBINE TRAINING DATA
+
+    train_records = (
+        original_train_records
+        + augmentation_records
+    )
+
+
+    # LOAD VALIDATION DATA
+    #
+    # Validation is intentionally NOT augmented.
 
     validation_records = load_json(
         DATA_DIR
         / "nfr_category_validation.json"
     )
 
-    train_dataset = create_dataset(
-        train_records
-    )
 
-    validation_dataset = create_dataset(
-        validation_records
+    print(
+        f"\nOriginal training records: "
+        f"{len(original_train_records)}"
     )
 
     print(
-        f"Training records: "
-        f"{len(train_dataset)}"
+        f"Augmentation records: "
+        f"{len(augmentation_records)}"
+    )
+
+    print(
+        f"Combined training records: "
+        f"{len(train_records)}"
     )
 
     print(
         f"Validation records: "
+        f"{len(validation_records)}"
+    )
+
+
+    # CALCULATE CLASS WEIGHTS
+    #
+    # We calculate these using the combined training set.
+
+    class_weights = (
+        calculate_class_weights(
+            train_records
+        )
+    )
+
+
+    # TOKENIZER
+
+    tokenizer = (
+        AutoTokenizer
+        .from_pretrained(
+            model_name
+        )
+    )
+
+
+    # CREATE PYTORCH DATASETS
+
+    train_dataset = (
+        RequirementDataset(
+            train_records,
+            tokenizer
+        )
+    )
+
+    validation_dataset = (
+        RequirementDataset(
+            validation_records,
+            tokenizer
+        )
+    )
+
+
+    print(
+        f"\nTraining records used: "
+        f"{len(train_dataset)}"
+    )
+
+    print(
+        f"Validation records used: "
         f"{len(validation_dataset)}"
     )
 
@@ -255,46 +546,19 @@ def train_model(
         f"{len(NFR_LABELS)}"
     )
 
+
     print(
         "\nLabel mapping:"
     )
 
-    for label, label_id in LABEL_TO_ID.items():
+    for label, label_id in (
+        LABEL_TO_ID.items()
+    ):
 
         print(
-            f"{label_id}: {label}"
+            f"{label_id}: "
+            f"{label}"
         )
-
-
-    # TOKENIZER
-    tokenizer = (
-        AutoTokenizer.from_pretrained(
-            model_name
-        )
-    )
-
-    def tokenize(batch):
-
-        return tokenizer(
-            batch["text"],
-            padding="max_length",
-            truncation=True,
-            max_length=128,
-        )
-
-    train_dataset = (
-        train_dataset.map(
-            tokenize,
-            batched=True
-        )
-    )
-
-    validation_dataset = (
-        validation_dataset.map(
-            tokenize,
-            batched=True
-        )
-    )
 
 
     # MODEL
@@ -303,6 +567,7 @@ def train_model(
         AutoModelForSequenceClassification
         .from_pretrained(
             model_name,
+
             num_labels=
                 len(NFR_LABELS),
 
@@ -316,10 +581,16 @@ def train_model(
 
 
     # OUTPUT DIRECTORY
+    #
+    # Keeps this model separate from:
+    #
+    # roberta/final
+    # roberta_balanced/final
+
     output_dir = (
         MODEL_OUTPUT_DIR
         / "nfr_category"
-        / model_key
+        / f"{model_key}_balanced_augmented"
     )
 
     output_dir.mkdir(
@@ -330,76 +601,92 @@ def train_model(
 
     # TRAINING ARGUMENTS
 
-    training_args = TrainingArguments(
+    training_args = (
+        TrainingArguments(
 
-        output_dir=str(
-            output_dir
-        ),
+            output_dir=
+                str(
+                    output_dir
+                ),
 
-        num_train_epochs=
-            TRAINING_CONFIG[
-                "num_train_epochs"
-            ],
+            num_train_epochs=
+                TRAINING_CONFIG[
+                    "num_train_epochs"
+                ],
 
-        learning_rate=
-            TRAINING_CONFIG[
-                "learning_rate"
-            ],
+            learning_rate=
+                TRAINING_CONFIG[
+                    "learning_rate"
+                ],
 
-        per_device_train_batch_size=
-            TRAINING_CONFIG[
-                "batch_size"
-            ],
+            per_device_train_batch_size=
+                TRAINING_CONFIG[
+                    "batch_size"
+                ],
 
-        per_device_eval_batch_size=
-            TRAINING_CONFIG[
-                "batch_size"
-            ],
+            per_device_eval_batch_size=
+                TRAINING_CONFIG[
+                    "batch_size"
+                ],
 
-        weight_decay=0.01,
+            weight_decay=
+                0.01,
 
-        eval_strategy="epoch",
+            eval_strategy=
+                "epoch",
 
-        save_strategy="epoch",
+            save_strategy=
+                "epoch",
 
-        load_best_model_at_end=True,
+            load_best_model_at_end=
+                True,
 
-        # Important:
-        # use macro F1 because NFR classes
-        # are imbalanced
-        metric_for_best_model=
-            "macro_f1",
+            # Macro F1 is used because
+            # the NFR classes are imbalanced.
+            metric_for_best_model=
+                "macro_f1",
 
-        greater_is_better=True,
+            greater_is_better=
+                True,
 
-        logging_steps=20,
+            logging_steps=
+                20,
 
-        report_to="none",
+            report_to=
+                "none",
+        )
     )
 
-  
+
     # TRAINER
 
-    trainer = Trainer(
+    trainer = (
+        WeightedTrainer(
 
-        model=model,
+            model=model,
 
-        args=training_args,
+            args=training_args,
 
-        train_dataset=
-            train_dataset,
+            train_dataset=
+                train_dataset,
 
-        eval_dataset=
-            validation_dataset,
+            eval_dataset=
+                validation_dataset,
 
-        compute_metrics=
-            compute_metrics,
+            compute_metrics=
+                compute_metrics,
+
+            class_weights=
+                class_weights,
+        )
     )
 
 
     # TRAIN
 
-    start_time = time.time()
+    start_time = (
+        time.time()
+    )
 
     trainer.train()
 
@@ -409,23 +696,27 @@ def train_model(
         start_time
     )
 
-    # --------------------------------------------------------
-    # VALIDATION
-    # --------------------------------------------------------
 
-    metrics = trainer.evaluate()
+    # VALIDATION
+
+    metrics = (
+        trainer.evaluate()
+    )
+
 
     print(
         "\n================================"
     )
 
     print(
+        "BALANCED + AUGMENTED "
         "NFR VALIDATION RESULTS"
     )
 
     print(
         "================================"
     )
+
 
     print(
         f"Accuracy: "
@@ -468,12 +759,13 @@ def train_model(
     )
 
 
-    # SAVE FINAL MODEL
+    # SAVE FINAL AUGMENTED MODEL
 
     final_model_dir = (
         output_dir
         / "final"
     )
+
 
     trainer.save_model(
         final_model_dir
@@ -483,8 +775,10 @@ def train_model(
         final_model_dir
     )
 
+
     print(
-        "\nModel saved to:"
+        "\nBalanced + augmented "
+        "model saved to:"
     )
 
     print(
@@ -497,7 +791,5 @@ def train_model(
 if __name__ == "__main__":
 
     train_model(
-        # model_key="distilbert"
-        # model_key="bert"
         model_key="roberta"
     )

@@ -61,6 +61,17 @@ MODELS = {
         MODEL_BASE_DIR
         / "roberta"
         / "final",
+
+    "roberta_balanced":
+        MODEL_BASE_DIR
+        / "roberta_balanced"
+        / "final",  
+
+    "roberta_balanced_augmented":
+        MODEL_BASE_DIR
+        / "roberta_balanced_augmented"
+        / "final",  
+
 }
 
 
