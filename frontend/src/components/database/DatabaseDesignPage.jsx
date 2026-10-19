@@ -1,3 +1,4 @@
+import ChenDiagram from "./ChenDiagram";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import mermaid from "mermaid";
@@ -746,6 +747,7 @@ export default function DatabaseDesignPage({ onProjectChange }) {
   const [selectedTableIndex, setSelectedTableIndex] = useState(0);
 
   const [activeTab, setActiveTab] = useState("diagram");
+  const [diagramType, setDiagramType] = useState("crow");
 
   const [showInputs, setShowInputs] = useState(true);
 
@@ -1780,7 +1782,11 @@ export default function DatabaseDesignPage({ onProjectChange }) {
 
                 <>
 
-                  <MermaidDiagram definition={diagramDefinition} />
+                  <div className="db-chen-switch" role="group" aria-label="ER diagram notation">
+                    <button type="button" className={diagramType === "chen" ? "selected" : ""} onClick={() => setDiagramType("chen")}>Chen ER Diagram (Conceptual)</button>
+                    <button type="button" className={diagramType === "crow" ? "selected" : ""} onClick={() => setDiagramType("crow")}>Crow’s Foot ER Diagram (Logical)</button>
+                  </div>
+                  {diagramType === "chen" ? <ChenDiagram design={draftDesign} projectId={result?.project_id} /> : <MermaidDiagram definition={diagramDefinition} />}
 
                   <div className="db-metrics">
 

@@ -1425,3 +1425,5 @@
   color: #211a36 !important;
   border-color: #d8d0ec !important;
 }
+
+.db-chen-switch{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.db-chen-switch button{padding:10px 14px;border:1px solid #ddd6fe;border-radius:9px;background:#fff;color:#334155;cursor:pointer}.db-chen-switch button.selected{background:#ede9fe;color:#6d28d9;border-color:#8b5cf6;font-weight:700}
