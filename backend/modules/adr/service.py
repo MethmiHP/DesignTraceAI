@@ -1,8 +1,9 @@
 """
 ADR service orchestration.
 
-This service connects significance detection, evidence aggregation,
-AI-assisted ADR generation, deterministic fallback generation,
+This service connects ML-based significance detection,
+deterministic significance fallback, evidence aggregation,
+AI-assisted ADR generation, deterministic ADR fallback generation,
 validation, repository storage, and lifecycle-ready output into one
 end-to-end workflow.
 """
@@ -11,6 +12,9 @@ from modules.adr.adr_generator import ADRGenerator
 from modules.adr.adr_validator import ADRValidator
 from modules.adr.evidence_aggregator import ADREvidenceAggregator
 from modules.adr.llm.llm_adr_generator import LLMADRGenerator
+from modules.adr.ml_significance_classifier import (
+    MLSignificanceClassifier,
+)
 from modules.adr.repository import ADRRepository
 from modules.adr.schemas import (
     ADRGenerationMethod,
@@ -26,10 +30,13 @@ class ADRService:
     """
     Main orchestration service for the ADR module.
 
-    The service supports deterministic and LLM-assisted generation.
+    Significance detection:
+        Primary   -> TF-IDF + Logistic Regression classifier
+        Fallback  -> deterministic rule-based detector
 
-    If LLM-assisted generation fails, deterministic generation is used
-    automatically as a safe fallback.
+    ADR generation:
+        Primary   -> LLM-assisted generation when enabled
+        Fallback  -> deterministic ADR generation
     """
 
     def __init__(
@@ -38,7 +45,28 @@ class ADRService:
         llm_provider: LLMProvider | None = None,
         use_llm: bool = False,
     ):
-        self.detector = ADRSignificanceDetector()
+        # ---------------------------------------------------------
+        # Deterministic significance detector
+        # ---------------------------------------------------------
+
+        self.rule_detector = ADRSignificanceDetector()
+
+        # ---------------------------------------------------------
+        # ML significance classifier
+        #
+        # If the trained model is unavailable, the service can still
+        # operate using deterministic significance detection.
+        # ---------------------------------------------------------
+
+        try:
+            self.ml_detector = MLSignificanceClassifier()
+
+        except Exception:
+            self.ml_detector = None
+
+        # ---------------------------------------------------------
+        # ADR workflow components
+        # ---------------------------------------------------------
 
         self.aggregator = ADREvidenceAggregator()
 
@@ -61,6 +89,34 @@ class ADRService:
             else None
         )
 
+    def _evaluate_significance(
+        self,
+        decision,
+    ):
+        """
+        Evaluate whether a design decision is significant enough
+        to require an ADR.
+
+        The trained TF-IDF + Logistic Regression model is the
+        primary classifier.
+
+        If the model is unavailable or inference fails, the
+        deterministic rule-based detector is used as a fallback.
+        """
+
+        if self.ml_detector is not None:
+            try:
+                return self.ml_detector.evaluate(
+                    decision
+                )
+
+            except Exception:
+                pass
+
+        return self.rule_detector.evaluate(
+            decision
+        )
+
     async def generate_adrs(
         self,
         request: ADRGenerationRequest,
@@ -74,7 +130,10 @@ class ADRService:
 
         Duplicate source decisions are not regenerated.
 
-        When enabled, LLM-assisted generation is attempted first.
+        Significance detection uses the trained ML classifier first
+        and deterministic rules as a fallback.
+
+        When enabled, LLM-assisted ADR generation is attempted first.
         Provider or generation failures trigger deterministic fallback.
         """
 
@@ -96,7 +155,7 @@ class ADRService:
             )
 
             if existing_adr is not None:
-                significance = self.detector.evaluate(
+                significance = self._evaluate_significance(
                     decision
                 )
 
@@ -114,9 +173,15 @@ class ADRService:
 
             # ---------------------------------------------------------
             # Significance detection
+            #
+            # Primary:
+            # TF-IDF + Logistic Regression
+            #
+            # Fallback:
+            # deterministic significance rules
             # ---------------------------------------------------------
 
-            significance = self.detector.evaluate(
+            significance = self._evaluate_significance(
                 decision
             )
 
