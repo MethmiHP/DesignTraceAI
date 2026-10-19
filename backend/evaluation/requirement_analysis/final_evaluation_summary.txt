@@ -1,0 +1,222 @@
+DESIGNTRACE AI
+FINAL HELD-OUT REQUIREMENT ANALYSIS EVALUATION
+
+Evaluation setup
+----------------
+Held-out projects: 6
+Held-out requirements: 60
+Domains:
+- E-commerce
+- University Learning Platform
+- Logistics / Delivery
+- Banking / Finance
+- Smart Building / IoT
+- Government Service Portal
+
+The final held-out set was kept separate from:
+- PROMISE_exp training data
+- PROMISE_exp validation data
+- PROMISE_exp test data
+- the earlier 50-requirement development evaluation
+- the synthetic augmentation examples
+
+Prediction matching coverage
+----------------------------
+Successful matches: 60
+No matches: 0
+Errors: 0
+Coverage: 100.00%
+
+FR / NFR classification
+-----------------------
+Accuracy: 0.9667
+Macro F1: 0.9666
+Weighted F1: 0.9666
+
+FR:
+Precision: 0.9375
+Recall: 1.0000
+F1: 0.9677
+Support: 30
+
+NFR:
+Precision: 1.0000
+Recall: 0.9333
+F1: 0.9655
+Support: 30
+
+NFR quality-attribute classification
+------------------------------------
+NFR requirements: 30
+
+Accuracy: 0.7333
+Macro F1: 0.6399
+Weighted F1: 0.7262
+
+Per-class results:
+
+Availability
+Precision: 1.0000
+Recall: 1.0000
+F1: 1.0000
+Support: 3
+
+Fault Tolerance
+Precision: 0.5000
+Recall: 0.6667
+F1: 0.5714
+Support: 3
+
+Legal
+Precision: 0.5000
+Recall: 0.5000
+F1: 0.5000
+Support: 2
+
+Look and Feel
+Precision: 0.5000
+Recall: 0.5000
+F1: 0.5000
+Support: 2
+
+Maintainability
+Precision: 0.0000
+Recall: 0.0000
+F1: 0.0000
+Support: 2
+
+Operational
+Precision: 1.0000
+Recall: 0.3333
+F1: 0.5000
+Support: 3
+
+Performance
+Precision: 0.7500
+Recall: 0.7500
+F1: 0.7500
+Support: 4
+
+Portability
+Precision: 1.0000
+Recall: 1.0000
+F1: 1.0000
+Support: 2
+
+Scalability
+Precision: 1.0000
+Recall: 1.0000
+F1: 1.0000
+Support: 3
+
+Security
+Precision: 0.7500
+Recall: 1.0000
+F1: 0.8571
+Support: 3
+
+Usability
+Precision: 1.0000
+Recall: 1.0000
+F1: 1.0000
+Support: 3
+
+ASR detection
+-------------
+Accuracy: 1.0000
+Precision: 1.0000
+Recall: 1.0000
+F1: 1.0000
+TP: 26
+TN: 34
+FP: 0
+FN: 0
+
+Ambiguity detection
+-------------------
+Accuracy: 0.9333
+Precision: 0.4286
+Recall: 1.0000
+F1: 0.6000
+TP: 3
+TN: 53
+FP: 4
+FN: 0
+
+Incompleteness detection
+------------------------
+Accuracy: 1.0000
+Precision: 1.0000
+Recall: 1.0000
+F1: 1.0000
+TP: 1
+TN: 59
+FP: 0
+FN: 0
+
+Interpretation caution:
+Only one positive incompleteness example was present in the held-out set.
+
+Conflict detection
+------------------
+Accuracy: 1.0000
+TP: 0
+TN: 60
+FP: 0
+FN: 0
+
+Interpretation caution:
+There were no positive conflict examples in the held-out set.
+Therefore precision, recall and F1 do not provide meaningful evidence of conflict-detection capability.
+
+Potentially-missing detection
+-----------------------------
+Accuracy: 1.0000
+TP: 0
+TN: 60
+FP: 0
+FN: 0
+
+Interpretation caution:
+There were no positive potentially-missing examples in the held-out set.
+Therefore precision, recall and F1 do not provide meaningful evidence of potentially-missing detection capability.
+
+Model-development comparison
+----------------------------
+Original RoBERTa:
+Accuracy: 0.6582
+Weighted F1: 0.5762
+Macro F1: 0.3455
+
+Class-weighted RoBERTa:
+Accuracy: 0.5823
+Weighted F1: 0.5339
+Macro F1: 0.4171
+
+Class-weighted + augmented RoBERTa:
+Accuracy: 0.6962
+Weighted F1: 0.7011
+Macro F1: 0.5962
+
+The class-weighted + augmented RoBERTa was selected because it achieved
+the highest Macro F1 and improved performance on several minority NFR classes.
+
+Final interpretation
+--------------------
+The final hybrid Requirement Analysis pipeline demonstrated strong
+FR/NFR classification and ASR identification on the held-out benchmark.
+
+Fine-grained NFR quality-attribute classification improved substantially
+after introducing class-weighted training and targeted domain-generic
+augmentation, although minority classes such as Maintainability remain
+challenging.
+
+Ambiguity detection achieved high recall but lower precision, indicating
+a tendency to over-flag ambiguous requirements.
+
+Conflict and potentially-missing detection require separate evaluation
+with positive examples before strong performance claims can be made.
+
+The results should be interpreted as performance on a controlled,
+small-scale held-out benchmark rather than evidence of unrestricted
+real-world generalization.

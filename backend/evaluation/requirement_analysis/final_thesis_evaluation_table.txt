@@ -1,0 +1,30 @@
+Requirement Analysis Final Evaluation
+===============================================================
+
+Metric / Task                         Accuracy   Macro F1   Weighted F1
+---------------------------------------------------------------------
+FR/NFR Classification                0.9667     0.9666     0.9666
+NFR Quality Attribute Classification 0.7333     0.6399     0.7262
+
+Binary Detection Tasks
+---------------------------------------------------------------------
+Task                  Accuracy   Precision   Recall   F1
+ASR Detection          1.0000     1.0000      1.0000   1.0000
+Ambiguity Detection    0.9333     0.4286      1.0000   0.6000
+Incompleteness         1.0000     1.0000      1.0000   1.0000*
+
+* Only one positive incompleteness example was present.
+
+Conflict Detection:
+Accuracy = 1.0000, but no positive conflict examples existed.
+
+Potentially Missing Detection:
+Accuracy = 1.0000, but no positive potentially-missing examples existed.
+
+NFR Model Development Comparison
+---------------------------------------------------------------------
+Model                         Accuracy   Weighted F1   Macro F1
+RoBERTa baseline              0.6582     0.5762        0.3455
+RoBERTa + class weighting     0.5823     0.5339        0.4171
+RoBERTa + weighting +
+targeted augmentation         0.6962     0.7011        0.5962

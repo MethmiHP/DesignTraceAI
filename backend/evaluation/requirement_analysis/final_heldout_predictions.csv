@@ -1,0 +1,61 @@
+﻿project_id,requirement_id,statement,gold_requirement_type,gold_quality_attribute,gold_asr,gold_ambiguous,gold_incomplete,gold_conflicting,gold_potentially_missing,pred_requirement_type,pred_quality_attribute,pred_asr,pred_ambiguous,pred_incomplete,pred_conflicting,pred_potentially_missing,pred_confidence,status
+P101,REQ-001,Customers shall be able to create an account.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9932,OK
+P101,REQ-002,Customers shall be able to search for products by name or category.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9957,OK
+P101,REQ-003,Customers shall be able to add products to a shopping cart.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9962,OK
+P101,REQ-004,Customers shall be able to place an order using items in their shopping cart.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9961,OK
+P101,REQ-005,Administrators shall be able to update product inventory quantities.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9973,OK
+P101,REQ-006,Checkout requests shall complete within 3 seconds under normal operating load.,NFR,Performance,True,False,False,False,False,NFR,Performance,True,False,False,False,False,0.31,OK
+P101,REQ-007,Customer account information shall be protected from unauthorized access.,NFR,Security,True,False,False,False,False,NFR,Security,True,False,False,False,False,0.3916,OK
+P101,REQ-008,The storefront shall be available at least 99.5 percent of each calendar month.,NFR,Availability,True,False,False,False,False,NFR,Availability,True,False,False,False,False,0.3262,OK
+P101,REQ-009,The platform shall support growth to 5000 concurrent shoppers.,NFR,Scalability,True,False,False,False,False,NFR,Scalability,True,False,False,False,False,0.5622,OK
+P101,REQ-010,The checkout interface shall be simple and easy for first-time customers to understand.,NFR,Usability,False,False,False,False,False,NFR,Usability,False,True,False,False,False,0.3451,OK
+P102,REQ-001,Students shall be able to enroll in available courses.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9952,OK
+P102,REQ-002,Lecturers shall be able to upload lecture materials for their courses.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.997,OK
+P102,REQ-003,Students shall be able to submit assignments electronically.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9946,OK
+P102,REQ-004,Lecturers shall be able to publish assignment grades.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9973,OK
+P102,REQ-005,Students shall receive a notification when a new grade is published.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9969,OK
+P102,REQ-006,The learning platform shall operate on current Windows macOS Android and iOS devices.,NFR,Portability,True,False,False,False,False,NFR,Portability,True,False,False,False,False,0.4186,OK
+P102,REQ-007,Course pages shall load quickly.,NFR,Performance,True,True,False,False,False,NFR,Performance,True,True,False,False,False,0.2289,OK
+P102,REQ-008,The system shall preserve submitted assignments if one application server fails.,NFR,Fault Tolerance,True,False,False,False,False,FR,,True,False,False,False,False,0.9856,OK
+P102,REQ-009,The source code shall be organized into modules so that individual features can be modified independently.,NFR,Maintainability,True,False,False,False,False,NFR,Look and Feel,True,False,False,False,False,0.1771,OK
+P102,REQ-010,The application shall use the university approved visual identity including its logo typography and interface styling.,NFR,Look and Feel,False,False,False,False,False,NFR,Look and Feel,False,False,False,False,False,0.2506,OK
+P103,REQ-001,Customers shall be able to create delivery requests.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9961,OK
+P103,REQ-002,Dispatchers shall be able to assign available drivers to deliveries.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9971,OK
+P103,REQ-003,Drivers shall be able to update the status of an assigned delivery.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9973,OK
+P103,REQ-004,Customers shall be able to view the current status of their delivery.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9971,OK
+P103,REQ-005,The system shall notify a customer when a delivery is completed.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9971,OK
+P103,REQ-006,The tracking service shall remain operational if a single processing node becomes unavailable.,NFR,Fault Tolerance,True,False,False,False,False,NFR,Fault Tolerance,True,False,False,False,False,0.3265,OK
+P103,REQ-007,The platform shall support at least 2000 simultaneously active drivers and customers.,NFR,Scalability,True,False,False,False,False,NFR,Scalability,True,False,False,False,False,0.5322,OK
+P103,REQ-008,Location updates shall be processed within 5 seconds after they are received from a driver's device.,NFR,Performance,True,False,False,False,False,NFR,Security,True,False,False,False,False,0.1769,OK
+P103,REQ-009,The mobile application shall be usable in field conditions by drivers with minimal training.,NFR,Usability,False,False,False,False,False,NFR,Usability,False,True,False,False,False,0.2024,OK
+P103,REQ-010,The delivery service shall function properly.,NFR,Operational,False,True,True,False,False,NFR,Fault Tolerance,False,True,True,False,False,0.2312,OK
+P104,REQ-001,Customers shall be able to view their account balances.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9963,OK
+P104,REQ-002,Customers shall be able to transfer funds between their own accounts.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9933,OK
+P104,REQ-003,Customers shall be able to download monthly account statements.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9957,OK
+P104,REQ-004,Authorized employees shall be able to freeze a customer account.,FR,,True,False,False,False,False,FR,,True,False,False,False,False,0.9964,OK
+P104,REQ-005,The system shall record each completed funds transfer in the transaction history.,FR,,True,False,False,False,False,FR,,True,False,False,False,False,0.9966,OK
+P104,REQ-006,Financial transaction records shall be retained for the period required by applicable banking regulations.,NFR,Legal,True,False,False,False,False,FR,,True,False,False,False,False,0.7812,OK
+P104,REQ-007,Online banking sessions shall be protected against unauthorized access.,NFR,Security,True,False,False,False,False,NFR,Security,True,False,False,False,False,0.3865,OK
+P104,REQ-008,The online banking service shall be available 24 hours per day except during approved maintenance windows.,NFR,Availability,True,False,False,False,False,NFR,Availability,True,False,False,False,False,0.4009,OK
+P104,REQ-009,The system shall process customer requests in a reasonable amount of time.,NFR,Performance,True,True,False,False,False,NFR,Performance,True,True,False,False,False,0.295,OK
+P104,REQ-010,The application shall interoperate with the bank's existing payment gateway through its supported interface.,NFR,Operational,True,False,False,False,False,NFR,Operational,True,False,False,False,False,0.2352,OK
+P105,REQ-001,Facility managers shall be able to register building sensors.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9964,OK
+P105,REQ-002,The system shall display the latest temperature reported by each registered sensor.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9956,OK
+P105,REQ-003,Facility managers shall be able to define temperature alert thresholds.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9972,OK
+P105,REQ-004,The system shall notify facility staff when a configured threshold is exceeded.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9967,OK
+P105,REQ-005,Facility managers shall be able to disable a faulty sensor.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9958,OK
+P105,REQ-006,Sensor monitoring shall continue when one gateway device fails.,NFR,Fault Tolerance,True,False,False,False,False,NFR,Fault Tolerance,True,False,False,False,False,0.2285,OK
+P105,REQ-007,The monitoring platform shall support deployment across multiple buildings without redesign.,NFR,Scalability,True,False,False,False,False,NFR,Scalability,True,False,False,False,False,0.3271,OK
+P105,REQ-008,The system shall be deployable on supported on-premises and cloud environments.,NFR,Portability,True,False,False,False,False,NFR,Portability,True,False,False,False,False,0.3928,OK
+P105,REQ-009,The monitoring service shall be available at least 99.9 percent of the time.,NFR,Availability,True,False,False,False,False,NFR,Availability,True,False,False,False,False,0.3359,OK
+P105,REQ-010,System components shall expose diagnostic information that simplifies fault investigation and maintenance.,NFR,Maintainability,True,False,False,False,False,NFR,Performance,True,False,False,False,False,0.1254,OK
+P106,REQ-001,Citizens shall be able to create an online service account.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9803,OK
+P106,REQ-002,Citizens shall be able to submit permit applications electronically.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9908,OK
+P106,REQ-003,Citizens shall be able to upload supporting documents for a permit application.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9965,OK
+P106,REQ-004,Government officers shall be able to approve or reject submitted permit applications.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9964,OK
+P106,REQ-005,Citizens shall be able to view the status of their submitted applications.,FR,,False,False,False,False,False,FR,,False,False,False,False,False,0.9968,OK
+P106,REQ-006,Personal information collected by the portal shall be accessible only to authorized users.,NFR,Security,True,False,False,False,False,NFR,Security,True,False,False,False,False,0.3982,OK
+P106,REQ-007,Application records shall be retained in accordance with applicable public-record legislation.,NFR,Legal,True,False,False,False,False,NFR,Legal,True,True,False,False,False,0.4708,OK
+P106,REQ-008,The portal shall follow the government's approved colors typography and visual branding standards.,NFR,Look and Feel,False,False,False,False,False,NFR,Legal,False,False,False,False,False,0.3215,OK
+P106,REQ-009,The citizen portal shall provide clear navigation and understandable instructions for first-time users.,NFR,Usability,False,False,False,False,False,NFR,Usability,False,True,False,False,False,0.3254,OK
+P106,REQ-010,The production system shall maintain documented backup deployment procedures and operational monitoring for critical services.,NFR,Operational,True,False,False,False,False,NFR,Fault Tolerance,True,False,False,False,False,0.2308,OK
