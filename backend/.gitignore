@@ -35,3 +35,4 @@ venv/
 
 # Generated process outputs (retain the directory placeholder and documentation)
 /outputs/*/
+output/
