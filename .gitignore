@@ -223,3 +223,9 @@ backend/trained_models/
 **/checkpoint-*/
 
 backend/outputs/traceability/
+
+# Requirement Analysis temporary test file
+backend/test_requirements.txt
+
+# Generated Requirement Analysis outputs
+backend/outputs/requirement_analysis/
