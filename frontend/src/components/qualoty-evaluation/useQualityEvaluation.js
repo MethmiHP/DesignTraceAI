@@ -47,11 +47,15 @@ export default function useQualityEvaluation() {
       setError(err.name === 'TimeoutError' ? 'Evaluation timed out. Please try again.' : err instanceof TypeError ? 'Cannot reach the backend. Start it on port 8000 and try again.' : err.message)
     } finally { setBusy(false) }
   }
-  function exportResult() {
-    const url = URL.createObjectURL(new Blob([JSON.stringify(result, null, 2)], { type: 'application/json' }))
-    const link = document.createElement('a')
-    link.href = url; link.download = `${result.evaluation_id}.json`; link.click()
-    setTimeout(() => URL.revokeObjectURL(url), 1000)
+  async function exportResult() {
+    if (!result) return
+    try {
+      const { exportQualityPdf } = await import('./exportQualityPdf')
+      exportQualityPdf(result)
+    } catch {
+      setError('Could not export the PDF. Please try again.')
+      setEditor(true)
+    }
   }
   return { input, setInput, result, setResult, history, busy, error, editor, setEditor, theme, toggleTheme, loadExample, evaluate, exportResult }
 }
