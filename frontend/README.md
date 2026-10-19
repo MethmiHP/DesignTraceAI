@@ -1,16 +1,28 @@
-# React + Vite
+# Quality Evaluation frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The feature lives in `src/components/qualoty-evaluation/`. `App.jsx` mounts the module.
 
-Currently, two official plugins are available:
+## Run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Start the backend from `backend`:
 
-## React Compiler
+```sh
+venv/bin/python -m uvicorn app:app --reload --port 8000
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Start the frontend from `frontend`:
 
-## Expanding the ESLint configuration
+```sh
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Vite proxies `/quality-evaluation` to the backend on port 8000. For production, configure your web server to proxy that path to the backend.
+
+Choose **New evaluation** to paste a complete request, or **Try the example** to load a banking scenario. Run evaluation to populate the dashboard with actual backend results. The theme switch in the sidebar toggles dark/light mode and remembers the choice locally.
+
+The dashboard includes category pass rates, NFR coverage, severity filters, expandable evidence, recommendations, related findings, skipped checks, session history, and JSON report export. N/A values remain N/A. History holds the most recent 20 responses in memory and resets on reload. It is not server history. No numerical demo results or external standard compliance claims are fabricated.
+
+`useQualityEvaluation.js` manages requests and state; `QualityEvaluation.jsx` renders the interface; `quality-evaluation.css` provides responsive layout and theme variables; `example.json` is the backend-compatible sample input.
+
+Checks: `npm run lint` and `npm run build`.
