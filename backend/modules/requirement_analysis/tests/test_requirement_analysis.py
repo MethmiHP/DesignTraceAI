@@ -3,7 +3,9 @@
 # and the final output passes validation.
 
 import pytest
-from shared.llm.mock_client import MockLLMClient
+from modules.requirement_analysis.tests.mock_llm_client import (
+    MockLLMClient
+)
 
 from modules.requirement_analysis.schemas import (
     RequirementAnalysisRequest,

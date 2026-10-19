@@ -39,8 +39,8 @@ from modules.requirement_analysis.classifier_service import (
     get_requirement_classifier
 )
 
-from shared.llm.factory import (
-    get_llm_provider
+from modules.requirement_analysis.requirement_llm_client import (
+    get_requirement_llm_client
 )
 
 
@@ -50,7 +50,7 @@ class RequirementAnalysisService:
 
     def __init__(self, llm=None, classifier=None):
 
-        self.llm = llm or get_llm_provider()
+        self.llm = llm or get_requirement_llm_client()
 
         self.classifier = (
             classifier or get_requirement_classifier()
