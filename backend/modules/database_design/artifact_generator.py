@@ -151,10 +151,10 @@ def generate_sql(
             ):
                 definition += " NOT NULL"
 
-            # Generate safe CHECK constraints.
-            for rule in constraint_rules.get(
-                "checks", []
-            ):
+            # Deduplicate by the actual SQL predicate on this column.
+            # Requirements remain separate for traceability/validation.
+            emitted_checks = set()
+            for rule in constraint_rules.get("checks", []):
                 if (
                     rule.get("table") != table["name"]
                     or rule.get("column")
@@ -177,10 +177,15 @@ def generate_sql(
                         for value in values
                     ]
 
-                    definition += (
-                        f" CHECK ({column_name} IN "
+                    check_sql = (
+                        f"CHECK ({column_name} IN "
                         f"({', '.join(quoted_values)}))"
                     )
+                    # An identical IN rule should only be emitted once.
+                    key = ("IN", tuple(dict.fromkeys(map(str, values))))
+                    if key not in emitted_checks:
+                        definition += " " + check_sql
+                        emitted_checks.add(key)
 
                 else:
                     operator = rule.get("operator")
@@ -206,10 +211,16 @@ def generate_sql(
                             "CHECK value must be numeric"
                         )
 
-                    definition += (
-                        f" CHECK ({column_name} "
-                        f"{operator} {value})"
-                    )
+                    # Normalize numeric values (0, 0.0) without changing
+                    # the actual operator or silently dropping other rules.
+                    from decimal import Decimal
+                    key = ("NUMERIC", operator, Decimal(str(value)))
+                    if key not in emitted_checks:
+                        definition += (
+                            f" CHECK ({column_name} "
+                            f"{operator} {value})"
+                        )
+                        emitted_checks.add(key)
 
             definitions.append(definition)
 
