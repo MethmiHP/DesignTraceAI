@@ -1,20 +1,65 @@
 """
-Extract explicit database constraints from natural-language
-requirements and architecture constraints.
-
-Project-independent: no hardcoded table names.
+Extract explicit project-independent database constraints
+from natural-language requirements.
 """
 
 import re
+
 
 NUMBERS = {
     "zero": 0,
     "one": 1,
     "two": 2,
     "three": 3,
+    "four": 4,
+    "five": 5,
+    "six": 6,
+    "seven": 7,
+    "eight": 8,
+    "nine": 9,
+    "ten": 10,
     "sixteen": 16,
     "eighteen": 18,
 }
+
+NUMBER_PATTERN = (
+    r"(-?\d+(?:\.\d+)?|"
+    + "|".join(NUMBERS)
+    + r")"
+)
+
+SUBJECT = r"(.+?)\s+(?:must|shall|should)\s+"
+
+COMPARISONS = [
+    (
+        rf"{SUBJECT}be\s+greater than or equal to\s+"
+        rf"{NUMBER_PATTERN}\b",
+        ">=",
+    ),
+    (
+        rf"{SUBJECT}be\s+less than or equal to\s+"
+        rf"{NUMBER_PATTERN}\b",
+        "<=",
+    ),
+    (
+        rf"{SUBJECT}be\s+at least\s+{NUMBER_PATTERN}\b",
+        ">=",
+    ),
+    (
+        rf"{SUBJECT}be\s+at most\s+{NUMBER_PATTERN}\b",
+        "<=",
+    ),
+    (
+        rf"{SUBJECT}be\s+(?:strictly\s+)?greater than\s+"
+        rf"{NUMBER_PATTERN}\b",
+        ">",
+    ),
+    (
+        rf"{SUBJECT}be\s+(?:strictly\s+)?less than\s+"
+        rf"{NUMBER_PATTERN}\b",
+        "<",
+    ),
+]
 
 
 def parse_number(value):
@@ -30,7 +75,7 @@ def parse_number(value):
 
 
 def clean_column_hint(text):
-    text = text.lower().strip()
+    text = str(text).lower().strip()
 
     text = re.sub(
         r"\b(each|every|the|a|an)\b",
@@ -44,170 +89,162 @@ def clean_column_hint(text):
         text,
     )
 
-    text = re.sub(r"\s+", "_", text.strip())
-    return text
+    text = re.sub(r"[^a-z0-9]+", "_", text)
+
+    return re.sub(r"_+", "_", text).strip("_")
+
+
+def split_clauses(text):
+    text = str(text).strip()
+
+    parts = re.split(
+        r"\s*[,;]\s*and\s+"
+        r"(?=(?:the|each|every|a|an)\s+)"
+        r"|\s+and\s+"
+        r"(?=(?:the|each|every|a|an)\s+"
+        r".+?\s+(?:must|shall|should)\s+)",
+        text,
+        flags=re.IGNORECASE,
+    )
+
+    return [
+        part.strip(" ,;.")
+        for part in parts
+        if part.strip(" ,;.")
+    ]
 
 
 def extract_requirement_constraints(requirements):
-    """
-    Input:
-        List of requirement/constraint strings.
-
-    Output:
-        List of structured constraint dictionaries.
-    """
-
     results = []
 
-    number_pattern = (
-        r"(-?\d+(?:\.\d+)?|zero|one|two|three|"
-        r"sixteen|eighteen)"
-    )
-
-    comparison_patterns = [
-        (
-            rf"(.+?)\s+(?:must|shall|should)\s+be\s+"
-            rf"(?:strictly\s+)?greater than\s+{number_pattern}",
-            ">",
-        ),
-        (
-            rf"(.+?)\s+(?:must|shall|should)\s+be\s+"
-            rf"(?:greater than or equal to|at least)\s+"
-            rf"{number_pattern}",
-            ">=",
-        ),
-        (
-            rf"(.+?)\s+(?:must|shall|should)\s+be\s+"
-            rf"less than\s+{number_pattern}",
-            "<",
-        ),
-        (
-            rf"(.+?)\s+(?:must|shall|should)\s+be\s+"
-            rf"(?:at most|less than or equal to)\s+"
-            rf"{number_pattern}",
-            "<=",
-        ),
-    ]
-
     for requirement in requirements:
-        text = str(requirement).strip()
-        normalized = text.lower().rstrip(". ")
+        original = str(requirement).strip()
 
-        # UNIQUE
-        unique_match = re.search(
-            r"(.+?)\s+(?:must|shall|should)\s+be\s+unique\b",
-            normalized,
-        )
+        for clause in split_clauses(original):
+            normalized = clause.lower().strip().rstrip(".")
+            base = {"source_requirement": original}
 
-        if unique_match:
-            results.append({
-                "type": "UNIQUE",
-                "column_hint": clean_column_hint(
-                    unique_match.group(1)
-                ),
-                "source_requirement": text,
-            })
+            # UNIQUE
+            match = re.search(
+                rf"{SUBJECT}be\s+unique\b",
+                normalized,
+            )
 
-        # Numeric comparisons
-        comparison_found = False
-
-        for pattern, operator in comparison_patterns:
-            match = re.search(pattern, normalized)
-
-            if not match:
-                continue
-
-            value = parse_number(match.group(2))
-
-            if value is not None:
+            if match:
                 results.append({
-                    "type": "CHECK",
+                    **base,
+                    "type": "UNIQUE",
                     "column_hint": clean_column_hint(
                         match.group(1)
                     ),
-                    "operator": operator,
-                    "value": value,
-                    "source_requirement": text,
                 })
 
-            comparison_found = True
-            break
+            # Numeric CHECK comparisons
+            comparison_found = False
 
-        # Positive / nonnegative / cannot be negative
-        if not comparison_found:
-            special_patterns = [
-                (
-                    r"(.+?)\s+(?:must|shall|should)\s+be\s+positive\b",
-                    ">",
-                ),
-                (
-                    r"(.+?)\s+(?:must|shall|should)\s+be\s+"
-                    r"(?:nonnegative|non-negative)\b",
-                    ">=",
-                ),
-                (
-                    r"(.+?)\s+(?:cannot|must not|shall not)\s+"
-                    r"be\s+negative\b",
-                    ">=",
-                ),
-            ]
-
-            for pattern, operator in special_patterns:
+            for pattern, operator in COMPARISONS:
                 match = re.search(pattern, normalized)
 
-                if match:
+                if not match:
+                    continue
+
+                value = parse_number(match.group(2))
+
+                if value is not None:
                     results.append({
+                        **base,
                         "type": "CHECK",
                         "column_hint": clean_column_hint(
                             match.group(1)
                         ),
                         "operator": operator,
-                        "value": 0,
-                        "source_requirement": text,
+                        "value": value,
                     })
-                    break
 
-        # NOT NULL
-        not_null_match = re.search(
-            r"(.+?)\s+(?:must|shall|should)\s+"
-            r"(?:not be null|be required)\b",
-            normalized,
-        )
+                    comparison_found = True
 
-        if not_null_match:
-            results.append({
-                "type": "NOT_NULL",
-                "column_hint": clean_column_hint(
-                    not_null_match.group(1)
-                ),
-                "source_requirement": text,
-            })
+                break
 
-        # Allowed values
-        allowed_match = re.search(
-            r"(.+?)\s+(?:must|shall|should)\s+"
-            r"be one of\s+(.+)",
-            normalized,
-        )
-
-        if allowed_match:
-            values = [
-                item.strip(" '\".")
-                for item in re.split(
-                    r",|\bor\b",
-                    allowed_match.group(2),
-                )
-                if item.strip(" '\".")
-            ]
-
-            if values:
-                results.append({
-                    "type": "CHECK",
-                    "column_hint": clean_column_hint(
-                        allowed_match.group(1)
+            # Positive and nonnegative values
+            if not comparison_found:
+                special_patterns = [
+                    (
+                        rf"{SUBJECT}be\s+positive\b",
+                        ">",
                     ),
-                    "allowed_values": values,
-                    "source_requirement": text,
+                    (
+                        rf"{SUBJECT}be\s+"
+                        r"(?:nonnegative|non-negative)\b",
+                        ">=",
+                    ),
+                    (
+                        r"(.+?)\s+"
+                        r"(?:cannot|must not|shall not)"
+                        r"\s+be\s+negative\b",
+                        ">=",
+                    ),
+                ]
+
+                for pattern, operator in special_patterns:
+                    match = re.search(pattern, normalized)
+
+                    if match:
+                        results.append({
+                            **base,
+                            "type": "CHECK",
+                            "column_hint": clean_column_hint(
+                                match.group(1)
+                            ),
+                            "operator": operator,
+                            "value": 0,
+                        })
+                        break
+
+            # NOT NULL
+            match = re.search(
+                rf"{SUBJECT}"
+                r"(?:not be null|be required)\b",
+                normalized,
+            )
+
+            if match:
+                results.append({
+                    **base,
+                    "type": "NOT_NULL",
+                    "column_hint": clean_column_hint(
+                        match.group(1)
+                    ),
                 })
+
+            # Allowed values
+            match = re.search(
+                rf"{SUBJECT}be\s+one of\s+(.+)",
+                normalized,
+            )
+
+            if match:
+                values = [
+                    item.strip(" '\".")
+                    for item in re.split(
+                        r",|\bor\b",
+                        match.group(2),
+                    )
+                    if item.strip(" '\".")
+                ]
+
+                if values:
+                    results.append({
+                        **base,
+                        "type": "CHECK",
+                        "column_hint": clean_column_hint(
+                            match.group(1)
+                        ),
+                        "allowed_values": values,
+                    })
+
+    # Compatibility with older code that expects "column".
+    for item in results:
+        tokens = item["column_hint"].split("_")
+        item["column"] = tokens[-1] if tokens else ""
 
     return results
