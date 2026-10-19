@@ -548,3 +548,84 @@ def test_service_calculates_nfr_coverage(
         .nfr_coverage_percentage
         == 100.0
     )
+
+
+def test_service_skips_semantic_rule_when_llm_is_disabled():
+
+    service = (
+        QualityEvaluationService(
+            enable_llm=False,
+        )
+    )
+
+    response = service.evaluate(
+        build_request()
+    )
+
+    results_by_id = {
+        result.rule_id: result
+        for result
+        in response.rule_results
+    }
+
+    # Semantic rule must not fabricate a result
+    assert (
+        results_by_id[
+            "SEC-001"
+        ].status
+        == RuleStatus.SKIPPED
+    )
+
+    # No LLM provider should be reported
+    assert (
+        results_by_id[
+            "SEC-001"
+        ].provider
+        is None
+    )
+
+    # No semantic finding should be created
+    finding_rule_ids = {
+        finding.rule_id
+        for finding
+        in response.findings
+    }
+
+    assert (
+        "SEC-001"
+        not in finding_rule_ids
+    )
+
+    # Deterministic failures should still be detected
+    assert (
+        "SCAL-001"
+        in finding_rule_ids
+    )
+
+    assert (
+        "SEC-002"
+        in finding_rule_ids
+    )
+
+    # One semantic rule is skipped
+    assert (
+        response.metrics.skipped_rules
+        == 1
+    )
+
+    assert (
+        response.metrics.passed_rules
+        == 3
+    )
+
+    assert (
+        response.metrics.failed_rules
+        == 2
+    )
+
+    # SEC-001 and SEC-002 cannot form a group
+    # because SEC-001 was skipped
+    assert (
+        response.finding_groups
+        == []
+    )
