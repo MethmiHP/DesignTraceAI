@@ -307,6 +307,143 @@
     "finding_group": "API_ACCESS_CONTROL"
   },
   {
+    "rule_id": "SEC-003",
+    "title": "Object-specific API operations should have explicit authorization requirements",
+    "source": "Project-authored rule informed by OWASP API Security Top 10 2023 API1 Broken Object Level Authorization and ISO/IEC 25010 security guidance",
+    "artifact_types": [
+      "API",
+      "FR",
+      "NFR"
+    ],
+    "quality_attribute": "Security",
+    "nfr_categories": [
+      "Security"
+    ],
+    "applicability": "A Security NFR exists and the API contains operations that access or modify specific resources using object identifiers.",
+    "check_type": "semantic",
+    "handler": null,
+    "semantic_instruction": "Determine whether any supplied API operation accesses, retrieves, updates, or deletes a specific resource using an identifier supplied through the request, such as an ID in the path, query, or request data. If such an operation exists, assess whether the supplied functional requirements, non-functional requirements, API design, or OpenAPI contract contain explicit authorization evidence restricting access to the appropriate resource. Use only supplied evidence. Do not assume ownership checks, roles, permissions, JWT claims, or access-control mechanisms that are not explicitly present. Return FAIL when an object-specific operation clearly requires authorization but no supporting authorization requirement or design evidence is supplied. Return PASS when adequate explicit authorization evidence is present. Return SKIPPED when the supplied artifacts do not contain an object-specific operation or do not contain enough information to make a grounded judgment.",
+    "severity_default": "HIGH",
+    "evidence_required": true,
+    "recommendation_template": "Define explicit object-level authorization requirements for API operations that access or modify resources using object identifiers.",
+    "always_apply": false,
+    "finding_group": "API_ACCESS_CONTROL"
+  },
+  {
+    "rule_id": "SEC-004",
+    "title": "Sensitive API properties should have justified access and exposure controls",
+    "source": "Project-authored rule informed by OWASP API Security Top 10 2023 API3 Broken Object Property Level Authorization and ISO/IEC 25010 security confidentiality guidance",
+    "artifact_types": [
+      "API",
+      "DATABASE",
+      "FR",
+      "NFR"
+    ],
+    "quality_attribute": "Security",
+    "nfr_categories": [
+      "Security"
+    ],
+    "applicability": "A Security NFR exists and API request or response data can be compared with functional requirements or database attributes.",
+    "check_type": "semantic",
+    "handler": null,
+    "semantic_instruction": "Inspect only the supplied API request schemas, response schemas, database attributes, functional requirements, and Security NFRs. Determine whether API operations expose or allow modification of properties that appear sensitive or unnecessary for the stated functional requirement. Examples may include credentials, security tokens, financial information, personal identifiers, internal status fields, or privileged attributes, but sensitivity must be supported by the supplied project context. Do not invent classifications or assume that a field is protected. Return FAIL when the supplied evidence clearly shows unnecessary exposure or modification of a sensitive property without supporting authorization or requirement evidence. Return PASS when the exposed properties are justified by the supplied requirements and appropriate access constraints are explicitly represented. Return SKIPPED when property sensitivity or required access cannot be determined from the supplied artifacts.",
+    "severity_default": "HIGH",
+    "evidence_required": true,
+    "recommendation_template": "Restrict sensitive API properties to operations that genuinely require them and document explicit access or exposure constraints for those properties.",
+    "always_apply": false
+  },
+  {
+    "rule_id": "SEC-005",
+    "title": "Privileged API operations should have explicit function-level authorization requirements",
+    "source": "Project-authored rule informed by OWASP API Security Top 10 2023 API5 Broken Function Level Authorization and ISO/IEC 25010 security guidance",
+    "artifact_types": [
+      "API",
+      "FR",
+      "NFR"
+    ],
+    "quality_attribute": "Security",
+    "nfr_categories": [
+      "Security"
+    ],
+    "applicability": "A Security NFR exists and one or more API operations represent privileged, administrative, approval, management, or restricted functionality.",
+    "check_type": "semantic",
+    "handler": null,
+    "semantic_instruction": "Determine from the supplied functional requirements and API operations whether any operation represents privileged, administrative, approval, management, configuration, or otherwise restricted functionality. If such functionality exists, assess whether explicit authorization requirements or security evidence distinguish who is permitted to perform the operation. Use only supplied evidence. Do not invent administrator roles, permission names, access-control models, or security mechanisms. Return FAIL when privileged functionality is clearly present but no function-level authorization requirement or design evidence is supplied. Return PASS when explicit authorization evidence is present. Return SKIPPED when no privileged functionality can be identified from the supplied artifacts.",
+    "severity_default": "HIGH",
+    "evidence_required": true,
+    "recommendation_template": "Define explicit function-level authorization requirements for privileged or administrative API operations.",
+    "always_apply": false,
+    "finding_group": "API_ACCESS_CONTROL"
+  },
+  {
+    "rule_id": "SEC-006",
+    "title": "Resource-intensive or sensitive business operations should have explicit abuse and resource-control requirements",
+    "source": "Project-authored rule informed by OWASP API Security Top 10 2023 API4 Unrestricted Resource Consumption and API6 Unrestricted Access to Sensitive Business Flows",
+    "artifact_types": [
+      "API",
+      "FR",
+      "NFR",
+      "ARCHITECTURE"
+    ],
+    "quality_attribute": "Security",
+    "nfr_categories": [
+      "Security"
+    ],
+    "applicability": "A Security NFR exists and the supplied requirements or API design contain operations whose excessive or automated use could consume significant resources or abuse a sensitive business process.",
+    "check_type": "semantic",
+    "handler": null,
+    "semantic_instruction": "Using only the supplied functional requirements, Security NFRs, API operations, and architecture evidence, determine whether any operation represents a resource-intensive action or a business-sensitive flow that could cause security, availability, financial, or operational harm if repeatedly or automatically abused. Examples may include repeated transaction submission, bulk processing, expensive searches, notification generation, account recovery, booking, purchasing, or other high-impact operations, but only identify these when supported by the project evidence. Assess whether explicit requirements or design evidence describe appropriate abuse, request, resource, or usage controls. Do not invent rate limits, quotas, CAPTCHA, throttling, or other mechanisms. Return FAIL when a clearly sensitive or resource-intensive operation exists but no relevant protection requirement is represented. Return PASS when appropriate explicit protection requirements or design evidence are supplied. Return SKIPPED when no such operation can be grounded in the supplied artifacts.",
+    "severity_default": "HIGH",
+    "evidence_required": true,
+    "recommendation_template": "Define explicit abuse-prevention or resource-control requirements for resource-intensive or business-sensitive API operations.",
+    "always_apply": false
+  },
+  {
+    "rule_id": "SEC-007",
+    "title": "Remote-resource API operations should have explicit destination and input-validation safeguards",
+    "source": "Project-authored rule informed by OWASP API Security Top 10 2023 API7 Server Side Request Forgery and ISO/IEC 25010 security guidance",
+    "artifact_types": [
+      "API",
+      "FR",
+      "NFR"
+    ],
+    "quality_attribute": "Security",
+    "nfr_categories": [
+      "Security"
+    ],
+    "applicability": "A Security NFR exists and an API operation or functional requirement causes the system to retrieve or communicate with a remote resource based on supplied URLs, URIs, addresses, or external-resource identifiers.",
+    "check_type": "semantic",
+    "handler": null,
+    "semantic_instruction": "Determine whether any supplied functional requirement or API operation causes the system to retrieve, fetch, connect to, preview, import, proxy, or otherwise communicate with a remote resource using a URL, URI, host, address, or destination influenced by input. If such behavior exists, assess whether the supplied requirements or design artifacts contain explicit validation, destination restriction, trust-boundary, or equivalent security evidence. Use only supplied evidence. Do not invent network controls, allowlists, firewalls, URL validation, or infrastructure mechanisms. Return FAIL when remote-resource behavior is clearly present but no relevant safeguard requirement or design evidence is supplied. Return PASS when explicit safeguards are represented. Return SKIPPED when no remote-resource behavior can be identified from the supplied artifacts.",
+    "severity_default": "HIGH",
+    "evidence_required": true,
+    "recommendation_template": "Define explicit validation and destination-control requirements for functionality that causes the system to access remote resources.",
+    "always_apply": false
+  },
+  {
+    "rule_id": "SEC-008",
+    "title": "Third-party API integrations should have explicit trust and validation requirements",
+    "source": "Project-authored rule informed by OWASP API Security Top 10 2023 API10 Unsafe Consumption of APIs and ISO/IEC 25010 security guidance",
+    "artifact_types": [
+      "ARCHITECTURE",
+      "API",
+      "FR",
+      "NFR"
+    ],
+    "quality_attribute": "Security",
+    "nfr_categories": [
+      "Security"
+    ],
+    "applicability": "A Security NFR exists and the supplied architecture or requirements identify communication with an external or third-party API or service.",
+    "check_type": "semantic",
+    "handler": null,
+    "semantic_instruction": "Determine whether the supplied architecture, functional requirements, or API artifacts show that the system consumes data or functionality from an external or third-party API or service. If such an integration exists, assess whether explicit security requirements or design evidence address how external responses, destinations, authentication expectations, or received data are treated as untrusted or validated. Use only supplied evidence. Do not invent TLS configuration, certificates, authentication schemes, sanitization mechanisms, retries, or vendor-specific controls. Return FAIL when a third-party integration is clearly present but no relevant trust, validation, or security requirement is represented. Return PASS when explicit supporting security requirements or design evidence are supplied. Return SKIPPED when no third-party API integration can be identified from the supplied artifacts.",
+    "severity_default": "HIGH",
+    "evidence_required": true,
+    "recommendation_template": "Document explicit trust, validation, and security requirements for data and functionality consumed from third-party APIs or external services.",
+    "always_apply": false
+  },
+  {
     "rule_id": "USE-002",
     "title": "Usability requirements should be reflected in consumer-facing API design",
     "source": "Project-authored usability rule",

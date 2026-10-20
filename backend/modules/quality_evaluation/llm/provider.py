@@ -6,6 +6,8 @@ from typing import TypeVar
 
 from pydantic import BaseModel
 
+from .activity_logging import log_provider_call, log_fallback
+
 
 logger = logging.getLogger(__name__)
 
@@ -69,7 +71,11 @@ class GeminiQualityLLMProvider(
         self._types = types
 
         self.client = genai.Client(
-            api_key=api_key
+            api_key=api_key,
+            http_options=types.HttpOptions(
+                timeout=60000,
+                retry_options=types.HttpRetryOptions(attempts=1),
+            ),
         )
 
         self.model_name = (
@@ -80,6 +86,7 @@ class GeminiQualityLLMProvider(
             )
         )
 
+    @log_provider_call
     def generate_structured(
         self,
         prompt: str,
@@ -163,7 +170,7 @@ class GroqQualityLLMProvider(
             ) from exc
 
         self.client = Groq(
-            api_key=api_key
+            api_key=api_key, timeout=60.0, max_retries=0,
         )
 
         self.model_name = (
@@ -174,6 +181,7 @@ class GroqQualityLLMProvider(
             )
         )
 
+    @log_provider_call
     def generate_structured(
         self,
         prompt: str,
@@ -274,7 +282,8 @@ class FallbackQualityLLMProvider(
         schema_class: type[T],
     ) -> T:
 
-        for provider in self.providers:
+        self.last_provider_name = None
+        for index, provider in enumerate(self.providers):
 
             try:
                 result = (
@@ -292,13 +301,8 @@ class FallbackQualityLLMProvider(
                 return result
 
             except Exception:
-                logger.exception(
-                    (
-                        "Quality LLM provider "
-                        "%s failed."
-                    ),
-                    provider.name,
-                )
+                if index + 1 < len(self.providers):
+                    log_fallback(provider.name, self.providers[index + 1].name)
 
         raise QualityLLMUnavailableError(
             (

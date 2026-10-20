@@ -1,11 +1,23 @@
 import { useState } from 'react'
 import example from './example.json'
+import { requestJson, waitForEvaluation } from './evaluationClient'
 
 export default function useQualityEvaluation() {
   const [input, setInput] = useState('')
   const [result, setResult] = useState(null)
   const [history, setHistory] = useState([])
   const [busy, setBusy] = useState(false)
+  const [progress, setProgress] = useState(null)
+  const [pendingJob, setPendingJob] = useState(() => {
+    try { return sessionStorage.getItem('quality-pending-job') || '' } catch { return '' }
+  })
+  function rememberJob(id) {
+    setPendingJob(id)
+    try {
+      if (id) sessionStorage.setItem('quality-pending-job', id)
+      else sessionStorage.removeItem('quality-pending-job')
+    } catch { /* Resuming still works in this page session. */ }
+  }
   const [error, setError] = useState('')
   const [editor, setEditor] = useState(false)
   const [theme, setTheme] = useState(() => {
@@ -23,28 +35,35 @@ export default function useQualityEvaluation() {
     setError('')
     let payload
     try {
+      if (!pendingJob) {
       payload = JSON.parse(input)
       if (!payload || Array.isArray(payload) || typeof payload.project_id !== 'string' || !payload.project_id.trim()) throw new Error('Include a non-empty project_id in the request object.')
       for (const key of ['architecture', 'database', 'api_component_design']) {
         if (!payload[key] || typeof payload[key] !== 'object' || Array.isArray(payload[key])) throw new Error(`Include a ${key} object.`)
       }
+      }
     } catch (err) { setError(`Check your JSON: ${err.message}`); return }
     setBusy(true)
     try {
-      const response = await fetch('/quality-evaluation/evaluate', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), signal: AbortSignal.timeout(180000),
-      })
-      const data = await response.json().catch(() => null)
-      if (!response.ok) {
-        const detail = Array.isArray(data?.detail) ? data.detail.map((item) => `${item.loc.join('.')}: ${item.msg}`).join('\n') : data?.detail
-        throw new Error(typeof detail === 'string' ? detail : `Evaluation failed (${response.status}).`)
+      let jobId = pendingJob
+      if (!jobId) {
+        const job = await requestJson('/quality-evaluation/jobs', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload),
+        })
+        if (!job?.job_id) throw new Error('The backend did not return an evaluation job ID.')
+        jobId = job.job_id
+        rememberJob(jobId)
+        setProgress(job)
       }
+      const data = await waitForEvaluation(jobId, setProgress)
       if (!data?.metrics || !Array.isArray(data.findings) || !Array.isArray(data.rule_results) || !Array.isArray(data.metrics.category_summaries)) throw new Error('Unexpected response from the backend.')
+      rememberJob('')
       setResult(data)
       setHistory((previous) => [data, ...previous].slice(0, 20))
       setEditor(false)
     } catch (err) {
-      setError(err.name === 'TimeoutError' ? 'Evaluation timed out. Please try again.' : err instanceof TypeError ? 'Cannot reach the backend. Start it on port 8000 and try again.' : err.message)
+      if (err.terminal) rememberJob('')
+      setError(err.name === 'TimeoutError' ? 'Connection timed out. If a job was accepted, use Resume evaluation to check it without starting again.' : err instanceof TypeError ? 'Cannot reach the backend. Reconnect and resume the evaluation.' : err.message)
     } finally { setBusy(false) }
   }
   async function exportResult() {
@@ -57,5 +76,5 @@ export default function useQualityEvaluation() {
       setEditor(true)
     }
   }
-  return { input, setInput, result, setResult, history, busy, error, editor, setEditor, theme, toggleTheme, loadExample, evaluate, exportResult }
+  return { pendingJob, progress, input, setInput, result, setResult, history, busy, error, editor, setEditor, theme, toggleTheme, loadExample, evaluate, exportResult }
 }

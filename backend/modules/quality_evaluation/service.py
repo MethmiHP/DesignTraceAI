@@ -165,6 +165,7 @@ class QualityEvaluationService:
     def evaluate(
         self,
         request: QualityEvaluationRequest,
+        on_progress=None,
     ) -> QualityEvaluationResponse:
 
         # Normalize supplied artifacts
@@ -198,7 +199,11 @@ class QualityEvaluationService:
 
         # Route each rule according
         # to its predefined check type
+        if on_progress:
+            on_progress(0, len(applicable_rules), None)
         for rule in applicable_rules:
+            if on_progress:
+                on_progress(len(results), len(applicable_rules), rule.rule_id)
 
             if (
                 rule.check_type
@@ -226,6 +231,8 @@ class QualityEvaluationService:
             results.append(
                 result
             )
+            if on_progress:
+                on_progress(len(results), len(applicable_rules), None)
 
         findings = []
 

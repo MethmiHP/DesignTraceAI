@@ -1,6 +1,8 @@
 import json
 import logging
 
+from .llm.activity_logging import evaluation_log_context
+
 from .llm.provider import (
     BaseQualityLLMProvider,
 )
@@ -45,6 +47,7 @@ class SemanticEvaluator:
         }
 
         if self.provider is None:
+            logger.info("[%s] skipped: LLM unavailable", rule.rule_id)
             return RuleEvaluationResult(
                 rule_id=rule.rule_id,
                 quality_attribute=(
@@ -70,22 +73,17 @@ class SemanticEvaluator:
         )
 
         try:
-            assessment = (
-                self.provider
-                .generate_structured(
-                    prompt,
-                    LLMQualityAssessment,
+            with evaluation_log_context(context.project_id, rule.rule_id):
+                assessment = (
+                    self.provider
+                    .generate_structured(
+                        prompt,
+                        LLMQualityAssessment,
+                    )
                 )
-            )
 
         except Exception:
-            logger.exception(
-                (
-                    "Semantic quality evaluation "
-                    "failed for rule %s."
-                ),
-                rule.rule_id,
-            )
+            logger.warning('[%s] skipped: providers failed', rule.rule_id)
 
             return RuleEvaluationResult(
                 rule_id=rule.rule_id,
@@ -192,12 +190,6 @@ class SemanticEvaluator:
             indent=2,
         )
 
-        if len(context_json) > 20000:
-            context_json = (
-                context_json[:20000]
-                + "\n[context truncated]"
-            )
-
         return f"""
 You are evaluating one software-design quality rule for DesignTrace AI.
 
@@ -206,6 +198,7 @@ Evaluate ONLY the supplied rule.
 Important constraints:
 
 - Use only the supplied artifacts and requirements.
+- Upstream scores, validation flags, recommendations, and retrieved general evidence are context, not proof that the actual design satisfies this rule.
 - Do not invent missing architecture, database, API, UI, infrastructure, legal, authentication or deployment details.
 - Return PASS only when the supplied evidence supports the rule.
 - Return FAIL when the supplied evidence clearly shows a quality problem.

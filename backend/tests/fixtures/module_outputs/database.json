@@ -1,0 +1,466 @@
+{
+  "project_id": "TEST-VEHICLE-007",
+  "generation_method": "gemini",
+  "design": {
+    "tables": [
+      {
+        "table_name": "customers",
+        "purpose": null,
+        "columns": [
+          {
+            "name": "customer_id",
+            "data_type": "BIGINT",
+            "nullable": false,
+            "primary_key": true,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-01"
+            ]
+          },
+          {
+            "name": "full_name",
+            "data_type": "VARCHAR(255)",
+            "nullable": false,
+            "primary_key": false,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-01"
+            ]
+          },
+          {
+            "name": "email",
+            "data_type": "VARCHAR(255)",
+            "nullable": false,
+            "primary_key": false,
+            "unique": true,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-01",
+              "FR-02"
+            ]
+          },
+          {
+            "name": "phone_number",
+            "data_type": "VARCHAR(50)",
+            "nullable": false,
+            "primary_key": false,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-01"
+            ]
+          }
+        ],
+        "source_requirement_ids": [
+          "FR-01",
+          "FR-02",
+          "FR-05"
+        ]
+      },
+      {
+        "table_name": "vehicles",
+        "purpose": null,
+        "columns": [
+          {
+            "name": "vehicle_id",
+            "data_type": "BIGINT",
+            "nullable": false,
+            "primary_key": true,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-03"
+            ]
+          },
+          {
+            "name": "registration_number",
+            "data_type": "VARCHAR(50)",
+            "nullable": false,
+            "primary_key": false,
+            "unique": true,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-03",
+              "FR-04"
+            ]
+          },
+          {
+            "name": "brand",
+            "data_type": "VARCHAR(100)",
+            "nullable": false,
+            "primary_key": false,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-03"
+            ]
+          },
+          {
+            "name": "model",
+            "data_type": "VARCHAR(100)",
+            "nullable": false,
+            "primary_key": false,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-03"
+            ]
+          },
+          {
+            "name": "daily_rental_rate",
+            "data_type": "NUMERIC(10,2)",
+            "nullable": false,
+            "primary_key": false,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-03",
+              "FR-07"
+            ]
+          },
+          {
+            "name": "availability_status",
+            "data_type": "VARCHAR(50)",
+            "nullable": false,
+            "primary_key": false,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-03"
+            ]
+          }
+        ],
+        "source_requirement_ids": [
+          "FR-03",
+          "FR-04",
+          "FR-06",
+          "FR-07"
+        ]
+      },
+      {
+        "table_name": "bookings",
+        "purpose": null,
+        "columns": [
+          {
+            "name": "booking_id",
+            "data_type": "BIGINT",
+            "nullable": false,
+            "primary_key": true,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": []
+          },
+          {
+            "name": "customer_id",
+            "data_type": "BIGINT",
+            "nullable": false,
+            "primary_key": false,
+            "unique": false,
+            "foreign_key": {
+              "table": "customers",
+              "column": "customer_id"
+            },
+            "source_requirement_ids": [
+              "FR-05"
+            ]
+          },
+          {
+            "name": "vehicle_id",
+            "data_type": "BIGINT",
+            "nullable": false,
+            "primary_key": false,
+            "unique": false,
+            "foreign_key": {
+              "table": "vehicles",
+              "column": "vehicle_id"
+            },
+            "source_requirement_ids": [
+              "FR-06"
+            ]
+          },
+          {
+            "name": "start_date",
+            "data_type": "DATE",
+            "nullable": false,
+            "primary_key": false,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-06"
+            ]
+          },
+          {
+            "name": "end_date",
+            "data_type": "DATE",
+            "nullable": false,
+            "primary_key": false,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-06"
+            ]
+          },
+          {
+            "name": "total_amount",
+            "data_type": "NUMERIC(10,2)",
+            "nullable": false,
+            "primary_key": false,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-06",
+              "FR-08"
+            ]
+          },
+          {
+            "name": "booking_status",
+            "data_type": "VARCHAR(50)",
+            "nullable": false,
+            "primary_key": false,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-06"
+            ]
+          }
+        ],
+        "source_requirement_ids": [
+          "FR-05",
+          "FR-06",
+          "FR-08",
+          "FR-09",
+          "FR-10"
+        ]
+      },
+      {
+        "table_name": "payments",
+        "purpose": null,
+        "columns": [
+          {
+            "name": "payment_id",
+            "data_type": "BIGINT",
+            "nullable": false,
+            "primary_key": true,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-09"
+            ]
+          },
+          {
+            "name": "booking_id",
+            "data_type": "BIGINT",
+            "nullable": false,
+            "primary_key": false,
+            "unique": false,
+            "foreign_key": {
+              "table": "bookings",
+              "column": "booking_id"
+            },
+            "source_requirement_ids": [
+              "FR-09",
+              "FR-10"
+            ]
+          },
+          {
+            "name": "payment_amount",
+            "data_type": "NUMERIC(10,2)",
+            "nullable": false,
+            "primary_key": false,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-09",
+              "FR-10"
+            ]
+          },
+          {
+            "name": "payment_date",
+            "data_type": "TIMESTAMP",
+            "nullable": false,
+            "primary_key": false,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-09"
+            ]
+          },
+          {
+            "name": "payment_method",
+            "data_type": "VARCHAR(50)",
+            "nullable": false,
+            "primary_key": false,
+            "unique": false,
+            "foreign_key": null,
+            "source_requirement_ids": [
+              "FR-09"
+            ]
+          }
+        ],
+        "source_requirement_ids": [
+          "FR-09",
+          "FR-10"
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "relationship_id": "REL-001",
+        "from_table": "customers",
+        "to_table": "bookings",
+        "relationship_type": "one-to-many",
+        "foreign_key": "bookings.customer_id",
+        "source_requirement_ids": [
+          "FR-05"
+        ]
+      },
+      {
+        "relationship_id": "REL-002",
+        "from_table": "vehicles",
+        "to_table": "bookings",
+        "relationship_type": "one-to-many",
+        "foreign_key": "bookings.vehicle_id",
+        "source_requirement_ids": [
+          "FR-06"
+        ]
+      },
+      {
+        "relationship_id": "REL-003",
+        "from_table": "bookings",
+        "to_table": "payments",
+        "relationship_type": "one-to-many",
+        "foreign_key": "payments.booking_id",
+        "source_requirement_ids": [
+          "FR-09",
+          "FR-10"
+        ]
+      }
+    ],
+    "constraints": [
+      "Customer email addresses must be unique.",
+      "Vehicle registration numbers must be unique.",
+      "Vehicle daily rental rate must be greater than zero.",
+      "Booking total amount must be greater than or equal to zero.",
+      "Payment amount must be greater than zero.",
+      "Every booking must reference an existing customer and vehicle.",
+      "Every payment must reference an existing booking."
+    ]
+  },
+  "schema_validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": [],
+    "statistics": {
+      "total_tables": 4,
+      "total_relationships": 3,
+      "total_requirement_mappings": 0,
+      "total_errors": 0,
+      "total_warnings": 0
+    }
+  },
+  "mapping_validation": {
+    "valid": true,
+    "coverage_percentage": 100,
+    "total_requirements": 10,
+    "mapped_requirements": 10,
+    "requirement_mappings": [
+      {
+        "requirement_id": "FR-01",
+        "related_tables": [
+          "customers"
+        ]
+      },
+      {
+        "requirement_id": "FR-02",
+        "related_tables": [
+          "customers"
+        ]
+      },
+      {
+        "requirement_id": "FR-03",
+        "related_tables": [
+          "vehicles"
+        ]
+      },
+      {
+        "requirement_id": "FR-04",
+        "related_tables": [
+          "vehicles"
+        ]
+      },
+      {
+        "requirement_id": "FR-05",
+        "related_tables": [
+          "bookings",
+          "customers"
+        ]
+      },
+      {
+        "requirement_id": "FR-06",
+        "related_tables": [
+          "bookings",
+          "vehicles"
+        ]
+      },
+      {
+        "requirement_id": "FR-07",
+        "related_tables": [
+          "vehicles"
+        ]
+      },
+      {
+        "requirement_id": "FR-08",
+        "related_tables": [
+          "bookings"
+        ]
+      },
+      {
+        "requirement_id": "FR-09",
+        "related_tables": [
+          "bookings",
+          "payments"
+        ]
+      },
+      {
+        "requirement_id": "FR-10",
+        "related_tables": [
+          "bookings",
+          "payments"
+        ]
+      }
+    ],
+    "errors": [],
+    "warnings": []
+  },
+  "sql_constraint_validation": {
+    "valid": true,
+    "passed_checks": [
+      "UNIQUE: customers.email",
+      "UNIQUE: vehicles.registration_number",
+      "CHECK: vehicles.daily_rental_rate (CHECK (\"daily_rental_rate\" > 0))",
+      "CHECK: bookings.total_amount (CHECK (\"total_amount\" >= 0))",
+      "CHECK: payments.payment_amount (CHECK (\"payment_amount\" > 0))",
+      "FOREIGN KEY: bookings.customer_id -> customers.customer_id",
+      "FOREIGN KEY: bookings.vehicle_id -> vehicles.vehicle_id",
+      "FOREIGN KEY: payments.booking_id -> bookings.booking_id",
+      "PRIMARY KEY: customers ['customer_id']",
+      "PRIMARY KEY: vehicles ['vehicle_id']",
+      "PRIMARY KEY: bookings ['booking_id']",
+      "PRIMARY KEY: payments ['payment_id']"
+    ],
+    "errors": [],
+    "checked_rules": 12,
+    "explicit_rule_count": 5,
+    "unresolved_constraints": [],
+    "extracted_constraint_count": 8,
+    "mapped_constraint_count": 8,
+    "architecture_constraint_count": 8
+  },
+  "overall_valid": true,
+  "artifacts": {
+    "sql_file": "D:\\DesignTraceAI\\backend\\outputs\\database_designs\\artifacts\\TEST-VEHICLE-007_database_design.sql",
+    "er_diagram_file": "D:\\DesignTraceAI\\backend\\outputs\\database_designs\\artifacts\\TEST-VEHICLE-007_database_design.mmd"
+  }
+}

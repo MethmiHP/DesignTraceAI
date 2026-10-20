@@ -299,6 +299,12 @@ def test_service_selects_expected_rules(
         "SEC-001",
         "SCAL-001",
         "SEC-002",
+        "SEC-003",
+        "SEC-004",
+        "SEC-005",
+        "SEC-006",
+        "SEC-007",
+        "SEC-008",
     }
 
     assert set(
@@ -307,7 +313,7 @@ def test_service_selects_expected_rules(
 
     assert len(
         response.rule_results
-    ) == 6
+    ) == 12
 
 
 def test_service_returns_expected_rule_statuses(
@@ -368,12 +374,14 @@ def test_service_returns_expected_rule_statuses(
 def test_service_creates_expected_findings(
     evaluation_response,
 ):
+    # The fixture intentionally returns FAIL for every semantic rule;
+    # these counts test orchestration, not real LLM judgments.
 
     response = evaluation_response
 
     assert len(
         response.findings
-    ) == 3
+    ) == 9
 
     finding_rule_ids = {
         finding.rule_id
@@ -385,6 +393,12 @@ def test_service_creates_expected_findings(
         "SEC-001",
         "SCAL-001",
         "SEC-002",
+        "SEC-003",
+        "SEC-004",
+        "SEC-005",
+        "SEC-006",
+        "SEC-007",
+        "SEC-008",
     }
 
     assert all(
@@ -455,11 +469,13 @@ def test_service_groups_related_security_findings(
     ) == {
         "SEC-001",
         "SEC-002",
+        "SEC-003",
+        "SEC-005",
     }
 
     assert len(
         group.finding_ids
-    ) == 2
+    ) == 4
 
     assert (
         "NFR-SEC-001"
@@ -503,7 +519,7 @@ def test_grouping_does_not_change_rule_results(
 
     assert len(
         failed
-    ) == 3
+    ) == 9
 
     assert len(
         skipped
@@ -511,11 +527,11 @@ def test_grouping_does_not_change_rule_results(
 
     assert len(
         response.rule_results
-    ) == 6
+    ) == 12
 
     assert len(
         response.findings
-    ) == 3
+    ) == 9
 
     assert len(
         response.finding_groups
@@ -532,7 +548,7 @@ def test_service_calculates_quality_pass(
         response
         .metrics
         .quality_pass_percentage
-        == 50.0
+        == 25.0
     )
 
 
@@ -607,10 +623,10 @@ def test_service_skips_semantic_rule_when_llm_is_disabled():
         in finding_rule_ids
     )
 
-    # One semantic rule is skipped
+    # All seven selected semantic Security rules are skipped
     assert (
         response.metrics.skipped_rules
-        == 1
+        == 7
     )
 
     assert (

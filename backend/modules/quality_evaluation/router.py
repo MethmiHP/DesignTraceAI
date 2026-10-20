@@ -1,6 +1,7 @@
 import logging
 
 from .output_store import save_report
+from .jobs import EvaluationJobs, QueueFullError
 
 from fastapi import (
     APIRouter,
@@ -46,3 +47,23 @@ def evaluate_quality(
             detail='Evaluation completed, but the report could not be saved. Please retry.',
         ) from error
     return response
+
+# Keep /evaluate available for existing integrations. The frontend uses jobs.
+
+jobs = EvaluationJobs()
+
+
+@router.post('/jobs', status_code=202)
+def start_evaluation(request: QualityEvaluationRequest):
+    try:
+        return jobs.submit(request)
+    except QueueFullError as error:
+        raise HTTPException(status_code=429, detail=str(error)) from error
+
+
+@router.get('/jobs/{job_id}')
+def evaluation_status(job_id: str):
+    job = jobs.get(job_id)
+    if job is None:
+        raise HTTPException(status_code=404, detail='Evaluation job expired or the backend restarted. Submit the evaluation again.')
+    return job

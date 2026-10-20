@@ -1,0 +1,111 @@
+{
+  "project_id": "HELPDESK-QUALITY-ALL-001",
+  "functional_requirements": [
+    {"requirement_id": "FR-001", "statement": "An authenticated user shall create a support ticket.", "priority": "High"},
+    {"requirement_id": "FR-002", "statement": "An authenticated user shall list only their own support tickets.", "priority": "High"}
+  ],
+  "non_functional_requirements": [
+    {"requirement_id": "NFR-AVAIL", "statement": "The ticket API shall remain available when one application instance fails.", "category": "Availability"},
+    {"requirement_id": "NFR-FAULT", "statement": "Ticket creation shall document invalid-input and temporary-service-failure responses.", "category": "Fault Tolerance"},
+    {"requirement_id": "NFR-LEGAL", "statement": "The design shall support the project's approved retention policy by deleting closed tickets after 90 days and recording deletion events without ticket content.", "category": "Legal"},
+    {"requirement_id": "NFR-LOOK", "statement": "The ticket interface shall use consistent typography, spacing, and status colors.", "category": "Look and Feel"},
+    {"requirement_id": "NFR-MAINT", "statement": "Ticket management, authentication, retention, and monitoring shall have separate component responsibilities.", "category": "Maintainability"},
+    {"requirement_id": "NFR-OPS", "statement": "The system shall expose health checks and record request latency, error counts, and correlation IDs without logging ticket content or credentials.", "category": "Operational"},
+    {"requirement_id": "NFR-PERF", "statement": "Ticket collection retrieval shall use pagination with a default of 20 and a maximum of 100 records per request.", "category": "Performance"},
+    {"requirement_id": "NFR-PORT", "statement": "The application shall deploy using the same OCI container image in development and production, with environment-specific settings supplied externally.", "category": "Portability"},
+    {"requirement_id": "NFR-SCALE", "statement": "Ticket collection endpoints shall use bounded pagination as the number of tickets increases.", "category": "Scalability"},
+    {"requirement_id": "NFR-SEC", "statement": "All ticket API operations shall require bearer authentication and restrict access to the authenticated user's own tickets.", "category": "Security"},
+    {"requirement_id": "NFR-USE", "statement": "API operations shall have readable lower-camel-case identifiers, documented parameters, and consistent error response schemas.", "category": "Usability"}
+  ],
+  "architecture": {
+    "architecture_id": "ARCH-001",
+    "selected_architecture": "Modular Architecture",
+    "elements": [
+      {"element_id": "COMP-TICKET", "name": "Ticket Service", "type": "Service", "main_responsibility": "Create and list tickets. Derive owner_id from the authenticated identity; filter every ticket query by that identity. Use parameterized database queries and bounded pagination."},
+      {"element_id": "COMP-AUTH", "name": "Authentication Middleware", "type": "Security", "main_responsibility": "Validate bearer token signature, issuer, audience, and expiration before ticket operations. Supply the verified user identity; reject missing or invalid tokens with 401."},
+      {"element_id": "COMP-RUNTIME", "name": "Application Runtime", "type": "Infrastructure", "main_responsibility": "Run two stateless application replicas behind a load balancer. Remove failed replicas through readiness checks and route requests to healthy replicas. Deploy the same OCI image in development and production; inject database URLs and secrets externally."},
+      {"element_id": "COMP-OPS", "name": "Observability Component", "type": "Infrastructure", "main_responsibility": "Expose readiness and liveness endpoints. Collect request latency and error counts, attach correlation IDs, and alert on unavailable replicas. Exclude ticket content, credentials, and bearer tokens from logs."},
+      {"element_id": "COMP-RETENTION", "name": "Retention Worker", "type": "Worker", "main_responsibility": "Run daily to delete tickets whose closed_at timestamp is older than 90 days. Record ticket identifier, deletion time, and retention-policy identifier in an audit event without retaining ticket content."}
+    ],
+    "relationships": [
+      {"from": "COMP-RUNTIME", "to": "COMP-AUTH", "relationship": "Routes requests through authentication middleware"},
+      {"from": "COMP-AUTH", "to": "COMP-TICKET", "relationship": "Supplies verified user identity"},
+      {"from": "COMP-OPS", "to": "COMP-RUNTIME", "relationship": "Monitors health and request metrics"}
+    ]
+  },
+  "database": {
+    "entities": [
+      {"entity_id": "DB-USER", "name": "User", "attributes": ["user_id"], "primary_key": "user_id", "foreign_keys": [], "constraints": ["user_id NOT NULL"]},
+      {"entity_id": "DB-TICKET", "name": "Ticket", "attributes": ["ticket_id", "owner_id", "subject", "status", "created_at", "closed_at"], "primary_key": "ticket_id", "foreign_keys": ["owner_id -> User.user_id"], "constraints": ["owner_id NOT NULL", "subject NOT NULL", "status IN ('open', 'closed')", "closed_at is required when status is closed"]}
+    ],
+    "relationships": ["User owns Ticket"],
+    "constraints": ["Index Ticket(owner_id, created_at, ticket_id) for paginated owner-filtered retrieval", "Index Ticket(closed_at) for retention processing"]
+  },
+  "api_component_design": {
+    "responsibilities": [
+      {"requirement_id": "FR-001", "element_id": "COMP-TICKET", "element_name": "Ticket Service", "detailed_responsibility": "Create a ticket owned by the verified user; assign owner_id on the server."},
+      {"requirement_id": "FR-002", "element_id": "COMP-TICKET", "element_name": "Ticket Service", "detailed_responsibility": "List the verified user's tickets with bounded cursor pagination."}
+    ],
+    "api_operations": [
+      {"operation_id": "createTicket", "requirement_id": "FR-001", "element_id": "COMP-TICKET", "method": "POST", "path": "/tickets", "security": {"authentication": "bearer", "roles": ["user"], "access_rules": ["Derive owner_id from the authenticated identity; never accept owner_id from the client."]}, "request_schema": {"subject": "string"}, "response_schema": {"ticket_id": "string", "status": "string"}, "error_responses": {"400": "Invalid subject", "401": "Authentication required", "403": "Access denied", "503": "Service temporarily unavailable"}},
+      {"operation_id": "listTickets", "requirement_id": "FR-002", "element_id": "COMP-TICKET", "method": "GET", "path": "/tickets", "security": {"authentication": "bearer", "roles": ["user"], "access_rules": ["Return only tickets owned by the authenticated user."]}, "parameters": [{"name": "limit", "location": "query", "type": "integer", "required": false}, {"name": "cursor", "location": "query", "type": "string", "required": false}], "request_schema": {}, "response_schema": {"items": "array", "next_cursor": "string or null"}, "error_responses": {"400": "Invalid pagination parameters", "401": "Authentication required", "403": "Access denied", "503": "Service temporarily unavailable"}}
+    ],
+    "requirement_to_api_mapping": [
+      {"requirement_id": "FR-001", "operation_id": "createTicket"},
+      {"requirement_id": "FR-002", "operation_id": "listTickets"}
+    ],
+    "openapi_document": {
+      "openapi": "3.1.0",
+      "info": {"title": "Helpdesk Ticket API", "version": "1.0.0"},
+      "security": [{"bearerAuth": []}],
+      "paths": {
+        "/tickets": {
+          "post": {
+            "operationId": "createTicket",
+            "summary": "Create a ticket for the authenticated user",
+            "security": [{"bearerAuth": []}],
+            "x-access-rules": ["Assign owner_id from verified token identity, not client input."],
+            "requestBody": {"required": true, "content": {"application/json": {"schema": {"type": "object", "additionalProperties": false, "required": ["subject"], "properties": {"subject": {"type": "string", "minLength": 1, "maxLength": 200}}}}}},
+            "responses": {
+              "201": {"description": "Ticket created", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Ticket"}}}},
+              "400": {"$ref": "#/components/responses/BadRequest"},
+              "401": {"$ref": "#/components/responses/Unauthorized"},
+              "403": {"$ref": "#/components/responses/Forbidden"},
+              "503": {"$ref": "#/components/responses/Unavailable"}
+            }
+          },
+          "get": {
+            "operationId": "listTickets",
+            "summary": "List the authenticated user's tickets",
+            "security": [{"bearerAuth": []}],
+            "x-access-rules": ["Filter by verified user identity; apply stable ordering by created_at and ticket_id."],
+            "parameters": [
+              {"name": "limit", "in": "query", "required": false, "description": "Maximum tickets returned", "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 20}},
+              {"name": "cursor", "in": "query", "required": false, "description": "Opaque cursor from the previous response", "schema": {"type": "string"}}
+            ],
+            "responses": {
+              "200": {"description": "Paginated tickets owned by the authenticated user", "content": {"application/json": {"schema": {"type": "object", "required": ["items", "next_cursor"], "properties": {"items": {"type": "array", "maxItems": 100, "items": {"$ref": "#/components/schemas/Ticket"}}, "next_cursor": {"type": ["string", "null"]}}}}}},
+              "400": {"$ref": "#/components/responses/BadRequest"},
+              "401": {"$ref": "#/components/responses/Unauthorized"},
+              "403": {"$ref": "#/components/responses/Forbidden"},
+              "503": {"$ref": "#/components/responses/Unavailable"}
+            }
+          }
+        }
+      },
+      "components": {
+        "securitySchemes": {"bearerAuth": {"type": "http", "scheme": "bearer", "bearerFormat": "JWT"}},
+        "schemas": {
+          "Ticket": {"type": "object", "required": ["ticket_id", "status"], "properties": {"ticket_id": {"type": "string"}, "status": {"type": "string", "enum": ["open", "closed"]}}},
+          "Error": {"type": "object", "required": ["code", "message", "correlation_id"], "properties": {"code": {"type": "string"}, "message": {"type": "string"}, "correlation_id": {"type": "string"}}}
+        },
+        "responses": {
+          "BadRequest": {"description": "Invalid input or pagination parameters", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}},
+          "Unauthorized": {"description": "Missing or invalid bearer token", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}},
+          "Forbidden": {"description": "Operation not permitted", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}},
+          "Unavailable": {"description": "Temporary service failure; retry later", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}}
+        }
+      }
+    }
+  }
+}
