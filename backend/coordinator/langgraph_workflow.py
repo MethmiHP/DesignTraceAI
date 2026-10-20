@@ -17,7 +17,6 @@ from typing import TypedDict
 
 from langgraph.graph import StateGraph, START, END
 
-from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.types import interrupt, Command
 
 from shared.models.project import ProjectInput, Requirement
@@ -462,7 +461,7 @@ def route_review(state):
     return state["next_module"]
 
 
-def build_coordinator_graph():
+def build_coordinator_graph(checkpointer):
     graph = StateGraph(GraphState)
 
     graph.add_node("initialize", initialize_node)
@@ -504,7 +503,7 @@ def build_coordinator_graph():
 
     graph.add_edge("final_report", END)
 
-    return graph.compile(checkpointer=InMemorySaver())
+    return graph.compile(checkpointer=checkpointer)
 
 
 def run_demo():

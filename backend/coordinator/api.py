@@ -1,24 +1,19 @@
 """
 DesignTrace AI - Coordinator API
 
-PP1 demonstration:
-- Start a LangGraph workflow with mock Module outputs
-- Inspect pending human reviews
-- Approve or reject outputs
-- Retrieve the final report
-
-Run FastAPI from the backend directory.
+Neon-backed workflow tracking and LangGraph checkpoints.
+Mock Modules remain enabled for PP1.
 """
 
 from threading import Lock
 from uuid import uuid4
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, Field
 from langgraph.types import Command
+from sqlalchemy import select
 
 from coordinator.langgraph_workflow import (
-    build_coordinator_graph,
     MODULE_ORDER,
     OUTPUT_DIR,
 )
@@ -26,20 +21,15 @@ from coordinator.state_manager import create_initial_project_state
 from shared.models.project import ProjectInput, Requirement
 from mocks.mock_modules import REQUIREMENTS
 
+from database.connection import SessionLocal
+from database.models import Project, WorkflowRun
+
 
 router = APIRouter(
     prefix="/api/coordinator",
     tags=["Coordinator Agent"],
 )
 
-# IMPORTANT:
-# Keep one graph instance alive so its InMemorySaver retains checkpoints.
-graph = build_coordinator_graph()
-
-# Track workflow IDs created through this API.
-active_threads = set()
-
-# Protect the shared in-memory graph from overlapping API operations.
 workflow_lock = Lock()
 
 
@@ -66,12 +56,36 @@ def create_demo_project():
     )
 
 
-def get_config(thread_id):
-    if thread_id not in active_threads:
+def get_graph(request: Request):
+    graph = getattr(
+        request.app.state,
+        "coordinator_graph",
+        None,
+    )
+
+    if graph is None:
         raise HTTPException(
-            status_code=404,
-            detail="Workflow not found.",
+            status_code=503,
+            detail="Coordinator graph is not initialized.",
         )
+
+    return graph
+
+
+def get_config(thread_id):
+    # Validate against persistent Neon records.
+    with SessionLocal() as session:
+        run = session.scalar(
+            select(WorkflowRun).where(
+                WorkflowRun.thread_id == thread_id
+            )
+        )
+
+        if run is None:
+            raise HTTPException(
+                status_code=404,
+                detail="Workflow not found.",
+            )
 
     return {
         "configurable": {
@@ -82,19 +96,17 @@ def get_config(thread_id):
 
 
 def get_pending_review(snapshot):
-    """
-    Read the actual LangGraph interrupt from the saved checkpoint.
-    """
     for pending in snapshot.interrupts:
         return pending.value
 
     return None
 
 
-def get_workflow_response(thread_id):
+def get_workflow_response(request: Request, thread_id: str):
     config = get_config(thread_id)
-    snapshot = graph.get_state(config)
+    graph = get_graph(request)
 
+    snapshot = graph.get_state(config)
     values = snapshot.values or {}
 
     project_state = values.get("project_state")
@@ -125,6 +137,20 @@ def get_workflow_response(thread_id):
     else:
         workflow_status = "STOPPED"
 
+    # Keep the workflow_runs table synchronized.
+    with SessionLocal.begin() as session:
+        run = session.scalar(
+            select(WorkflowRun).where(
+                WorkflowRun.thread_id == thread_id
+            )
+        )
+
+        if run is not None:
+            run.status = workflow_status
+            run.current_module = (
+                values.get("current_module") or None
+            )
+
     return {
         "thread_id": thread_id,
         "workflow_status": workflow_status,
@@ -137,15 +163,31 @@ def get_workflow_response(thread_id):
 
 
 @router.post("/start")
-def start_workflow():
+def start_workflow(request: Request):
     with workflow_lock:
+        graph = get_graph(request)
         project = create_demo_project()
-
         project_state = create_initial_project_state(project)
 
         thread_id = str(uuid4())
 
-        active_threads.add(thread_id)
+        # Store the project and workflow ID in Neon.
+        with SessionLocal.begin() as session:
+            db_project = Project(
+                name=project.project_name,
+                description=project.project_description,
+                input_data=project.model_dump(mode="json"),
+                status="created",
+            )
+            session.add(db_project)
+            session.flush()
+
+            run = WorkflowRun(
+                project_id=db_project.id,
+                thread_id=thread_id,
+                status="RUNNING",
+            )
+            session.add(run)
 
         config = get_config(thread_id)
 
@@ -157,24 +199,36 @@ def start_workflow():
             "final_report": {},
         }
 
-        graph.invoke(
-            initial_state,
-            config=config,
-        )
+        try:
+            graph.invoke(
+                initial_state,
+                config=config,
+            )
+        except Exception:
+            with SessionLocal.begin() as session:
+                run = session.scalar(
+                    select(WorkflowRun).where(
+                        WorkflowRun.thread_id == thread_id
+                    )
+                )
+                if run is not None:
+                    run.status = "FAILED"
+            raise
 
-        return get_workflow_response(thread_id)
+        return get_workflow_response(request, thread_id)
 
 
 @router.get("/{thread_id}/status")
-def workflow_status(thread_id: str):
+def workflow_status(thread_id: str, request: Request):
     with workflow_lock:
-        return get_workflow_response(thread_id)
+        return get_workflow_response(request, thread_id)
 
 
 @router.post("/{thread_id}/review")
 def submit_review(
     thread_id: str,
     review: ReviewRequest,
+    request: Request,
 ):
     decision = review.decision.strip().lower()
     feedback = review.feedback.strip()
@@ -192,10 +246,10 @@ def submit_review(
         )
 
     with workflow_lock:
+        graph = get_graph(request)
         config = get_config(thread_id)
 
         snapshot = graph.get_state(config)
-
         pending_review = get_pending_review(snapshot)
 
         if pending_review is None:
@@ -222,12 +276,16 @@ def submit_review(
                 detail=str(exc),
             ) from exc
 
-        return get_workflow_response(thread_id)
+        return get_workflow_response(request, thread_id)
 
 
 @router.get("/{thread_id}/report")
-def get_final_report(thread_id: str):
+def get_final_report(
+    thread_id: str,
+    request: Request,
+):
     with workflow_lock:
+        graph = get_graph(request)
         config = get_config(thread_id)
 
         snapshot = graph.get_state(config)
