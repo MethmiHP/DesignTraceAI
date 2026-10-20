@@ -13,6 +13,10 @@ from pydantic import BaseModel, Field
 from langgraph.types import Command
 from sqlalchemy import select
 
+from coordinator.module_execution_store import (
+    save_module_executions,
+)
+
 from coordinator.langgraph_workflow import (
     MODULE_ORDER,
     OUTPUT_DIR,
@@ -112,6 +116,14 @@ def get_workflow_response(request: Request, thread_id: str):
     project_state = values.get("project_state")
     pending_review = get_pending_review(snapshot)
 
+    save_module_executions(
+        thread_id=thread_id,
+        project_state=project_state,
+        module_execution_inputs=values.get(
+        "module_execution_inputs", {}
+        ),
+    )
+
     module_statuses = {}
 
     if project_state is not None:
@@ -197,6 +209,7 @@ def start_workflow(request: Request):
             "next_module": "",
             "events": [],
             "final_report": {},
+            "module_execution_inputs": {},
         }
 
         try:

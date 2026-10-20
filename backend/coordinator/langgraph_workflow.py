@@ -15,6 +15,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import TypedDict
 
+from coordinator.module_adapters import build_module_input
+
 from langgraph.graph import StateGraph, START, END
 
 from langgraph.types import interrupt, Command
@@ -62,6 +64,7 @@ class GraphState(TypedDict):
     next_module: str
     events: list[dict]
     final_report: dict
+    module_execution_inputs: dict
 
 
 def record_event(state, event, module="", details=""):
@@ -203,11 +206,28 @@ def execute_module_node(state):
     module_state.version += 1
     module_state.status = WorkflowStatus.RUNNING
 
+    approved_outputs = get_approved_outputs(project_state)
+
+    module_input = build_module_input(
+        module_name=module_name,
+        project=project_state.project,
+        approved_outputs=approved_outputs,
+    )
+
+    # Save the exact adapter payload at execution time.
+    # Keep each attempt separately for retries.
+    state.setdefault("module_execution_inputs", {})
+    state["module_execution_inputs"].setdefault(
+        module_name, {}
+    )[str(module_state.version)] = deepcopy(module_input)
+
+    # Keep the existing mock Module interface for PP1.
     output = execute_mock_module(
         module_name=module_name,
         project=project_state.project,
-        approved_outputs=get_approved_outputs(project_state),
+        approved_outputs=approved_outputs,
         version=module_state.version,
+        module_input=module_input,
     )
 
     valid, reason = validate_mock_output(

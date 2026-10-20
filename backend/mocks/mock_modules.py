@@ -146,22 +146,89 @@ MOCK_OUTPUTS = {
 }
 
 
-def execute_mock_module(module_name, project, approved_outputs, version=1):
+def execute_mock_module(
+    module_name,
+    project,
+    approved_outputs,
+    version=1,
+    module_input=None,
+):
     """
-    Simulate a Module call.
+    Simulate Module execution for PP1.
 
-    project: shared ProjectInput object
-    approved_outputs: outputs from already approved Modules
+    Requirement Analysis consumes its structured
+    Coordinator input adapter.
+
+    Other Modules continue using mock outputs until
+    their contracts are integrated.
     """
+
     if module_name not in MOCK_OUTPUTS:
-        raise ValueError(f"Unknown mock Module: {module_name}")
+        raise ValueError(
+            f"Unknown mock Module: {module_name}"
+        )
 
     output = deepcopy(MOCK_OUTPUTS[module_name])
 
-    # Demonstrate feedback and retry:
-    # First database version intentionally lacks one relationship.
+    # Phase 3C: Consume Requirement Analysis input.
+    if module_name == "requirement_analysis":
+
+        if not isinstance(module_input, dict):
+            raise ValueError(
+                "Requirement Analysis input must be a dictionary."
+            )
+
+        required_fields = (
+            "project_id",
+            "raw_description",
+            "project_context",
+        )
+
+        for field in required_fields:
+            if field not in module_input:
+                raise ValueError(
+                    f"Requirement Analysis input missing: {field}"
+                )
+
+        if module_input["project_id"] != project.project_id:
+            raise ValueError(
+                "Requirement Analysis project ID mismatch."
+            )
+
+        description = module_input["raw_description"]
+
+        if (
+            not isinstance(description, str)
+            or not description.strip()
+        ):
+            raise ValueError(
+                "Requirement Analysis description is required."
+            )
+
+        if not isinstance(
+            module_input["project_context"], dict
+        ):
+            raise ValueError(
+                "Requirement Analysis project_context must be a dictionary."
+            )
+
+        # The mock still returns fixed demonstration
+        # requirements. It is not real AI extraction.
+        output["input_summary"] = {
+            "project_id": module_input["project_id"],
+            "description_received": description,
+            "project_context_received": deepcopy(
+                module_input["project_context"]
+            ),
+        }
+
+    # Demonstrate feedback and retry.
+    # First database version intentionally lacks
+    # one relationship.
     if module_name == "database_design" and version == 1:
-        output["relationships"] = output["relationships"][:1]
+        output["relationships"] = (
+            output["relationships"][:1]
+        )
 
     return {
         "project_id": project.project_id,
@@ -169,8 +236,11 @@ def execute_mock_module(module_name, project, approved_outputs, version=1):
         "version": version,
         "mock": True,
         "source_requirements": [
-            req.requirement_id for req in project.requirements
+            req.requirement_id
+            for req in project.requirements
         ],
-        "input_artifacts": sorted(approved_outputs.keys()),
+        "input_artifacts": sorted(
+            approved_outputs.keys()
+        ),
         "data": output,
     }
