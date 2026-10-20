@@ -1181,3 +1181,32 @@ select {
     text-align: left;
   }
 }
+
+.adr-export-button {
+  min-height: 44px;
+  padding: 0 18px;
+
+  border: 1px solid var(--adr-border-strong);
+  border-radius: 8px;
+
+  background: var(--adr-card);
+  color: var(--adr-text);
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.adr-export-button:hover:not(:disabled) {
+  border-color: var(--adr-purple);
+  background: var(--adr-purple-soft);
+}
+
+.adr-export-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

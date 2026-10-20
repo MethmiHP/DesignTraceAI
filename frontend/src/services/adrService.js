@@ -69,3 +69,48 @@ export async function generateADRs(payload) {
 
   return handleResponse(response)
 }
+
+export async function exportADRReport(projectId) {
+  const response = await fetch(
+    `${API_BASE_URL}/project/${encodeURIComponent(projectId)}/report`
+  )
+
+  if (!response.ok) {
+    let message = 'Unable to export ADR report.'
+
+    try {
+      const errorData = await response.json()
+
+      if (errorData?.detail) {
+        message = errorData.detail
+      }
+    } catch {
+      // Keep default message if response is not JSON.
+    }
+
+    throw new Error(message)
+  }
+
+  const blob = await response.blob()
+
+  const downloadUrl =
+    window.URL.createObjectURL(blob)
+
+  const link =
+    document.createElement('a')
+
+  link.href = downloadUrl
+
+  link.download =
+    `${projectId}_ADR_Report.pdf`
+
+  document.body.appendChild(link)
+
+  link.click()
+
+  link.remove()
+
+  window.URL.revokeObjectURL(
+    downloadUrl
+  )
+}

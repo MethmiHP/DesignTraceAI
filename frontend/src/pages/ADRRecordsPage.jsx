@@ -5,6 +5,7 @@ import ADRList from '../components/adr/ADRList'
 import ADREvaluationDemo from '../components/adr/ADREvaluationDemo'
 
 import {
+  exportADRReport,
   getProjectADRs,
   updateADRStatus,
 } from '../services/adrService'
@@ -24,18 +25,30 @@ function ADRRecordsPage() {
   const [view, setView] = useState('demo')
 
   const [adrs, setAdrs] = useState([])
-  const [selectedADR, setSelectedADR] = useState(null)
+  const [selectedADR, setSelectedADR] =
+    useState(null)
 
   const [search, setSearch] = useState('')
 
-  const [loading, setLoading] = useState(true)
-  const [updating, setUpdating] = useState(false)
+  const [loading, setLoading] =
+    useState(true)
 
-  const [error, setError] = useState('')
+  const [updating, setUpdating] =
+    useState(false)
 
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('adr-theme') || 'dark'
-  })
+  const [exporting, setExporting] =
+    useState(false)
+
+  const [error, setError] =
+    useState('')
+
+  const [theme, setTheme] =
+    useState(() => {
+      return (
+        localStorage.getItem('adr-theme') ||
+        'dark'
+      )
+    })
 
 
   useEffect(() => {
@@ -51,12 +64,15 @@ function ADRRecordsPage() {
   }, [])
 
 
-  async function loadADRs(id = projectId) {
+  async function loadADRs(
+    id = projectId
+  ) {
     try {
       setLoading(true)
       setError('')
 
-      const data = await getProjectADRs(id)
+      const data =
+        await getProjectADRs(id)
 
       setAdrs(data)
 
@@ -72,7 +88,8 @@ function ADRRecordsPage() {
         return (
           data.find(
             (item) =>
-              item.adr_id === current.adr_id
+              item.adr_id ===
+              current.adr_id
           ) || data[0]
         )
       })
@@ -90,7 +107,9 @@ function ADRRecordsPage() {
   }
 
 
-  async function handleProjectSubmit(event) {
+  async function handleProjectSubmit(
+    event
+  ) {
     event.preventDefault()
 
     if (!projectId.trim()) {
@@ -105,7 +124,9 @@ function ADRRecordsPage() {
   }
 
 
-  async function handleStatusChange(status) {
+  async function handleStatusChange(
+    status
+  ) {
     if (!selectedADR) {
       return
     }
@@ -140,6 +161,29 @@ function ADRRecordsPage() {
   }
 
 
+  async function handleExportReport() {
+    if (!projectId.trim()) {
+      return
+    }
+
+    try {
+      setExporting(true)
+      setError('')
+
+      await exportADRReport(
+        projectId.trim()
+      )
+    } catch (err) {
+      setError(
+        err.message ||
+          'Unable to export ADR report.'
+      )
+    } finally {
+      setExporting(false)
+    }
+  }
+
+
   function toggleTheme() {
     setTheme((current) =>
       current === 'dark'
@@ -153,7 +197,10 @@ function ADRRecordsPage() {
     <div
       className={`adr-page adr-theme-${theme}`}
     >
+      {/* ========================= */}
       {/* SIDEBAR */}
+      {/* ========================= */}
+
       <aside className="adr-sidebar">
 
         <div className="adr-brand">
@@ -168,17 +215,24 @@ function ADRRecordsPage() {
 
 
         <div className="adr-project-box">
-          <span>CURRENT PROJECT</span>
 
-          <strong>{projectId}</strong>
+          <span>
+            CURRENT PROJECT
+          </span>
+
+          <strong>
+            {projectId}
+          </strong>
 
           <small>
             ● In Progress
           </small>
+
         </div>
 
 
         <nav className="adr-nav">
+
           <span>
             Dashboard
           </span>
@@ -232,6 +286,7 @@ function ADRRecordsPage() {
           <span>
             Settings
           </span>
+
         </nav>
 
 
@@ -271,16 +326,24 @@ function ADRRecordsPage() {
           </button>
 
         </div>
+
       </aside>
 
 
+      {/* ========================= */}
       {/* MAIN WORKSPACE */}
+      {/* ========================= */}
+
       <section className="adr-workspace">
 
+        {/* ========================= */}
         {/* TOP BAR */}
+        {/* ========================= */}
+
         <header className="adr-topbar">
 
           <div>
+
             <h1>
               Architecture Decision Records
             </h1>
@@ -289,12 +352,14 @@ function ADRRecordsPage() {
               Capture, track and manage important
               architectural decisions.
             </p>
+
           </div>
 
 
           <div className="adr-topbar-actions">
 
-            {/* DEMO / REPOSITORY SWITCH */}
+            {/* VIEW SWITCH */}
+
             <div className="adr-view-switch">
 
               <button
@@ -330,6 +395,7 @@ function ADRRecordsPage() {
 
 
             {/* THEME BUTTON */}
+
             <button
               type="button"
               className="adr-mobile-theme-button"
@@ -342,35 +408,62 @@ function ADRRecordsPage() {
             </button>
 
 
-            {/* PROJECT SEARCH ONLY SHOW IN REPOSITORY */}
+            {/* PROJECT + EXPORT CONTROLS */}
+
             {view === 'records' && (
-              <form
-                className="adr-project-form"
-                onSubmit={handleProjectSubmit}
-              >
-
-                <input
-                  value={projectId}
-                  onChange={(event) =>
-                    setProjectId(
-                      event.target.value
-                    )
+              <>
+                <form
+                  className="adr-project-form"
+                  onSubmit={
+                    handleProjectSubmit
                   }
-                  placeholder="Project ID"
-                />
+                >
+                  <input
+                    value={projectId}
+                    onChange={(event) =>
+                      setProjectId(
+                        event.target.value
+                      )
+                    }
+                    placeholder="Project ID"
+                  />
 
-                <button type="submit">
-                  Load Project
+                  <button
+                    type="submit"
+                  >
+                    Load Project
+                  </button>
+                </form>
+
+
+                <button
+                  type="button"
+                  className="adr-export-button"
+                  onClick={
+                    handleExportReport
+                  }
+                  disabled={
+                    exporting ||
+                    loading ||
+                    adrs.length === 0
+                  }
+                >
+                  {exporting
+                    ? 'Exporting...'
+                    : 'Export PDF Report'}
                 </button>
-
-              </form>
+              </>
             )}
 
           </div>
+
         </header>
 
 
-        {/* ERROR */}
+        {/* ========================= */}
+        {/* ERROR MESSAGE */}
+        {/* ========================= */}
+
         {error && (
           <div className="adr-error">
 
@@ -392,16 +485,23 @@ function ADRRecordsPage() {
 
 
         {/* ========================= */}
-        {/* EVALUATION DEMO VIEW */}
+        {/* INTEGRATION PREVIEW */}
         {/* ========================= */}
 
         {view === 'demo' ? (
 
           <ADREvaluationDemo
-            onGenerated={(generatedProjectId) => {
-            setProjectId(generatedProjectId)
-            loadADRs(generatedProjectId)
-        }}
+            onGenerated={(
+              generatedProjectId
+            ) => {
+              setProjectId(
+                generatedProjectId
+              )
+
+              loadADRs(
+                generatedProjectId
+              )
+            }}
           />
 
         ) : loading ? (
@@ -417,17 +517,23 @@ function ADRRecordsPage() {
         ) : (
 
           /* ========================= */
-          /* ADR REPOSITORY VIEW */
+          /* ADR REPOSITORY */
           /* ========================= */
 
           <div className="adr-content">
 
             <ADRList
               adrs={adrs}
-              selectedADR={selectedADR}
-              onSelect={setSelectedADR}
+              selectedADR={
+                selectedADR
+              }
+              onSelect={
+                setSelectedADR
+              }
               search={search}
-              onSearchChange={setSearch}
+              onSearchChange={
+                setSearch
+              }
             />
 
 
@@ -444,6 +550,7 @@ function ADRRecordsPage() {
         )}
 
       </section>
+
     </div>
   )
 }
