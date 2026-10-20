@@ -5,8 +5,10 @@ FastAPI routes for the Architecture Decision Records module.
 from pathlib import Path
 
 from fastapi import APIRouter, HTTPException
+from fastapi.responses import StreamingResponse
 
 from modules.adr.repository import ADRRepository
+from modules.adr.report_generator import ADRReportGenerator
 from modules.adr.schemas import (
     ADRGenerationRequest,
     ADRGenerationResponse,
@@ -55,6 +57,9 @@ service = ADRService(
 )
 
 
+report_generator = ADRReportGenerator()
+
+
 @router.post(
     "/generate",
     response_model=ADRGenerationResponse,
@@ -95,6 +100,63 @@ async def get_project_adrs(
 
     return repository.list_by_project(
         project_id
+    )
+
+
+@router.get(
+    "/project/{project_id}/report",
+)
+async def export_project_adr_report(
+    project_id: str,
+):
+    """
+    Generate and download a PDF report containing
+    all ADRs stored for a project.
+    """
+
+    adrs = repository.list_by_project(
+        project_id
+    )
+
+    if not adrs:
+        raise HTTPException(
+            status_code=404,
+            detail=(
+                "No ADRs found for project "
+                f"'{project_id}'."
+            ),
+        )
+
+    try:
+        pdf_buffer = (
+            report_generator.generate_project_report(
+                project_id=project_id,
+                adrs=adrs,
+            )
+        )
+
+    except Exception as exc:
+        raise HTTPException(
+            status_code=500,
+            detail=(
+                "Unable to generate ADR report."
+            ),
+        ) from exc
+
+
+    filename = (
+        f"{project_id}_ADR_Report.pdf"
+    )
+
+
+    return StreamingResponse(
+        pdf_buffer,
+        media_type="application/pdf",
+        headers={
+            "Content-Disposition": (
+                f'attachment; filename="{filename}"'
+            )
+        },
     )
 
 
