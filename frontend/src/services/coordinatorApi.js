@@ -1,3 +1,4 @@
+
 const BASE = '/api/coordinator'
 
 async function request(path, options = {}) {
@@ -13,51 +14,53 @@ async function request(path, options = {}) {
     })
   } catch {
     throw new Error(
-      'Cannot connect to the backend. Start FastAPI on port 8000.'
+      'Cannot connect to FastAPI. Start the backend on port 8000.'
     )
   }
 
-  const raw = await response.text()
+  const text = await response.text()
   let data
 
   try {
-    data = raw ? JSON.parse(raw) : {}
+    data = text ? JSON.parse(text) : {}
   } catch {
-    data = { detail: raw }
+    data = { detail: text }
   }
 
   if (!response.ok) {
-    const detail = data.detail || data.message || `HTTP ${response.status}`
+    const detail =
+      data.detail || data.message || `HTTP ${response.status}`
+
     throw new Error(
-      typeof detail === 'string' ? detail : JSON.stringify(detail)
+      typeof detail === 'string'
+        ? detail
+        : JSON.stringify(detail)
     )
   }
 
   return data
 }
 
-// These paths assume your four Swagger operations use:
-// POST /start
-// GET  /{thread_id}/status
-// POST /{thread_id}/review
-// GET  /{thread_id}/report
-//
-// Compare them with http://127.0.0.1:8000/docs.
-// If your actual paths or request schemas differ,
-// adjust this file only.
+function threadPath(threadId) {
+  if (!threadId || !threadId.trim()) {
+    throw new Error('Workflow thread ID is required.')
+  }
+
+  return `/${encodeURIComponent(threadId.trim())}`
+}
 
 export const coordinatorApi = {
-  start: (payload) =>
+  // Current backend starts the fixed PP1 mock Library project.
+  start: () =>
     request('/start', {
       method: 'POST',
-      body: JSON.stringify(payload),
     }),
 
   status: (threadId) =>
-    request(`/${encodeURIComponent(threadId)}/status`),
+    request(`${threadPath(threadId)}/status`),
 
   review: (threadId, decision, feedback = '') =>
-    request(`/${encodeURIComponent(threadId)}/review`, {
+    request(`${threadPath(threadId)}/review`, {
       method: 'POST',
       body: JSON.stringify({
         decision,
@@ -65,6 +68,9 @@ export const coordinatorApi = {
       }),
     }),
 
+  history: (threadId) =>
+    request(`${threadPath(threadId)}/history`),
+
   report: (threadId) =>
-    request(`/${encodeURIComponent(threadId)}/report`),
+    request(`${threadPath(threadId)}/report`),
 }

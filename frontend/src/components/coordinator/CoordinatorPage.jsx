@@ -1,5 +1,9 @@
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { coordinatorApi } from '../../services/coordinatorApi'
+import './CoordinatorPage.css'
+import ModuleResultViewer from './ModuleResultViewer'
+import './ModuleResultViewer.css'
+import FinalReportViewer from './FinalReportViewer'
 
 const MODULES = [
   ['requirement_analysis', 'Requirement Analysis'],
@@ -11,298 +15,213 @@ const MODULES = [
   ['adr', 'Architecture Decision Records'],
 ]
 
-const initialProject = {
-  project_id: '',
-  project_name: '',
-  project_description: '',
-  project_domain: 'Healthcare',
-  system_type: 'Web Application',
-  expected_users: '',
-  constraints: '',
-  database: 'PostgreSQL',
-  backend: 'Python (FastAPI)',
-  frontend: 'React',
-  deployment: 'Cloud',
-  cloud_provider: 'AWS',
-  region: 'ap-south-1',
-  notes: '',
+const STORAGE_KEY = 'designtrace_coordinator_thread'
+
+function moduleLabel(name) {
+  return MODULES.find(([id]) => id === name)?.[1] || name || '—'
 }
 
-const examples = {
-  hospital: {
-    project_id: 'HOSPITAL-001',
-    project_name: 'Hospital Management System',
-    project_description:
-      'A web-based hospital management system for patients, appointments, doctors, staff, and billing.',
-    project_domain: 'Healthcare',
-    system_type: 'Web Application',
-    expected_users: 'Patients, Doctors, Administrators, Receptionists',
-    constraints:
-      'Only authorized staff can access sensitive patient information.\nPatient records must be protected.\nThe system should support future growth.\nThe system should be available 24/7.',
-    database: 'PostgreSQL',
-    backend: 'Python (FastAPI)',
-    frontend: 'React',
-    deployment: 'Cloud',
-    cloud_provider: 'AWS',
-    region: 'ap-south-1',
-    notes: 'Support appointment scheduling and patient history.',
-    requirements: [
-      'The system shall store patient details.',
-      'Patients shall book appointments with doctors.',
-      'Doctors shall view their scheduled appointments.',
-      'Only authorized staff shall access patient records.',
-      'The system shall record appointment status.',
-    ],
-  },
-  library: {
-    project_id: 'MOCK-LIBRARY-001',
-    project_name: 'Library Management System',
-    project_description:
-      'A system for managing books, members and borrowing records.',
-    project_domain: 'Education',
-    system_type: 'Web Application',
-    expected_users: 'Librarians, Members, Administrators',
-    constraints:
-      'Each borrowing record must reference an existing book and member.\nBooks must have unique identifiers.\nOnly authorized librarians can manage borrowing records.',
-    database: 'PostgreSQL',
-    backend: 'Python (FastAPI)',
-    frontend: 'React',
-    deployment: 'Cloud',
-    cloud_provider: 'AWS',
-    region: 'ap-south-1',
-    notes: 'PP1 Coordinator demonstration project.',
-    requirements: [
-      'The system shall store book details.',
-      'Members shall borrow books.',
-      'Each borrowing record shall reference a book and a member.',
-    ],
-  },
-  banking: {
-    project_id: 'BANKING-001',
-    project_name: 'Bank Account Management System',
-    project_description:
-      'A secure banking application for customer accounts and transfers.',
-    project_domain: 'Finance',
-    system_type: 'Web Application',
-    expected_users: 'Customers, Bank Staff, Administrators',
-    constraints:
-      'Account balances must not become negative.\nEvery transfer must be recorded.\nCustomers must authenticate before accessing their accounts.',
-    database: 'PostgreSQL',
-    backend: 'Python (FastAPI)',
-    frontend: 'React',
-    deployment: 'Cloud',
-    cloud_provider: 'AWS',
-    region: 'ap-south-1',
-    notes: 'Example for testing requirement traceability.',
-    requirements: [
-      'A customer shall create a bank account.',
-      'A customer shall view their bank account.',
-      'A customer shall transfer money between accounts.',
-      'The system shall record every transaction.',
-    ],
-  },
+function pretty(value) {
+  if (value === undefined || value === null) {
+    return 'No data available.'
+  }
+  return JSON.stringify(value, null, 2)
 }
 
-function Field({ label, required, children }) {
+function statusClass(value) {
+  const status = String(value || '').toUpperCase()
+
+  if (status === 'APPROVED' || status === 'COMPLETED') {
+    return 'dt2-success'
+  }
+
+  if (status === 'REJECTED' || status === 'FAILED') {
+    return 'dt2-danger'
+  }
+
+  if (
+    status === 'WAITING_FOR_REVIEW' ||
+    status === 'REVIEW_REQUIRED'
+  ) {
+    return 'dt2-warning'
+  }
+
+  return 'dt2-neutral'
+}
+
+function StatusBadge({ value }) {
   return (
-    <label className="dt-field">
-      <span className="dt-field-label">
-        {label} {required && <span className="dt-required">*</span>}
-      </span>
-      {children}
-    </label>
-  )
-}
-
-function StatusPill({ status }) {
-  const normalized = String(status || 'PENDING').toUpperCase()
-
-  return (
-    <span className={`dt-status dt-status-${normalized.toLowerCase()}`}>
-      {normalized.replaceAll('_', ' ')}
+    <span className={`dt2-badge ${statusClass(value)}`}>
+      {String(value || 'NOT STARTED').replaceAll('_', ' ')}
     </span>
   )
 }
 
-function prettyJson(value) {
-  return JSON.stringify(value, null, 2)
-}
-
-function getInterrupt(data) {
-  if (!data) return null
-
-  if (data.interrupt) return data.interrupt
-  if (data.pending_review) return data.pending_review
-  if (data.review_required) {
-    return typeof data.review_required === 'object'
-      ? data.review_required
-      : data
-  }
-
-  if (Array.isArray(data.__interrupt__) && data.__interrupt__.length) {
-    return data.__interrupt__[0].value || data.__interrupt__[0]
-  }
-
-  return null
-}
-
-function getThreadId(data) {
-  return data?.thread_id || data?.threadId || data?.configurable?.thread_id
-}
-
-function getWorkflowStatus(data) {
+function JsonPanel({ title, value }) {
   return (
-    data?.workflow_status ||
-    data?.status ||
-    data?.report?.workflow_status ||
-    'PENDING'
+    <section className="dt2-json-panel">
+      <div className="dt2-json-title">{title}</div>
+      <pre>{pretty(value)}</pre>
+    </section>
   )
 }
 
-function extractModules(data) {
-  return (
-    data?.module_statuses ||
-    data?.module_states ||
-    data?.report?.module_statuses ||
-    data?.report?.module_states ||
-    {}
-  )
+function EmptyState({ children }) {
+  return <div className="dt2-empty">{children}</div>
 }
 
 export default function CoordinatorPage() {
-  const [theme, setTheme] = useState(
-    () => localStorage.getItem('designtrace-theme') || 'dark'
+  const [threadId, setThreadId] = useState(
+    () => localStorage.getItem(STORAGE_KEY) || ''
   )
-  const [section, setSection] = useState('create')
-  const [step, setStep] = useState(1)
-  const [project, setProject] = useState(initialProject)
-  const [requirements, setRequirements] = useState([''])
-  const [example, setExample] = useState('hospital')
-  const [threadId, setThreadId] = useState('')
+  const [threadInput, setThreadInput] = useState(
+    () => localStorage.getItem(STORAGE_KEY) || ''
+  )
+
   const [workflow, setWorkflow] = useState(null)
-  const [pendingReview, setPendingReview] = useState(null)
+  const [history, setHistory] = useState(null)
+  const [report, setReport] = useState(null)
+
+  const [selectedModule, setSelectedModule] = useState(
+    'requirement_analysis'
+  )
+  const [selectedAttempt, setSelectedAttempt] = useState('')
+  const [activeTab, setActiveTab] = useState('overview')
+
   const [feedback, setFeedback] = useState('')
-  const [finalReport, setFinalReport] = useState(null)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
   const [notice, setNotice] = useState('')
 
-  const isDark = theme === 'dark'
+  const refreshData = useCallback(async (id) => {
+    if (!id) return
 
-  function toggleTheme() {
-    const next = isDark ? 'light' : 'dark'
-    setTheme(next)
-    localStorage.setItem('designtrace-theme', next)
-  }
+    const [statusResult, historyResult] =
+      await Promise.allSettled([
+        coordinatorApi.status(id),
+        coordinatorApi.history(id),
+      ])
 
-  function updateProject(key, value) {
-    setProject((current) => ({ ...current, [key]: value }))
-  }
-
-  function loadExample(name = example) {
-    const selected = examples[name]
-    if (!selected) return
-
-    const { requirements: sampleRequirements, ...projectFields } = selected
-    setProject(projectFields)
-    setRequirements(sampleRequirements)
-    setExample(name)
-    setStep(1)
-    setSection('create')
-    setError('')
-    setNotice(`${selected.project_name} example loaded.`)
-  }
-
-  function saveDraft() {
-    localStorage.setItem(
-      'designtrace-project-draft',
-      JSON.stringify({ project, requirements })
-    )
-    setNotice('Project draft saved in this browser.')
-  }
-
-  function loadDraft() {
-    const raw = localStorage.getItem('designtrace-project-draft')
-    if (!raw) {
-      setNotice('No saved draft found.')
-      return
+    if (statusResult.status === 'rejected') {
+      throw statusResult.reason
     }
 
-    try {
-      const saved = JSON.parse(raw)
-      setProject(saved.project || initialProject)
-      setRequirements(saved.requirements || [''])
-      setNotice('Saved draft restored.')
-    } catch {
-      setError('The saved draft could not be read.')
-    }
-  }
+    const status = statusResult.value
+    setWorkflow(status)
 
-  function validateStep() {
-    if (step === 1) {
-      if (
-        !project.project_name.trim() ||
-        !project.project_description.trim() ||
-        !project.project_id.trim()
-      ) {
-        setError('Enter the project ID, name and description.')
-        return false
+    if (historyResult.status === 'fulfilled') {
+      setHistory(historyResult.value)
+    } else {
+      setHistory(null)
+      setNotice(
+        'Workflow loaded, but execution history could not be loaded.'
+      )
+    }
+
+    if (status.workflow_status === 'COMPLETED') {
+      try {
+        const finalReport = await coordinatorApi.report(id)
+        setReport(finalReport)
+      } catch {
+        setReport(null)
+      }
+    } else {
+      setReport(null)
+    }
+
+    return status
+  }, [])
+
+  // Automatically restore the most recently used workflow.
+  useEffect(() => {
+    const saved = localStorage.getItem(STORAGE_KEY)
+    if (!saved) return
+
+    let cancelled = false
+
+    async function restore() {
+      try {
+        const [status, savedHistory] = await Promise.all([
+          coordinatorApi.status(saved),
+          coordinatorApi.history(saved),
+        ])
+
+        if (cancelled) return
+
+        setWorkflow(status)
+        setHistory(savedHistory)
+
+        if (status.workflow_status === 'COMPLETED') {
+          const finalReport = await coordinatorApi.report(saved)
+          if (!cancelled) setReport(finalReport)
+        }
+      } catch {
+        if (!cancelled) {
+          setError(
+            'Could not restore the saved workflow. You can load another thread ID.'
+          )
+        }
       }
     }
 
-    if (step === 2 && !requirements.some((r) => r.trim())) {
-      setError('Enter at least one functional requirement.')
-      return false
+    restore()
+
+    return () => {
+      cancelled = true
     }
+  }, [])
 
-    setError('')
-    return true
-  }
-
-  function nextStep() {
-    if (validateStep()) setStep((current) => Math.min(3, current + 1))
-  }
-
-  function buildProjectPayload() {
-    return {
-      project_id: project.project_id,
-      project_name: project.project_name,
-      project_description: project.project_description,
-      requirements: requirements
-        .filter((text) => text.trim())
-        .map((text, index) => ({
-          requirement_id: `REQ-${String(index + 1).padStart(3, '0')}`,
-          requirement_text: text.trim(),
-        })),
-    }
-  }
-
-  // The Coordinator's PP1 mock start endpoint may accept only
-  // a fixed demo project. This payload is prepared for the
-  // future real-project API contract.
   async function startWorkflow() {
-    if (!validateStep()) return
+    setBusy(true)
+    setError('')
+    setNotice('')
+
+    try {
+      const data = await coordinatorApi.start()
+      const id = data.thread_id
+
+      if (!id) {
+        throw new Error('Backend did not return a thread ID.')
+      }
+
+      localStorage.setItem(STORAGE_KEY, id)
+      setThreadId(id)
+      setThreadInput(id)
+      setSelectedModule('requirement_analysis')
+      setSelectedAttempt('')
+      setActiveTab('overview')
+      setFeedback('')
+      setReport(null)
+
+      await refreshData(id)
+      setNotice('New PP1 mock workflow started.')
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  async function loadWorkflow() {
+    const id = threadInput.trim()
+
+    if (!id) {
+      setError('Enter a workflow thread ID.')
+      return
+    }
 
     setBusy(true)
     setError('')
     setNotice('')
 
     try {
-      const data = await coordinatorApi.start(buildProjectPayload())
-      const id = getThreadId(data)
-
-      if (!id) {
-        throw new Error(
-          'The start endpoint did not return a thread_id. Check its response schema.'
-        )
-      }
+      await refreshData(id)
 
       setThreadId(id)
-      setWorkflow(data)
-      setPendingReview(getInterrupt(data))
-      setFinalReport(null)
-      setSection('workspace')
-      setNotice('Coordinator workflow started.')
+      localStorage.setItem(STORAGE_KEY, id)
+      setSelectedAttempt('')
+      setFeedback('')
+      setNotice('Workflow recovered successfully.')
     } catch (err) {
       setError(err.message)
     } finally {
@@ -315,15 +234,11 @@ export default function CoordinatorPage() {
 
     setBusy(true)
     setError('')
+    setNotice('')
 
     try {
-      const data = await coordinatorApi.status(threadId)
-      setWorkflow(data)
-      setPendingReview(getInterrupt(data))
-
-      if (getWorkflowStatus(data).toUpperCase() === 'COMPLETED') {
-        setNotice('Workflow completed. You can open the final report.')
-      }
+      await refreshData(threadId)
+      setNotice('Workflow and Neon history refreshed.')
     } catch (err) {
       setError(err.message)
     } finally {
@@ -332,37 +247,36 @@ export default function CoordinatorPage() {
   }
 
   async function submitReview(decision) {
-    if (!threadId) return
+    if (!threadId || !workflow?.pending_review) {
+      setError('There is no Module waiting for review.')
+      return
+    }
 
     if (decision === 'reject' && !feedback.trim()) {
-      setError('Please enter feedback before rejecting this output.')
+      setError('Rejection feedback is required.')
       return
     }
 
     setBusy(true)
     setError('')
+    setNotice('')
 
     try {
-      const data = await coordinatorApi.review(
+      await coordinatorApi.review(
         threadId,
         decision,
-        feedback.trim()
+        decision === 'reject' ? feedback.trim() : ''
       )
 
-      setWorkflow(data)
-      setPendingReview(getInterrupt(data))
+      await refreshData(threadId)
+      setSelectedAttempt('')
       setFeedback('')
+
       setNotice(
         decision === 'approve'
-          ? 'Review approved. The Coordinator has resumed.'
-          : 'Review rejected. Feedback submitted to the Coordinator.'
+          ? 'Module approved. Workflow advanced.'
+          : 'Module rejected. Feedback submitted and retry processed.'
       )
-
-      // Read the latest checkpoint in case the review response
-      // contains only an acknowledgement.
-      const latest = await coordinatorApi.status(threadId)
-      setWorkflow(latest)
-      setPendingReview(getInterrupt(latest))
     } catch (err) {
       setError(err.message)
     } finally {
@@ -370,697 +284,624 @@ export default function CoordinatorPage() {
     }
   }
 
-  async function openReport() {
-    if (!threadId) {
-      setError('Start a workflow before opening its report.')
-      return
-    }
-
-    setBusy(true)
+  function clearCurrentWorkflow() {
+    localStorage.removeItem(STORAGE_KEY)
+    setThreadId('')
+    setThreadInput('')
+    setWorkflow(null)
+    setHistory(null)
+    setReport(null)
+    setSelectedAttempt('')
+    setFeedback('')
     setError('')
-
-    try {
-      const data = await coordinatorApi.report(threadId)
-      setFinalReport(data)
-      setSection('report')
-    } catch (err) {
-      setError(err.message)
-    } finally {
-      setBusy(false)
-    }
+    setNotice('')
+    setActiveTab('overview')
   }
 
   function downloadReport() {
-    if (!finalReport) return
+    if (!report?.report) return
 
-    const content = prettyJson(finalReport)
-    const blob = new Blob([content], { type: 'application/json' })
+    const blob = new Blob(
+      [JSON.stringify(report.report, null, 2)],
+      { type: 'application/json' }
+    )
+
     const url = URL.createObjectURL(blob)
     const anchor = document.createElement('a')
-
     anchor.href = url
-    anchor.download = `${project.project_id || 'designtrace'}_report.json`
+    anchor.download = `DesignTraceAI_${threadId}_report.json`
     anchor.click()
-
     URL.revokeObjectURL(url)
   }
 
-  const moduleStates = extractModules(workflow)
-  const status = getWorkflowStatus(workflow)
-  const reviewModule =
-    pendingReview?.module_name ||
-    pendingReview?.module ||
-    pendingReview?.name ||
-    'Module review'
+  const pending = workflow?.pending_review || null
+  const statuses = workflow?.module_statuses || {}
+
+  const executions = (history?.executions || [])
+    .filter((item) => item.module === selectedModule)
+    .sort((a, b) => b.attempt - a.attempt)
+
+  const artifacts = (history?.artifacts || [])
+    .filter((item) => item.module === selectedModule)
+    .sort((a, b) => b.version - a.version)
+
+  const reviews = (history?.reviews || [])
+    .filter((item) => item.module === selectedModule)
+
+  const chosenExecution =
+    executions.find(
+      (item) => String(item.attempt) === selectedAttempt
+    ) || executions[0]
+
+  const selectedStatus = statuses[selectedModule]
+  const approvedCount = Object.values(statuses)
+    .filter((item) => item.status === 'APPROVED').length
 
   return (
-    <div className={`dt-app ${isDark ? 'dt-dark' : 'dt-light'}`}>
-      <aside className="dt-sidebar">
-        <div className="dt-brand">
-          <span className="dt-brand-icon">⌘</span>
-          <span>DesignTrace <b>AI</b></span>
+    <div className="dt2-app">
+      <aside className="dt2-sidebar">
+        <div className="dt2-brand">
+          <span className="dt2-brand-mark">D</span>
+          <div>
+            <strong>DesignTrace AI</strong>
+            <small>Coordinator Agent</small>
+          </div>
         </div>
 
-        <div className="dt-sidebar-caption">DESIGN WORKSPACE</div>
+        <div className="dt2-sidebar-caption">WORKFLOW</div>
 
-        <nav className="dt-navigation">
-          {[
-            ['dashboard', '▦', 'Dashboard'],
-            ['projects', '▤', 'Projects'],
-            ['create', '✚', 'Create New Project'],
-            ['workspace', '◇', 'Coordinator Agent'],
-            ['requirements', '☷', 'Requirements'],
-            ['architecture', '⬡', 'Architecture Design'],
-            ['database', '▤', 'Database Design'],
-            ['api', '⌘', 'API & Component Design'],
-            ['traceability', '⑂', 'Traceability'],
-            ['quality', '✺', 'Quality Evaluation'],
-            ['adr', '▣', 'ADR Records'],
-            ['report', '▥', 'Reports'],
-          ].map(([key, symbol, title]) => (
+        <button
+          className={`dt2-nav ${
+            activeTab === 'overview' ? 'active' : ''
+          }`}
+          onClick={() => setActiveTab('overview')}
+        >
+          ◈ Workflow Overview
+        </button>
+
+        <button
+          className={`dt2-nav ${
+            activeTab === 'modules' ? 'active' : ''
+          }`}
+          onClick={() => setActiveTab('modules')}
+        >
+          ▦ Module Inputs & Outputs
+        </button>
+
+        <button
+          className={`dt2-nav ${
+            activeTab === 'history' ? 'active' : ''
+          }`}
+          onClick={() => setActiveTab('history')}
+        >
+          ◷ Review & Version History
+        </button>
+
+        <button
+          className={`dt2-nav ${
+            activeTab === 'report' ? 'active' : ''
+          }`}
+          onClick={() => setActiveTab('report')}
+        >
+          ▤ Final Report
+        </button>
+
+        <div className="dt2-sidebar-caption">MODULES</div>
+
+        <div className="dt2-module-nav">
+          {MODULES.map(([id, label], index) => (
             <button
-              key={key}
-              type="button"
-              className={`dt-nav-item ${section === key ? 'active' : ''}`}
+              key={id}
+              className={
+                selectedModule === id
+                  ? 'dt2-module-link selected'
+                  : 'dt2-module-link'
+              }
               onClick={() => {
-                if (key === 'create' || key === 'workspace' || key === 'report') {
-                  setSection(key)
-                } else {
-                  setNotice(
-                    `${title} belongs to the shared DesignTrace AI frontend. Its route can be connected when that page is integrated.`
-                  )
-                }
+                setSelectedModule(id)
+                setSelectedAttempt('')
+                setActiveTab('modules')
               }}
             >
-              <span className="dt-nav-symbol">{symbol}</span>
-              {title}
+              <span>{index + 1}. {label}</span>
+              <span className={
+                statuses[id]?.status === 'APPROVED'
+                  ? 'dt2-module-check'
+                  : ''
+              }>
+                {statuses[id]?.status === 'APPROVED' ? '✓' : '○'}
+              </span>
             </button>
           ))}
-        </nav>
+        </div>
 
-        <div className="dt-sidebar-bottom">
-          <div className="dt-user">
-            <span className="dt-avatar">D</span>
-            <div>
-              <strong>Demo User</strong>
-              <small>Coordinator Workspace</small>
-            </div>
-          </div>
-
-          <button className="dt-theme-switch" onClick={toggleTheme}>
-            <span>{isDark ? 'Dark Mode' : 'Light Mode'}</span>
-            <span className="dt-switch-track">
-              <span className="dt-switch-thumb" />
-            </span>
-          </button>
+        <div className="dt2-sidebar-footer">
+          <strong>PP1 Demonstration</strong>
+          <p>Module outputs are simulated. Coordinator workflow and Neon persistence are real.</p>
         </div>
       </aside>
 
-      <main className="dt-main">
-        {section === 'create' && (
-          <>
-            <header className="dt-page-header">
-              <div>
-                <div className="dt-breadcrumb">Design workspace / Projects / New</div>
-                <h1>Create New Project</h1>
-                <p>Provide basic information about your project to get started.</p>
-              </div>
-
-              <div className="dt-steps">
-                {['Project Info', 'Requirements', 'Review & Start'].map(
-                  (label, index) => (
-                    <div
-                      key={label}
-                      className={`dt-step ${step === index + 1 ? 'current' : ''} ${
-                        step > index + 1 ? 'done' : ''
-                      }`}
-                    >
-                      <span>{index + 1}</span>
-                      <small>{label}</small>
-                    </div>
-                  )
-                )}
-              </div>
-            </header>
-
-            <div className="dt-content">
-              <div className="dt-top-tools">
-                <span className="dt-eyebrow">PROJECT SETUP</span>
-                <div className="dt-inline-actions">
-                  <select
-                    aria-label="Choose example project"
-                    value={example}
-                    onChange={(event) => setExample(event.target.value)}
-                  >
-                    <option value="hospital">Hospital example</option>
-                    <option value="library">Library example</option>
-                    <option value="banking">Banking example</option>
-                  </select>
-                  <button className="dt-button dt-button-outline" onClick={() => loadExample()}>
-                    ✧ Load Example
-                  </button>
-                  <button className="dt-button dt-button-ghost" onClick={loadDraft}>
-                    Restore Draft
-                  </button>
-                </div>
-              </div>
-
-              {step === 1 && (
-                <section className="dt-panel">
-                  <div className="dt-section-heading">
-                    <span className="dt-section-icon">ⓘ</span>
-                    <h2>Project Information</h2>
-                  </div>
-
-                  <div className="dt-form-grid">
-                    <Field label="Project Name" required>
-                      <input
-                        value={project.project_name}
-                        onChange={(e) => updateProject('project_name', e.target.value)}
-                        placeholder="Hospital Management System"
-                      />
-                    </Field>
-
-                    <Field label="Project Domain" required>
-                      <select
-                        value={project.project_domain}
-                        onChange={(e) => updateProject('project_domain', e.target.value)}
-                      >
-                        {['Healthcare', 'Education', 'Finance', 'E-commerce', 'Other'].map(
-                          (item) => <option key={item}>{item}</option>
-                        )}
-                      </select>
-                    </Field>
-
-                    <Field label="Project ID" required>
-                      <input
-                        value={project.project_id}
-                        onChange={(e) => updateProject('project_id', e.target.value)}
-                        placeholder="HOSPITAL-001"
-                      />
-                    </Field>
-
-                    <Field label="System Type" required>
-                      <select
-                        value={project.system_type}
-                        onChange={(e) => updateProject('system_type', e.target.value)}
-                      >
-                        {['Web Application', 'Mobile Application', 'Desktop Application', 'API Service'].map(
-                          (item) => <option key={item}>{item}</option>
-                        )}
-                      </select>
-                    </Field>
-
-                    <Field label="Project Description" required>
-                      <textarea
-                        rows={3}
-                        value={project.project_description}
-                        onChange={(e) => updateProject('project_description', e.target.value)}
-                        placeholder="Describe your software system..."
-                      />
-                    </Field>
-
-                    <Field label="Expected Users">
-                      <textarea
-                        rows={3}
-                        value={project.expected_users}
-                        onChange={(e) => updateProject('expected_users', e.target.value)}
-                        placeholder="Patients, Doctors, Administrators..."
-                      />
-                    </Field>
-                  </div>
-
-                  <div className="dt-divider" />
-
-                  <div className="dt-section-heading">
-                    <span className="dt-section-icon">⬡</span>
-                    <h2>Project Constraints</h2>
-                  </div>
-                  <p className="dt-help">
-                    Define key constraints and assumptions for the project.
-                  </p>
-                  <textarea
-                    rows={5}
-                    value={project.constraints}
-                    onChange={(e) => updateProject('constraints', e.target.value)}
-                    placeholder="Enter privacy, security, scalability and availability constraints..."
-                  />
-
-                  <div className="dt-divider" />
-
-                  <div className="dt-preference-grid">
-                    <div>
-                      <div className="dt-section-heading">
-                        <span className="dt-section-icon">⌘</span>
-                        <h2>Technology Preferences</h2>
-                      </div>
-
-                      <Field label="Database">
-                        <select
-                          value={project.database}
-                          onChange={(e) => updateProject('database', e.target.value)}
-                        >
-                          {['PostgreSQL', 'MySQL', 'SQLite', 'MongoDB'].map(
-                            (item) => <option key={item}>{item}</option>
-                          )}
-                        </select>
-                      </Field>
-
-                      <Field label="Backend">
-                        <select
-                          value={project.backend}
-                          onChange={(e) => updateProject('backend', e.target.value)}
-                        >
-                          {['Python (FastAPI)', 'Python (Django)', 'Node.js', 'Java (Spring Boot)'].map(
-                            (item) => <option key={item}>{item}</option>
-                          )}
-                        </select>
-                      </Field>
-
-                      <Field label="Frontend">
-                        <select
-                          value={project.frontend}
-                          onChange={(e) => updateProject('frontend', e.target.value)}
-                        >
-                          {['React', 'Vue', 'Angular', 'HTML/CSS'].map(
-                            (item) => <option key={item}>{item}</option>
-                          )}
-                        </select>
-                      </Field>
-                    </div>
-
-                    <div>
-                      <div className="dt-section-heading">
-                        <span className="dt-section-icon">☁</span>
-                        <h2>Deployment Preference</h2>
-                      </div>
-
-                      <Field label="Deployment Type">
-                        <select
-                          value={project.deployment}
-                          onChange={(e) => updateProject('deployment', e.target.value)}
-                        >
-                          {['Cloud', 'On-Premise', 'Hybrid'].map(
-                            (item) => <option key={item}>{item}</option>
-                          )}
-                        </select>
-                      </Field>
-
-                      <Field label="Cloud Provider">
-                        <select
-                          value={project.cloud_provider}
-                          onChange={(e) => updateProject('cloud_provider', e.target.value)}
-                        >
-                          {['AWS', 'Azure', 'Google Cloud', 'Other'].map(
-                            (item) => <option key={item}>{item}</option>
-                          )}
-                        </select>
-                      </Field>
-
-                      <Field label="Region">
-                        <input
-                          value={project.region}
-                          onChange={(e) => updateProject('region', e.target.value)}
-                        />
-                      </Field>
-                    </div>
-
-                    <div>
-                      <div className="dt-section-heading">
-                        <span className="dt-section-icon">⊙</span>
-                        <h2>Additional Notes</h2>
-                      </div>
-                      <Field label="Optional">
-                        <textarea
-                          rows={10}
-                          value={project.notes}
-                          onChange={(e) => updateProject('notes', e.target.value)}
-                          placeholder="Add any additional information or special requirements..."
-                        />
-                      </Field>
-                    </div>
-                  </div>
-                </section>
-              )}
-
-              {step === 2 && (
-                <section className="dt-panel">
-                  <div className="dt-section-heading">
-                    <span className="dt-section-icon">☷</span>
-                    <h2>Functional Requirements</h2>
-                  </div>
-                  <p className="dt-help">
-                    Enter one requirement per field. Each will receive a requirement ID.
-                  </p>
-
-                  {requirements.map((text, index) => (
-                    <div className="dt-requirement" key={index}>
-                      <span className="dt-requirement-id">
-                        REQ-{String(index + 1).padStart(3, '0')}
-                      </span>
-                      <textarea
-                        rows={2}
-                        value={text}
-                        onChange={(e) => {
-                          const next = [...requirements]
-                          next[index] = e.target.value
-                          setRequirements(next)
-                        }}
-                        placeholder="The system shall..."
-                      />
-                      <button
-                        className="dt-icon-button"
-                        title="Remove requirement"
-                        onClick={() =>
-                          setRequirements((current) =>
-                            current.length > 1
-                              ? current.filter((_, i) => i !== index)
-                              : ['']
-                          )
-                        }
-                      >
-                        ×
-                      </button>
-                    </div>
-                  ))}
-
-                  <button
-                    className="dt-button dt-button-outline"
-                    onClick={() => setRequirements((current) => [...current, ''])}
-                  >
-                    + Add Requirement
-                  </button>
-
-                  <div className="dt-info-note">
-                    Your requirements will be passed to the Coordinator when the
-                    backend supports dynamic project input.
-                  </div>
-                </section>
-              )}
-
-              {step === 3 && (
-                <section className="dt-panel">
-                  <div className="dt-section-heading">
-                    <span className="dt-section-icon">✓</span>
-                    <h2>Review Project Details</h2>
-                  </div>
-
-                  <div className="dt-review-grid">
-                    <div className="dt-summary-box">
-                      <small>PROJECT</small>
-                      <strong>{project.project_name}</strong>
-                      <span>{project.project_id}</span>
-                    </div>
-                    <div className="dt-summary-box">
-                      <small>DOMAIN</small>
-                      <strong>{project.project_domain}</strong>
-                      <span>{project.system_type}</span>
-                    </div>
-                    <div className="dt-summary-box">
-                      <small>REQUIREMENTS</small>
-                      <strong>{requirements.filter((r) => r.trim()).length}</strong>
-                      <span>Functional requirements</span>
-                    </div>
-                    <div className="dt-summary-box">
-                      <small>DATABASE</small>
-                      <strong>{project.database}</strong>
-                      <span>{project.backend}</span>
-                    </div>
-                  </div>
-
-                  <h3>Project Description</h3>
-                  <p>{project.project_description}</p>
-
-                  <h3>Requirements</h3>
-                  <div className="dt-requirement-list">
-                    {requirements.filter((r) => r.trim()).map((text, index) => (
-                      <div key={index}>
-                        <span className="dt-requirement-id">
-                          REQ-{String(index + 1).padStart(3, '0')}
-                        </span>
-                        <span>{text}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="dt-info-note">
-                    <strong>PP1 integration note:</strong> The current Coordinator
-                    uses mock Module outputs. If the start endpoint uses the fixed
-                    library demo, the resulting report may describe the library
-                    example even when another project is entered here.
-                  </div>
-                </section>
-              )}
-
-              {error && <div className="dt-alert dt-alert-error">{error}</div>}
-              {notice && <div className="dt-alert dt-alert-info">{notice}</div>}
-
-              <div className="dt-form-footer">
-                <button
-                  className="dt-button dt-button-ghost"
-                  onClick={() => {
-                    if (step > 1) setStep(step - 1)
-                    else setProject(initialProject)
-                  }}
-                >
-                  {step === 1 ? 'Cancel / Reset' : '← Back'}
-                </button>
-
-                <div className="dt-inline-actions">
-                  <button className="dt-button dt-button-outline" onClick={saveDraft}>
-                    ▣ Save Draft
-                  </button>
-
-                  {step < 3 ? (
-                    <button className="dt-button dt-button-primary" onClick={nextStep}>
-                      Next: {step === 1 ? 'Requirements' : 'Review'} →
-                    </button>
-                  ) : (
-                    <button
-                      className="dt-button dt-button-primary"
-                      disabled={busy}
-                      onClick={startWorkflow}
-                    >
-                      {busy ? 'Starting...' : '▶ Start Coordinator'}
-                    </button>
-                  )}
-                </div>
-              </div>
+      <main className="dt2-main">
+        <header className="dt2-header">
+          <div>
+            <div className="dt2-eyebrow">
+              DESIGNTRACE AI / COORDINATOR
             </div>
-          </>
+            <h1>Workflow Dashboard</h1>
+            <p>
+              Orchestration, human review, version tracking and
+              persistent Module artifacts
+            </p>
+          </div>
+
+          <div className="dt2-header-actions">
+            <button
+              className="dt2-btn"
+              onClick={refreshWorkflow}
+              disabled={busy || !threadId}
+            >
+              ↻ Refresh
+            </button>
+            <button
+              className="dt2-btn dt2-primary"
+              onClick={startWorkflow}
+              disabled={busy}
+            >
+              {busy ? 'Please wait...' : '+ Start Mock Workflow'}
+            </button>
+          </div>
+        </header>
+
+        <section className="dt2-card">
+          <div className="dt2-card-heading">
+            <div>
+              <h2>Workflow Recovery</h2>
+              <p>
+                Enter an existing thread ID to recover a workflow
+                from Neon after a backend restart.
+              </p>
+            </div>
+          </div>
+
+          <div className="dt2-load-row">
+            <input
+              value={threadInput}
+              onChange={(event) =>
+                setThreadInput(event.target.value)
+              }
+              placeholder="Paste existing workflow thread ID"
+              aria-label="Workflow thread ID"
+            />
+
+            <button
+              className="dt2-btn dt2-primary"
+              onClick={loadWorkflow}
+              disabled={busy}
+            >
+              Load Workflow
+            </button>
+
+            <button
+              className="dt2-btn"
+              onClick={clearCurrentWorkflow}
+              disabled={busy}
+            >
+              Clear
+            </button>
+          </div>
+
+          {threadId && (
+            <p className="dt2-thread">
+              Active thread: <code>{threadId}</code>
+            </p>
+          )}
+        </section>
+
+        {error && (
+          <div className="dt2-alert dt2-error">
+            {error}
+          </div>
         )}
 
-        {section === 'workspace' && (
+        {notice && (
+          <div className="dt2-alert dt2-info">
+            {notice}
+          </div>
+        )}
+
+        {!workflow ? (
+          <section className="dt2-card">
+            <EmptyState>
+              Start the PP1 mock Library workflow or load an
+              existing workflow using its thread ID.
+            </EmptyState>
+          </section>
+        ) : (
           <>
-            <header className="dt-page-header">
-              <div>
-                <div className="dt-breadcrumb">Design workspace / Coordinator Agent</div>
-                <h1>Coordinator Agent</h1>
-                <p>LangGraph workflow orchestration and human-in-the-loop review.</p>
-              </div>
-              <div className="dt-inline-actions">
-                <button className="dt-button dt-button-outline" onClick={refreshWorkflow} disabled={busy || !threadId}>
-                  ↻ Refresh
-                </button>
-                <button className="dt-button dt-button-primary" onClick={openReport} disabled={busy || !threadId}>
-                  View Report →
-                </button>
-              </div>
-            </header>
-
-            <div className="dt-content">
-              <div className="dt-workspace-banner">
-                <div>
-                  <span className="dt-eyebrow">PP1 MOCK DEMONSTRATION</span>
-                  <h2>{project.project_name || 'Coordinator Workflow'}</h2>
-                  <p>
-                    Thread: <code>{threadId || 'Not started'}</code>
-                  </p>
-                </div>
-                <StatusPill status={status} />
+            <section className="dt2-stats">
+              <div className="dt2-stat">
+                <span>Workflow Status</span>
+                <StatusBadge value={workflow.workflow_status} />
               </div>
 
-              {pendingReview && (
-                <section className="dt-panel dt-review-panel">
-                  <div className="dt-section-heading">
-                    <span className="dt-section-icon">◇</span>
+              <div className="dt2-stat">
+                <span>Approved Modules</span>
+                <strong>{approvedCount} / 7</strong>
+              </div>
+
+              <div className="dt2-stat">
+                <span>Current Module</span>
+                <strong>
+                  {moduleLabel(workflow.current_module)}
+                </strong>
+              </div>
+
+              <div className="dt2-stat">
+                <span>Final Report</span>
+                <strong>
+                  {workflow.report_available
+                    ? 'Available'
+                    : 'Not available'}
+                </strong>
+              </div>
+            </section>
+
+            {pending && (
+              <section className="dt2-card dt2-review-card">
+                <div className="dt2-card-heading">
+                  <div>
                     <h2>Human Review Required</h2>
+                    <p>
+                      Review the Module output before the
+                      Coordinator proceeds.
+                    </p>
                   </div>
-
-                  <p>
-                    Review the generated output from <strong>{reviewModule}</strong>
-                    {' '}before the Coordinator continues.
-                  </p>
-
-                  <div className="dt-review-meta">
-                    <span>Version: {pendingReview.version || 1}</span>
-                    <span>Project: {pendingReview.project_id || project.project_id}</span>
-                  </div>
-
-                  <h3>Generated Module Output</h3>
-                  <pre className="dt-code-block">
-                    {prettyJson(
-                      pendingReview.output ||
-                      pendingReview.artifacts ||
-                      pendingReview
-                    )}
-                  </pre>
-
-                  <Field label="Rejection feedback">
-                    <textarea
-                      rows={3}
-                      value={feedback}
-                      onChange={(e) => setFeedback(e.target.value)}
-                      placeholder="Explain what should be corrected if you reject this output..."
-                    />
-                  </Field>
-
-                  <div className="dt-inline-actions">
-                    <button
-                      className="dt-button dt-button-danger"
-                      disabled={busy}
-                      onClick={() => submitReview('reject')}
-                    >
-                      ✕ Reject & Request Revision
-                    </button>
-                    <button
-                      className="dt-button dt-button-success"
-                      disabled={busy}
-                      onClick={() => submitReview('approve')}
-                    >
-                      ✓ Approve & Continue
-                    </button>
-                  </div>
-                </section>
-              )}
-
-              {!pendingReview && !threadId && (
-                <section className="dt-panel dt-empty-state">
-                  <h2>No workflow started</h2>
-                  <p>Create a project and start the Coordinator workflow.</p>
-                  <button
-                    className="dt-button dt-button-primary"
-                    onClick={() => setSection('create')}
-                  >
-                    Create New Project
-                  </button>
-                </section>
-              )}
-
-              <section className="dt-panel">
-                <div className="dt-section-heading">
-                  <span className="dt-section-icon">⑂</span>
-                  <h2>Module Execution Pipeline</h2>
+                  <StatusBadge value="REVIEW_REQUIRED" />
                 </div>
 
-                <div className="dt-module-grid">
-                  {MODULES.map(([key, label], index) => {
-                    const moduleData = moduleStates[key]
-                    const moduleStatus =
-                      typeof moduleData === 'string'
-                        ? moduleData
-                        : moduleData?.status || 'PENDING'
+                <div className="dt2-review-meta">
+                  <span>
+                    Module: <strong>
+                      {moduleLabel(pending.module_name)}
+                    </strong>
+                  </span>
+                  <span>
+                    Version: <strong>
+                      {pending.version}
+                    </strong>
+                  </span>
+                </div>
+
+                <ModuleResultViewer
+                  moduleName={pending.module_name}
+                  output={pending.output}
+                />
+
+                <label className="dt2-field-label">
+                  Review Feedback
+                </label>
+
+                <textarea
+                  rows={3}
+                  value={feedback}
+                  onChange={(event) =>
+                    setFeedback(event.target.value)
+                  }
+                  placeholder="Explain what must be improved if rejecting this output..."
+                />
+
+                <div className="dt2-action-row">
+                  <button
+                    className="dt2-btn dt2-approve"
+                    disabled={busy}
+                    onClick={() => submitReview('approve')}
+                  >
+                    ✓ Approve Module
+                  </button>
+
+                  <button
+                    className="dt2-btn dt2-reject"
+                    disabled={busy || !feedback.trim()}
+                    onClick={() => submitReview('reject')}
+                  >
+                    ✕ Reject & Retry
+                  </button>
+                </div>
+
+                <p className="dt2-help">
+                  Rejection requires feedback. For PP1, retry
+                  outputs are generated by the mock Module.
+                </p>
+              </section>
+            )}
+
+            {activeTab === 'overview' && (
+              <section className="dt2-card">
+                <div className="dt2-card-heading">
+                  <div>
+                    <h2>Module Progress</h2>
+                    <p>
+                      Current execution status for all seven Modules.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="dt2-progress-list">
+                  {MODULES.map(([id, label], index) => {
+                    const item = statuses[id] || {}
 
                     return (
-                      <div className="dt-module-card" key={key}>
-                        <div className="dt-module-top">
-                          <span className="dt-module-number">
-                            {String(index + 1).padStart(2, '0')}
-                          </span>
-                          <StatusPill status={moduleStatus} />
+                      <button
+                        className="dt2-progress-item"
+                        key={id}
+                        onClick={() => {
+                          setSelectedModule(id)
+                          setSelectedAttempt('')
+                          setActiveTab('modules')
+                        }}
+                      >
+                        <div className="dt2-step-number">
+                          {index + 1}
                         </div>
-                        <h3>{label}</h3>
-                        <p>{key}</p>
-                        <small>
-                          Version: {moduleData?.version ?? '—'} ·
-                          Retries: {moduleData?.retry_count ?? '—'}
-                        </small>
-                      </div>
+
+                        <div className="dt2-progress-info">
+                          <strong>{label}</strong>
+                          <small>
+                            Version {item.version || 0}
+                            {' · '}
+                            Retries {item.retry_count || 0}
+                          </small>
+                        </div>
+
+                        <StatusBadge value={item.status} />
+                      </button>
                     )
                   })}
                 </div>
               </section>
+            )}
 
-              <section className="dt-panel">
-                <div className="dt-section-heading">
-                  <span className="dt-section-icon">▤</span>
-                  <h2>Workflow Details</h2>
-                </div>
-                <pre className="dt-code-block">
-                  {prettyJson(workflow || { message: 'No workflow data yet.' })}
-                </pre>
-              </section>
-
-              {error && <div className="dt-alert dt-alert-error">{error}</div>}
-              {notice && <div className="dt-alert dt-alert-info">{notice}</div>}
-            </div>
-          </>
-        )}
-
-        {section === 'report' && (
-          <>
-            <header className="dt-page-header">
-              <div>
-                <div className="dt-breadcrumb">Design workspace / Reports</div>
-                <h1>Final Software Design Report</h1>
-                <p>Coordinator workflow results and approved artifacts.</p>
-              </div>
-              <div className="dt-inline-actions">
-                <button className="dt-button dt-button-outline" onClick={openReport} disabled={busy}>
-                  ↻ Reload Report
-                </button>
-                <button className="dt-button dt-button-primary" onClick={downloadReport} disabled={!finalReport}>
-                  ↓ Export JSON
-                </button>
-              </div>
-            </header>
-
-            <div className="dt-content">
-              <section className="dt-panel">
-                <div className="dt-section-heading">
-                  <span className="dt-section-icon">▥</span>
-                  <h2>Execution Report</h2>
+            {activeTab === 'modules' && (
+              <section className="dt2-card">
+                <div className="dt2-card-heading">
+                  <div>
+                    <h2>Module Inputs & Outputs</h2>
+                    <p>
+                      Execution snapshots saved in Neon.
+                    </p>
+                  </div>
+                  <StatusBadge value={selectedStatus?.status} />
                 </div>
 
-                {finalReport ? (
+                <div className="dt2-control-row">
+                  <div>
+                    <label className="dt2-field-label">
+                      Select Module
+                    </label>
+
+                    <select
+                      value={selectedModule}
+                      onChange={(event) => {
+                        setSelectedModule(event.target.value)
+                        setSelectedAttempt('')
+                      }}
+                    >
+                      {MODULES.map(([id, label]) => (
+                        <option key={id} value={id}>
+                          {label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="dt2-field-label">
+                      Execution Attempt
+                    </label>
+
+                    <select
+                      value={
+                        chosenExecution
+                          ? String(chosenExecution.attempt)
+                          : ''
+                      }
+                      onChange={(event) =>
+                        setSelectedAttempt(event.target.value)
+                      }
+                      disabled={!executions.length}
+                    >
+                      {!executions.length && (
+                        <option value="">No attempts</option>
+                      )}
+
+                      {executions.map((item) => (
+                        <option
+                          key={item.attempt}
+                          value={String(item.attempt)}
+                        >
+                          Version {item.attempt} — {item.status}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {chosenExecution ? (
                   <>
-                    <div className="dt-report-summary">
-                      <div>
-                        <small>PROJECT</small>
-                        <strong>
-                          {finalReport.report?.project_name ||
-                            project.project_name}
-                        </strong>
-                      </div>
-                      <div>
-                        <small>WORKFLOW STATUS</small>
-                        <StatusPill status={getWorkflowStatus(finalReport)} />
-                      </div>
-                      <div>
-                        <small>THREAD ID</small>
-                        <code>{threadId}</code>
-                      </div>
+                    <div className="dt2-execution-meta">
+                      <span>
+                        Attempt: {chosenExecution.attempt}
+                      </span>
+                      <StatusBadge
+                        value={chosenExecution.status}
+                      />
                     </div>
 
-                    <h3>Report Data</h3>
-                    <pre className="dt-code-block">
-                      {prettyJson(finalReport.report || finalReport)}
-                    </pre>
+                    <div className="dt2-json-grid">
+                      <JsonPanel
+                        title="Module Input (Neon)"
+                        value={chosenExecution.input}
+                      />
+                      <ModuleResultViewer
+                        moduleName={selectedModule}
+                        output={chosenExecution.output}
+                      />
+                    </div>
                   </>
                 ) : (
-                  <div className="dt-empty-state">
-                    <p>Open the completed workflow report to view its contents.</p>
-                    <button className="dt-button dt-button-primary" onClick={openReport} disabled={!threadId || busy}>
-                      Load Final Report
-                    </button>
+                  <EmptyState>
+                    No execution snapshot has been saved
+                    for this Module yet.
+                  </EmptyState>
+                )}
+
+                <h3>Saved Artifact Versions</h3>
+
+                {artifacts.length ? (
+                  <div className="dt2-artifact-list">
+                    {artifacts.map((artifact, index) => (
+                      <details key={`${artifact.version}-${index}`}>
+                        <summary>
+                          Version {artifact.version}
+                          <StatusBadge value={artifact.status} />
+                        </summary>
+                        <pre>{pretty(artifact.content)}</pre>
+                      </details>
+                    ))}
                   </div>
+                ) : (
+                  <EmptyState>
+                    No artifact versions found.
+                  </EmptyState>
                 )}
               </section>
+            )}
 
-              {error && <div className="dt-alert dt-alert-error">{error}</div>}
-            </div>
+            {activeTab === 'history' && (
+              <section className="dt2-card">
+                <div className="dt2-card-heading">
+                  <div>
+                    <h2>Review & Version History</h2>
+                    <p>
+                      Human decisions and saved execution versions.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="dt2-control-row">
+                  <div>
+                    <label className="dt2-field-label">
+                      Filter by Module
+                    </label>
+                    <select
+                      value={selectedModule}
+                      onChange={(event) =>
+                        setSelectedModule(event.target.value)
+                      }
+                    >
+                      {MODULES.map(([id, label]) => (
+                        <option key={id} value={id}>
+                          {label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <h3>Human Review Decisions</h3>
+
+                {reviews.length ? (
+                  <div className="dt2-history-list">
+                    {reviews.map((review, index) => (
+                      <div className="dt2-history-item" key={index}>
+                        <div className="dt2-history-heading">
+                          <strong>
+                            {moduleLabel(review.module)}
+                          </strong>
+                          <StatusBadge value={review.decision} />
+                        </div>
+
+                        <p>
+                          {review.feedback ||
+                            'Approved without feedback.'}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <EmptyState>
+                    No human review decisions recorded
+                    for this Module.
+                  </EmptyState>
+                )}
+
+                <h3>Execution Version History</h3>
+
+                {executions.length ? (
+                  <div className="dt2-history-list">
+                    {executions.map((execution) => (
+                      <details
+                        className="dt2-history-item"
+                        key={execution.attempt}
+                      >
+                        <summary>
+                          <strong>
+                            Version {execution.attempt}
+                          </strong>
+                          <StatusBadge
+                            value={execution.status}
+                          />
+                        </summary>
+
+                        <JsonPanel
+                          title="Saved Input"
+                          value={execution.input}
+                        />
+
+                        <JsonPanel
+                          title="Saved Output"
+                          value={execution.output}
+                        />
+                      </details>
+                    ))}
+                  </div>
+                ) : (
+                  <EmptyState>
+                    No execution versions available.
+                  </EmptyState>
+                )}
+              </section>
+            )}
+
+            {activeTab === 'report' && (
+              <section className="dt2-card">
+                <div className="dt2-card-heading">
+                  <div>
+                    <h2>Final Coordinator Report</h2>
+                    <p>
+                      Readable report generated from approved Module
+                      artifacts and saved workflow results.
+                    </p>
+                  </div>
+                </div>
+
+                  {report?.report ? (
+                    <FinalReportViewer response={report} />
+                   ) : (
+                    <EmptyState>
+                      The final report becomes available after
+                      all seven Modules are approved.
+                    </EmptyState>
+                   )}
+              </section>
+            )}
           </>
         )}
+
+        <footer className="dt2-footer">
+          DesignTrace AI · PP1 Coordinator Demonstration ·
+          Mock Module outputs · PostgreSQL persistence
+        </footer>
       </main>
     </div>
   )

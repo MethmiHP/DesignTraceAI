@@ -1,0 +1,150 @@
+.dt2-readable {
+  color: #e8eefb;
+  min-width: 0;
+}
+
+.dt2-readable-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 16px 0 22px;
+}
+
+.dt2-readable-heading h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.dt2-readable-heading p,
+.dt2-readable-muted {
+  color: #9caac3;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.dt2-readable-section {
+  margin: 24px 0;
+}
+
+.dt2-readable-section h3 {
+  font-size: 15px;
+  margin-bottom: 12px;
+  color: #c7bfff;
+}
+
+.dt2-readable-subcard {
+  border: 1px solid #344158;
+  border-radius: 10px;
+  background: #151f32;
+  padding: 16px;
+  margin: 12px 0;
+}
+
+.dt2-readable-subcard h4 {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+
+.dt2-readable-subcard p,
+.dt2-readable-section p,
+.dt2-readable-section li {
+  color: #b7c4d9;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.dt2-readable-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #344158;
+  border-radius: 9px;
+}
+
+.dt2-readable-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 480px;
+  font-size: 12px;
+}
+
+.dt2-readable-table th {
+  background: #222d44;
+  color: #c4bbff;
+  font-weight: 700;
+  text-align: left;
+  padding: 12px;
+}
+
+.dt2-readable-table td {
+  padding: 12px;
+  border-top: 1px solid #344158;
+  vertical-align: top;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.dt2-readable-table tr:nth-child(even) {
+  background: #192337;
+}
+
+.dt2-readable-json {
+  background: #090f1c;
+  color: #d5e1f5;
+  border: 1px solid #344158;
+  border-radius: 9px;
+  padding: 16px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.dt2-readable-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.dt2-readable-metrics > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid #344158;
+  border-radius: 10px;
+  background: #192337;
+}
+
+.dt2-readable-metrics small {
+  color: #9caac3;
+  text-transform: capitalize;
+  font-size: 11px;
+}
+
+.dt2-readable-metrics strong {
+  color: #f1f4ff;
+  font-size: 18px;
+}
+
+.dt2-readable-warning {
+  padding: 14px 16px;
+  background: #45361f;
+  border: 1px solid #88652d;
+  border-radius: 9px;
+  color: #ffdfa1;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 16px 0;
+}
+
+@media (max-width: 600px) {
+  .dt2-readable-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
