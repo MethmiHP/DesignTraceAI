@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import example from './banking-example.json'
 import { securityGaps, resolveSecurity } from './securityResolution'
 
+import { requestJson, waitForDesign } from './designClient'
+
 const pretty = (value) => JSON.stringify(value, null, 2)
 export default function useApiDesign() {
+  const pending = useRef(null)
   const [inputJson, setInputJson] = useState('')
   let project = ''
   try {
@@ -19,6 +22,7 @@ export default function useApiDesign() {
   const gaps = securityGaps(result)
 
   function updateInput(value) {
+    pending.current = null
     setInputJson(value)
     setSecurityChoices({})
     setResult(null)
@@ -66,15 +70,15 @@ export default function useApiDesign() {
     } catch (err) { setError(err.message); return }
     setBusy(true)
     try {
-      const response = await fetch('/api-component/design', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload), signal: AbortSignal.timeout(180000),
-      })
-      const body = await response.json().catch(() => null)
-      if (!response.ok) {
-        const detail = Array.isArray(body?.detail) ? body.detail.map((item) => `${item.loc.join('.')}: ${item.msg}`).join('\n') : body?.detail
-        throw new Error(detail || `Request failed (${response.status}). Check that the backend is running on port 8000.`)
+      const serialized = JSON.stringify(payload)
+      if (!pending.current || pending.current.payload !== serialized) {
+        const job = await requestJson('/api-component/jobs', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' }, body: serialized,
+        })
+        pending.current = { jobId: job.job_id, payload: serialized }
       }
+      const body = await waitForDesign(pending.current.jobId)
+      pending.current = null
       const listFields = ['api_operations', 'responsibilities', 'semantic_extractions', 'requirement_to_api_mapping']
       if (!body || listFields.some((field) => !Array.isArray(body[field])) || !Array.isArray(body.validation?.issues)) {
         throw new Error('The backend returned an unexpected response.')
@@ -84,7 +88,8 @@ export default function useApiDesign() {
       setSecurityChoices({})
       setView(securityGaps(body).length ? 'Context' : 'API Design')
     } catch (err) {
-      setError(err.name === 'TimeoutError' ? 'The request timed out. Please try again.' : err instanceof TypeError ? 'Could not connect to the backend. Start the API on port 8000 and try again.' : err.message)
+      if (err.status === 404 || err.jobFailed) pending.current = null
+      setError(err.name === 'TimeoutError' ? 'The status request timed out. Click Generate API design to resume waiting for the same job.' : err instanceof TypeError ? 'Could not connect to the backend. Start the API on port 8000 and try again.' : err.message)
     } finally { setBusy(false) }
   }
 
