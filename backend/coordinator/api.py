@@ -26,7 +26,7 @@ from shared.models.project import ProjectInput, Requirement
 from mocks.mock_modules import REQUIREMENTS
 
 from database.connection import SessionLocal
-from database.models import Project, WorkflowRun
+from database.models import Project, WorkflowRun, ReviewDecision, ArtifactVersion, ModuleExecution, WorkflowEvent
 
 
 router = APIRouter(
@@ -120,8 +120,9 @@ def get_workflow_response(request: Request, thread_id: str):
         thread_id=thread_id,
         project_state=project_state,
         module_execution_inputs=values.get(
-        "module_execution_inputs", {}
+            "module_execution_inputs", {}
         ),
+        events=values.get("events", []),
     )
 
     module_statuses = {}
@@ -289,7 +290,72 @@ def submit_review(
                 detail=str(exc),
             ) from exc
 
-        return get_workflow_response(request, thread_id)
+        response = get_workflow_response(request, thread_id)
+        # Record the human decision against the exact reviewed version.
+        reviewed_module = pending_review.get("module_name")
+        reviewed_version = pending_review.get("version")
+        with SessionLocal.begin() as session:
+            run = session.scalar(select(WorkflowRun).where(
+                WorkflowRun.thread_id == thread_id
+            ))
+            artifact = session.scalar(select(ArtifactVersion).where(
+                ArtifactVersion.workflow_run_id == run.id,
+                ArtifactVersion.artifact_key == reviewed_module,
+                ArtifactVersion.version_number == reviewed_version,
+            ))
+            session.add(ReviewDecision(
+                workflow_run_id=run.id,
+                artifact_version_id=artifact.id if artifact else None,
+                module_name=reviewed_module,
+                decision=decision.upper(),
+                feedback=feedback or None,
+                reviewer="PP1_HUMAN_REVIEWER",
+            ))
+            if artifact is not None:
+                artifact.approval_status = (
+                    "APPROVED" if decision == "approve" else "REJECTED"
+                )
+            execution = session.scalar(select(ModuleExecution).where(
+                ModuleExecution.workflow_run_id == run.id,
+                ModuleExecution.module_name == reviewed_module,
+                ModuleExecution.attempt_number == reviewed_version,
+            ))
+            if execution is not None:
+                execution.status = (
+                    "APPROVED" if decision == "approve" else "REJECTED"
+                )
+        return response
+
+
+@router.get("/{thread_id}/history")
+def get_workflow_history(thread_id: str):
+    get_config(thread_id)
+    with SessionLocal() as session:
+        run = session.scalar(select(WorkflowRun).where(
+            WorkflowRun.thread_id == thread_id
+        ))
+        reviews = session.scalars(select(ReviewDecision).where(
+            ReviewDecision.workflow_run_id == run.id
+        ).order_by(ReviewDecision.created_at)).all()
+        artifacts = session.scalars(select(ArtifactVersion).where(
+            ArtifactVersion.workflow_run_id == run.id
+        ).order_by(ArtifactVersion.created_at)).all()
+        executions = session.scalars(select(ModuleExecution).where(
+            ModuleExecution.workflow_run_id == run.id
+        ).order_by(ModuleExecution.created_at)).all()
+        return {
+            "thread_id": thread_id,
+            "reviews": [{"module": r.module_name, "decision": r.decision,
+                         "feedback": r.feedback, "artifact_version_id": str(r.artifact_version_id) if r.artifact_version_id else None}
+                        for r in reviews],
+            "artifacts": [{"module": a.module_name, "version": a.version_number,
+                           "status": a.approval_status, "content": a.content}
+                          for a in artifacts],
+            "executions": [{"module": e.module_name, "attempt": e.attempt_number,
+                            "status": e.status, "input": e.input_data,
+                            "output": e.output_data}
+                           for e in executions],
+        }
 
 
 @router.get("/{thread_id}/report")

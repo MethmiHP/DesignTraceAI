@@ -222,6 +222,23 @@ def execute_mock_module(
             ),
         }
 
+    # All other PP1 mocks consume and verify their approved inputs.
+    if module_name != "requirement_analysis":
+        from coordinator.dependency_manager import MODULE_DEPENDENCIES
+        if not isinstance(module_input, dict):
+            raise ValueError(f"{module_name}: structured input is required")
+        if module_input.get("project_id") != project.project_id:
+            raise ValueError(f"{module_name}: project ID mismatch")
+        received = module_input.get("approved_upstream_outputs")
+        required = MODULE_DEPENDENCIES[module_name]
+        if not isinstance(received, dict) or any(
+            name not in received for name in required
+        ):
+            raise ValueError(f"{module_name}: missing approved upstream outputs")
+        if set(received) != set(required):
+            raise ValueError(f"{module_name}: unexpected upstream outputs")
+        output["consumed_upstream_modules"] = sorted(received)
+
     # Demonstrate feedback and retry.
     # First database version intentionally lacks
     # one relationship.

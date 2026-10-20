@@ -1,32 +1,32 @@
 """
-Module input adapters for DesignTrace AI.
+DesignTrace AI - Coordinator Module Input Adapters
 
-Phase 3B:
-Build structured inputs from Coordinator project state.
-Other Module adapters will be added as contracts are finalized.
+Routes approved upstream outputs to all seven
+PP1 mock Modules.
+
+These are PP1 transport contracts.
+They are not a claim that all teammate Modules
+already support these exact JSON structures.
 """
 
 from copy import deepcopy
 
+from coordinator.dependency_manager import MODULE_DEPENDENCIES
+
 
 def build_requirement_analysis_input(project):
-    """
-    Build the documented Requirement Analysis input.
-
-    This adapter does not execute the Module.
-    """
-    raw_description = (
+    description = (
         project.project_description or ""
     ).strip()
 
-    if not raw_description:
+    if not description:
         raise ValueError(
             "Requirement Analysis needs a project description."
         )
 
     return {
         "project_id": project.project_id,
-        "raw_description": raw_description,
+        "raw_description": description,
         "project_context": {
             "project_name": project.project_name,
             "domain": "",
@@ -43,21 +43,62 @@ def build_module_input(
     project,
     approved_outputs,
 ):
-    """
-    Create the exact input envelope passed to the
-    Coordinator's mock execution boundary.
-
-    The Requirement Analysis input follows its
-    documented contract. Other Modules temporarily
-    use a generic mock envelope.
-    """
     if module_name == "requirement_analysis":
         return build_requirement_analysis_input(project)
 
-    return {
+    if module_name not in MODULE_DEPENDENCIES:
+        raise ValueError(
+            f"Unknown Module: {module_name}"
+        )
+
+    dependencies = MODULE_DEPENDENCIES[module_name]
+
+    missing = [
+        name
+        for name in dependencies
+        if name not in approved_outputs
+    ]
+
+    if missing:
+        raise ValueError(
+            f"{module_name}: missing approved inputs: {missing}"
+        )
+
+    upstream = {
+        name: deepcopy(approved_outputs[name])
+        for name in dependencies
+    }
+
+    payload = {
         "project_id": project.project_id,
         "module_name": module_name,
-        "project": project.model_dump(mode="json"),
-        "approved_outputs": deepcopy(approved_outputs),
-        "adapter_status": "MOCK_CONTRACT_PENDING",
+        "execution_mode": "MOCK_PP1",
+        "approved_upstream_outputs": upstream,
     }
+
+    if "requirement_analysis" in upstream:
+        payload["requirements_output"] = deepcopy(
+            upstream["requirement_analysis"]
+        )
+
+    if "architecture_design" in upstream:
+        payload["architecture_output"] = deepcopy(
+            upstream["architecture_design"]
+        )
+
+    if "database_design" in upstream:
+        payload["database_output"] = deepcopy(
+            upstream["database_design"]
+        )
+
+    if "api_component_design" in upstream:
+        payload["api_component_output"] = deepcopy(
+            upstream["api_component_design"]
+        )
+
+    if "quality_evaluation" in upstream:
+        payload["quality_output"] = deepcopy(
+            upstream["quality_evaluation"]
+        )
+
+    return payload

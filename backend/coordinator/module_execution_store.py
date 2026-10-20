@@ -1,15 +1,10 @@
 """
 DesignTrace AI - Coordinator Module Execution Store
 
-Phase 3A and Phase 3B:
-- Persist Module execution records in Neon PostgreSQL.
-- Store complete Module outputs.
-- Store Module inputs captured during execution.
-- Store validation results and Module status.
-- Preserve separate records for retry versions.
-- Avoid duplicate records for the same Module attempt.
+Persist Module executions, input/output payloads,
+artifact versions and workflow events in Neon.
 
-This implementation supports mock Modules for PP1.
+Mock Modules are used for the PP1 demonstration.
 """
 
 from copy import deepcopy
@@ -17,41 +12,26 @@ from copy import deepcopy
 from sqlalchemy import select
 
 from database.connection import SessionLocal
-from database.models import ModuleExecution, WorkflowRun
+from database.models import (
+    ModuleExecution,
+    WorkflowRun,
+    ArtifactVersion,
+    WorkflowEvent,
+)
 
 
 def save_module_executions(
     thread_id,
     project_state,
     module_execution_inputs=None,
+    events=None,
 ):
     """
-    Synchronize Module execution records from LangGraph
-    state into Neon PostgreSQL.
+    Synchronize LangGraph Module execution records
+    with Neon PostgreSQL.
 
-    Args:
-        thread_id:
-            LangGraph workflow thread ID.
-
-        project_state:
-            Coordinator ProjectState containing Module
-            states, outputs and output history.
-
-        module_execution_inputs:
-            Dictionary of Module input payloads captured
-            at execution time.
-
-            Expected structure:
-            {
-                "requirement_analysis": {
-                    "1": {...}
-                },
-                "architecture_design": {
-                    "1": {...}
-                }
-            }
-
-    Existing records are updated rather than duplicated.
+    Repeated calls update existing Module attempts
+    instead of intentionally creating new versions.
     """
 
     if project_state is None:
@@ -62,7 +42,6 @@ def save_module_executions(
 
     with SessionLocal.begin() as session:
 
-        # Find the workflow in Neon.
         run = session.scalar(
             select(WorkflowRun).where(
                 WorkflowRun.thread_id == thread_id
@@ -74,12 +53,10 @@ def save_module_executions(
                 f"Workflow not found in Neon: {thread_id}"
             )
 
-        # Process each Module in the Coordinator state.
         for module_name, module_state in (
             project_state.module_states.items()
         ):
 
-            # Retrieve all saved output versions.
             history = (
                 project_state.module_output_history.get(
                     module_name,
@@ -97,73 +74,127 @@ def save_module_executions(
                 if not isinstance(version, int):
                     continue
 
-                # Check whether this Module attempt
-                # already exists in Neon.
                 existing = session.scalar(
                     select(ModuleExecution).where(
-                        ModuleExecution.workflow_run_id
-                        == run.id,
-                        ModuleExecution.module_name
-                        == module_name,
-                        ModuleExecution.attempt_number
-                        == version,
+                        ModuleExecution.workflow_run_id == run.id,
+                        ModuleExecution.module_name == module_name,
+                        ModuleExecution.attempt_number == version,
                     )
                 )
 
-                # Create a new record if necessary.
                 if existing is None:
                     existing = ModuleExecution(
                         workflow_run_id=run.id,
                         module_name=module_name,
                         attempt_number=version,
                     )
-
                     session.add(existing)
 
-                # Save the complete Module output.
+                # Preserve complete output.
                 existing.output_data = deepcopy(output)
 
-                # Get the input captured at execution time.
-                # This is outside any dependency loop.
+                # Preserve exact captured execution input.
                 captured_input = (
                     module_execution_inputs
                     .get(module_name, {})
                     .get(str(version))
                 )
 
-                # Save the input only when available.
-                # Older checkpoints may not contain it.
                 if captured_input is not None:
                     existing.input_data = deepcopy(
                         captured_input
                     )
 
-                # Check whether this is the current
-                # version of the Module.
+                # Save one artifact for each Module version.
+                artifact = session.scalar(
+                    select(ArtifactVersion).where(
+                        ArtifactVersion.workflow_run_id == run.id,
+                        ArtifactVersion.artifact_key == module_name,
+                        ArtifactVersion.version_number == version,
+                    )
+                )
+
+                if artifact is None:
+                    artifact = ArtifactVersion(
+                        workflow_run_id=run.id,
+                        module_name=module_name,
+                        artifact_type="module_output",
+                        artifact_key=module_name,
+                        version_number=version,
+                        content=deepcopy(output),
+                    )
+                    session.add(artifact)
+                else:
+                    artifact.content = deepcopy(output)
+
                 is_latest = (
                     version == module_state.version
                 )
 
                 if is_latest:
+                    artifact.approval_status = (
+                        module_state.status.value
+                    )
 
-                    # Save the current Module status.
                     existing.status = (
                         module_state.status.value
                     )
 
-                    # Save the validation result.
                     existing.validation_result = {
-                        "passed": (
-                            module_state.validation_passed
-                        )
+                        "passed": module_state.validation_passed
                     }
 
                 else:
+                    if artifact.approval_status not in (
+                        "APPROVED",
+                        "REJECTED",
+                    ):
+                        artifact.approval_status = "SUPERSEDED"
 
-                    # Preserve finalized decisions for
-                    # historical Module versions.
                     if existing.status not in (
                         "APPROVED",
                         "REJECTED",
                     ):
                         existing.status = "SUPERSEDED"
+
+        # Synchronize workflow events.
+        if events is not None:
+
+            saved = session.scalars(
+                select(WorkflowEvent).where(
+                    WorkflowEvent.workflow_run_id == run.id
+                )
+            ).all()
+
+            indexed = {
+                row.event_data.get("event_index"): row
+                for row in saved
+                if isinstance(row.event_data, dict)
+                and isinstance(
+                    row.event_data.get("event_index"),
+                    int,
+                )
+            }
+
+            for index, event in enumerate(events):
+
+                row = indexed.get(index)
+
+                if row is None:
+                    row = WorkflowEvent(
+                        workflow_run_id=run.id
+                    )
+                    session.add(row)
+
+                row.event_type = str(
+                    event.get("event", "UNKNOWN")
+                )
+
+                row.module_name = (
+                    event.get("module") or None
+                )
+
+                row.event_data = {
+                    "event_index": index,
+                    **deepcopy(event),
+                }
