@@ -43,6 +43,8 @@ class OpenAPIBuilder:
                 operation_object["security"] = [{name: []}]
             elif operation.security.authentication == "none":
                 operation_object["security"] = []
+            elif operation.security.authentication == "custom":
+                operation_object["x-custom-authentication"] = operation.security.custom_description
             if operation.security.roles:
                 operation_object["x-required-roles"] = operation.security.roles
             if operation.security.access_rules:

@@ -115,3 +115,37 @@ def test_missing_mechanism_blocks_generation_until_user_resolves(monkeypatch, is
     import json
     saved = [json.loads(path.read_text()) for path in isolated_outputs.glob('*/request.json')]
     assert any(item['functional_requirements'][0]['security']['authentication'] == 'basic' for item in saved)
+
+
+@pytest.mark.parametrize('policy,expected_type', [
+    ({'authentication': 'mutual_tls'}, 'mutualTLS'),
+    ({'authentication': 'openid_connect', 'openid_connect_url': 'https://identity.example/.well-known/openid-configuration'}, 'openIdConnect'),
+    ({'authentication': 'oauth2', 'oauth_flows': {'clientCredentials': {'tokenUrl': 'https://identity.example/token', 'scopes': {}}}}, 'oauth2'),
+])
+def test_additional_security_schemes(policy, expected_type):
+    op = operation()
+    apply_security(op, SecurityPolicy(**policy))
+    doc = OpenAPIBuilder().build([op])
+    scheme = next(iter(doc['components']['securitySchemes'].values()))
+    assert scheme['type'] == expected_type
+
+
+@pytest.mark.parametrize('authentication', ['oauth2', 'openid_connect', 'custom', 'unspecified'])
+def test_incomplete_shared_security_remains_a_gap(authentication):
+    from modules.api_component_design.security import security_configuration_gaps
+    request = APIComponentDesignRequest(**get_base_request())
+    request.security = SecurityPolicy(authentication=authentication, roles=['patient'])
+    assert security_configuration_gaps(request)
+
+
+def test_custom_security_is_documented_without_inventing_scheme():
+    op = operation()
+    apply_security(op, SecurityPolicy(authentication='custom', custom_description='Signed requests using the supplied partner protocol'))
+    doc = OpenAPIBuilder().build([op])
+    assert 'components' not in doc
+    assert doc['paths']['/appointments']['post']['x-custom-authentication']
+
+
+def test_oauth_rejects_incomplete_flow():
+    with pytest.raises(ValueError, match='requires tokenUrl'):
+        SecurityPolicy(authentication='oauth2', oauth_flows={'clientCredentials': {'scopes': {}}})

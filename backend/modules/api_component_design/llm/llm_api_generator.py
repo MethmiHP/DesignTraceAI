@@ -1,4 +1,5 @@
 from .provider import BaseLLMProvider
+from .activity_logging import requirement_context
 
 from .structured_schemas import (
     LLMAPIOperation,
@@ -53,11 +54,15 @@ class LLMAPIGenerator:
 
 
         generate_with_source = getattr(self.llm_provider, "generate_structured_with_source", None)
-        if generate_with_source is not None:
-            llm_operation, generation_source = generate_with_source(prompt, LLMAPIOperation)
-        else:
-            llm_operation = self.llm_provider.generate_structured(prompt, LLMAPIOperation)
-            generation_source = "llm"
+        token = requirement_context.set(semantic.requirement_id)
+        try:
+            if generate_with_source is not None:
+                llm_operation, generation_source = generate_with_source(prompt, LLMAPIOperation)
+            else:
+                llm_operation = self.llm_provider.generate_structured(prompt, LLMAPIOperation)
+                generation_source = "llm"
+        finally:
+            requirement_context.reset(token)
 
         # CONVERT LLM STRUCTURE
         # INTO INTERNAL APIOperation

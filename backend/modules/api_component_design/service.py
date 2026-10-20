@@ -316,12 +316,8 @@ class APIComponentDesignService:
 
                 except Exception:
 
-                    # Keep the detailed provider error in
-                    # backend logs instead of the API response
-
-                    logger.exception(
-                        "LLM API generation failed "
-                        "for requirement %s",
+                    logger.warning(
+                        "[API %s] LLM failed; using rule-based fallback",
                         requirement.requirement_id,
                     )
 

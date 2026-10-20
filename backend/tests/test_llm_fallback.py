@@ -1,5 +1,6 @@
 import asyncio
 import json
+import logging
 from unittest.mock import Mock
 
 import httpx
@@ -13,10 +14,39 @@ from modules.api_component_design.llm.structured_schemas import LLMAPIOperation
 from modules.api_component_design.schemas import APIComponentDesignRequest
 from modules.api_component_design.service import APIComponentDesignService
 from test_api_component_design import get_base_request
+from modules.api_component_design.llm.activity_logging import failure_reason, requirement_context
 
 
 class Answer(BaseModel):
     text: str
+
+
+def test_short_provider_logs_include_reason_and_requirement(caplog):
+    error = httpx.HTTPStatusError(
+        "secret response", request=httpx.Request("POST", "https://example.com"),
+        response=httpx.Response(413),
+    )
+    gemini, groq = Mock(), Mock()
+    gemini.generate_structured.side_effect = error
+    groq.generate_structured.return_value = Answer(text="ok")
+    chain = FallbackLLMProvider([("Gemini", lambda: gemini), ("Groq", lambda: groq)])
+    token = requirement_context.set("FR-001")
+    try:
+        with caplog.at_level(logging.INFO):
+            chain.generate_structured("private prompt", Answer)
+    finally:
+        requirement_context.reset(token)
+    assert "[API FR-001] gemini started" in caplog.text
+    assert "[API FR-001] gemini failed: 413 request too large" in caplog.text
+    assert "[API FR-001] gemini -> groq" in caplog.text
+    assert "[API FR-001] groq OK (" in caplog.text
+    assert "secret response" not in caplog.text
+    assert "private prompt" not in caplog.text
+    wrapper = LLMUnavailableError("private details")
+    cause = RuntimeError("secret")
+    cause.code = 429
+    wrapper.__cause__ = cause
+    assert failure_reason(wrapper) == "429 rate limit or quota"
 
 
 def test_gemini_success_does_not_initialize_groq():

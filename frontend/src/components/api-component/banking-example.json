@@ -5,6 +5,16 @@
       "requirement_id": "FR-001",
       "statement": "A customer shall view a bank account.",
       "priority": "High"
+    },
+    {
+      "requirement_id": "FR-002",
+      "statement": "A customer shall create a bank account.",
+      "priority": "High"
+    },
+    {
+      "requirement_id": "FR-003",
+      "statement": "A customer shall submit a transfer between bank accounts.",
+      "priority": "High"
     }
   ],
   "architecture": {
@@ -16,6 +26,12 @@
         "name": "Bank Account Service",
         "type": "Service",
         "main_responsibility": "Manage customer bank accounts."
+      },
+      {
+        "element_id": "COMP-TRANSFER",
+        "name": "Transfer Service",
+        "type": "Service",
+        "main_responsibility": "Submit and manage transfers between bank accounts."
       }
     ]
   },
@@ -37,10 +53,43 @@
           "customer_id -> Customer"
         ],
         "constraints": []
+      },
+      {
+        "entity_id": "DB-CUSTOMER",
+        "name": "Customer",
+        "attributes": [
+          "customer_id",
+          "name"
+        ],
+        "primary_key": "customer_id",
+        "foreign_keys": [],
+        "constraints": []
+      },
+      {
+        "entity_id": "DB-TRANSFER",
+        "name": "Transfer",
+        "attributes": [
+          "transfer_id",
+          "source_account_id",
+          "destination_account_id",
+          "amount",
+          "status",
+          "created_at"
+        ],
+        "primary_key": "transfer_id",
+        "foreign_keys": [
+          "source_account_id -> Bank Account",
+          "destination_account_id -> Bank Account"
+        ],
+        "constraints": [
+          "amount > 0",
+          "source_account_id != destination_account_id"
+        ]
       }
     ],
     "relationships": [
-      "Customer owns Bank Account"
+      "Customer owns Bank Account",
+      "Transfer references source and destination Bank Accounts"
     ],
     "constraints": []
   },

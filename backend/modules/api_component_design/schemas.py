@@ -1,19 +1,38 @@
 #what the module receives from the Coordinator Agent and what it returns
 
 from typing import Literal, Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, HttpUrl, model_validator
 
 from shared.models.common import ValidationResult
 
 
 
 # INPUT MODELS
+class OAuthFlow(BaseModel):
+    authorizationUrl: HttpUrl | None = None
+    tokenUrl: HttpUrl | None = None
+    refreshUrl: HttpUrl | None = None
+    scopes: dict[str, str]
+
+
 class SecurityPolicy(BaseModel):
-    authentication: Literal["unspecified", "none", "bearer", "basic", "api_key"] = "unspecified"
+    authentication: Literal["unspecified", "none", "bearer", "basic", "api_key", "oauth2", "openid_connect", "mutual_tls", "custom"] = "unspecified"
     api_key_name: str = Field(default="X-API-Key", min_length=1, pattern=r"^[A-Za-z0-9_-]+$")
     api_key_location: Literal["header", "query", "cookie"] = "header"
     roles: list[str] = Field(default_factory=list)
     access_rules: list[str] = Field(default_factory=list)
+    oauth_flows: dict[Literal["implicit", "password", "clientCredentials", "authorizationCode"], OAuthFlow] = Field(default_factory=dict)
+    openid_connect_url: HttpUrl | None = None
+    custom_description: str | None = None
+
+    @model_validator(mode="after")
+    def validate_oauth_flows(self):
+        for name, flow in self.oauth_flows.items():
+            if name in {"implicit", "authorizationCode"} and not flow.authorizationUrl:
+                raise ValueError(f"{name} requires authorizationUrl")
+            if name != "implicit" and not flow.tokenUrl:
+                raise ValueError(f"{name} requires tokenUrl")
+        return self
 
 
 class FunctionalRequirement(BaseModel):

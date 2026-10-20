@@ -27,6 +27,15 @@ def security_scheme(policy: SecurityPolicy):
         signature = f'{policy.api_key_location}:{policy.api_key_name}'
         name = 'apiKey_' + hashlib.sha256(signature.encode()).hexdigest()[:12]
         return name, {'type': 'apiKey', 'in': policy.api_key_location, 'name': policy.api_key_name}
+    if policy.authentication == 'oauth2' and policy.oauth_flows:
+        flows = {name: flow.model_dump(mode='json', exclude_none=True) for name, flow in policy.oauth_flows.items()}
+        signature = str(sorted(flows.items()))
+        return 'oauth2_' + hashlib.sha256(signature.encode()).hexdigest()[:12], {'type': 'oauth2', 'flows': flows}
+    if policy.authentication == 'openid_connect' and policy.openid_connect_url:
+        url = str(policy.openid_connect_url)
+        return 'oidc_' + hashlib.sha256(url.encode()).hexdigest()[:12], {'type': 'openIdConnect', 'openIdConnectUrl': url}
+    if policy.authentication == 'mutual_tls':
+        return 'mutualTLS', {'type': 'mutualTLS'}
     return None
 
 
@@ -41,10 +50,15 @@ def security_configuration_gaps(request):
     issues = []
     for index, requirement in enumerate(request.functional_requirements):
         policy = requirement.security or request.security
-        if policy.authentication == 'unspecified' and requires_authentication(request, requirement, policy):
+        missing_details = (
+            (policy.authentication == 'oauth2' and not policy.oauth_flows)
+            or (policy.authentication == 'openid_connect' and not policy.openid_connect_url)
+            or (policy.authentication == 'custom' and not (policy.custom_description or '').strip())
+        )
+        if missing_details or (policy.authentication == 'unspecified' and requires_authentication(request, requirement, policy)):
             issues.append(ValidationIssue(
                 code='SECURITY_CONFIGURATION_REQUIRED',
-                message=f'{requirement.requirement_id}: Authentication is required. Choose a mechanism, then save and regenerate.',
+                message=f'{requirement.requirement_id}: Authentication configuration is incomplete. Choose a mechanism and supply its details, then save and regenerate.',
                 field=f'functional_requirements.{index}.security.authentication',
             ))
     return issues
@@ -66,6 +80,8 @@ def validate_security(request, operation, issues):
             issue('SECURITY_CONFIGURATION_REQUIRED', 'Security requirements exist, but no authentication scheme was selected.')
         else:
             issue('SECURITY_NOT_SPECIFIED', 'Select an authentication scheme or explicitly mark this endpoint public.', 'WARNING')
+    if policy.authentication == 'custom':
+        issue('CUSTOM_SECURITY_REVIEW_REQUIRED', 'Custom authentication is recorded as metadata; review and implement its enforcement separately.', 'WARNING')
     if policy.authentication == 'none' and (policy.roles or policy.access_rules):
         issue('PUBLIC_ENDPOINT_ACCESS_RULES', 'A public endpoint cannot require authenticated roles or ownership rules.')
     if policy.authentication == 'none' and mentions_auth:
