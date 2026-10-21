@@ -1,0 +1,70 @@
+FR/NFR MODEL COMPARISON
+========================
+
+Evaluation Dataset
+------------------
+Held-out FR/NFR test set: 146 requirements
+
+Models Compared
+---------------
+1. DistilBERT
+2. BERT
+3. RoBERTa
+
+Results
+-------
+
+DistilBERT
+----------
+Accuracy: 0.9041
+Precision: 0.9046
+Recall: 0.9041
+Weighted F1: 0.9042
+Macro F1: 0.9037
+Inference Time: 5.45 seconds
+
+Confusion Matrix:
+[[61, 6],
+ [8, 71]]
+
+BERT
+----
+Accuracy: 0.8904
+Precision: 0.8911
+Recall: 0.8904
+Weighted F1: 0.8901
+Macro F1: 0.8891
+Inference Time: 8.28 seconds
+
+Confusion Matrix:
+[[57, 10],
+ [6, 73]]
+
+RoBERTa
+-------
+Accuracy: 0.9041
+Precision: 0.9058
+Recall: 0.9041
+Weighted F1: 0.9043
+Macro F1: 0.9038
+Inference Time: 9.03 seconds
+
+Final Comparison
+----------------
+Model        Accuracy  Precision  Recall  Weighted F1  Macro F1  Inference Time
+DistilBERT   0.9041    0.9046     0.9041  0.9042       0.9037    5.45 s
+BERT         0.8904    0.8911     0.8904  0.8901       0.8891    8.28 s
+RoBERTa      0.9041    0.9058     0.9041  0.9043       0.9038    9.03 s
+
+Selected Model
+--------------
+RoBERTa
+
+Selection Reason
+----------------
+RoBERTa was selected because it achieved the highest Weighted F1-score
+(0.9043) and the highest precision (0.9058) on the held-out FR/NFR test set.
+
+Although DistilBERT achieved the same accuracy (0.9041) and was faster,
+RoBERTa provided the best overall classification performance according
+to the selected F1-based model-selection criterion.
