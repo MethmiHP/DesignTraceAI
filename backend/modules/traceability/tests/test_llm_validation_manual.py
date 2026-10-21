@@ -3,10 +3,6 @@
 
 import json
 
-from numpy import matrix
-
-from modules.traceability import coverage_service
-from modules.traceability import link_filter
 from modules.traceability.schemas import (
     TraceabilityRequest,
 )
@@ -39,8 +35,11 @@ from modules.traceability.coverage_service import (
     TraceabilityCoverageService,
 )
 
+
 def main():
 
+
+    # Load mock design artifacts
     with open(
         "datasets/traceability/mock_design_artifacts.json",
         "r",
@@ -48,6 +47,8 @@ def main():
     ) as file:
         mock_artifacts = json.load(file)
 
+
+    # Create traceability request
     request_data = {
         "project_id": "P001",
 
@@ -78,14 +79,22 @@ def main():
         **request_data
     )
 
+
+    # Normalize all design artifacts
     artifacts = normalize_artifacts(
         request
     )
 
+    print(
+        "\nNormalized artifacts:",
+        len(artifacts),
+    )
+
+
+    # Generate SBERT similarity candidates
     similarity_service = (
         TraceabilitySimilarityService(
             similarity_threshold=0.40
-
         )
     )
 
@@ -96,6 +105,8 @@ def main():
         )
     )
 
+
+    # Rank candidates by semantic similarity
     ranked_candidates = (
         rank_candidates(
             candidates
@@ -105,7 +116,6 @@ def main():
     print("\nSBERT candidates:")
 
     for candidate in ranked_candidates:
-
         print(
             candidate.requirement_id,
             "->",
@@ -114,6 +124,8 @@ def main():
             candidate.semantic_similarity,
         )
 
+
+    # Gemini contextual validation
     validator = TraceabilityValidator()
 
     requirement = request.requirements[0]
@@ -126,26 +138,34 @@ def main():
         )
     )
 
-    link_filter = TraceLinkFilter(
-    minimum_confidence=0.70
+
+    # Confidence filtering
+    trace_link_filter = TraceLinkFilter(
+        minimum_confidence=0.70
     )
 
     filtered_links = (
-    link_filter.filter_links(
-        links=validated_links,
-        artifacts=artifacts,
+        trace_link_filter.filter_links(
+            links=validated_links,
+            artifacts=artifacts,
         )
     )
 
 
-    matrix_builder = TraceabilityMatrixBuilder()
+    # Build traceability matrix
+    matrix_builder = (
+        TraceabilityMatrixBuilder()
+    )
 
     matrix = matrix_builder.build_matrix(
         requirements=request.requirements,
         links=filtered_links,
-   )
+    )
 
-    coverage_service = TraceabilityCoverageService()
+
+    coverage_service = (
+        TraceabilityCoverageService()
+    )
 
     coverage_summary = (
         coverage_service.calculate_coverage(
@@ -153,6 +173,27 @@ def main():
         )
     )
 
+
+    # Calculate coverage percentage manually
+    total_requirements = (
+        coverage_summary.total_requirements
+    )
+
+    covered_requirements = (
+        coverage_summary.fully_covered
+        + coverage_summary.partially_covered
+    )
+
+    if total_requirements > 0:
+        coverage_percentage = (
+            covered_requirements
+            / total_requirements
+        ) * 100
+    else:
+        coverage_percentage = 0.0
+
+
+    # Print coverage summary
     print("\nCoverage summary:")
 
     print(
@@ -177,12 +218,18 @@ def main():
 
     print(
         "Coverage percentage:",
-        coverage_summary.coverage_percentage,
+        round(
+            coverage_percentage,
+            2,
+        ),
     )
 
+
+    # Print traceability matrix
     print("\nTraceability matrix:")
 
     for row in matrix:
+
         print(
             "\nRequirement:",
             row.requirement_id,
@@ -204,7 +251,7 @@ def main():
         )
 
         print(
-             "Components:",
+            "Components:",
             row.component_links,
         )
 
@@ -213,9 +260,19 @@ def main():
             row.coverage_status,
         )
 
-    print("\nFiltered final trace links:")
+
+    # Print filtered final trace links
+    print(
+        "\nFiltered final trace links:"
+    )
+
+    if not filtered_links:
+        print(
+            "No links passed the confidence filter."
+        )
 
     for link in filtered_links:
+
         print(
             link.requirement_id,
             "->",
@@ -225,7 +282,16 @@ def main():
             link.confidence,
         )
 
-    print("\nGemini validation results:")
+
+    # Print Gemini validation results
+    print(
+        "\nGemini validation results:"
+    )
+
+    if not validated_links:
+        print(
+            "No candidates were validated."
+        )
 
     for link in validated_links:
 
