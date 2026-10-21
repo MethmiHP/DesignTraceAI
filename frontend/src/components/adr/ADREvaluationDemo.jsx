@@ -3,11 +3,11 @@ import { generateADRs } from '../../services/adrService'
 
 
 const SIGNIFICANT_SAMPLE = {
-  project_id: 'ADR-VIVA-001',
+  project_id: 'BANKING-DESIGN-001',
   decisions: [
     {
       decision_id: 'DEC-ARCH-001',
-      project_id: 'ADR-VIVA-001',
+      project_id: 'BANKING-DESIGN-001',
       source_module: 'architecture_decision',
       title: 'Adopt Microservices Architecture',
       decision:
@@ -61,7 +61,7 @@ const SIGNIFICANT_SAMPLE = {
 
     {
       decision_id: 'DEC-DB-001',
-      project_id: 'ADR-VIVA-001',
+      project_id: 'BANKING-DESIGN-001',
       source_module: 'database_design',
       title: 'Use Read Replicas for Reporting Workloads',
       decision:
@@ -110,7 +110,7 @@ const SIGNIFICANT_SAMPLE = {
 
     {
       decision_id: 'DEC-API-001',
-      project_id: 'ADR-VIVA-001',
+      project_id: 'BANKING-DESIGN-001',
       source_module: 'api_component_design',
       title: 'Require Idempotency for Payment Requests',
       decision:
@@ -158,7 +158,7 @@ const SIGNIFICANT_SAMPLE = {
 
     {
       decision_id: 'DEC-QUAL-001',
-      project_id: 'ADR-VIVA-001',
+      project_id: 'BANKING-DESIGN-001',
       source_module: 'quality_evaluation',
       title: 'Introduce Automatic Failover',
       decision:
@@ -207,11 +207,11 @@ const SIGNIFICANT_SAMPLE = {
 
 
 const MINOR_SAMPLE = {
-  project_id: 'ADR-VIVA-002',
+  project_id: 'BANKING-DESIGN-002',
   decisions: [
     {
       decision_id: 'DEC-API-MINOR-001',
-      project_id: 'ADR-VIVA-002',
+      project_id: 'BANKING-DESIGN-002',
       source_module: 'api_component_design',
       title: 'Rename Internal Handler File',
       decision:

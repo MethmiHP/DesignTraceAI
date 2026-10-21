@@ -13,7 +13,7 @@ import {
 import './ADRRecordsPage.css'
 
 
-const DEFAULT_PROJECT_ID = 'ADR-VIVA-001'
+const DEFAULT_PROJECT_ID = 'BANKING-DESIGN-001'
 
 
 function ADRRecordsPage() {
