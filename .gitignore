@@ -223,3 +223,5 @@ backend/trained_models/
 **/checkpoint-*/
 
 backend/outputs/traceability/
+backend/outputs/requirement_analysis/
+backend/test_requirements.txt
