@@ -12,6 +12,7 @@ import json
 from uuid import uuid4
 
 from langgraph.types import Command
+from langgraph.checkpoint.memory import InMemorySaver
 
 from coordinator.langgraph_workflow import (
     build_coordinator_graph,
@@ -93,7 +94,9 @@ def main():
     project = create_demo_project()
     project_state = create_initial_project_state(project)
 
-    graph = build_coordinator_graph()
+    # graph = build_coordinator_graph()
+    checkpointer = InMemorySaver()
+    graph = build_coordinator_graph(checkpointer)
 
     # A unique thread ID identifies this workflow's checkpoints.
     config = {
