@@ -73,14 +73,31 @@ class SemanticEvaluator:
         )
 
         try:
+            prompts = self._bounded_prompts(prompt)
+        except ValueError:
+            logger.warning('[%s] skipped: evidence value exceeds request budget', rule.rule_id)
+            return RuleEvaluationResult(
+                rule_id=rule.rule_id, quality_attribute=rule.quality_attribute,
+                check_type=CheckType.SEMANTIC, status=RuleStatus.SKIPPED,
+                evidence=[], affected_nfr_ids=[],
+                rationale='An individual evidence value exceeds the safe request budget; shorten that value before retrying.',
+            )
+        if len(prompts) > 1:
+            logger.info('[%s] evaluating %s evidence parts', rule.rule_id, len(prompts))
+        try:
             with evaluation_log_context(context.project_id, rule.rule_id):
-                assessment = (
-                    self.provider
-                    .generate_structured(
-                        prompt,
-                        LLMQualityAssessment,
+                assessments = [self.provider.generate_structured(part, LLMQualityAssessment) for part in prompts]
+                assessment = assessments[0]
+                if len(assessments) > 1:
+                    # Partial context cannot establish that a whole-design rule passes.
+                    failures = [item for item in assessments if item.status == 'FAIL']
+                    assessment = LLMQualityAssessment(
+                        status='FAIL' if failures else 'SKIPPED',
+                        evidence=[e for item in failures for e in item.evidence],
+                        rationale='; '.join(item.rationale for item in failures) if failures else 'Evidence was evaluated in parts; a whole-design pass could not be established.',
+                        recommendation='; '.join(item.recommendation for item in failures if item.recommendation) or None,
+                        affected_nfr_ids=sorted({n for item in failures for n in item.affected_nfr_ids}),
                     )
-                )
 
         except Exception:
             logger.warning('[%s] skipped: providers failed', rule.rule_id)
@@ -183,12 +200,18 @@ class SemanticEvaluator:
         context: QualityEvaluationRequest,
     ) -> str:
 
-        context_json = json.dumps(
-            context.model_dump(
-                mode="json"
-            ),
-            indent=2,
-        )
+        data = context.model_dump(mode='json', exclude_none=True)
+        relevant = {'project_id': data['project_id']}
+        for artifact, field in [('FR', 'functional_requirements'), ('ARCHITECTURE', 'architecture'), ('DATABASE', 'database')]:
+            if artifact in rule.artifact_types:
+                relevant[field] = data[field]
+        relevant['non_functional_requirements'] = [n for n in data['non_functional_requirements'] if n['category'] in {c.value for c in rule.nfr_categories}]
+        api = data['api_component_design']
+        if 'API' in rule.artifact_types:
+            relevant['api_component_design'] = {k: v for k, v in api.items() if k != 'responsibilities'}
+        if 'COMPONENT' in rule.artifact_types:
+            relevant.setdefault('api_component_design', {})['responsibilities'] = api['responsibilities']
+        context_json = json.dumps(relevant, separators=(',', ':'), ensure_ascii=False)
 
         return f"""
 You are evaluating one software-design quality rule for DesignTrace AI.
@@ -232,3 +255,40 @@ Default recommendation:
 Project artifacts:
 {context_json}
 """.strip()
+
+    @staticmethod
+    def _bounded_prompts(prompt, max_bytes=12000):
+        """Bound input conservatively; retain all evidence, never silently truncate."""
+        if len(prompt.encode('utf-8')) <= max_bytes:
+            return [prompt]
+        header, raw = prompt.split('Project artifacts:\n', 1)
+        header += ('Partial project evidence follows as JSON path/value records. '
+                   'Other evidence is in separate requests. Do not infer missing controls from omission. '
+                   'Return FAIL only for a defect explicitly demonstrated within this part. '
+                   'Otherwise return SKIPPED; a partial view cannot establish a whole-design PASS.\n')
+        limit = max_bytes - len(header.encode('utf-8')) - 2
+        records = []
+
+        def visit(value, path):
+            record = json.dumps({'path': path, 'value': value}, ensure_ascii=False, separators=(',', ':'))
+            if len(record.encode('utf-8')) <= limit:
+                records.append(record)
+            elif isinstance(value, dict) and value:
+                for key, child in value.items():
+                    visit(child, path + [key])
+            elif isinstance(value, list) and value:
+                for index, child in enumerate(value):
+                    visit(child, path + [index])
+            else:
+                raise ValueError('An individual evidence value exceeds the safe request budget.')
+
+        visit(json.loads(raw), [])
+        prompts, batch = [], []
+        for record in records:
+            if batch and len((','.join(batch + [record])).encode('utf-8')) > limit:
+                prompts.append(header + '[' + ','.join(batch) + ']')
+                batch = []
+            batch.append(record)
+        if batch:
+            prompts.append(header + '[' + ','.join(batch) + ']')
+        return prompts

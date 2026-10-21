@@ -1,969 +1,128 @@
 {
-  "project_id": "HELPDESK-DETAILED-002",
+  "project_id": "QUALITY-SIMPLE-001",
   "functional_requirements": [
     {
       "requirement_id": "FR-001",
-      "statement": "An authenticated user shall create a support ticket.",
+      "statement": "A customer shall view their bank account.",
       "priority": "High"
-    },
-    {
-      "requirement_id": "FR-002",
-      "statement": "An authenticated user shall list only their own support tickets.",
-      "priority": "High"
-    },
-    {
-      "requirement_id": "FR-003",
-      "statement": "An authenticated user shall view a support ticket they own.",
-      "priority": "High"
-    },
-    {
-      "requirement_id": "FR-004",
-      "statement": "A support administrator shall change the priority of a support ticket.",
-      "priority": "High"
-    },
-    {
-      "requirement_id": "FR-005",
-      "statement": "An authenticated user shall import a ticket description from an approved external helpdesk URL.",
-      "priority": "Medium"
     }
   ],
   "non_functional_requirements": [
     {
-      "requirement_id": "NFR-AVAIL",
-      "statement": "The ticket API shall remain available when one application instance fails.",
-      "category": "Availability"
-    },
-    {
-      "requirement_id": "NFR-FAULT",
-      "statement": "Ticket creation shall document invalid-input and temporary-service-failure responses.",
-      "category": "Fault Tolerance"
-    },
-    {
-      "requirement_id": "NFR-LEGAL",
-      "statement": "The design shall support the project's approved retention policy by deleting closed tickets after 90 days and recording deletion events without ticket content.",
-      "category": "Legal"
-    },
-    {
-      "requirement_id": "NFR-LOOK",
-      "statement": "The ticket interface shall use consistent typography, spacing, and status colors.",
-      "category": "Look and Feel"
-    },
-    {
-      "requirement_id": "NFR-MAINT",
-      "statement": "Ticket management, authentication, retention, and monitoring shall have separate component responsibilities.",
-      "category": "Maintainability"
-    },
-    {
-      "requirement_id": "NFR-OPS",
-      "statement": "The system shall expose health checks and record request latency, error counts, and correlation IDs without logging ticket content or credentials.",
-      "category": "Operational"
-    },
-    {
-      "requirement_id": "NFR-PERF",
-      "statement": "Ticket collection retrieval shall use pagination with a default of 20 and a maximum of 100 records per request.",
-      "category": "Performance"
-    },
-    {
-      "requirement_id": "NFR-PORT",
-      "statement": "The application shall deploy using the same OCI container image in development and production, with environment-specific settings supplied externally.",
-      "category": "Portability"
-    },
-    {
-      "requirement_id": "NFR-SCALE",
-      "statement": "Ticket collection endpoints shall use bounded pagination as the number of tickets increases.",
-      "category": "Scalability"
-    },
-    {
-      "requirement_id": "NFR-SEC",
-      "statement": "All ticket API operations shall require bearer authentication and restrict access to the authenticated user's own tickets.",
-      "category": "Security"
-    },
-    {
-      "requirement_id": "NFR-USE",
-      "statement": "API operations shall have readable lower-camel-case identifiers, documented parameters, and consistent error response schemas.",
-      "category": "Usability"
-    },
-    {
-      "requirement_id": "NFR-SEC-OBJECT",
-      "statement": "Ticket identifiers shall be checked against ownership on every user-facing ticket read. An authenticated support administrator may change priority through the dedicated administrative operation.",
-      "category": "Security"
-    },
-    {
-      "requirement_id": "NFR-SEC-PROPERTY",
-      "statement": "Ticket responses shall expose only ticket_id, subject, status, and priority. Owner identity is derived server-side. Only support administrators may modify priority; clients shall not modify ownership, status, or audit timestamps.",
-      "category": "Security"
-    },
-    {
-      "requirement_id": "NFR-SEC-ABUSE",
-      "statement": "Enforce per-user limits of 30 ticket creations per minute and 5 imports per minute; reject excess requests with 429. Bound import responses to 1 MB and apply a five-second external request timeout.",
-      "category": "Security"
-    },
-    {
-      "requirement_id": "NFR-SEC-REMOTE",
-      "statement": "Import requests shall accept only HTTPS URLs on partner.helpdesk.example port 443. Reject embedded credentials, redirects, and destinations resolving to private, loopback, link-local, or reserved addresses; validate the destination at connection time.",
-      "category": "Security"
-    },
-    {
-      "requirement_id": "NFR-SEC-EXTERNAL",
-      "statement": "External helpdesk responses shall be treated as untrusted: verify TLS, validate the response schema and size, accept only plain-text subject and description fields, and never forward caller bearer tokens to the external service.",
+      "requirement_id": "NFR-001",
+      "statement": "Customers must authenticate and may access only their own accounts.",
       "category": "Security"
     }
   ],
   "architecture": {
-    "architecture_id": "ARCH-001",
     "selected_architecture": "Modular Architecture",
     "elements": [
       {
-        "element_id": "COMP-TICKET",
-        "name": "Ticket Service",
+        "element_id": "COMP-ACCOUNT",
+        "name": "Account Service",
         "type": "Service",
-        "main_responsibility": "Create and list tickets. Derive owner_id from the authenticated identity; filter every ticket query by that identity. Use parameterized database queries and bounded pagination."
-      },
-      {
-        "element_id": "COMP-AUTH",
-        "name": "Authentication Middleware",
-        "type": "Security",
-        "main_responsibility": "Validate bearer token signature, issuer, audience, and expiration before ticket operations. Supply the verified user identity; reject missing or invalid tokens with 401."
-      },
-      {
-        "element_id": "COMP-RUNTIME",
-        "name": "Application Runtime",
-        "type": "Infrastructure",
-        "main_responsibility": "Run two stateless application replicas behind a load balancer. Remove failed replicas through readiness checks and route requests to healthy replicas. Deploy the same OCI image in development and production; inject database URLs and secrets externally."
-      },
-      {
-        "element_id": "COMP-OPS",
-        "name": "Observability Component",
-        "type": "Infrastructure",
-        "main_responsibility": "Expose readiness and liveness endpoints. Collect request latency and error counts, attach correlation IDs, and alert on unavailable replicas. Exclude ticket content, credentials, and bearer tokens from logs."
-      },
-      {
-        "element_id": "COMP-RETENTION",
-        "name": "Retention Worker",
-        "type": "Worker",
-        "main_responsibility": "Run daily to delete tickets whose closed_at timestamp is older than 90 days. Record ticket identifier, deletion time, and retention-policy identifier in an audit event without retaining ticket content."
-      },
-      {
-        "element_id": "COMP-ADMIN",
-        "name": "Ticket Administration Service",
-        "type": "Service",
-        "main_responsibility": "Require verified support_admin authorization before updating ticket priority. Accept only priority in the update body; record actor, ticket identifier, and change time in the audit log."
-      },
-      {
-        "element_id": "COMP-IMPORT",
-        "name": "External Helpdesk Import Service",
-        "type": "Service",
-        "main_responsibility": "Import descriptions only from HTTPS partner.helpdesk.example on port 443. Reject redirects and URL credentials. Validate DNS and the connected destination against private, loopback, link-local, and reserved ranges. Verify TLS. Enforce a five-second timeout and 1 MB response limit; validate external JSON and select plain-text subject and description. Never forward user tokens. Create imported tickets with the verified user as owner."
-      },
-      {
-        "element_id": "COMP-LIMIT",
-        "name": "Request Limit Middleware",
-        "type": "Security",
-        "main_responsibility": "Enforce shared per-user limits across replicas: 30 ticket creations per minute and 5 imports per minute. Return 429 with Retry-After when exceeded."
-      }
-    ],
-    "relationships": [
-      {
-        "from": "COMP-RUNTIME",
-        "to": "COMP-AUTH",
-        "relationship": "Routes requests through authentication middleware"
-      },
-      {
-        "from": "COMP-AUTH",
-        "to": "COMP-TICKET",
-        "relationship": "Supplies verified user identity"
-      },
-      {
-        "from": "COMP-OPS",
-        "to": "COMP-RUNTIME",
-        "relationship": "Monitors health and request metrics"
-      },
-      {
-        "from": "COMP-AUTH",
-        "to": "COMP-ADMIN",
-        "relationship": "Supplies verified identity and support_admin authorization"
-      },
-      {
-        "from": "COMP-AUTH",
-        "to": "COMP-IMPORT",
-        "relationship": "Supplies verified user identity"
-      },
-      {
-        "from": "COMP-LIMIT",
-        "to": "COMP-TICKET",
-        "relationship": "Enforces ticket creation limits"
-      },
-      {
-        "from": "COMP-IMPORT",
-        "to": "partner.helpdesk.example",
-        "relationship": "Fetches approved external ticket data over validated HTTPS"
+        "main_responsibility": "Retrieve accounts after validating the bearer token and verifying customer ownership."
       }
     ]
   },
   "database": {
     "entities": [
       {
-        "entity_id": "DB-USER",
-        "name": "User",
+        "entity_id": "DB-ACCOUNT",
+        "name": "Account",
         "attributes": [
-          "user_id"
+          "account_id",
+          "customer_id"
         ],
-        "primary_key": "user_id",
+        "primary_key": "account_id",
         "foreign_keys": [],
-        "constraints": [
-          "user_id NOT NULL"
-        ]
-      },
-      {
-        "entity_id": "DB-TICKET",
-        "name": "Ticket",
-        "attributes": [
-          "ticket_id",
-          "owner_id",
-          "subject",
-          "status",
-          "created_at",
-          "closed_at",
-          "priority"
-        ],
-        "primary_key": "ticket_id",
-        "foreign_keys": [
-          "owner_id -> User.user_id"
-        ],
-        "constraints": [
-          "owner_id NOT NULL",
-          "subject NOT NULL",
-          "status IN ('open', 'closed')",
-          "closed_at is required when status is closed",
-          "priority IN ('low', 'normal', 'high')"
-        ]
+        "constraints": []
       }
     ],
-    "relationships": [
-      "User owns Ticket"
-    ],
-    "constraints": [
-      "Index Ticket(owner_id, created_at, ticket_id) for paginated owner-filtered retrieval",
-      "Index Ticket(closed_at) for retention processing"
-    ]
+    "relationships": [],
+    "constraints": []
   },
   "api_component_design": {
     "responsibilities": [
       {
         "requirement_id": "FR-001",
-        "element_id": "COMP-TICKET",
-        "element_name": "Ticket Service",
-        "detailed_responsibility": "Create a ticket owned by the verified user; assign owner_id on the server."
-      },
-      {
-        "requirement_id": "FR-002",
-        "element_id": "COMP-TICKET",
-        "element_name": "Ticket Service",
-        "detailed_responsibility": "List the verified user's tickets with bounded cursor pagination."
-      },
-      {
-        "requirement_id": "FR-003",
-        "element_id": "COMP-TICKET",
-        "element_name": "Ticket Service",
-        "detailed_responsibility": "Return a ticket only when owner_id equals the verified user identity."
-      },
-      {
-        "requirement_id": "FR-004",
-        "element_id": "COMP-ADMIN",
-        "element_name": "Ticket Administration Service",
-        "detailed_responsibility": "Require support_admin authorization and accept only the priority field."
-      },
-      {
-        "requirement_id": "FR-005",
-        "element_id": "COMP-IMPORT",
-        "element_name": "External Helpdesk Import Service",
-        "detailed_responsibility": "Apply URL destination safeguards, per-user import limits, external response validation, and server-assigned ownership."
+        "element_id": "COMP-ACCOUNT",
+        "element_name": "Account Service",
+        "detailed_responsibility": "Validate the bearer token and compare the authenticated customer ID with the account owner before returning data."
       }
     ],
     "api_operations": [
       {
-        "operation_id": "createTicket",
+        "operation_id": "viewAccount",
         "requirement_id": "FR-001",
-        "element_id": "COMP-TICKET",
-        "method": "POST",
-        "path": "/tickets",
-        "security": {
-          "authentication": "bearer",
-          "roles": [
-            "user"
-          ],
-          "access_rules": [
-            "Derive owner_id from the authenticated identity; never accept owner_id from the client."
-          ]
-        },
-        "request_schema": {
-          "subject": "string"
-        },
-        "response_schema": {
-          "ticket_id": "string",
-          "subject": "string",
-          "status": "string",
-          "priority": "string"
-        },
-        "error_responses": {
-          "400": "Invalid subject",
-          "401": "Authentication required",
-          "403": "Access denied",
-          "503": "Service temporarily unavailable",
-          "429": "Per-user request limit exceeded"
-        }
-      },
-      {
-        "operation_id": "listTickets",
-        "requirement_id": "FR-002",
-        "element_id": "COMP-TICKET",
+        "element_id": "COMP-ACCOUNT",
         "method": "GET",
-        "path": "/tickets",
+        "path": "/accounts/{account_id}",
         "security": {
           "authentication": "bearer",
           "roles": [
-            "user"
+            "customer"
           ],
           "access_rules": [
-            "Return only tickets owned by the authenticated user."
+            "Allow access only when account.customer_id matches the authenticated customer."
           ]
         },
         "parameters": [
           {
-            "name": "limit",
-            "location": "query",
-            "type": "integer",
-            "required": false
-          },
-          {
-            "name": "cursor",
-            "location": "query",
+            "name": "account_id",
+            "location": "path",
             "type": "string",
-            "required": false
+            "required": true
           }
         ],
         "request_schema": {},
         "response_schema": {
-          "items": "array",
-          "next_cursor": "string or null"
+          "account_id": "string"
         },
         "error_responses": {
-          "400": "Invalid pagination parameters",
           "401": "Authentication required",
-          "403": "Access denied",
-          "503": "Service temporarily unavailable"
+          "403": "Account access denied",
+          "404": "Account not found"
         }
-      },
-      {
-        "operation_id": "viewTicket",
-        "requirement_id": "FR-003",
-        "element_id": "COMP-TICKET",
-        "method": "GET",
-        "path": "/tickets/{ticket_id}",
-        "security": {
-          "authentication": "bearer",
-          "roles": [
-            "user"
-          ],
-          "access_rules": [
-            "Return a ticket only when owner_id equals the verified user identity."
-          ]
-        },
-        "parameters": [
-          {
-            "name": "ticket_id",
-            "location": "path",
-            "type": "string",
-            "required": true,
-            "description": "Support ticket identifier"
-          }
-        ],
-        "request_schema": {},
-        "response_schema": {
-          "ticket_id": "string",
-          "subject": "string",
-          "status": "string",
-          "priority": "string"
-        },
-        "error_responses": {
-          "400": "Invalid input",
-          "401": "Authentication required",
-          "403": "Access denied",
-          "503": "Temporary service failure",
-          "404": "Ticket not found"
-        }
-      },
-      {
-        "operation_id": "updateTicketPriority",
-        "requirement_id": "FR-004",
-        "element_id": "COMP-ADMIN",
-        "method": "PATCH",
-        "path": "/admin/tickets/{ticket_id}/priority",
-        "security": {
-          "authentication": "bearer",
-          "roles": [
-            "support_admin"
-          ],
-          "access_rules": [
-            "Require support_admin authorization and accept only the priority field."
-          ]
-        },
-        "parameters": [
-          {
-            "name": "ticket_id",
-            "location": "path",
-            "type": "string",
-            "required": true,
-            "description": "Support ticket identifier"
-          }
-        ],
-        "request_schema": {
-          "priority": "string"
-        },
-        "response_schema": {
-          "ticket_id": "string",
-          "subject": "string",
-          "status": "string",
-          "priority": "string"
-        },
-        "error_responses": {
-          "400": "Invalid input",
-          "401": "Authentication required",
-          "403": "Access denied",
-          "503": "Temporary service failure",
-          "404": "Ticket not found"
-        }
-      },
-      {
-        "operation_id": "importTicket",
-        "requirement_id": "FR-005",
-        "element_id": "COMP-IMPORT",
-        "method": "POST",
-        "path": "/ticket-imports",
-        "security": {
-          "authentication": "bearer",
-          "roles": [
-            "user"
-          ],
-          "access_rules": [
-            "Apply URL destination safeguards, per-user import limits, external response validation, and server-assigned ownership."
-          ]
-        },
-        "parameters": [],
-        "request_schema": {
-          "source_url": "string"
-        },
-        "response_schema": {
-          "ticket_id": "string",
-          "subject": "string",
-          "status": "string",
-          "priority": "string"
-        },
-        "error_responses": {
-          "400": "Invalid input",
-          "401": "Authentication required",
-          "403": "Access denied",
-          "503": "Temporary service failure",
-          "429": "Import limit exceeded",
-          "502": "Invalid external response",
-          "504": "External service timeout"
-        }
-      }
-    ],
-    "requirement_to_api_mapping": [
-      {
-        "requirement_id": "FR-001",
-        "operation_id": "createTicket"
-      },
-      {
-        "requirement_id": "FR-002",
-        "operation_id": "listTickets"
-      },
-      {
-        "requirement_id": "FR-003",
-        "operation_id": "viewTicket"
-      },
-      {
-        "requirement_id": "FR-004",
-        "operation_id": "updateTicketPriority"
-      },
-      {
-        "requirement_id": "FR-005",
-        "operation_id": "importTicket"
       }
     ],
     "openapi_document": {
       "openapi": "3.1.0",
       "info": {
-        "title": "Helpdesk Ticket API",
+        "title": "Account API",
         "version": "1.0.0"
       },
-      "security": [
-        {
-          "bearerAuth": []
-        }
-      ],
       "paths": {
-        "/tickets": {
-          "post": {
-            "operationId": "createTicket",
-            "summary": "Create a ticket for the authenticated user",
-            "security": [
-              {
-                "bearerAuth": []
-              }
-            ],
-            "x-access-rules": [
-              "Assign owner_id from verified token identity, not client input."
-            ],
-            "requestBody": {
-              "required": true,
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "subject"
-                    ],
-                    "properties": {
-                      "subject": {
-                        "type": "string",
-                        "minLength": 1,
-                        "maxLength": 200
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "responses": {
-              "201": {
-                "description": "Ticket created",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Ticket"
-                    }
-                  }
-                }
-              },
-              "400": {
-                "$ref": "#/components/responses/BadRequest"
-              },
-              "401": {
-                "$ref": "#/components/responses/Unauthorized"
-              },
-              "403": {
-                "$ref": "#/components/responses/Forbidden"
-              },
-              "503": {
-                "$ref": "#/components/responses/Unavailable"
-              },
-              "429": {
-                "$ref": "#/components/responses/TooManyRequests"
-              }
-            }
-          },
+        "/accounts/{account_id}": {
           "get": {
-            "operationId": "listTickets",
-            "summary": "List the authenticated user's tickets",
+            "operationId": "viewAccount",
             "security": [
               {
                 "bearerAuth": []
               }
-            ],
-            "x-access-rules": [
-              "Filter by verified user identity; apply stable ordering by created_at and ticket_id."
             ],
             "parameters": [
               {
-                "name": "limit",
-                "in": "query",
-                "required": false,
-                "description": "Maximum tickets returned",
-                "schema": {
-                  "type": "integer",
-                  "minimum": 1,
-                  "maximum": 100,
-                  "default": 20
-                }
-              },
-              {
-                "name": "cursor",
-                "in": "query",
-                "required": false,
-                "description": "Opaque cursor from the previous response",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            ],
-            "responses": {
-              "200": {
-                "description": "Paginated tickets owned by the authenticated user",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "type": "object",
-                      "required": [
-                        "items",
-                        "next_cursor"
-                      ],
-                      "properties": {
-                        "items": {
-                          "type": "array",
-                          "maxItems": 100,
-                          "items": {
-                            "$ref": "#/components/schemas/Ticket"
-                          }
-                        },
-                        "next_cursor": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "400": {
-                "$ref": "#/components/responses/BadRequest"
-              },
-              "401": {
-                "$ref": "#/components/responses/Unauthorized"
-              },
-              "403": {
-                "$ref": "#/components/responses/Forbidden"
-              },
-              "503": {
-                "$ref": "#/components/responses/Unavailable"
-              }
-            }
-          }
-        },
-        "/tickets/{ticket_id}": {
-          "get": {
-            "operationId": "viewTicket",
-            "summary": "Return a ticket only when owner_id equals the verified user identity.",
-            "security": [
-              {
-                "bearerAuth": []
-              }
-            ],
-            "x-required-roles": [
-              "user"
-            ],
-            "x-access-rules": [
-              "Return a ticket only when owner_id equals the verified user identity."
-            ],
-            "responses": {
-              "200": {
-                "description": "Successful operation",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Ticket"
-                    }
-                  }
-                }
-              },
-              "400": {
-                "description": "Invalid input",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
-              },
-              "401": {
-                "description": "Authentication required",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
-              },
-              "403": {
-                "description": "Access denied",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
-              },
-              "503": {
-                "description": "Temporary service failure",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
-              },
-              "404": {
-                "description": "Ticket not found",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
-              }
-            },
-            "parameters": [
-              {
-                "name": "ticket_id",
+                "name": "account_id",
                 "in": "path",
                 "required": true,
-                "description": "Support ticket identifier",
                 "schema": {
                   "type": "string"
                 }
               }
-            ]
-          }
-        },
-        "/admin/tickets/{ticket_id}/priority": {
-          "patch": {
-            "operationId": "updateTicketPriority",
-            "summary": "Require support_admin authorization and accept only the priority field.",
-            "security": [
-              {
-                "bearerAuth": []
-              }
-            ],
-            "x-required-roles": [
-              "support_admin"
-            ],
-            "x-access-rules": [
-              "Require support_admin authorization and accept only the priority field."
             ],
             "responses": {
               "200": {
-                "description": "Successful operation",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Ticket"
-                    }
-                  }
-                }
-              },
-              "400": {
-                "description": "Invalid input",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
+                "description": "Account returned"
               },
               "401": {
-                "description": "Authentication required",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
+                "description": "Authentication required"
               },
               "403": {
-                "description": "Access denied",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
-              },
-              "503": {
-                "description": "Temporary service failure",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
+                "description": "Account access denied"
               },
               "404": {
-                "description": "Ticket not found",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
-              }
-            },
-            "parameters": [
-              {
-                "name": "ticket_id",
-                "in": "path",
-                "required": true,
-                "description": "Support ticket identifier",
-                "schema": {
-                  "type": "string"
-                }
-              }
-            ],
-            "requestBody": {
-              "required": true,
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "priority"
-                    ],
-                    "properties": {
-                      "priority": {
-                        "type": "string",
-                        "enum": [
-                          "low",
-                          "normal",
-                          "high"
-                        ]
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "/ticket-imports": {
-          "post": {
-            "operationId": "importTicket",
-            "summary": "Apply URL destination safeguards, per-user import limits, external response validation, and server-assigned ownership.",
-            "security": [
-              {
-                "bearerAuth": []
-              }
-            ],
-            "x-required-roles": [
-              "user"
-            ],
-            "x-access-rules": [
-              "Apply URL destination safeguards, per-user import limits, external response validation, and server-assigned ownership."
-            ],
-            "responses": {
-              "201": {
-                "description": "Successful operation",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Ticket"
-                    }
-                  }
-                }
-              },
-              "400": {
-                "description": "Invalid input",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
-              },
-              "401": {
-                "description": "Authentication required",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
-              },
-              "403": {
-                "description": "Access denied",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
-              },
-              "503": {
-                "description": "Temporary service failure",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
-              },
-              "429": {
-                "description": "Import limit exceeded",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
-              },
-              "502": {
-                "description": "Invalid external response",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
-              },
-              "504": {
-                "description": "External service timeout",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Error"
-                    }
-                  }
-                }
-              }
-            },
-            "requestBody": {
-              "required": true,
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "source_url"
-                    ],
-                    "properties": {
-                      "source_url": {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "HTTPS URL on partner.helpdesk.example; server validates the connection destination."
-                      }
-                    }
-                  }
-                }
+                "description": "Account not found"
               }
             }
           }
@@ -973,120 +132,7 @@
         "securitySchemes": {
           "bearerAuth": {
             "type": "http",
-            "scheme": "bearer",
-            "bearerFormat": "JWT"
-          }
-        },
-        "schemas": {
-          "Ticket": {
-            "type": "object",
-            "required": [
-              "ticket_id",
-              "status"
-            ],
-            "properties": {
-              "ticket_id": {
-                "type": "string"
-              },
-              "status": {
-                "type": "string",
-                "enum": [
-                  "open",
-                  "closed"
-                ]
-              },
-              "subject": {
-                "type": "string"
-              },
-              "priority": {
-                "type": "string",
-                "enum": [
-                  "low",
-                  "normal",
-                  "high"
-                ]
-              }
-            }
-          },
-          "Error": {
-            "type": "object",
-            "required": [
-              "code",
-              "message",
-              "correlation_id"
-            ],
-            "properties": {
-              "code": {
-                "type": "string"
-              },
-              "message": {
-                "type": "string"
-              },
-              "correlation_id": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "responses": {
-          "BadRequest": {
-            "description": "Invalid input or pagination parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "Unauthorized": {
-            "description": "Missing or invalid bearer token",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "Forbidden": {
-            "description": "Operation not permitted",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "Unavailable": {
-            "description": "Temporary service failure; retry later",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "TooManyRequests": {
-            "description": "Per-user request limit exceeded",
-            "headers": {
-              "Retry-After": {
-                "description": "Seconds before retrying",
-                "schema": {
-                  "type": "integer",
-                  "minimum": 1
-                }
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
+            "scheme": "bearer"
           }
         }
       }

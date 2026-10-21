@@ -50,3 +50,9 @@ def test_failure_reason_unwraps_provider_error(attribute, status, expected):
 def test_failure_reason_does_not_log_exception_messages():
     assert failure_reason(TimeoutError('private URL')) == 'timeout'
     assert failure_reason(RuntimeError('secret API key')) == 'RuntimeError'
+
+
+def test_leaked_key_rejection_logs_only_safe_category():
+    error = RuntimeError('Your API key was reported as leaked. secret-key-do-not-log')
+    error.code = 403
+    assert failure_reason(error) == '403 key reported leaked; replace key'
