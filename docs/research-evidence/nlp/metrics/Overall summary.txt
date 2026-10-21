@@ -1,0 +1,437 @@
+DESIGNTRACE AI
+AI-ASSISTED DATABASE DESIGN MODULE
+NLP MODEL COMPARISON AND EVALUATION SUMMARY
+
+============================================================
+1. EVALUATION OBJECTIVE
+============================================================
+
+Compare three transformer-based named entity recognition (NER)
+models for extracting database-design concepts from software
+functional requirements:
+
+- ENTITY
+- ATTRIBUTE
+- ACTION
+
+Models evaluated:
+1. BERT (bert-base-uncased)
+2. DeBERTa-v3-base (microsoft/deberta-v3-base)
+3. RoBERTa-base (roberta-base)
+
+The model outputs support the Database Design Module's
+subsequent concept mapping and AI-assisted schema generation.
+The scores below evaluate NLP concept extraction, NOT the
+correctness of generated database schemas or end-to-end designs.
+
+============================================================
+2. EVALUATION DATASETS
+============================================================
+
+A. Project-independent test set
+   Requirements: 149
+   Gold concept instances: 513
+   - ACTION: 115
+   - ATTRIBUTE: 162
+   - ENTITY: 236
+
+B. Real-world test set
+   Requirements: 50
+   Gold concept instances: 170
+   - ACTION: 42
+   - ATTRIBUTE: 36
+   - ENTITY: 92
+
+C. Model validation sets
+   - BERT: validation results supplied; sample count not
+     specified in the supplied metrics.
+   - DeBERTa-v3-base: 150 validation requirements.
+   - RoBERTa-base: validation results supplied; sample count
+     not specified in the supplied metrics.
+
+The two test sets are reported separately to assess performance
+on unseen projects and on real-world requirement examples.
+
+============================================================
+3. OVERALL MODEL COMPARISON: PROJECT-INDEPENDENT TEST
+============================================================
+
+Test requirements: 149
+Concept instances (support): 513
+
+Model             Precision    Recall       Micro F1    Macro F1
+----------------------------------------------------------------
+BERT              0.9713       0.9903       0.9807      0.9808
+DeBERTa-v3-base   0.9657       0.9883       0.9769      0.9786
+RoBERTa-base      0.9846       0.9981       0.9913      0.9920
+
+Best model on this test: RoBERTa-base
+
+Note: The overall F1 field in the supplied JSON corresponds to
+the micro-average F1. Macro F1 is taken from per_label_results.
+
+============================================================
+4. OVERALL MODEL COMPARISON: REAL-WORLD TEST
+============================================================
+
+Test requirements: 50
+Concept instances (support): 170
+
+Model             Precision    Recall       Micro F1    Macro F1
+----------------------------------------------------------------
+BERT              0.7680       0.8765       0.8187      0.8013
+DeBERTa-v3-base   0.5874       0.7706       0.6667      0.6750
+RoBERTa-base      0.8804       0.9529       0.9153      0.9051
+
+Best model on this test: RoBERTa-base
+
+============================================================
+5. BERT: PROJECT-INDEPENDENT TEST
+============================================================
+
+Model: bert_project_split
+Base model: bert-base-uncased
+Test requirements: 149
+
+Precision = 0.9713
+Recall    = 0.9903
+Micro F1  = 0.9807
+Macro F1  = 0.9808
+Weighted F1 = 0.9808
+
+Per-class results:
+
+ACTION
+Precision = 0.9829
+Recall    = 1.0000
+F1        = 0.9914
+Support   = 115
+
+ATTRIBUTE
+Precision = 0.9464
+Recall    = 0.9815
+F1        = 0.9636
+Support   = 162
+
+ENTITY
+Precision = 0.9832
+Recall    = 0.9915
+F1        = 0.9873
+Support   = 236
+
+============================================================
+6. BERT: REAL-WORLD TEST
+============================================================
+
+Test requirements: 50
+
+Precision = 0.7680
+Recall    = 0.8765
+Micro F1  = 0.8187
+Macro F1  = 0.8013
+Weighted F1 = 0.8241
+
+Per-class results:
+
+ACTION
+Precision = 0.9130
+Recall    = 1.0000
+F1        = 0.9545
+Support   = 42
+
+ATTRIBUTE
+Precision = 0.5208
+Recall    = 0.6944
+F1        = 0.5952
+Support   = 36
+
+ENTITY
+Precision = 0.8200
+Recall    = 0.8913
+F1        = 0.8542
+Support   = 92
+
+Interpretation:
+BERT performs well on unseen project requirements, but its
+real-world ATTRIBUTE F1 is notably lower (0.5952).
+
+============================================================
+7. DEBERTA-V3-BASE: PROJECT-INDEPENDENT TEST
+============================================================
+
+Model: deberta-v3-base
+Base model: microsoft/deberta-v3-base
+Test requirements: 149
+
+Precision = 0.9657
+Recall    = 0.9883
+Micro F1  = 0.9769
+Macro F1  = 0.9786
+Weighted F1 = 0.9769
+
+Per-class results:
+
+ACTION
+Precision = 0.9829
+Recall    = 1.0000
+F1        = 0.9914
+Support   = 115
+
+ATTRIBUTE
+Precision = 0.9578
+Recall    = 0.9815
+F1        = 0.9695
+Support   = 162
+
+ENTITY
+Precision = 0.9628
+Recall    = 0.9873
+F1        = 0.9749
+Support   = 236
+
+============================================================
+8. DEBERTA-V3-BASE: REAL-WORLD TEST
+============================================================
+
+Test requirements: 50
+
+Precision = 0.5874
+Recall    = 0.7706
+Micro F1  = 0.6667
+Macro F1  = 0.6750
+Weighted F1 = 0.6790
+
+Per-class results:
+
+ACTION
+Precision = 0.9130
+Recall    = 1.0000
+F1        = 0.9545
+Support   = 42
+
+ATTRIBUTE
+Precision = 0.3393
+Recall    = 0.5278
+F1        = 0.4130
+Support   = 36
+
+ENTITY
+Precision = 0.5785
+Recall    = 0.7609
+F1        = 0.6573
+Support   = 92
+
+Interpretation:
+DeBERTa-v3-base performs strongly on the project-independent
+test but has the lowest real-world F1 among the three models.
+ATTRIBUTE extraction is particularly weak on the real-world set.
+
+============================================================
+9. ROBERTA-BASE: PROJECT-INDEPENDENT TEST
+============================================================
+
+Model: roberta_project_split
+Base model: roberta-base
+Test requirements: 149
+
+Precision = 0.9846
+Recall    = 0.9981
+Micro F1  = 0.9913
+Macro F1  = 0.9920
+Weighted F1 = 0.9913
+
+Per-class results:
+
+ACTION
+Precision = 0.9914
+Recall    = 1.0000
+F1        = 0.9957
+Support   = 115
+
+ATTRIBUTE
+Precision = 0.9877
+Recall    = 0.9938
+F1        = 0.9908
+Support   = 162
+
+ENTITY
+Precision = 0.9793
+Recall    = 1.0000
+F1        = 0.9895
+Support   = 236
+
+============================================================
+10. ROBERTA-BASE: REAL-WORLD TEST
+============================================================
+
+Test requirements: 50
+
+Precision = 0.8804
+Recall    = 0.9529
+Micro F1  = 0.9153
+Macro F1  = 0.9051
+Weighted F1 = 0.9147
+
+Per-class results:
+
+ACTION
+Precision = 0.9333
+Recall    = 1.0000
+F1        = 0.9655
+Support   = 42
+
+ATTRIBUTE
+Precision = 0.8108
+Recall    = 0.8333
+F1        = 0.8219
+Support   = 36
+
+ENTITY
+Precision = 0.8824
+Recall    = 0.9783
+F1        = 0.9278
+Support   = 92
+
+Interpretation:
+RoBERTa-base obtains the highest overall real-world F1 and
+the strongest real-world ATTRIBUTE and ENTITY F1 among the
+three evaluated models.
+
+============================================================
+11. VALIDATION RESULTS
+============================================================
+
+Model             Eval loss    Precision    Recall    F1    Epochs
+----------------------------------------------------------------
+BERT              0.001934     1.0000       1.0000    1.0   3
+DeBERTa-v3-base   0.003080     1.0000       1.0000    1.0   3
+RoBERTa-base      0.000572     1.0000       1.0000    1.0   3
+
+Additional supplied evaluation information:
+BERT:
+  Eval runtime: 5.2025 seconds
+  Eval samples per second: 26.91
+  Eval steps per second: 6.728
+
+RoBERTa-base:
+  Eval runtime: 8.3639 seconds
+  Eval samples per second: 16.739
+  Eval steps per second: 4.185
+
+DeBERTa-v3-base:
+  Validation requirements: 150
+  Evaluation type: entity_level
+
+Interpretation:
+All three models report perfect validation precision, recall,
+and F1. These results should not be interpreted as proof of
+perfect generalization. Independent test scores are more useful
+for selecting a model, and validation-set construction and
+possible overlap should be audited.
+
+============================================================
+12. PER-LABEL F1 COMPARISON
+============================================================
+
+PROJECT-INDEPENDENT TEST (149 requirements)
+
+Model             ACTION     ATTRIBUTE    ENTITY
+------------------------------------------------
+BERT              0.9914     0.9636       0.9873
+DeBERTa-v3-base   0.9914     0.9695       0.9749
+RoBERTa-base      0.9957     0.9908       0.9895
+
+REAL-WORLD TEST (50 requirements)
+
+Model             ACTION     ATTRIBUTE    ENTITY
+------------------------------------------------
+BERT              0.9545     0.5952       0.8542
+DeBERTa-v3-base   0.9545     0.4130       0.6573
+RoBERTa-base      0.9655     0.8219       0.9278
+
+============================================================
+13. GENERALIZATION GAP
+============================================================
+
+Measured as:
+Project-independent micro F1 - Real-world micro F1
+
+BERT:            0.9807 - 0.8187 = 0.1620
+DeBERTa-v3-base: 0.9769 - 0.6667 = 0.3102
+RoBERTa-base:    0.9913 - 0.9153 = 0.0760
+
+RoBERTa-base has the smallest observed gap across these two
+sets. This is descriptive evidence of stronger performance on
+the evaluated real-world sample; it does not establish broad
+generalization to every software domain.
+
+============================================================
+14. SELECTED MODEL AND JUSTIFICATION
+============================================================
+
+SELECTED MODEL: RoBERTa-base
+
+Reasons:
+1. Highest project-independent micro F1: 0.9913.
+2. Highest real-world micro F1: 0.9153.
+3. Highest real-world ATTRIBUTE F1: 0.8219.
+4. Highest real-world ENTITY F1: 0.9278.
+5. Smallest observed cross-dataset micro-F1 drop: 0.0760.
+
+RoBERTa-base is therefore selected for the NLP concept
+extraction stage of the Database Design Module, based on the
+reported comparison results.
+
+============================================================
+15. CURRENT LIMITATIONS AND FUTURE EVALUATION
+============================================================
+
+- The real-world test contains only 50 requirements. Results
+  should be confirmed on larger, independently reviewed sets.
+- ATTRIBUTE extraction remains weaker than ACTION extraction,
+  even for the selected model (real-world F1: 0.8219 vs 0.9655).
+- Perfect validation scores warrant a review of data splits,
+  template similarity, annotation consistency, and leakage risk.
+- Results describe concept extraction, not schema quality,
+  foreign-key correctness, SQL validity, or traceability quality.
+- The supplied data does not establish statistical significance
+  of differences between models.
+- Training speed, model size, and deployment latency were not
+  compared on a controlled common setup.
+- A separate evaluation is required for concept mapping,
+  Gemini schema generation, SQL/ERD generation, and
+  requirement-to-schema traceability.
+
+============================================================
+16. EVALUATION INTEGRITY NOTE
+============================================================
+
+The supplied project-independent and real-world scores are
+reported as separate held-out evaluations. Preserve their
+independence when refining models.
+
+Do not tune the selected model using the same test cases and
+then report performance on those cases as an unbiased final
+assessment. Use separate training/validation data for future
+improvements and retain an untouched final test set.
+
+These results were transcribed from the model metrics supplied
+for the three NLP models. They are not an independent rerun or
+external expert validation.
+
+============================================================
+17. FINAL CONCLUSION
+============================================================
+
+The comparative evaluation supports selecting RoBERTa-base
+for ENTITY, ATTRIBUTE, and ACTION extraction in DesignTrace AI's
+AI-Assisted Database Design Module.
+
+On 149 unseen project requirements, RoBERTa-base achieved a
+micro F1 of 0.9913. On 50 real-world requirements, it achieved
+a micro F1 of 0.9153, outperforming the evaluated BERT and
+DeBERTa-v3-base alternatives on both test sets.
+
+Further work should independently evaluate the downstream
+schema-generation pipeline and strengthen the real-world test
+coverage before claiming end-to-end database design quality.
