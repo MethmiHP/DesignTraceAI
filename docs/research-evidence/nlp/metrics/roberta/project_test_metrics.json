@@ -1,0 +1,47 @@
+{
+  "model": "roberta_project_split",
+  "base_model": "roberta-base",
+  "dataset": "project_independent_test",
+  "test_requirements": 149,
+  "precision": 0.9846153846153847,
+  "recall": 0.9980506822612085,
+  "f1": 0.9912875121006777,
+  "per_label_results": {
+    "ACTION": {
+      "precision": 0.9913793103448276,
+      "recall": 1.0,
+      "f1-score": 0.9956709956709957,
+      "support": 115
+    },
+    "ATTRIBUTE": {
+      "precision": 0.9877300613496932,
+      "recall": 0.9938271604938271,
+      "f1-score": 0.9907692307692307,
+      "support": 162
+    },
+    "ENTITY": {
+      "precision": 0.979253112033195,
+      "recall": 1.0,
+      "f1-score": 0.9895178197064989,
+      "support": 236
+    },
+    "micro avg": {
+      "precision": 0.9846153846153847,
+      "recall": 0.9980506822612085,
+      "f1-score": 0.9912875121006777,
+      "support": 513
+    },
+    "macro avg": {
+      "precision": 0.9861208279092386,
+      "recall": 0.9979423868312757,
+      "f1-score": 0.9919860153822418,
+      "support": 513
+    },
+    "weighted avg": {
+      "precision": 0.984648391945691,
+      "recall": 0.9980506822612085,
+      "f1-score": 0.991292369078974,
+      "support": 513
+    }
+  }
+}

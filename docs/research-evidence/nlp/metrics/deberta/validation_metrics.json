@@ -1,0 +1,17 @@
+
+{
+  "model": "microsoft/deberta-v3-base",
+  "dataset": "project_independent_validation",
+  "validation_requirements": 150,
+  "epochs": 3,
+  "eval_loss": 0.003079910296946764,
+  "eval_precision": 1.0,
+  "eval_recall": 1.0,
+  "eval_f1": 1.0,
+  "evaluation_type": "entity_level",
+  "labels": [
+    "ENTITY",
+    "ATTRIBUTE",
+    "ACTION"
+  ]
+}

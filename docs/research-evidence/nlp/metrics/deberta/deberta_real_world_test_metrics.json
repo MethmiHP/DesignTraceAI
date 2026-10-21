@@ -1,0 +1,46 @@
+{
+  "model": "deberta-v3-base",
+  "dataset": "real_world_test",
+  "requirements": 50,
+  "precision": 0.5874439461883408,
+  "recall": 0.7705882352941177,
+  "f1": 0.6666666666666666,
+  "per_label_results": {
+    "ACTION": {
+      "precision": 0.9130434782608695,
+      "recall": 1.0,
+      "f1-score": 0.9545454545454545,
+      "support": 42
+    },
+    "ATTRIBUTE": {
+      "precision": 0.3392857142857143,
+      "recall": 0.5277777777777778,
+      "f1-score": 0.41304347826086957,
+      "support": 36
+    },
+    "ENTITY": {
+      "precision": 0.5785123966942148,
+      "recall": 0.7608695652173914,
+      "f1-score": 0.6572769953051643,
+      "support": 92
+    },
+    "micro avg": {
+      "precision": 0.5874439461883408,
+      "recall": 0.7705882352941177,
+      "f1-score": 0.6666666666666666,
+      "support": 170
+    },
+    "macro avg": {
+      "precision": 0.6102805297469329,
+      "recall": 0.7628824476650564,
+      "f1-score": 0.6749553093704961,
+      "support": 170
+    },
+    "weighted avg": {
+      "precision": 0.610501484100647,
+      "recall": 0.7705882352941177,
+      "f1-score": 0.6789997522139736,
+      "support": 170
+    }
+  }
+}

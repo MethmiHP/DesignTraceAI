@@ -1,0 +1,46 @@
+{
+  "model": "bert_project_split",
+  "dataset": "real_world_test",
+  "test_requirements": 50,
+  "precision": 0.7680412371134021,
+  "recall": 0.8764705882352941,
+  "f1": 0.8186813186813188,
+  "per_label_results": {
+    "ACTION": {
+      "precision": 0.9130434782608695,
+      "recall": 1.0,
+      "f1-score": 0.9545454545454545,
+      "support": 42
+    },
+    "ATTRIBUTE": {
+      "precision": 0.5208333333333334,
+      "recall": 0.6944444444444444,
+      "f1-score": 0.5952380952380953,
+      "support": 36
+    },
+    "ENTITY": {
+      "precision": 0.82,
+      "recall": 0.8913043478260869,
+      "f1-score": 0.8541666666666666,
+      "support": 92
+    },
+    "micro avg": {
+      "precision": 0.7680412371134021,
+      "recall": 0.8764705882352941,
+      "f1-score": 0.8186813186813188,
+      "support": 170
+    },
+    "macro avg": {
+      "precision": 0.751292270531401,
+      "recall": 0.8619162640901772,
+      "f1-score": 0.8013167388167388,
+      "support": 170
+    },
+    "weighted avg": {
+      "precision": 0.7796342710997441,
+      "recall": 0.8764705882352941,
+      "f1-score": 0.8241341991341992,
+      "support": 170
+    }
+  }
+}
