@@ -1,4 +1,6 @@
 import logging
+import json
+import httpx
 import os
 from contextvars import ContextVar
 from threading import Lock
@@ -344,71 +346,54 @@ class FallbackQualityLLMProvider(
         )
 
 
-def build_default_quality_llm_provider(
-) -> BaseQualityLLMProvider:
+class DeepSeekQualityLLMProvider(BaseQualityLLMProvider):
+    name = "deepseek"
 
-    primary = os.environ.get(
-        "QUALITY_LLM_PRIMARY_PROVIDER",
-        "gemini",
-    ).strip().lower()
+    def __init__(self, model_name=None):
+        self.api_key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+        if not self.api_key:
+            raise QualityLLMUnavailableError("DEEPSEEK_API_KEY is not configured.")
+        self.model_name = model_name or os.environ.get("QUALITY_DEEPSEEK_MODEL", "deepseek-flash")
 
-    provider_names = [
-        primary,
-    ]
-
-    for provider_name in [
-        "gemini",
-        "groq",
-    ]:
-        if provider_name not in provider_names:
-            provider_names.append(
-                provider_name
-            )
-
-    providers: list[
-        BaseQualityLLMProvider
-    ] = []
-
-    for provider_name in provider_names:
-
-        try:
-
-            if provider_name == "gemini":
-                if os.environ.get(
-                    "GEMINI_API_KEY"
-                ):
-                    providers.append(
-                        GeminiQualityLLMProvider()
-                    )
-
-            elif provider_name == "groq":
-                if os.environ.get(
-                    "GROQ_API_KEY"
-                ):
-                    providers.append(
-                        GroqQualityLLMProvider()
-                    )
-
-        except Exception:
-            logger.exception(
-                (
-                    "Could not initialize "
-                    "quality LLM provider %s."
-                ),
-                provider_name,
-            )
-
-    if not providers:
-        raise QualityLLMUnavailableError(
-            (
-                "No usable quality LLM "
-                "provider is configured."
-            )
+    @log_provider_call
+    def generate_structured(self, prompt: str, schema_class: type[T]) -> T:
+        instructions = (
+            "Return only a JSON object matching this JSON Schema: "
+            + json.dumps(schema_class.model_json_schema(), separators=(",", ":"))
+            + '\nFormat example for insufficient evidence: '
+            + '{"status":"SKIPPED","evidence":[],"rationale":"Insufficient design evidence.",'
+              '"affected_nfr_ids":[],"confidence":null,"recommendation":null}'
+            + "\nEvaluate the supplied evidence independently; do not copy the example verdict."
         )
+        try:
+            response = httpx.post(
+                "https://api.deepseek.com/chat/completions",
+                headers={"Authorization": f"Bearer {self.api_key}"},
+                json={
+                    "model": self.model_name,
+                    "messages": [
+                        {"role": "system", "content": instructions},
+                        {"role": "user", "content": prompt},
+                    ],
+                    "response_format": {"type": "json_object"},
+                    "max_tokens": 2048,
+                    "temperature": 0.1,
+                },
+                timeout=httpx.Timeout(60.0, connect=5.0),
+            )
+            response.raise_for_status()
+            choice = response.json()["choices"][0]
+            if choice.get("finish_reason") != "stop":
+                raise QualityLLMUnavailableError("DeepSeek response was incomplete.")
+            content = choice["message"].get("content")
+            if not content:
+                raise QualityLLMUnavailableError("DeepSeek returned an empty response.")
+            return schema_class.model_validate_json(content, strict=True)
+        except Exception as exc:
+            raise QualityLLMUnavailableError("DeepSeek quality evaluation request failed.") from exc
 
-    if len(providers) == 1:
-        return providers[0]
 
-    return FallbackQualityLLMProvider(
-        providers
-    )
+def build_default_quality_llm_provider() -> BaseQualityLLMProvider:
+    # Temporary DeepSeek-only mode. Existing Gemini/Groq environment settings
+    # and implementations are retained but never selected or used as fallbacks.
+    return DeepSeekQualityLLMProvider()

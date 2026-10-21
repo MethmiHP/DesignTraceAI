@@ -3,6 +3,7 @@ export function resultSource(result) {
   if (result.check_type === 'deterministic') return 'Rules'
   const provider = result.provider?.toLowerCase()
   if (provider === 'gemini') return 'Gemini'
+  if (provider === 'deepseek') return 'DeepSeek'
   if (provider === 'groq') return 'Groq'
   if (provider) return result.provider
   return result.status === 'SKIPPED' ? 'No LLM result' : 'Not recorded'

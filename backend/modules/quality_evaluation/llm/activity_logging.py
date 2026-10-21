@@ -21,12 +21,15 @@ def failure_reason(error):
     status = getattr(error, 'status_code', None)
     if status is None:
         status = getattr(error, 'code', None)
+    if status is None:
+        status = getattr(getattr(error, 'response', None), 'status_code', None)
     if status == 403 and 'reported as leaked' in str(error).lower():
         return '403 key reported leaked; replace key'
     if isinstance(status, int) and 100 <= status <= 599:
         labels = {
             400: 'invalid request',
             401: 'authentication rejected',
+            402: 'insufficient balance',
             403: 'access denied',
             404: 'model or endpoint not found',
             408: 'timeout',
