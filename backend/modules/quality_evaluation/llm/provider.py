@@ -1,5 +1,8 @@
 import logging
 import os
+from contextvars import ContextVar
+from threading import Lock
+from time import monotonic
 
 from abc import ABC, abstractmethod
 from typing import TypeVar
@@ -272,10 +275,17 @@ class FallbackQualityLLMProvider(
             )
 
         self.providers = providers
+        self._source = ContextVar(f'quality_source_{id(self)}', default=None)
+        self._cooldown = {}
+        self._lock = Lock()
 
-        self.last_provider_name: (
-            str | None
-        ) = None
+    @property
+    def last_provider_name(self):
+        return self._source.get()
+
+    @last_provider_name.setter
+    def last_provider_name(self, value):
+        self._source.set(value)
 
     def generate_structured(
         self,
@@ -284,7 +294,12 @@ class FallbackQualityLLMProvider(
     ) -> T:
 
         self.last_provider_name = None
-        for index, provider in enumerate(self.providers):
+        with self._lock:
+            healthy = [p for p in self.providers if self._cooldown.get(id(p), 0) <= monotonic()]
+        # Try healthy providers first, but retain cooled providers as a last
+        # resort so an outage does not remove a rule's chance of evaluation.
+        providers = healthy + [p for p in self.providers if p not in healthy]
+        for index, provider in enumerate(providers):
 
             try:
                 result = (
@@ -301,9 +316,25 @@ class FallbackQualityLLMProvider(
 
                 return result
 
-            except Exception:
-                if index + 1 < len(self.providers):
-                    log_fallback(provider.name, self.providers[index + 1].name)
+            except Exception as exc:
+                root = exc
+                seen = set()
+                while root.__cause__ is not None and id(root) not in seen:
+                    seen.add(id(root))
+                    root = root.__cause__
+                code = getattr(root, 'status_code', None) or getattr(root, 'code', None)
+                if code in {429, 500, 502, 503, 504}:
+                    delay = 60.0
+                    headers = getattr(getattr(root, 'response', None), 'headers', {})
+                    try:
+                        delay = max(delay, float(headers.get('retry-after', 0)))
+                    except (TypeError, ValueError):
+                        pass
+                    with self._lock:
+                        self._cooldown[id(provider)] = monotonic() + delay
+                    logger.info('%s cooling down; prefer available fallback', provider.name)
+                if index + 1 < len(providers):
+                    log_fallback(provider.name, providers[index + 1].name)
 
         raise QualityLLMUnavailableError(
             (

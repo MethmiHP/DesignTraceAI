@@ -1,5 +1,6 @@
 import logging
 import os
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from datetime import (
     datetime,
@@ -105,6 +106,8 @@ class QualityEvaluationService:
             )
 
         self.llm_enabled = enable_llm
+        # Injected providers may be stateful test/custom adapters; keep them serial.
+        self.semantic_workers = 2 if llm_provider is None else 1
 
         provider = llm_provider
 
@@ -195,44 +198,32 @@ class QualityEvaluationService:
             )
         )
 
-        results = []
-
-        # Route each rule according
-        # to its predefined check type
+        results_by_id = {}
+        total = len(applicable_rules)
         if on_progress:
-            on_progress(0, len(applicable_rules), None)
+            on_progress(0, total, None)
+
+        semantic_rules = []
         for rule in applicable_rules:
-            if on_progress:
-                on_progress(len(results), len(applicable_rules), rule.rule_id)
-
-            if (
-                rule.check_type
-                == CheckType.DETERMINISTIC
-            ):
-                result = (
-                    self
-                    .deterministic_evaluator
-                    .evaluate(
-                        rule,
-                        context,
-                    )
-                )
-
+            if rule.check_type == CheckType.DETERMINISTIC:
+                results_by_id[rule.rule_id] = self.deterministic_evaluator.evaluate(rule, context)
+                if on_progress:
+                    on_progress(len(results_by_id), total, None)
             else:
-                result = (
-                    self
-                    .semantic_evaluator
-                    .evaluate(
-                        rule,
-                        context,
-                    )
-                )
+                semantic_rules.append(rule)
 
-            results.append(
-                result
-            )
-            if on_progress:
-                on_progress(len(results), len(applicable_rules), None)
+        if semantic_rules:
+            with ThreadPoolExecutor(max_workers=self.semantic_workers, thread_name_prefix='quality-rule') as executor:
+                pending = {executor.submit(self.semantic_evaluator.evaluate, rule, context): rule.rule_id for rule in semantic_rules}
+                if on_progress:
+                    on_progress(len(results_by_id), total, semantic_rules[0].rule_id)
+                for future in as_completed(pending):
+                    results_by_id[pending[future]] = future.result()
+                    if on_progress:
+                        current = next((rule_id for task, rule_id in pending.items() if not task.done()), None)
+                        on_progress(len(results_by_id), total, current)
+        # Completion order must not change findings, metrics, or report order.
+        results = [results_by_id[rule.rule_id] for rule in applicable_rules]
 
         findings = []
 
