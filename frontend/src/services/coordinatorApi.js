@@ -1,4 +1,3 @@
-
 const BASE = '/api/coordinator'
 
 async function request(path, options = {}) {
@@ -50,12 +49,33 @@ function threadPath(threadId) {
 }
 
 export const coordinatorApi = {
-  // Current backend starts the fixed PP1 mock Library project.
-  start: () =>
-    request('/start', {
+
+  // Start default mock workflow or selected project
+  start: (projectId = '') =>
+    request(
+      projectId
+        ? `/start?project_id=${encodeURIComponent(projectId)}`
+        : '/start',
+      {
+        method: 'POST',
+      }
+    ),
+
+  // Create a real project in Neon PostgreSQL
+  createProject: (name, description) =>
+    request('/projects', {
       method: 'POST',
+      body: JSON.stringify({
+        name,
+        description,
+      }),
     }),
 
+  // Retrieve saved projects
+  listProjects: () =>
+    request('/projects'),
+
+  // Existing Coordinator endpoints
   status: (threadId) =>
     request(`${threadPath(threadId)}/status`),
 

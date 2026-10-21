@@ -645,3 +645,100 @@
     flex: 1;
   }
 }
+
+
+/* =========================================
+   PP1 Create Project - Dark Blue Theme
+   ========================================= */
+
+.dt2-project-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* Project Name, Description and Dropdown */
+.dt2-app .dt2-project-form input,
+.dt2-app .dt2-project-form textarea,
+.dt2-app .dt2-project-select select {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 13px 15px;
+
+  background: #0c1423;
+  color: #f0f4ff;
+
+  border: 1px solid #29354b;
+  border-radius: 9px;
+
+  font: inherit;
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Placeholder Text */
+.dt2-app .dt2-project-form input::placeholder,
+.dt2-app .dt2-project-form textarea::placeholder {
+  color: #8090aa;
+  opacity: 1;
+}
+
+/* Input Focus Effect */
+.dt2-app .dt2-project-form input:focus,
+.dt2-app .dt2-project-form textarea:focus,
+.dt2-app .dt2-project-select select:focus {
+  border-color: #8575ff;
+  box-shadow: 0 0 0 3px rgba(133, 117, 255, 0.12);
+}
+
+/* Description Box */
+.dt2-app .dt2-project-form textarea {
+  min-height: 105px;
+  resize: vertical;
+}
+
+/* Create Project Button */
+.dt2-project-form button {
+  align-self: flex-start;
+}
+
+/* Project Selection Container */
+.dt2-project-select {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+/* Dropdown Label */
+.dt2-project-select label {
+  color: #f0f4ff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Dropdown Options */
+.dt2-app .dt2-project-select select option {
+  background: #121a2b;
+  color: #f0f4ff;
+}
+
+/* Dropdown Hover */
+.dt2-app .dt2-project-select select:hover {
+  border-color: #6658b5;
+}
+
+/* Disabled Fields */
+.dt2-app .dt2-project-form input:disabled,
+.dt2-app .dt2-project-form textarea:disabled,
+.dt2-app .dt2-project-select select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

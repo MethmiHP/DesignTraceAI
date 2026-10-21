@@ -6,9 +6,9 @@ Mock Modules remain enabled for PP1.
 """
 
 from threading import Lock
-from uuid import uuid4
+from uuid import uuid4, UUID
 
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, HTTPException, Request, Query
 from pydantic import BaseModel, Field
 from langgraph.types import Command
 from sqlalchemy import select
@@ -35,6 +35,70 @@ router = APIRouter(
 )
 
 workflow_lock = Lock()
+
+
+class CreateProjectRequest(BaseModel):
+    name: str = Field(..., min_length=2, max_length=255)
+    description: str = Field(default="", max_length=5000)
+
+
+def serialize_project(project):
+    return {
+        "project_id": str(project.id),
+        "name": project.name,
+        "description": project.description or "",
+        "status": project.status,
+        "created_at": (
+            project.created_at.isoformat()
+            if project.created_at else None
+        ),
+        "mock_outputs": True,
+    }
+
+
+@router.post("/projects", status_code=201)
+def create_project(payload: CreateProjectRequest):
+    """
+    Save actual project metadata in Neon PostgreSQL.
+    Module outputs remain predefined PP1 mocks.
+    """
+    with SessionLocal.begin() as session:
+        project = Project(
+            name=payload.name.strip(),
+            description=payload.description.strip(),
+            input_data={
+                "source": "user_created",
+                "mock_outputs": True,
+            },
+            status="created",
+        )
+
+        if len(project.name) < 2:
+            raise HTTPException(
+                status_code=422,
+                detail="Project name must contain at least two characters.",
+            )
+
+        session.add(project)
+        session.flush()
+        session.refresh(project)
+
+        return serialize_project(project)
+
+
+@router.get("/projects")
+def list_projects():
+    with SessionLocal() as session:
+        projects = session.scalars(
+            select(Project).order_by(Project.created_at.desc())
+        ).all()
+
+        return {
+            "projects": [
+                serialize_project(project)
+                for project in projects
+            ]
+        }
 
 
 class ReviewRequest(BaseModel):
@@ -176,32 +240,64 @@ def get_workflow_response(request: Request, thread_id: str):
 
 
 @router.post("/start")
-def start_workflow(request: Request):
+
+@router.post("/start")
+def start_workflow(
+    request: Request,
+    project_id: UUID | None = Query(default=None),
+):
     with workflow_lock:
         graph = get_graph(request)
-        project = create_demo_project()
-        project_state = create_initial_project_state(project)
 
+        # Existing predefined Library Management mock data
+        project = create_demo_project()
         thread_id = str(uuid4())
 
-        # Store the project and workflow ID in Neon.
         with SessionLocal.begin() as session:
-            db_project = Project(
-                name=project.project_name,
-                description=project.project_description,
-                input_data=project.model_dump(mode="json"),
-                status="created",
-            )
-            session.add(db_project)
-            session.flush()
+
+            if project_id is None:
+                # Preserve the original PP1 workflow behavior
+                db_project = Project(
+                    name=project.project_name,
+                    description=project.project_description,
+                    input_data=project.model_dump(mode="json"),
+                    status="created",
+                )
+
+                session.add(db_project)
+                session.flush()
+
+            else:
+                # Use the selected saved project
+                db_project = session.get(Project, project_id)
+
+                if db_project is None:
+                    raise HTTPException(
+                        status_code=404,
+                        detail="Project not found.",
+                    )
+
+                # Update project metadata only.
+                # Requirements and module outputs stay mocked.
+                project = project.model_copy(
+                    update={
+                        "project_id": str(db_project.id),
+                        "project_name": db_project.name,
+                        "project_description": (
+                            db_project.description or ""
+                        ),
+                    }
+                )
 
             run = WorkflowRun(
                 project_id=db_project.id,
                 thread_id=thread_id,
                 status="RUNNING",
             )
+
             session.add(run)
 
+        project_state = create_initial_project_state(project)
         config = get_config(thread_id)
 
         initial_state = {
@@ -218,6 +314,7 @@ def start_workflow(request: Request):
                 initial_state,
                 config=config,
             )
+
         except Exception:
             with SessionLocal.begin() as session:
                 run = session.scalar(
@@ -225,8 +322,10 @@ def start_workflow(request: Request):
                         WorkflowRun.thread_id == thread_id
                     )
                 )
+
                 if run is not None:
                     run.status = "FAILED"
+
             raise
 
         return get_workflow_response(request, thread_id)

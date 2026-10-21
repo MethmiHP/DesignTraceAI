@@ -78,6 +78,13 @@ export default function CoordinatorPage() {
     () => localStorage.getItem(STORAGE_KEY) || ''
   )
 
+  
+  const [projects, setProjects] = useState([])
+  const [selectedProjectId, setSelectedProjectId] = useState('')
+  const [newProjectName, setNewProjectName] = useState('')
+  const [newProjectDescription, setNewProjectDescription] = useState('')
+
+
   const [workflow, setWorkflow] = useState(null)
   const [history, setHistory] = useState(null)
   const [report, setReport] = useState(null)
@@ -171,13 +178,65 @@ export default function CoordinatorPage() {
     }
   }, [])
 
+  
+const loadProjects = useCallback(async () => {
+  const result = await coordinatorApi.listProjects()
+  setProjects(result.projects || [])
+}, [])
+
+useEffect(() => {
+  loadProjects().catch(() => {
+    // Existing mock workflow remains usable
+    // even if project listing fails.
+  })
+}, [loadProjects])
+
+async function createProject(event) {
+  event.preventDefault()
+
+  if (newProjectName.trim().length < 2) {
+    setError(
+      'Enter a project name with at least two characters.'
+    )
+    return
+  }
+
+  setBusy(true)
+  setError('')
+  setNotice('')
+
+  try {
+    const created = await coordinatorApi.createProject(
+      newProjectName.trim(),
+      newProjectDescription.trim()
+    )
+
+    await loadProjects()
+
+    setSelectedProjectId(created.project_id)
+    setNewProjectName('')
+    setNewProjectDescription('')
+
+    setNotice(
+      'Project saved to Neon. Select Start Mock Workflow to run the predefined demo outputs.'
+    )
+
+  } catch (err) {
+    setError(err.message)
+
+  } finally {
+    setBusy(false)
+  }
+}
+
+
   async function startWorkflow() {
     setBusy(true)
     setError('')
     setNotice('')
 
     try {
-      const data = await coordinatorApi.start()
+      const data = await coordinatorApi.start(selectedProjectId)
       const id = data.thread_id
 
       if (!id) {
@@ -194,7 +253,7 @@ export default function CoordinatorPage() {
       setReport(null)
 
       await refreshData(id)
-      setNotice('New PP1 mock workflow started.')
+      setNotice('PP1 mock workflow started. Module inputs and outputs use the predefined Library demo data.')
     } catch (err) {
       setError(err.message)
     } finally {
@@ -462,6 +521,96 @@ export default function CoordinatorPage() {
               </p>
             </div>
           </div>
+
+          
+<section className="dt2-card">
+
+  <div className="dt2-card-heading">
+    <div>
+      <h2>Create Project</h2>
+
+      <p>
+        Project details are saved in Neon PostgreSQL.
+        Module outputs remain predefined Library
+        Management mock data for PP1.
+      </p>
+    </div>
+  </div>
+
+  <form
+    onSubmit={createProject}
+    className="dt2-project-form"
+  >
+
+    <input
+      value={newProjectName}
+      onChange={(event) =>
+        setNewProjectName(event.target.value)
+      }
+      placeholder="Project name"
+      maxLength={255}
+      required
+      aria-label="New project name"
+    />
+
+    <textarea
+      value={newProjectDescription}
+      onChange={(event) =>
+        setNewProjectDescription(event.target.value)
+      }
+      placeholder="Project description"
+      maxLength={5000}
+      rows={3}
+      aria-label="New project description"
+    />
+
+    <button
+      className="dt2-btn dt2-primary"
+      type="submit"
+      disabled={busy}
+    >
+      + Create Project
+    </button>
+
+  </form>
+
+  <div className="dt2-project-select">
+
+    <label htmlFor="dt2-project-picker">
+      Project for next mock workflow
+    </label>
+
+    <select
+      id="dt2-project-picker"
+      value={selectedProjectId}
+      onChange={(event) =>
+        setSelectedProjectId(event.target.value)
+      }
+      disabled={busy}
+    >
+
+      <option value="">
+        Default Library Management demo
+        (original behavior)
+      </option>
+
+      {projects.map((project) => (
+        <option
+          key={project.project_id}
+          value={project.project_id}
+        >
+          {project.name}
+          {' '}
+          ({project.project_id.slice(0, 8)})
+        </option>
+      ))}
+
+    </select>
+
+  </div>
+
+</section>
+
 
           <div className="dt2-load-row">
             <input
