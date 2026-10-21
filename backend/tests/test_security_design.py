@@ -107,14 +107,20 @@ def test_missing_mechanism_blocks_generation_until_user_resolves(monkeypatch, is
     gap = next(issue for issue in blocked.validation.issues if issue.code == 'SECURITY_CONFIGURATION_REQUIRED')
     assert gap.field == 'functional_requirements.0.security.authentication'
     assert request.security.authentication == 'unspecified'
+    import json
+    blocked_paths = set(isolated_outputs.glob('*/request.json'))
+    assert len(blocked_paths) == 1
+    blocked_request = json.loads(next(iter(blocked_paths)).read_text())
+    assert blocked_request['functional_requirements'][0]['security'] is None
     monkeypatch.setattr(service.semantic_extractor, 'extract', original_extract)
     request.functional_requirements[0].security = SecurityPolicy(authentication='basic')
     resolved = asyncio.run(service.design(request))
     assert resolved.api_operations[0].security.authentication == 'basic'
     assert not any(issue.code == 'SECURITY_CONFIGURATION_REQUIRED' for issue in resolved.validation.issues)
-    import json
-    saved = [json.loads(path.read_text()) for path in isolated_outputs.glob('*/request.json')]
-    assert any(item['functional_requirements'][0]['security']['authentication'] == 'basic' for item in saved)
+    resolved_paths = set(isolated_outputs.glob('*/request.json')) - blocked_paths
+    assert len(resolved_paths) == 1
+    saved_request = json.loads(next(iter(resolved_paths)).read_text())
+    assert saved_request['functional_requirements'][0]['security']['authentication'] == 'basic'
 
 
 @pytest.mark.parametrize('policy,expected_type', [
