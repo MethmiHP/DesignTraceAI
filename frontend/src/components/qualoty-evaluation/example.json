@@ -1,376 +1,267 @@
 {
-  "project_id": "QUALITY-SECURITY-DEMO-001",
+  "project_id": "LIBRARY-QUALITY-001",
   "functional_requirements": [
     {
       "requirement_id": "FR-001",
-      "statement": "A customer shall view their bank account.",
+      "statement": "A member shall borrow an available book.",
       "priority": "High"
     },
     {
       "requirement_id": "FR-002",
-      "statement": "A bank administrator shall freeze a bank account by its account ID.",
-      "priority": "High"
-    },
-    {
-      "requirement_id": "FR-003",
-      "statement": "A customer shall import transaction data into their own bank account from a supplied URL on the external statement provider statements.partner.example. Return only import_id and status.",
-      "priority": "High"
+      "statement": "A member shall view their borrowing record.",
+      "priority": "Medium"
     }
   ],
   "non_functional_requirements": [
     {
       "requirement_id": "NFR-SEC-001",
-      "statement": "All operations require a validated bearer token. Customers may view or import into an account only when its customer_id matches their authenticated identity. Only administrators may freeze accounts.",
+      "statement": "Members must authenticate and may access only their own borrowing records.",
       "category": "Security"
     },
     {
-      "requirement_id": "NFR-SEC-002",
-      "statement": "Customer identity and account status are protected fields. View responses return only account_id. Freeze accepts no body and changes status only on the server. Import accepts only statement_url; reject extra fields and never return customer_id, credentials, tokens or transaction contents.",
-      "category": "Security"
-    },
-    {
-      "requirement_id": "NFR-SEC-003",
-      "statement": "Statement import is resource-intensive and could exhaust capacity if automated. Enforce five imports per customer per hour, one active import per customer, a 256 KB request limit, a 1 MB upstream response limit and a five-second upstream timeout; reject excess usage with 429.",
-      "category": "Security"
-    },
-    {
-      "requirement_id": "NFR-SEC-004",
-      "statement": "For statement_url accept only HTTPS on statements.partner.example port 443. Reject credentials and redirects. Validate DNS and the connection destination; reject private, loopback, link-local and reserved addresses.",
-      "category": "Security"
-    },
-    {
-      "requirement_id": "NFR-SEC-005",
-      "statement": "Treat the external statement API as untrusted. Verify TLS certificates, use a server-held integration credential that is never returned, never forward customer bearer tokens, and validate external JSON types, allowed fields and account ownership before storing data. Reject invalid responses with 502.",
-      "category": "Security"
+      "requirement_id": "NFR-FT-001",
+      "statement": "Borrowing operations shall document invalid input, unavailable books and temporary service failures.",
+      "category": "Fault Tolerance"
     }
   ],
   "architecture": {
+    "architecture_id": "ARCH-LIBRARY-001",
     "selected_architecture": "Modular Architecture",
     "elements": [
       {
-        "element_id": "COMP-ACCOUNT",
-        "name": "Account Service",
+        "element_id": "COMP-BORROWING",
+        "name": "Borrowing Service",
         "type": "Service",
-        "main_responsibility": "Enforce bearer authentication, account ownership and administrator-only freezing. Reject unexpected request properties and return only explicitly allowed response fields."
-      },
-      {
-        "element_id": "COMP-IMPORT",
-        "name": "Statement Import Service",
-        "type": "Service",
-        "main_responsibility": "Fetch statement data from external statements.partner.example. Enforce the import quotas, URL/DNS restrictions, TLS verification, integration credential isolation, response validation and size/time limits specified in NFR-SEC-003 through NFR-SEC-005."
+        "main_responsibility": "Authenticate members, verify borrowing-record ownership and create loans only for available books."
       }
     ]
   },
   "database": {
     "entities": [
       {
-        "entity_id": "DB-ACCOUNT",
-        "name": "Account",
+        "entity_id": "DB-BOOK",
+        "name": "Book",
         "attributes": [
-          "account_id",
-          "customer_id",
+          "book_id",
+          "title",
           "status"
         ],
-        "primary_key": "account_id",
+        "primary_key": "book_id",
         "foreign_keys": [],
         "constraints": []
       },
       {
-        "entity_id": "DB-IMPORT",
-        "name": "Statement Import",
+        "entity_id": "DB-MEMBER",
+        "name": "Member",
         "attributes": [
-          "import_id",
-          "account_id",
+          "member_id",
+          "name"
+        ],
+        "primary_key": "member_id",
+        "foreign_keys": [],
+        "constraints": []
+      },
+      {
+        "entity_id": "DB-LOAN",
+        "name": "Loan",
+        "attributes": [
+          "loan_id",
+          "book_id",
+          "member_id",
+          "borrowed_at",
+          "due_date",
           "status"
         ],
-        "primary_key": "import_id",
+        "primary_key": "loan_id",
         "foreign_keys": [
-          "account_id -> Account"
+          "book_id -> Book",
+          "member_id -> Member"
         ],
-        "constraints": []
+        "constraints": [
+          "A book may have only one active loan.",
+          "due_date must be later than borrowed_at."
+        ]
       }
     ],
-    "relationships": [],
+    "relationships": [
+      "Member owns Loan",
+      "Loan references Book"
+    ],
     "constraints": []
   },
   "api_component_design": {
     "responsibilities": [
       {
         "requirement_id": "FR-001",
-        "element_id": "COMP-ACCOUNT",
-        "element_name": "Account Service",
-        "detailed_responsibility": "Validate the bearer token and compare the authenticated customer ID with the account owner before returning data."
+        "element_id": "COMP-BORROWING",
+        "element_name": "Borrowing Service",
+        "detailed_responsibility": "Create a loan using the authenticated member ID. Check book availability and create the loan atomically.",
+        "mapping_reason": "Implements book borrowing."
       },
       {
         "requirement_id": "FR-002",
-        "element_id": "COMP-ACCOUNT",
-        "detailed_responsibility": "Allow only authenticated administrators to freeze accounts; derive status on the server."
-      },
-      {
-        "requirement_id": "FR-003",
-        "element_id": "COMP-IMPORT",
-        "detailed_responsibility": "Import statements for the authenticated account owner. Enforce the supplied quota, destination and third-party trust controls."
+        "element_id": "COMP-BORROWING",
+        "element_name": "Borrowing Service",
+        "detailed_responsibility": "Return a loan only when its member_id matches the authenticated member.",
+        "mapping_reason": "Implements access to the member's borrowing record."
       }
     ],
     "api_operations": [
       {
-        "operation_id": "viewAccount",
+        "operation_id": "borrowBook",
         "requirement_id": "FR-001",
-        "element_id": "COMP-ACCOUNT",
-        "method": "GET",
-        "path": "/accounts/{account_id}",
-        "security": {
-          "authentication": "bearer",
-          "roles": [
-            "customer"
-          ],
-          "access_rules": [
-            "Allow access only when account.customer_id matches the authenticated customer."
-          ]
-        },
-        "parameters": [
-          {
-            "name": "account_id",
-            "location": "path",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "request_schema": {},
-        "response_schema": {
-          "account_id": "string"
-        },
-        "error_responses": {
-          "401": "Authentication required",
-          "403": "Account access denied",
-          "404": "Account not found"
-        }
-      },
-      {
-        "operation_id": "freezeAccount",
-        "requirement_id": "FR-002",
-        "element_id": "COMP-ACCOUNT",
+        "element_id": "COMP-BORROWING",
         "method": "POST",
-        "path": "/accounts/{account_id}/freeze",
+        "path": "/loans",
         "security": {
           "authentication": "bearer",
           "roles": [
-            "administrator"
+            "member"
           ],
           "access_rules": [
-            "Require the verified administrator role; deny customer callers. Set status to frozen on the server."
+            "Validate the bearer token.",
+            "Derive member_id from the authenticated identity.",
+            "Reject client-supplied member_id, loan_id and status."
           ]
         },
-        "parameters": [
-          {
-            "name": "account_id",
-            "location": "path",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "request_schema": {},
-        "response_schema": {
-          "account_id": "string",
-          "status": "string"
-        },
-        "error_responses": {
-          "401": "Authentication required",
-          "403": "Administrator role required",
-          "404": "Account not found"
-        }
-      },
-      {
-        "operation_id": "importStatement",
-        "requirement_id": "FR-003",
-        "element_id": "COMP-IMPORT",
-        "method": "POST",
-        "path": "/accounts/{account_id}/statement-imports",
-        "security": {
-          "authentication": "bearer",
-          "roles": [
-            "customer"
-          ],
-          "access_rules": [
-            "Verify target account ownership before fetching. Enforce NFR-SEC-003 quotas and NFR-SEC-004 destination restrictions; validate third-party data per NFR-SEC-005."
-          ]
-        },
-        "parameters": [
-          {
-            "name": "account_id",
-            "location": "path",
-            "type": "string",
-            "required": true
-          }
-        ],
         "request_schema": {
-          "statement_url": "string"
+          "book_id": "string"
         },
         "response_schema": {
-          "import_id": "string",
+          "loan_id": "string",
+          "due_date": "string"
+        },
+        "error_responses": {
+          "400": "Invalid book ID or unsupported request fields",
+          "401": "Authentication required",
+          "403": "Member role required",
+          "404": "Book not found",
+          "409": "Book is already borrowed",
+          "503": "Borrowing service temporarily unavailable"
+        }
+      },
+      {
+        "operation_id": "viewLoan",
+        "requirement_id": "FR-002",
+        "element_id": "COMP-BORROWING",
+        "method": "GET",
+        "path": "/loans/{loan_id}",
+        "security": {
+          "authentication": "bearer",
+          "roles": [
+            "member"
+          ],
+          "access_rules": [
+            "Validate the bearer token.",
+            "Require loan.member_id to match the authenticated member."
+          ]
+        },
+        "parameters": [
+          {
+            "name": "loan_id",
+            "location": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "request_schema": {},
+        "response_schema": {
+          "loan_id": "string",
+          "book_id": "string",
+          "due_date": "string",
           "status": "string"
         },
         "error_responses": {
-          "400": "Invalid URL or extra fields",
           "401": "Authentication required",
-          "403": "Account ownership required",
-          "404": "Account not found",
-          "413": "Payload too large",
-          "429": "Import limit exceeded",
-          "502": "Invalid upstream data",
-          "504": "Upstream timeout"
+          "403": "Access to another member's loan is denied",
+          "404": "Loan not found"
         }
       }
     ],
     "openapi_document": {
       "openapi": "3.1.0",
       "info": {
-        "title": "Account API",
+        "title": "Library Borrowing API",
         "version": "1.0.0"
       },
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ],
       "paths": {
-        "/accounts/{account_id}": {
-          "get": {
-            "operationId": "viewAccount",
-            "security": [
-              {
-                "bearerAuth": []
-              }
-            ],
-            "x-required-roles": [
-              "customer"
-            ],
-            "parameters": [
-              {
-                "name": "account_id",
-                "in": "path",
-                "required": true,
-                "schema": {
-                  "type": "string"
-                }
-              }
-            ],
-            "responses": {
-              "200": {
-                "description": "Successful operation"
-              },
-              "401": {
-                "description": "Authentication required"
-              },
-              "403": {
-                "description": "Account access denied"
-              },
-              "404": {
-                "description": "Account not found"
-              }
-            }
-          }
-        },
-        "/accounts/{account_id}/freeze": {
+        "/loans": {
           "post": {
-            "operationId": "freezeAccount",
-            "security": [
-              {
-                "bearerAuth": []
-              }
-            ],
-            "x-required-roles": [
-              "administrator"
-            ],
-            "parameters": [
-              {
-                "name": "account_id",
-                "in": "path",
-                "required": true,
-                "schema": {
-                  "type": "string"
-                }
-              }
-            ],
-            "responses": {
-              "200": {
-                "description": "Successful operation"
-              },
-              "401": {
-                "description": "Authentication required"
-              },
-              "403": {
-                "description": "Administrator role required"
-              },
-              "404": {
-                "description": "Account not found"
-              }
-            }
-          }
-        },
-        "/accounts/{account_id}/statement-imports": {
-          "post": {
-            "operationId": "importStatement",
-            "security": [
-              {
-                "bearerAuth": []
-              }
-            ],
-            "x-required-roles": [
-              "customer"
-            ],
-            "parameters": [
-              {
-                "name": "account_id",
-                "in": "path",
-                "required": true,
-                "schema": {
-                  "type": "string"
-                }
-              }
-            ],
-            "responses": {
-              "200": {
-                "description": "Successful operation"
-              },
-              "400": {
-                "description": "Invalid URL or extra fields"
-              },
-              "401": {
-                "description": "Authentication required"
-              },
-              "403": {
-                "description": "Account ownership required"
-              },
-              "404": {
-                "description": "Account not found"
-              },
-              "413": {
-                "description": "Payload too large"
-              },
-              "429": {
-                "description": "Import limit exceeded"
-              },
-              "502": {
-                "description": "Invalid upstream data"
-              },
-              "504": {
-                "description": "Upstream timeout"
-              }
-            },
+            "operationId": "borrowBook",
             "requestBody": {
               "required": true,
               "content": {
                 "application/json": {
                   "schema": {
                     "type": "object",
-                    "additionalProperties": false,
                     "required": [
-                      "statement_url"
+                      "book_id"
                     ],
+                    "additionalProperties": false,
                     "properties": {
-                      "statement_url": {
-                        "type": "string",
-                        "format": "uri"
+                      "book_id": {
+                        "type": "string"
                       }
                     }
                   }
                 }
+              }
+            },
+            "responses": {
+              "201": {
+                "description": "Loan created"
+              },
+              "400": {
+                "description": "Invalid request"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Member role required"
+              },
+              "404": {
+                "description": "Book not found"
+              },
+              "409": {
+                "description": "Book already borrowed"
+              },
+              "503": {
+                "description": "Service temporarily unavailable"
+              }
+            }
+          }
+        },
+        "/loans/{loan_id}": {
+          "get": {
+            "operationId": "viewLoan",
+            "parameters": [
+              {
+                "name": "loan_id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Member's loan returned"
+              },
+              "401": {
+                "description": "Authentication required"
+              },
+              "403": {
+                "description": "Loan access denied"
+              },
+              "404": {
+                "description": "Loan not found"
               }
             }
           }
