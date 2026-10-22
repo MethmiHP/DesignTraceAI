@@ -28,9 +28,7 @@ HUMAN_GOLD_DIR = DATASET_DIR / "human_gold"
 # GENERIC HELPERS
 
 def load_csv_file(file_path: Path) -> list[dict[str, Any]]:
-    """
-    Load a CSV file into a list of dictionaries.
-    """
+    # Load a CSV file into a list of dictionaries.
 
     if not file_path.exists():
         raise FileNotFoundError(
@@ -54,9 +52,7 @@ def load_csv_file(file_path: Path) -> list[dict[str, Any]]:
 
 
 def load_text_file(file_path: Path) -> str:
-    """
-    Load a plain-text file.
-    """
+    # Load a plain-text file.
 
     if not file_path.exists():
         raise FileNotFoundError(
@@ -73,9 +69,7 @@ def find_files(
     directory: Path,
     extensions: tuple[str, ...]
 ) -> list[Path]:
-    """
-    Recursively find files with selected extensions.
-    """
+    # Recursively find files with selected extensions.
 
     if not directory.exists():
         return []
@@ -96,17 +90,6 @@ def parse_arff_text(
     text: str,
     source_name: str = ""
 ) -> list[dict[str, Any]]:
-    """
-    Lightweight ARFF parser.
-
-    Supports the PROMISE/PROMISE_exp style ARFF files.
-
-    It reads:
-    - @attribute definitions
-    - @data section
-
-    and returns rows as dictionaries.
-    """
 
     attributes = []
     records = []
@@ -162,9 +145,7 @@ def parse_arff_text(
 
             continue
 
-        # ----------------------------------------
         # DATA START
-        # ----------------------------------------
 
         if lower_line.startswith("@data"):
 
@@ -218,9 +199,7 @@ def parse_arff_text(
 def load_arff_file(
     file_path: Path
 ) -> list[dict[str, Any]]:
-    """
-    Load an ARFF file.
-    """
+    # Load an ARFF file.
 
     if not file_path.exists():
         raise FileNotFoundError(
@@ -393,19 +372,17 @@ def load_promise_dataset() -> list[dict[str, Any]]:
 # PROMISE_EXP DATASET
 
 def load_promise_exp_dataset() -> list[dict[str, Any]]:
-    """
-    Load PROMISE_exp dataset.
 
-    Current project format:
+    # Load PROMISE_exp dataset.
 
-        promise_exp/
-            PROMISE_exp.arff
+    # Current project format:
 
-    Used mainly for:
-    - FR/NFR classification evaluation
-    - NFR quality-attribute evaluation
-    """
+    #     promise_exp/
+    #         PROMISE_exp.arff
 
+    # Used mainly for:
+    # - FR/NFR classification evaluation
+    # - NFR quality-attribute evaluation
     records = []
 
     arff_files = find_files(
@@ -431,12 +408,11 @@ def load_promise_exp_dataset() -> list[dict[str, Any]]:
 def extract_xml_text(
     xml_text: str
 ) -> str:
-    """
-    Extract readable textual content from XML.
 
-    This does not assume one exact PURE XML schema.
-    It collects non-empty text nodes.
-    """
+    # Extract readable textual content from XML.
+
+    # This does not assume one exact PURE XML schema.
+    # It collects non-empty text nodes.
 
     try:
 
@@ -469,24 +445,6 @@ def extract_xml_text(
 # PURE DATASET
 
 def load_pure_documents() -> list[dict[str, Any]]:
-    """
-    Load PURE/public requirement documents.
-
-    Current files include:
-
-        requirements.zip
-        requirements-xml.zip
-        req_document.xsd
-
-    ZIP archives are read directly without requiring
-    manual extraction.
-
-    Supported archive contents:
-    - .txt
-    - .xml
-    - .csv
-    - .json
-    """
 
     documents = []
 

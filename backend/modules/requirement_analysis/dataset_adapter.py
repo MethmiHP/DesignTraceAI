@@ -254,13 +254,6 @@ def adapt_promise_exp() -> list[dict[str, Any]]:
 def adapt_human_gold(
     reviewed_only: bool = True
 ) -> list[dict[str, Any]]:
-    """
-    Convert your human annotation CSV into the
-    common evaluation format.
-
-    reviewed_only=True means rows marked as unreviewed
-    will NOT be treated as final evaluation gold.
-    """
 
     source_records = (
         load_human_gold_dataset()
@@ -404,13 +397,6 @@ def adapt_human_gold(
 # PURE
 
 def adapt_pure_documents() -> list[dict[str, Any]]:
-    """
-    PURE documents are mainly realistic project-level
-    requirement sources.
-
-    They do not automatically become gold-labelled
-    evaluation examples.
-    """
 
     documents = (
         load_pure_documents()

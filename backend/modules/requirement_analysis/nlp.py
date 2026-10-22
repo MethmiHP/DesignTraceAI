@@ -3,9 +3,6 @@
 import re
 
 def clean_text(text: str) -> str:
-    """
-    Basic deterministic text cleaning.
-    """
 
     if not text:
         return ""
@@ -22,11 +19,6 @@ def clean_text(text: str) -> str:
 
 
 def split_sentences(text: str) -> list[str]:
-    """
-    Simple sentence segmentation.
-
-    Later this can be replaced or supported by spaCy.
-    """
 
     cleaned = clean_text(text)
 
@@ -46,9 +38,6 @@ def split_sentences(text: str) -> list[str]:
 
 
 def preprocess_text(text: str) -> dict:
-    """
-    Main preprocessing method.
-    """
 
     cleaned_text = clean_text(text)
 

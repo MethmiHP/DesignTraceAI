@@ -22,10 +22,7 @@ SUPPORTED_EXTENSIONS = {
 
 
 class DocumentParsingError(Exception):
-    """
-    Raised when an uploaded document cannot be parsed.
-    """
-
+    # Raised when an uploaded document cannot be parsed.
     pass
 
 
