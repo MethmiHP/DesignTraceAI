@@ -192,7 +192,7 @@ export default function FinalReportViewer({ response }) {
 
         {isMock && (
           <div className="fr-notice">
-            <strong>PP1 MOCK DEMONSTRATION</strong>
+            <strong>MOCK DEMONSTRATION</strong>
             <p>
               Module outputs and quality scores are illustrative
               mock data. This report demonstrates Coordinator
@@ -510,7 +510,7 @@ export default function FinalReportViewer({ response }) {
             {` ${report.project_id}`}
           </p>
           {isMock && (
-            <p>PP1 mock demonstration — illustrative outputs</p>
+            <p>Mock demonstration — illustrative outputs</p>
           )}
         </footer>
       </article>

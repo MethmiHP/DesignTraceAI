@@ -56,3 +56,35 @@ def test_database_blocked_when_architecture_not_approved():
     assert allowed is False
 
     assert "architecture_design" in problems
+
+def test_adr_requires_all_six_modules():
+    dependencies = [
+        "requirement_analysis",
+        "architecture_design",
+        "database_design",
+        "api_component_design",
+        "traceability",
+        "quality_evaluation",
+    ]
+
+    states = {
+        name: ModuleState(
+            module_name=name,
+            status=WorkflowStatus.APPROVED,
+        )
+        for name in dependencies
+    }
+
+    allowed, missing = check_dependencies("adr", states)
+
+    assert allowed is True
+    assert missing == []
+
+    states["quality_evaluation"].status = (
+        WorkflowStatus.REVIEW_REQUIRED
+    )
+
+    allowed, missing = check_dependencies("adr", states)
+
+    assert allowed is False
+    assert "quality_evaluation" in missing

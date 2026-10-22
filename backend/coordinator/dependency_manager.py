@@ -87,7 +87,12 @@ MODULE_DEPENDENCIES = {
     ],
 
     "adr": [
-        "architecture_design"
+        "requirement_analysis",
+        "architecture_design",
+        "database_design",
+        "api_component_design",
+        "traceability",
+        "quality_evaluation"
     ]
 }
 
