@@ -1146,7 +1146,7 @@ export default function DatabaseDesignPage({ onProjectChange }) {
 
         <div>
 
-          <strong>Standalone Module Demonstration</strong>
+          {/* <strong>Standalone Module Demonstration</strong> */}
 
           <p>
 
@@ -1206,7 +1206,7 @@ export default function DatabaseDesignPage({ onProjectChange }) {
                 </select>
                 <button type="button" onClick={() => loadExample()}><WandSparkles size={15}/> Load Example</button>
               </div>
-              <small>Fills project details, requirements, and architecture constraints. Click Generate to call FastAPI.</small>
+              <small>Fills project details, requirements, and architecture constraints. Click Generate.</small>
             </div>
             <div className="db-input-content">
 
@@ -1564,11 +1564,11 @@ export default function DatabaseDesignPage({ onProjectChange }) {
 
               </button>
 
-              <p className="db-input-footnote">
+              {/* <p className="db-input-footnote">
 
                 Uses your existing FastAPI database generation pipeline.
 
-              </p>
+              </p> */}
 
             </div>
 
@@ -2402,7 +2402,7 @@ export default function DatabaseDesignPage({ onProjectChange }) {
 
         <span>DesignTrace AI · Database Design Module</span>
 
-        <span>Standalone research demonstration</span>
+        {/* <span>Standalone research demonstration</span> */}
 
       </footer>
 
